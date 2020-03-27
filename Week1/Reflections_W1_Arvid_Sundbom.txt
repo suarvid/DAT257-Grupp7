@@ -1,0 +1,35 @@
+Individual Reflection Week 1
+Arvid Sundbom, 27/03 - 20
+
+1. What do I want to learn or understand better?
+In this early stage of the project I want to understand how we in the team can work together to the best of our abilities.
+This is particularly interesting in the current situation, where having team meetings face-to-face doesn't seem to be possible, and certainly isn't recommended.
+As such, this will be my first experience working on a group project entirely remotely, which brings up some particularly intresting/pressing questions regarding things such as
+how we in the team will keep each other updated on how the project is going, how we are to distribute the workload of the project in an efficient way etc.
+These questions are all probably somewhat bound to the communication within the group which for now is mainly carried out via Messenger, and it will be
+interesting to see if this will suffice or if there might be some upside to using a more "rigorous" communication medium such as Slack or something similar.
+
+I am of course also interested in learning from the I-students in the group and getting some insight into projects like these from their perspective,
+as I belive they have skills and assets that IT-students might be lacking. I am also interested in getting to know what exactly a business model canvas is, 
+since the I-students seem to know quite a lot about it.
+
+2. How can I help someone else, or the entire team, to learn something new?
+What immediately comes to mind is helping the I-students get familiar with git and github, if they need help.
+I am by no means a git-expert, but I have used it in earlier group projects and at least have an understanding of most of the useful functions provided.
+Using git isn't really that hard, but using it for the first time can be confusing and I hope to contribute to making it less so, if necessary.
+
+Depending on what project we end up choosing I might also be able to help my team learn some more directly programming-related things
+since both the IT- and I-students largely have the same basis programming-knowledge wise. Beyond the programming courses all team members have read our
+experiences might differ a bit, since we've probably used different tools and programming languages when programming outside of university.
+So if either Python or Docker is relevant for the selected project, I hope to be able to contribute to solving any problems which might occur.
+
+
+3. What is my contribution towards the team’s use of Scrum?
+We haven't really started using scrum as of yet, but when we do I hope I will be able to contribute somewhat since the IT-students in the group have used scrum as a process framework in earlier programming projects.
+For example I might be able to explain how to set up and maintain a scrum-board during the project via tools such as Trello or Jira.
+
+4. What is my contribution towards the team’s deliveries?
+This week's group-deliverable is the social contract. It was constructed by the entire group during this weeks meeting,
+during which I and all the other team members weighed in on what it should contain and why.
+I also sent out an email to the senior director of R&D at the Skellefteå-branch of the company Protegrity about possible projects,
+but have as of yet not recieved any response.
