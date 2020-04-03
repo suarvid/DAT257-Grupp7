@@ -1,0 +1,14 @@
+1. What do I want to learn or understand better?
+
+Yesterday I studied a link about git that Emelie sent me this week, she found it on the web with the purpose to teach how git and branching works. It was really good for my understanding of how branches and commits in git work, and now my next step is to understand how to work in git. I'm hoping to get a bigger understanding of how to keep track of the different versions in git and how to add the things I work on to our repo.
+I've been listening to every lecture of this week, and now I have a bigger understanding of the SCRUM workflow and I would like to keep improving that knowledge. My next step is to start investigating the other programs we'll be using during our sprints, such as trello and javascript and react. I've never build a website before and in order to be a valuable asset during our programming sprints I'm planning to start some reading absout that.
+
+2. How can I help someone else, or the entire team, to learn something new?
+This weeks focus have been understanding our project managers definition of value, and since the project leader is my mother I've been functioning as a gateway for information. I also think I was helpful during the creation of our Business Model Canvas, since I both have an understanding of the framework and the task from our stakeholders. 
+
+3. What is my contribution towards the team’s use of Scrum?
+I really learned a lot from this weeks exercise about slicing the cake, which menas creating user stories of good scope and then dividing them into tasks. I really hope theese insight will be useful when we try to pinpoint the user stories next week. It was very intresting with the vertical cake pieces, which we tried to inform our stakeholders about. We said that we would try to have feedback loops with them after every sprint, to make sure we're going in the right direction. With the short sprints, accordingly with scrum, we will build several small things to show our stakeholders. To improve my SCRUM contribution even more I'm planning to research more about user stories and try to create some examples to bring to our next meeting when we're planning to do that.
+
+
+4. What is my contribution towards the team’s deliveries?
+This week I've been very active and involved in almost everything we've done since I'm the main contact between us and our stakeholders. I'm also the canvas-responsible, which means making sure that we submit the assignments we have. Other team members did for example the mock-up, with me and some others through zoom to help, but I'm putting it all together for canvas. I'm very aware that I probably don't have pure programmingskills at the same levels as the others, but I'm very active and keen to learn new things which I think is good for the team spirit. 
