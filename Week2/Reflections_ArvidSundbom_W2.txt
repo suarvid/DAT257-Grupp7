@@ -1,0 +1,34 @@
+Individual Reflection Week 2
+Arvid Sundbom, 03/04/20
+
+1. What do I want to learn or understand better?
+Since we're going to create a web application as our group project, learning the tools required for this is my primary learning goal during this part of the project.
+It feels as if this is particularly important in this early stage, since it will make all the development-work later a bit easier if I know what I'm actually doing.
+The tools we've decided on for the front-end of the application are HTML, CSS and React, so I mainly want to understand these tools better. This also includes learning some JavaScript since it's required for React.
+For the backend I don't think we've decided exactly what to use, but it will probably end up being either Node.js or Django for Python, so at the moment I want to understand the pros and cons of these options.
+Some of these pros and cons might be which option works better with React, or which one is easier to learn and use effectively.
+
+Next week we'll start creating user stories for our project. As such I also want to know more about how to create user stories in an effective and 'correct' manner, with the right scope and with the correct information.
+One way to phrase this is that I'd like to know how to slice the cake with as thin vertical slices as possible ;)
+
+2. How can I help someone else, or the entire team, to learn something new?
+Since no team member except Joel has any extensive experience with React (as far as I know), all of us will be trying to learn how it works during this part of the project.
+As such, most of us are in the same seat and we can probably help each other in making the learning process easier. 
+On an individual level I can help others learn react by answering any questions about problems that I also came upon and know how to fix, or by sharing resources which I've found useful for learning react.
+
+Part of this weeks deliveries was a mockup. Since the IT students in the group have taken a course on GUI construction and the I students haven't (I think?) we know a little bit about design patterns for GUI's that the I students might not.
+As such, me and my fellow IT students can help the I students learn some new things about when to use possible design choices when creating GUI's.
+Since the GUI course also involved creating a mockup, I might also be able to help the I students learn a bit about some ways to create a digital mockup for a GUI, like what tools are available and some points to consider when creating it.
+
+If we decide to use Django as the tool to use for our backend I might also be able to help my fellow team members in learning how to use it since I have at least some experience in using it.
+
+3. What is my contribution towards the team’s use of Scrum?
+We still haven't really started using Scrum yet, since the actual development-part of the project hasn't begun yet.
+But we as a group worked on the exercises for creating User stories and breaking them down into tasks during the wednesday lecture this week.
+For creating user stories and breaking them down into tasks I can contribute by weighing in on what I think is important to have in mind when doing so, and perhaps give some examples of user stories and their corresponding tasks from earlier projects.
+
+4. What is my contribution towards the team’s deliveries?
+Since we're using Adobe XD to create the mockup and I'm using a Linux-system, I can't contribute directly to the file for the mockup.
+However, we did sit down as a group and discussed the state of the mockup and what features we think are reasonable for the application to have.
+I also found Figma, which is basically an alternative to Adobe XD which can run in a browser and can therefore be used by me and some other teammates which also had some trouble getting adobe XD to work.
+Using Figma I also created a mockup of the 'home page' of the web app by myself, which hopefully at least raised some possible design choices for the web app, even though it isn't really a part of the more extensive mockup created using adobe XD.
