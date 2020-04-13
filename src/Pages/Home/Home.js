@@ -1,8 +1,12 @@
 import React from 'react'
+import Post from '../../Post.js'
 
 function About() {
     return (
-        <h1>Startsidan</h1>
+        <div>
+            <h1>Startsidan</h1>
+            <Post />
+        </div>
     )
 }
 
