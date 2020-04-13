@@ -1,28 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import JoelsComponent from './JoelsComponent'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import About from "./Pages/About/About";
+import Booking from "./Pages/Booking/Booking";
+import Home from "./Pages/Home/Home";
+import "./index.css"
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <JoelsComponent></JoelsComponent>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="body">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Startsidan</Link>
+            </li>
+            <li>
+              <Link to="/about">Om oss</Link>
+            </li>
+            <li>
+              <Link to="/booking">Bokningar</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/booking">
+            <Booking />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-export default App;
