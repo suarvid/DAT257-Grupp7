@@ -21,6 +21,8 @@ class PostDetail extends React.Component {
         return (
                 <Card title={this.state.post.title}>
                     <p> {this.state.post.content} </p>
+                    <p> {this.state.post.author}</p>
+                    <p>{this.state.post.date_posted}</p>
                 </Card>
         );
     }
