@@ -7,7 +7,7 @@ import PostDetail from './Pages/Home/PostDetailView'
 const BaseRouter = () => (
     <div>
         <Route exact path='/' component={PostList} />
-        <Route exact path='/:postID' component={PostDetail} />
+        <Route exact path='/post/:postID/' component={PostDetail} />
     </div>
 );
 

@@ -19,9 +19,9 @@ class PostDetail extends React.Component {
     
     render() {
         return (
-            <Card title={this.state.post.title}>
-                <p> {this.state.post.content} </p>
-            </Card>
+                <Card title={this.state.post.title}>
+                    <p> {this.state.post.content} </p>
+                </Card>
         );
     }
 }
