@@ -1,13 +1,13 @@
 import React from 'react'
-import Post from '../../Post.js'
+import PostList from './PostListView'
 
-function About() {
+function Home() {
     return (
         <div>
             <h1>Startsidan</h1>
-            <Post />
+            <PostList />
         </div>
     )
 }
 
-export default About
+export default Home
