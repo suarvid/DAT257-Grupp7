@@ -1,9 +1,12 @@
 import React from 'react'
+import BaseRouter from '../../routes.js'
 
-function About() {
+function Home() {
     return (
-        <h1>Startsidan</h1>
+        <div>
+            <BaseRouter />
+        </div>
     )
 }
 
-export default About
+export default Home
