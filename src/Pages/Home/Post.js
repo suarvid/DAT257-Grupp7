@@ -12,7 +12,7 @@ const Post = props => {
           key={item.title}
         >
           <List.Item.Meta
-            title={<a href={`/articles/${item.id}`}> {item.title} </a>}
+            title={<a href={`/post/${item.id}`}> {item.title} </a>}
             description={item.description}
           />
           {item.content}

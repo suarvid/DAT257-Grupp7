@@ -1,11 +1,10 @@
 import React from 'react'
-import PostList from './PostListView'
+import BaseRouter from '../../routes.js'
 
 function Home() {
     return (
         <div>
-            <h1>Startsidan</h1>
-            <PostList />
+            <BaseRouter />
         </div>
     )
 }

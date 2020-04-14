@@ -22,6 +22,8 @@ class PostDetail extends React.Component {
             <Card title={this.state.post.title}>
                 <p> {this.state.post.content} </p>
             </Card>
-        )
+        );
     }
 }
+
+export default PostDetail;
