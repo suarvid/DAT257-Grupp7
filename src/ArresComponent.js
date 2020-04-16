@@ -1,10 +1,64 @@
 import React from 'react'
+import axios from 'axios';
 
-function ArresComponent() {
-    return (
-        <h1>HTML är ju rätt trökigt ändå</h1>
-        <p>Med en massa taggar och ståhej</p>
-    )
+
+class PostForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: '',
+            content: ''
+        }
+    } 
+
+
+    handleTitleChange = (event) => {
+        this.setState({
+            title: event.target.value
+        });
+    }
+
+    handleContentChange = (event) => {
+        this.setState({
+            content: event.target.value
+        });
+    }
+
+    handleSubmit = (event) =>  {
+        event.preventDefault();
+
+        // const postObj = {
+        //     title: this.state.title.value,
+        //     content: this.state.content.value
+        // }
+
+        axios.post("http://127.0.0.1:8000/api/post/", 
+                             {title: this.state.title, content: this.state.content})
+                            .then(function (response) {
+                                console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            });
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Title: 
+                    <input type="text" onChange={this.handleTitleChange}/>
+                </label>
+                <br />
+                <label>
+                    Content: 
+                    <input type="text" onChange={this.handleContentChange}/>
+                </label>
+                <br />
+                <button type="submit">Submit</button>
+            </form>
+        )
+    }
 }
 
-export default ArresComponent
+export default PostForm;

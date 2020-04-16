@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import Post from './Post'
+import PostForm from '../../ArresComponent';
 
 class PostList extends React.Component {
     state = {
@@ -20,6 +21,7 @@ class PostList extends React.Component {
         return (
             <div>
                 <Post data={this.state.posts} /> <br />
+                <PostForm />
             </div>
         );
     }
