@@ -27,19 +27,21 @@ class PostForm extends React.Component {
     handleSubmit = (event) =>  {
         event.preventDefault();
 
-        // const postObj = {
-        //     title: this.state.title.value,
-        //     content: this.state.content.value
-        // }
+        const postObj = {
+            title: this.state.title,
+            content: this.state.content
+        }
 
         axios.post("http://127.0.0.1:8000/api/post/", 
-                             {title: this.state.title, content: this.state.content})
+                             postObj)
                             .then(function (response) {
                                 console.log(response);
                             })
                             .catch(function (error) {
                                 console.error(error);
                             });
+
+        window.location.reload(true);
     }
 
     render() {

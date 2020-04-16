@@ -1,18 +1,37 @@
 import React from "react";
 import axios from "axios";
-import { Card } from 'antd';
+import { Card , Button } from 'antd';
+import { Redirect, useHistory } from "react-router-dom";
 
 class PostDetail extends React.Component {
-    state = {
-        post : {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            post: {},
+            postID: this.props.match.params.postID
+        }
+    } 
+
+ //Note: important to be consistent with trailing slashes in frontend and backend
+    handleDelete = (event) => {
+        axios.delete(`http://localhost:8000/api/post/${this.state.postID}/`, {
+            data: {
+                id: this.state.postID,
+            },
+        })
+        .then( response =>  {
+            console.log(response);
+            console.log(response.data);
+        });
+        let history = useHistory();
+        history.pushState("/");
     }
     
     componentDidMount() {
-        const postID = this.props.match.params.postID;
-        axios.get(`http://localhost:8000/api/post/${postID}`)
-            .then(res => {
+        axios.get(`http://localhost:8000/api/post/${this.state.postID}`)
+            .then( response => {
                 this.setState({
-                    post: res.data
+                    post: response.data
                 });
             })
     }
@@ -21,6 +40,9 @@ class PostDetail extends React.Component {
         return (
                 <Card title={this.state.post.title}>
                     <p> {this.state.post.content} </p>
+                        <form>
+                            <Button type="danger" htmlType="submit" onClick={this.handleDelete}>Delete Post</Button>
+                        </form>
                 </Card>
         );
     }
