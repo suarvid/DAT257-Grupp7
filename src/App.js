@@ -10,6 +10,7 @@ import About from "./Pages/About/About";
 import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home";
 import Activities from "./Pages/Activities/Activities";
+import Login from './Pages/Login/Login';
 import "./index.css"
 
 
@@ -31,6 +32,9 @@ export default function App() {
             <li>
               <Link to="/activities">Aktiviteter</Link>
             </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
           </ul>
         </nav>
 
@@ -43,6 +47,9 @@ export default function App() {
           </Route>
           <Route path="/booking">
             <Booking />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Home />
