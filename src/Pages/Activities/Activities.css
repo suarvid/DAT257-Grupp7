@@ -1,0 +1,14 @@
+.test{
+    color: orange;
+    background-color: beige;
+    margin: 20px;
+    text-align: center;
+    width: 400px;
+}
+
+.test,li{
+    text-align: left;
+}
+.test,h1{
+    text-align: center;
+}
