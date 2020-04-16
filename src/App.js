@@ -9,6 +9,8 @@ import {
 import About from "./Pages/About/About";
 import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home";
+import Join from "./Pages/Join/Join";
+
 import Activities from "./Pages/Activities/Activities";
 import Login from './Pages/Login/Login';
 import "./index.css"
@@ -35,10 +37,16 @@ export default function App() {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/join">Vill du också synas här?</Link>
+            </li>
           </ul>
         </nav>
 
         <Switch>
+        <Route path="/join">
+            <Join />
+          </Route>
         <Route path="/activities">
             <Activities />
           </Route>
@@ -54,6 +62,7 @@ export default function App() {
           <Route path="/">
             <Home />
           </Route>
+         
         </Switch>
       </div>
     </Router>
