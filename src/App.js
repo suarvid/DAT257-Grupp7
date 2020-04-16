@@ -9,6 +9,7 @@ import {
 import About from "./Pages/About/About";
 import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home";
+import Activities from "./Pages/Activities/Activities";
 import "./index.css"
 
 
@@ -27,10 +28,16 @@ export default function App() {
             <li>
               <Link to="/booking">Bokningar</Link>
             </li>
+            <li>
+              <Link to="/activities">Aktiviteter</Link>
+            </li>
           </ul>
         </nav>
 
         <Switch>
+        <Route path="/activities">
+            <Activities />
+          </Route>
           <Route path="/about">
             <About />
           </Route>
