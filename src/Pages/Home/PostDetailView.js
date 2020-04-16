@@ -33,6 +33,7 @@ class PostDetail extends React.Component {
         .then( response =>  {
             console.log(response);
             console.log(response.data);
+            window.location.reload(true);
         });
     }
     
