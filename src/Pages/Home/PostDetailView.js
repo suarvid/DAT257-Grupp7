@@ -25,7 +25,7 @@ class PostDetail extends React.Component {
             redirect: true
         })
         const postID = this.props.match.params.postID;
-        axios.delete(`https://sjuanbackend.herokuapp.com/api/post/${postID}/`, {
+        axios.delete(`http://127.0.0.1:8000/api/post/${postID}/`, {
             data: {
                 id: this.state.post.ID,
             },
@@ -38,7 +38,7 @@ class PostDetail extends React.Component {
     }
     
     componentDidMount() {
-        axios.get(`https://sjuanbackend.herokuapp.com/api/post/${this.state.post.ID}/`)
+        axios.get(`http://127.0.0.1:8000/api/post/${this.state.post.ID}/`)
             .then( response => {
                 this.setState({
                     post: response.data

@@ -32,7 +32,7 @@ class PostForm extends React.Component {
             content: this.state.content
         }
 
-        axios.post("https://sjuanbackend.herokuapp.com/api/post/", 
+        axios.post("http://127.0.0.1:8000/api/post/", 
                              postObj)
                             .then(function (response) {
                                 console.log(response);

@@ -9,7 +9,7 @@ class PostList extends React.Component {
     }
     
     componentDidMount() {
-        axios.get('https://sjuanbackend.herokuapp.com/api/post/')
+        axios.get('http://127.0.0.1:8000/api/post/')
             .then(res => {
                 this.setState({
                     posts: res.data
