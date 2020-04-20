@@ -1,6 +1,6 @@
 import React from 'react'
 import BaseRouter from '../../routes.js'
-import NewsItem from '../../Components/NewsItem'
+import NewsItem from '../../Components/newsitem/NewsItem'
 
 function Home() {
     let images = ["/static/media/hundens_pose.289acd70.jpg","/static/media/hundens_pose.289acd70.jpg"]
