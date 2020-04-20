@@ -1,0 +1,35 @@
+.logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(91, 139, 105, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+}
+
+.rightItem{
+    float:'right'; 
+    display:'flex'; 
+    justify-content:"space-around"; 
+    align-items:'center'; 
+    width:"100px";
+    color: dimgrey;
+}
+
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: hotpink;
+  }
+  
+  /* selected link */
+  a:active {
+    color: blue;
+  }
