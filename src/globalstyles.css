@@ -11,9 +11,14 @@
 }
 /*Fonts*/
 :root{
-    --button-font: "Segoe UI";
+    --button-font: "SourceSansPro";
     --header-font: "Segoe UI";
 }
+@font-face {
+    font-family: 'SourceSansPro';
+    src: local('SourceSansPro'), url('./Fonts/SourceSansPro-Regular.ttf') format('truetype');
+  }
+
 /* Colors */
 :root{
     --blue-light: #CDE2E1;
@@ -28,8 +33,9 @@
 
 
 
-/* Button styles*/
 
+
+/* Button styles*/
 .primary_button_large, .secondary_button_large{
     border-radius: 30px;
     font-family: var(--button-font);
@@ -81,6 +87,7 @@ h1, h2, h3, h4
     font-family: var(--button-font);
     color: #4C4C4C;
     text-align:left;
+    margin: 5px 10px 5px 10px;
 }
 
 h1  
@@ -94,5 +101,7 @@ h2
     font-size           : 200%;
     padding             : 30px 25px 30px 0px;
 }
+
+
 
 
