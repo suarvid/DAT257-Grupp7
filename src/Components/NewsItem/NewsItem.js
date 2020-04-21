@@ -1,12 +1,8 @@
 import React from 'react'
 import './newsitem.css'
-<<<<<<< HEAD
-import { Link, Route, withRouter, BrowserRouter as Router, Switch, NavLink } from 'react-router-dom';
-=======
 import { Typography, Slider, Switch } from 'antd';
 import { withRouter, Redirect, Link, NavLink, Route, BrowserRouter as Router } from 'react-router-dom';
 import Login from '../../Pages/Login/Login';
->>>>>>> c76ea777a8f70f5381bf87de9a35bb5904f63d48
 import PostDetailView from '../../Pages/Home/PostDetailView';
 import { Layout } from 'antd';
 
@@ -30,11 +26,9 @@ class NewsItem extends React.Component {
                         <Route
                             path={`post/${this.props.data.id}/`}
                             component={PostDetailView} />
-
-                        <br />
-                        {(this.props.data.images.map(image => <img class="newsimage" src={image} />))}
-
                     </h1>
+                    {(this.props.data.images.map(image => <img class="newsimage" src={image} />))}
+
                     <p class="truncate">
                         {this.props.data.content}
                     </p>
@@ -49,8 +43,6 @@ class NewsItem extends React.Component {
     }
 
 }
-
-
 
 export default withRouter(NewsItem);
 

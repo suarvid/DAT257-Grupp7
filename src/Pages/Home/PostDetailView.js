@@ -21,13 +21,16 @@ class PostDetail extends React.Component {
     })
 }
 
-
 render() {
+    const imgs = this.props.location.state.images
+
     return (
-        <div>
+        <div align = "center">
             <h1>{this.props.location.state.title}</h1>
-            {console.log(this.state.data)}
-            <h1>{this.state.post.content}</h1>
+            {(imgs.map(image => <img class="newsimage" src={image} />))}
+
+            <p>{this.state.post.content}</p>
+
         </div>
     );
 }
