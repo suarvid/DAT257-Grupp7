@@ -7,6 +7,7 @@ function Activities(){
         <div className = "test">
             <h1>Alla aktiviteter</h1>
             <MattesComponent/>
+
         </div>
         
     )
