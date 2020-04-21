@@ -1,5 +1,6 @@
 import React from "react";
-
+import NewsItem from '../../Components/NewsItem/NewsItem';
+import styles from './PostListView.css'
 class PostList extends React.Component {
     
     state = {
@@ -31,9 +32,10 @@ class PostList extends React.Component {
     loadItems = () => {
         let items = [];
         for (let i = 0; i < this.state.posts.length; i++) {
-            items.push(<h1>{this.state.posts[i].title}</h1>)
+            items.push(<NewsItem data={this.state.posts[i]}/>)
+            items.push(<br />)
         }
-        return items;
+        return <div className = {styles.itemFeed} align='center'>{items}</div>;
     }
 
     render() {
