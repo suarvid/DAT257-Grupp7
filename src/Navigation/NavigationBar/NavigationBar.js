@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 import { Layout, Menu} from 'antd';
 import Home from '../../Pages/Home/Home';
 import Booking from '../../Pages/Booking/Booking';
@@ -7,6 +7,7 @@ import Activities from '../../Pages/Activities/Activities';
 import About from '../../Pages/About/About';
 import Join from '../../Pages/Join/Join';
 import Login from '../../Pages/Login/Login';
+import './NavigationBar.css'
 
 
 const { Header, Content, Footer } = Layout;
@@ -31,34 +32,34 @@ class NavigationBar extends Component {
   
                     <Menu  mode="horizontal">
                         <Menu.Item key="home" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', width:"50px"}}>
-                            <Link to="/" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink to="/" style={{textDecoration: 'none', color:'dimgray'}}>
                                 LogoPlaceholder
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
                         <Menu.Item key="login" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
-                            <Link to="login" style={{textDecoration: 'none', color:'dimgray'}}> 
+                            <NavLink activeClassName="navItemSelected" to="login" style={{textDecoration: 'none', color:'dimgray'}}> 
                                 Login
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
                         <Menu.Item key="join" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"210px"}}>
-                            <Link to="join" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="join" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Vill du också synas här?
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
                         <Menu.Item key="about" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
-                            <Link to="about" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="about" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Om oss
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
                         <Menu.Item key="activities" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"115px"}}> 
-                            <Link to="activities" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="activities" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Aktiviteter
-                            </Link> 
+                            </NavLink> 
                         </Menu.Item>
                         <Menu.Item key="booking" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"90px"}}>
-                            <Link to="/booking" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="/booking" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Boka
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
                     </Menu>
                 </Header>

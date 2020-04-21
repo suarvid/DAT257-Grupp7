@@ -33,3 +33,8 @@ a:link {
   a:active {
     color: blue;
   }
+
+  .navItemSelected {
+    font-weight: 600;
+    text-decoration: underline !important;
+  }
