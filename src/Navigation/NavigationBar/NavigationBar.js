@@ -8,6 +8,8 @@ import About from '../../Pages/About/About';
 import Join from '../../Pages/Join/Join';
 import Login from '../../Pages/Login/Login';
 import './NavigationBar.css'
+import Logo from '../../Components/Logo'
+import MenuItem from 'antd/lib/menu/MenuItem';
 
 
 const { Header, Content, Footer } = Layout;
@@ -28,12 +30,12 @@ class NavigationBar extends Component {
             <Router>
             
             <Layout>
-                <Header style={{position:'fixed', zIndex: 1, width: '100%', backgroundColor:'darkseagreen', color:'dimgray', marginTop:0, height: 58}}>
+                <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'darkseagreen', color:'dimgray', marginTop:0, height: 58}}>
   
                     <Menu  mode="horizontal">
-                        <Menu.Item key="home" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', width:"50px"}}>
+                        <Menu.Item key="home" style={{float:'left', display:'inline-block', alignItems:'center', marginTop:0, position:'top'}}>
                             <NavLink to="/" style={{textDecoration: 'none', color:'dimgray'}}>
-                                LogoPlaceholder
+                              <Logo/> 
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="login" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
