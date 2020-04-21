@@ -1,0 +1,27 @@
+.rightItem{
+    float: right; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    border-left: 5 px solid dimgrey;
+    width: 100 px;
+    color: dimgrey;
+}
+
+a:link {
+    color: dimgrey;
+  }
+/* mouse over link */
+a:hover {
+  color: dimgrey;
+}
+  
+/* selected link */
+a:active {
+  color: dimgrey;
+}
+
+.navItemSelected {
+  font-weight: 600;
+  text-decoration: underline !important;
+}
