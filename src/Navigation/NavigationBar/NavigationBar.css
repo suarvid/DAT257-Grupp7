@@ -1,40 +1,27 @@
-.logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(91, 139, 105, 0.2);
-    margin: 0px 0px 0px 0px;
-    float: left;
-}
-
 .rightItem{
-    float:'right'; 
-    display:'flex'; 
-    justify-content:"space-around"; 
-    align-items:'center'; 
-    width:"100px";
+    float: right; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    border-left: 5 px solid dimgrey;
+    width: 100 px;
     color: dimgrey;
 }
 
 a:link {
-    color: red;
+    color: dimgrey;
   }
+/* mouse over link */
+a:hover {
+  color: dimgrey;
+}
   
-  /* visited link */
-  a:visited {
-    color: green;
-  }
-  
-  /* mouse over link */
-  a:hover {
-    color: hotpink;
-  }
-  
-  /* selected link */
-  a:active {
-    color: blue;
-  }
+/* selected link */
+a:active {
+  color: dimgrey;
+}
 
-  .navItemSelected {
-    font-weight: 600;
-    text-decoration: underline !important;
-  }
+.navItemSelected {
+  font-weight: 600;
+  text-decoration: underline !important;
+}

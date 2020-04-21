@@ -15,30 +15,21 @@ import MenuItem from 'antd/lib/menu/MenuItem';
 const { Header, Content, Footer } = Layout;
 
 class NavigationBar extends Component {
-    /**state = {
-        current: 'home',
-      }
-      handleClick = (e) => {
-        console.log('click ', e);
-        this.setState({
-          current: e.key,
-        });
-      }
-   */
+
     render(){
         return(
             <Router>
             
             <Layout>
-                <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'darkseagreen', color:'dimgray', marginTop:0, height: 58}}>
+                <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'darkseagreen', color:'dimgray', marginTop:0, height: 56}}>
   
                     <Menu  mode="horizontal">
-                        <Menu.Item key="home" style={{float:'left', display:'inline-block', alignItems:'center', marginTop:0, position:'top'}}>
+                        <Menu.Item key="home" style={{float:'left', display:'inline-block', alignItems:'center', marginTop:-15, position:'top'}}>
                             <NavLink to="/" style={{textDecoration: 'none', color:'dimgray'}}>
                               <Logo/> 
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key="login" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
+                        <Menu.Item key="login" style={{float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
                             <NavLink activeClassName="navItemSelected" to="login" style={{textDecoration: 'none', color:'dimgray'}}> 
                                 Login
                             </NavLink>
@@ -66,7 +57,7 @@ class NavigationBar extends Component {
                     </Menu>
                 </Header>
 
-                <Content style={{ padding: '18px 50px', marginTop: 0 }}/>
+                <Content style={{ padding: '17px 50px', marginTop: 0 }}/>
 
 
             </Layout>
