@@ -30,22 +30,22 @@ class NavigationBar extends Component {
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="login" style={{float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
-                            <NavLink activeClassName="navItemSelected" to="login" style={{textDecoration: 'none', color:'dimgray'}}> 
+                            <NavLink activeClassName="navItemSelected" to="/login" style={{textDecoration: 'none', color:'dimgray'}}> 
                                 Login
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="join" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"210px"}}>
-                            <NavLink activeClassName="navItemSelected" to="join" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="/join" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Vill du också synas här?
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="about" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
-                            <NavLink activeClassName="navItemSelected" to="about" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="/about" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Om oss
                             </NavLink>
                         </Menu.Item>
                         <Menu.Item key="activities" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"115px"}}> 
-                            <NavLink activeClassName="navItemSelected" to="activities" style={{textDecoration: 'none', color:'dimgray'}}>
+                            <NavLink activeClassName="navItemSelected" to="/activities" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Aktiviteter
                             </NavLink> 
                         </Menu.Item>
