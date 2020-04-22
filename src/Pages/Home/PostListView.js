@@ -84,7 +84,7 @@ class PostList extends React.Component {
                 <InfiniteScroll
                 dataLength={this.state.loadedPosts.length}
                 next={this.loadItems}
-                hasMore={this.state.hasMorePosts}
+                hasMore={false}
                 loader={<div>Loading...</div>}
                 endMessage={
                     <p>Du har läst alla nyhetsinlägg!</p>
