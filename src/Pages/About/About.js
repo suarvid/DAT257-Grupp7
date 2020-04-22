@@ -1,6 +1,6 @@
 import React from 'react'
 import './About.css'
-import JoelsComponent from '../../JoelsComponent'
+import JoelsComponent from '../../Components/JoelsComponent/JoelsComponent'
 
 function About() {
     return (

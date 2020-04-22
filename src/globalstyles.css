@@ -1,0 +1,118 @@
+/* Variables */
+
+/* Shadow settings */
+:root{
+    --default-box-shadow: 0px 1px 4px 1px #aaa9a9;
+}
+/* Paddings */
+:root{
+    --large-button-padding: 5px 20px 5px 20px;
+    --small-button-padding: 3px 10px 3px 10px;
+}
+/*Fonts*/
+:root{
+    --button-font: "SourceSansPro";
+    --header-font: "Segoe UI";
+}
+@font-face {
+    font-family: 'SourceSansPro';
+    src: local('SourceSansPro'), url('./Fonts/SourceSansPro-Regular.ttf') format('truetype');
+  }
+
+/* Colors */
+:root{
+    --blue-light: #CDE2E1;
+    --blue-medium: #95C1BF;
+    --blue-dark: #237C79;
+    --green-light: #B4C9B2;
+    --green-medium: #7BA478;
+    --green-dark:#4D8948; 
+    --primary-bg-color: #E1E1E1;
+    --primary-border-color: #707070;
+}
+
+
+
+
+
+/* Button styles*/
+.primary_button_large, .secondary_button_large{
+    border-radius: 30px;
+    font-family: var(--button-font);
+    font-weight: bold;
+    font-size: 20px;
+    width: fit-content;
+    box-shadow: var(--default-box-shadow);
+    padding: var(--large-button-padding); 
+    margin: 5px;
+}
+
+.primary_button_large{
+    border-width: 0px;
+    background-color: var(--blue-dark);
+    color: white;
+    
+ }
+.primary_button_large:hover{
+    background-color: var(--blue-medium);
+}
+.secondary_button_large{
+    background-color: white;
+    color: var(--blue-dark);
+    border: 4px solid var(--blue-dark);
+}
+.secondary_button_large:hover{
+    background-color: white;
+    color: var(--blue-medium);
+    border: 4px solid var(--blue-medium);
+}
+
+.add_button{
+    background-color: #D5D3D3;
+    color:#707070;
+    border-width: 0px;
+    border-radius: 30px;
+    box-shadow: black;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    box-shadow: var(--default-box-shadow);
+}
+
+
+/* Headers */
+h1, h2, h3, h4
+{
+    font-family: var(--button-font);
+    color: #4C4C4C;
+    text-align:left;
+    margin: 5px 15px 5px 15px;
+    padding: 15px;
+}
+
+h1  
+{
+    font-size           : 300%;
+    padding             : 45px 40px 45px 15px;
+}
+
+h2
+{
+    font-size           : 200%;
+    padding             : 30px 25px 30px 15px;
+}
+
+p
+{
+    font-size: 100%;
+    margin: 5px 15px 5px 15px;
+    font-family: var(--button-font);
+    color: #4C4C4C;
+    text-align:left;
+    padding: 0px 15px 0px 15px;
+}
+
+
+
+

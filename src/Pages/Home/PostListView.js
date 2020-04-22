@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import Post from './Post'
-import PostForm from '../../ArresComponent';
+import PostForm from '../../Components/ArresComponent/ArresComponent';
 
 class PostList extends React.Component {
     state = {
