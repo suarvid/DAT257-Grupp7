@@ -77,8 +77,9 @@ class NavigationBar extends Component {
 }
 
 
-/** Navigation calls for nested ones. Right now, the routes lead to Booking-page*/
-
+/** Navigation calls for nested ones.
+ * TODO: Right now, the routes lead to Booking-page, change that. Fix ID-calls. Fix layout
+ * */
 function goActivities(){
     return (
       <div>
@@ -91,12 +92,6 @@ function goActivities(){
       </div>
     );
 }
-/*
-function goActivity(){
-    let { activityId } = useParams;
-    return {activityId};
-}*/
-
 
 function goLogin(){
     return (
