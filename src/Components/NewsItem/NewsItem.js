@@ -4,7 +4,6 @@ import { Typography, Slider, Switch } from 'antd';
 import { withRouter, Redirect, Link, NavLink, Route, BrowserRouter as Router } from 'react-router-dom';
 import Login from '../../Pages/Login/Login';
 import PostDetailView from '../../Pages/Home/PostDetailView';
-import { Layout } from 'antd';
 
 class NewsItem extends React.Component {
     constructor(props) {
