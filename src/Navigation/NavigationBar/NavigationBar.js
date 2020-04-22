@@ -21,7 +21,7 @@ class NavigationBar extends Component {
             <Router>
             
             <Layout>
-                <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'darkseagreen', color:'dimgray', marginTop:0, height: 56}}>
+                <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'#B4C9B2', color:'#707070', marginTop:0, height: 56}}>
   
                     <Menu  mode="horizontal">
                         <Menu.Item key="home" style={{float:'left', display:'inline-block', alignItems:'center', marginTop:-15, position:'top'}}>
