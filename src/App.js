@@ -11,6 +11,8 @@ import Navbar from './Navigation/NavigationBar/NavigationBar';
 
 export default function App() {
   return (
+    <div>
     <Navbar/>
+    </div>
   );
 }

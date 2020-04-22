@@ -70,7 +70,6 @@ class NavigationBar extends Component {
                     <Route exact path="/about" component={About} />
                     <Route exact path="/join" component={Join} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path='/' component={PostList} />
                     <Route exact path='/post/:postID/' component={PostDetail} />
                 </Switch>
             </Router>
