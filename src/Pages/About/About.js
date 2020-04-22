@@ -8,7 +8,7 @@ function About() {
              <h1>Om Hela Åsa</h1>
             <div className="info-text">
                 <h2>Företagsnätverk</h2>
-                <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet.....</p>
+                <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet....</p>
 
                 <h3>Åsas Yoga</h3>
                 <p>Info om Åsas yoga....</p>
