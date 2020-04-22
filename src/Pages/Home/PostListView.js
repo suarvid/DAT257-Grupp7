@@ -9,15 +9,15 @@ const lorem = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
 class PostList extends React.Component {
     constructor(props) {
         super(props);
-    } 
+    }
 
     componentDidMount() {
         this.loadItems();
-    } 
+    }
 
     state = {
         hasMorePosts: true,
-        postCounter: 0, 
+        postCounter: 0,
         posts: [
             {
                 id: 1,
@@ -63,7 +63,7 @@ class PostList extends React.Component {
         console.log(this.state.hasMorePosts)
         for (let i = 0; i < this.state.posts.length; i++) {
             this.setState({
-                loadedPosts: this.state.loadedPosts.concat(Array.from({ length: 20})),
+                loadedPosts: this.state.loadedPosts.concat(Array.from({ length: 20 })),
             });
             if (i == 5) {
                 this.setState({
@@ -81,25 +81,29 @@ class PostList extends React.Component {
         return (
             <div align='center'>
                 <h1>Nyheter</h1>
+                {this.state.posts.map(item=> <NewsItem
+                    data={item}
+                />)}
+                
                 <InfiniteScroll
-                dataLength={this.state.loadedPosts.length}
-                next={this.loadItems}
-                hasMore={this.state.hasMorePosts}
-                loader={<div>Loading...</div>}
-                endMessage={
-                    <p>Du har läst alla nyhetsinlägg!</p>
-                }
+                    dataLength={this.state.loadedPosts.length}
+                    next={this.loadItems}
+                    hasMore={this.state.hasMorePosts}
+                    loader={<div>Loading...</div>}
+                    endMessage={
+                        <p>Du har läst alla nyhetsinlägg!</p>
+                    }
                 >
-                   <div>
-                       {this.state.loadedPosts.map((id, index) => (
-                        <div key={index}>
-                            {index}
-                        </div>
-                       ))}
-                   </div>
+                    <div>
+                        {this.state.loadedPosts.map((id, index) => (
+                            <div key={index}>
+                                {index}
+                            </div>
+                        ))}
+                    </div>
                 </InfiniteScroll>
             </div>
-           
+
         );
     }
 }

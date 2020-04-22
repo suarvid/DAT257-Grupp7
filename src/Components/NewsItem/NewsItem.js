@@ -26,7 +26,7 @@ class NewsItem extends React.Component {
                             path={`post/${this.props.data.id}/`}
                             component={PostDetailView} />
                     </h1>
-                    {(this.props.data.images.map(image => <img class="newsimage" src={image} />))}
+                    {(this.props.data.images.map(image => <img class="newsimage" src={image} alt = "Alt" />))}
 
                     <p class="truncate">
                         {this.props.data.content}
