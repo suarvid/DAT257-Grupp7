@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Switch, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, NavLink, useRouteMatch, useParams } from "react-router-dom";
 import { Layout, Menu} from 'antd';
 import Home from '../../Pages/Home/Home';
 import Booking from '../../Pages/Booking/Booking';
@@ -64,14 +64,52 @@ class NavigationBar extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/booking" component={Booking} />
-              <Route exact path="/activities" component={Activities} />
+              <Route exact path="/activities" component={goActivities} />
+              <Route exact path="/activities/:activityID" component={Booking} />
               <Route exact path="/about" component={About} />
               <Route exact path="/join" component={Join} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/login" component={goLogin} />
+              <Route exact path="/login/:userID" component={Booking} />
             </Switch>
             </Router>
         );
     }
 }
+
+
+/** Navigation calls for nested ones. Right now, the routes lead to Booking-page*/
+
+function goActivities(){
+    return (
+      <div>
+        <Activities/>
+        <ul>
+          <li>
+            <NavLink to={"/activities/:activityID"}>Yoga</NavLink>
+          </li>
+        </ul>
+      </div>
+    );
+}
+/*
+function goActivity(){
+    let { activityId } = useParams;
+    return {activityId};
+}*/
+
+
+function goLogin(){
+    return (
+      <div>
+        <Login/>
+        <ul>
+          <li>
+            <NavLink to={"/login/:userID"}>Login</NavLink>
+          </li>
+        </ul>
+        </div>
+    );
+}
+  
 
 export default NavigationBar;
