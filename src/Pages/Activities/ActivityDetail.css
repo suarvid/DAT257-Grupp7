@@ -1,0 +1,39 @@
+.activityMainImage{
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    
+} 
+
+.activityName {
+    margin: auto;
+    font-family: "SourceSansPro";
+}
+
+.activityDescription {
+   margin: auto;
+   font-family: "SourceSansPro";
+} 
+
+.container ul {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 0px;
+    text-decoration: none;
+}
