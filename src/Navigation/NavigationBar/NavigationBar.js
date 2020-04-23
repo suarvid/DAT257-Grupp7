@@ -69,7 +69,7 @@ class NavigationBar extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/booking" component={Booking} />
               <Route exact path="/activities" component={Activities} />
-              <Route exact path="/activities/:activityID/" component={Booking} />
+              <Route exact path="/activities/:activityID/" component={ActivityDetail} />
               <Route exact path="/about" component={About} />
               <Route exact path="/join" component={Join} />
               <Route exact path="/login" component={Login} />

@@ -5,12 +5,12 @@ class ActivityDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'Activity Name',
-            description: 'Activity Description',
-            image: 'https://www.mytraining.se/wp-content/uploads/2018/10/yoga_mytraining_uppsala.jpg',
+            name: '',
+            description: '',
+            image: '',
             prerequisites: [],
-            instructors: ['Yogamamman', 'Yogapappan'],
-            tags: ['RÖRLIGHET', 'ANDNING',]
+            instructors: [],
+            tags: []
         }
     }
 
@@ -18,11 +18,14 @@ class ActivityDetail extends React.Component {
         const { handle } = this.props.match.params
         const data = this.props.location.state
         //Add a setState once backend is connected
-        // this.setState({
-        //     name: data.name,
-        //     description: data.description,
-        //     image: data.image
-        // })
+        this.setState({
+            name: data.activity,
+            description: data.description,
+            image: data.imageUrl,
+            prerequisites: data.prerequisites,
+            instructors: data.instructors,
+            tags: data.tags
+        })
     }
 
     render() {

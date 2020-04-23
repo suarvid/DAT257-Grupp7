@@ -7,12 +7,12 @@ import { NavLink } from "react-router-dom";
 export default class Activities extends Component {
     render() {
         const activities = [
-            new ActivityModel("yoga", "https://www.helloyogagarden.com/uploads/5/3/5/1/53517303/yoga_orig.jpg"),
-            new ActivityModel("surf", "https://ssl.quiksilver.com/static/QS/default/category-assets/marketing-landing/landing/build/img/surf/tiles/surf_featured_1.jpg"),
-            new ActivityModel("fotboll", "https://www.norrkoping.se/images/18.6bf40d04169c2cece8f46fe/1559737638877/fotboll.jpg"),
-            new ActivityModel("dans", "https://lh3.googleusercontent.com/proxy/uveHsOdxwwCErekDu8Ps84B4PHChNFWRSUSGmkGa-jyCsstq-JOSWtY9CeVrCBDwkax4bW_ti3ET0AtwnHhIZBbZInRRAMJ85u5A8akXbtaBnXt0Safb255TpRNQ"),
-            new ActivityModel("jogging", "https://tyngre.se/wp-content/uploads/tyngre/88bbceb487dc61bf7ca99fa9c5be00ca98a1231f.jpg"),
-            new ActivityModel("meditation", "https://manlighälsa.se/wp-content/uploads/2018/10/mindfulness-meditation-1.jpg")
+            new ActivityModel("yoga", "https://www.helloyogagarden.com/uploads/5/3/5/1/53517303/yoga_orig.jpg", 'Yoga är Jobbigt', [], ['Yogamamman, Yogapappan'], ['foo', 'bar']),
+            new ActivityModel("surf", "https://ssl.quiksilver.com/static/QS/default/category-assets/marketing-landing/landing/build/img/surf/tiles/surf_featured_1.jpg", 'Surfa är kul', [], ['Yogamamman, Yogapappan'], ['foo', 'bar']),
+            new ActivityModel("fotboll", "https://www.norrkoping.se/images/18.6bf40d04169c2cece8f46fe/1559737638877/fotboll.jpg", 'Fotboll är sådär', [], ['Yogamamman, Yogapappan'], ['foo', 'bar']),
+            new ActivityModel("dans", "https://lh3.googleusercontent.com/proxy/uveHsOdxwwCErekDu8Ps84B4PHChNFWRSUSGmkGa-jyCsstq-JOSWtY9CeVrCBDwkax4bW_ti3ET0AtwnHhIZBbZInRRAMJ85u5A8akXbtaBnXt0Safb255TpRNQ", 'Dansa dansa', [], ['Yogamamman, Yogapappan'], ['foo', 'bar']),
+            new ActivityModel("jogging", "https://tyngre.se/wp-content/uploads/tyngre/88bbceb487dc61bf7ca99fa9c5be00ca98a1231f.jpg", 'Jogga ger en ont i knät', [], ['Yogamamman, Yogapappan'], ['foo', 'bar']),
+            new ActivityModel("meditation", "https://manlighälsa.se/wp-content/uploads/2018/10/mindfulness-meditation-1.jpg", 'Andas är bra att kunna', [], ['Yogamamman, Yogapappan'], ['foo', 'bar'])
         ]
         return (
             <div>
@@ -23,7 +23,10 @@ export default class Activities extends Component {
                         <div>    
                         <withRouter>
                             <div>
-                            <NavLink to = {`/activities/${activity.activity}/`}>
+                            <NavLink to = {{
+                              pathname: `/activities/${activity.activity}/`,
+                              state: activity
+                              }}>
                                  <Activity key={activity.activity} activityType={activity.activity} imageUrl={activity.imageUrl} />
                                  <br />
                             </NavLink>
