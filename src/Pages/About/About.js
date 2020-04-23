@@ -7,7 +7,6 @@ function About() {
         <div className="about-container">
             <h1>Om oss sidan</h1>
             <JoelsComponent />
-            
             <p>Ett företagsnätverk inom träning och hälsa.</p>
         </div>
     )

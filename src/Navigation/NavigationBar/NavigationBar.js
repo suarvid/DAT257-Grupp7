@@ -10,14 +10,16 @@ import Login from '../../Pages/Login/Login';
 import './NavigationBar.css'
 import Logo from '../../Components/Logo'
 import MenuItem from 'antd/lib/menu/MenuItem';
+import PostList from '../../Pages/Home/PostListView'
+import PostDetail from '../../Pages/Home/PostDetailView' 
 
 
 const { Header, Content, Footer } = Layout;
 
 class NavigationBar extends Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <Router>
             
             <Layout>
@@ -52,12 +54,13 @@ class NavigationBar extends Component {
                         <Menu.Item key="booking" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"90px"}}>
                             <NavLink activeClassName="navItemSelected" to="/booking" style={{textDecoration: 'none', color:'dimgray'}}>
                                 Boka
-                            </NavLink>
-                        </Menu.Item>
-                    </Menu>
-                </Header>
 
-                <Content style={{ padding: '17px 50px', marginTop: 0 }}/>
+                            </NavLink>
+                            </Menu.Item>
+                        </Menu>
+                    </Header>
+
+                    <Content style={{ padding: '17px 50px', marginTop: 0 }} />
 
 
             </Layout>
@@ -70,7 +73,10 @@ class NavigationBar extends Component {
               <Route exact path="/join" component={Join} />
               <Route exact path="/login" component={goLogin} />
               <Route exact path="/login/:userID" component={Booking} />
+              <Route exact path='/post/:postID/' component={PostDetail} />
+
             </Switch>
+
             </Router>
         );
     }
