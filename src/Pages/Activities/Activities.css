@@ -15,8 +15,8 @@
 
 .activitiesContainer {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 40px auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }

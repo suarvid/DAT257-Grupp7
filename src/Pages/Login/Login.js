@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import classes from './Login.css';
-import EmeliesTest from '../../EmeliesComp';
+import EmeliesTest from '../../Components/EmeliesComponent/EmeliesComp';
 
 function Login () {
     return (

@@ -1,6 +1,6 @@
 .activityImage {
-    max-width: 360px;
-    height: auto;
+    width: 300px;
+    height: 180px;
     object-fit: cover;
     margin: 20px;
 }
