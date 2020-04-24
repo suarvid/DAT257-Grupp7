@@ -39,10 +39,7 @@ class ActivityDetail extends React.Component {
 
                     <div>
                         <ul>{tags}</ul>
-                        <h3 className="subHeader">Instruktörer</h3>
-                        <ul>
-                            {instructors}
-                        </ul>
+                       
                         
                         <button id="showActivityButton"><Link style={{ textDecoration: 'none', color: 'white'}}>Visa alla {this.state.name}pass </Link></button>
                         
