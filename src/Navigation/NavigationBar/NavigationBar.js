@@ -23,44 +23,45 @@ class NavigationBar extends Component {
             <Router>
             
             <Layout>
-                <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'#B4C9B2', color:'#707070', marginTop:0, height: 56}}>
+            <Header style={{position:'fixed', zIndex: 'auto', width: '100%', backgroundColor:'#808080', color:'white', marginTop:0, height: 64, fontSize:'20px'}}>
   
-                    <Menu  mode="horizontal">
-                        <Menu.Item key="home" style={{float:'left', display:'inline-block', alignItems:'center', marginTop:-15, position:'top'}}>
-                            <NavLink to="/" style={{textDecoration: 'none', color:'dimgray'}}>
-                              <Logo/> 
-                            </NavLink>
-                        </Menu.Item>
-                        <Menu.Item key="login" style={{float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
-                            <NavLink activeClassName="navItemSelected" to="/login" style={{textDecoration: 'none', color:'dimgray'}}> 
-                                Login
-                            </NavLink>
-                        </Menu.Item>
-                        <Menu.Item key="join" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"210px"}}>
-                            <NavLink activeClassName="navItemSelected" to="/join" style={{textDecoration: 'none', color:'dimgray'}}>
-                                Vill du också synas här?
-                            </NavLink>
-                        </Menu.Item>
-                        <Menu.Item key="about" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"100px"}}>
-                            <NavLink activeClassName="navItemSelected" to="/about" style={{textDecoration: 'none', color:'dimgray'}}>
-                                Om oss
-                            </NavLink>
-                        </Menu.Item>
-                        <Menu.Item key="activities" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"115px"}}> 
-                            <NavLink activeClassName="navItemSelected" to="/activities" style={{textDecoration: 'none', color:'dimgray'}}>
-                                Aktiviteter
-                            </NavLink> 
-                        </Menu.Item>
-                        <Menu.Item key="booking" style={ {float:'right', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid dimgray', width:"90px"}}>
-                            <NavLink activeClassName="navItemSelected" to="/booking" style={{textDecoration: 'none', color:'dimgray'}}>
-                                Boka
+  <Menu  mode="horizontal">
+      <Menu.Item key="home" style={{float:'left', display:'inline-block', justifyContent:"space-around",alignItems:'center', width:"100px"}}>
+          <NavLink to="/" style={{textDecoration: 'none', color:'white'}}>
+            Hem
+          </NavLink>
+      </Menu.Item>
+      <Menu.Item key="activities" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"145px"}}> 
+          <NavLink activeClassName="navItemSelected" to="/activities" style={{textDecoration: 'none', color:'white'}}>
+              Utbud
+          </NavLink> 
+      </Menu.Item>
+      <Menu.Item key="booking" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"130px"}}>
+          <NavLink activeClassName="navItemSelected" to="/booking" style={{textDecoration: 'none', color:'white'}}>
+              Boka
 
-                            </NavLink>
-                            </Menu.Item>
-                        </Menu>
-                    </Header>
+          </NavLink>
+          </Menu.Item>
+      <Menu.Item key="login" style={{float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"130px"}}>
+          <NavLink activeClassName="navItemSelected" to="/login" style={{textDecoration: 'none', color:'white'}}> 
+              Priser
+          </NavLink>
+      </Menu.Item>
+      <Menu.Item key="about" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"140px"}}>
+          <NavLink activeClassName="navItemSelected" to="/about" style={{textDecoration: 'none', color:'white'}}>
+              Om oss
+          </NavLink>
+      </Menu.Item>
+      <Menu.Item key="join" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"270px"}}>
+          <NavLink activeClassName="navItemSelected" to="/join" style={{textDecoration: 'none', color:'white'}}>
+              Vill du också synas här?
+          </NavLink>
+      </Menu.Item>
 
-                    <Content style={{ padding: '17px 50px', marginTop: 0 }} />
+      </Menu>
+  </Header>
+
+  <Content style={{ padding: '21px 50px', marginTop: 0 }} />
 
 
             </Layout>
