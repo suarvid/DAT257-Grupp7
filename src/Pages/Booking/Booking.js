@@ -1,17 +1,18 @@
-import React from 'react'
+import React from "react";
+import BookingContainer from "../../Pages/Booking/BookingContainer";
+import '../../../src/globalstyles.css'
 
 function Booking() {
-    return (
-        <div>
 
-        <h1>Bokningssidan</h1>
-        <p>det här är juttekuul :) mega kul :D  ändring 2</p>
-        
-        <h2>Erikas rubrik </h2>
-        <p> Testtesttest</p>
-        <p> Om du vill boka ett pass tryck *här*</p>
-        </div>
-    )
+    const data = {
+        title : "Kalendarium"
+
+    }
+  return (
+    <div align = 'center'>
+      <BookingContainer data = {data}></BookingContainer>
+    </div>
+  );
 }
 
-export default Booking
+export default Booking;

@@ -1,0 +1,48 @@
+.header {
+  /*margin: 0 auto;*/
+  text-align: left;
+  width: 90%;
+  background-color: #f2f2f2;
+  border: solid;
+  border-color: #bfbfbf;
+  border-width: 2px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.block {
+  width: 100px;
+  /*float: left;*/
+  display: inline-block;
+  zoom: 1;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+.component-container {
+  align-items: left;
+  align-content: left;
+  text-align: left;
+  width: 90%;
+  max-height: 10rem;
+  border: solid;
+  border-color: #bfbfbf;
+  border-left: 2px;
+  border-right: 2px;
+  border-top: 2px;
+}
+.component {
+  /*margin: 0 auto;*/
+  display: inline-block;
+  width: 20rem;
+  height: 10rem;
+}
+
+.component-headlines {
+  display: inline-block;
+  padding-top: 2rem;
+  padding-right: 3rem;
+  padding-bottom: 2rem;
+  padding-left: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

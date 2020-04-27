@@ -2,6 +2,7 @@ import React from 'react'
 import BaseRouter from '../../routes.js'
 import BannerComponent from '../../Components/Banner/BannerComponent'
 import './Home.css'
+import '../../../src/globalstyles.css'
 
 function Home() {
     return (
