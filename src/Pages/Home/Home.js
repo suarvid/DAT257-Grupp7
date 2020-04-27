@@ -10,7 +10,6 @@ function Home() {
                 <div className="first">
                     <div className="banner">
                         <h3>Ingående företag</h3>
-                        <BannerComponent/>
                         <BaseRouter />       
                     </div>
                 </div>
