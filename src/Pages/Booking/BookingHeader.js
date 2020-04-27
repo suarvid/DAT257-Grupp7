@@ -1,6 +1,5 @@
 import React from "react";
 import "./Booking.css";
-import "../../../src/globalstyles.css";
 import "../Booking/Booking.css";
 
 function BookingHeader(props) {

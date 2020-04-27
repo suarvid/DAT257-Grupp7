@@ -21,9 +21,9 @@ class NewsItem extends React.Component {
     return (
       <withRouter>
         <div className="newsitem" align="center">
-          <h1 className="header">
+          <h1 className="newsitem-header">
             <Link
-              className="header"
+              className="newsitem-header"
               to={{
                 pathname: `post/${this.props.data.id}/`,
                 state: this.props.data,
