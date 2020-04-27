@@ -1,3 +1,14 @@
 .join-container {
-    background-color: yellowgreen;
+    width:100%;
+    overflow: hidden;
+}
+.info-text {
+    width:70%;
+    float:left;
+
+
+}
+.companies{
+    width:30%;
+    float:left;
 }

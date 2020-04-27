@@ -17,7 +17,6 @@ class PostDetail extends React.Component {
         const data = this.props.location.state
         this.setState({
              post : data
-
     })
 }
 

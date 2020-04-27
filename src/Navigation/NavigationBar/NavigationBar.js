@@ -7,6 +7,7 @@ import Activities from '../../Pages/Activities/Activities';
 import About from '../../Pages/About/About';
 import Join from '../../Pages/Join/Join';
 import Login from '../../Pages/Login/Login';
+import ActivityDetail from '../../Pages/Activities/ActivityDetailView';
 import './NavigationBar.css'
 import Logo from '../../Components/Logo'
 import MenuItem from 'antd/lib/menu/MenuItem';
@@ -69,7 +70,7 @@ class NavigationBar extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/booking" component={Booking} />
               <Route exact path="/activities" component={Activities} />
-              <Route exact path="/activities/:activityID/" component={Booking} />
+              <Route exact path="/activities/:activityID/" component={ActivityDetail} />
               <Route exact path="/about" component={About} />
               <Route exact path="/join" component={Join} />
               <Route exact path="/login" component={Login} />

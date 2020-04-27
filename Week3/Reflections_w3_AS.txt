@@ -1,0 +1,31 @@
+Individual reflection, Week 3, Arvid Sundbom
+
+What do I want to learn and understand better?
+As the project will mainly be built using React and Django, my main goal is to understand both of these technologies a lot better than I do now.
+In the future of the project, we will connect the frontend and the backend more than the few http-requests we've tried making between them as of now.
+Connecting the frontend to the backend is something I want to understand better, especially since these components are written in different programming languages, using completely different tools.
+Hopefully I will be able to understand these things better as the project continues, since my experience with them will increase as we go along.
+I also want to understand KPI:s a bit better, since I've never used them but they seem like a good tool for measuring team performance and how far along we are with our work, compared to our deadline.
+
+How can I help someone else, or the entire team, to learn something new?
+As the work progresses, more and more of the work will revolve around the backend and the database to which it is connected.
+As more work revolves around the backend, more additional team members are probably going to want more experience and knowledge about how a backend written in Django works.
+Since Isak and I were "appointed" to look into a solution for the backend, and to learn how a backend written in Django works, we probably have the best understanding for specifically how Django works, as of now.
+Because of this, me and Isak should probably try to get as good of an understanding of what one needs to know in order to develop the backend further and then use what we know to help anyone interested in how the backend works.
+This can probably be done just by continuing our work in the backend and maybe setting up some sort of TODO-list with steps required when developing the backend.
+There still seems to be some questions regarding certain aspects of working in scrum, for both me and the team as a whole. As such, I should probably put a bit more effort into reading and understanding the course literature.
+As of now I haven't really read that much of the book Scrum and XP from the trenches, but moving on I will try to read more of it since it probably contains answers to quite a few of the questions we still have regarding scrum.
+If nothing else, it will at least offer me a reference for information regarding scrum and xp, something which is probably useful to have, both in this course and the future.
+
+What is my contribution towards the team’s use of Scrum?
+During team meetings we define user stories, try to prioritize the ones we come up with, and break the user stories of the upcoming sprint into weighted tasks which together gives us the total weight of the corresponding user stories.
+In order to contribute to the team's use of Scrum I try to be an active member in the group, always showing up to every meeting.
+As of right now, the way which we prioritize our user stories is a bit unclear. We mainly prioritize the stories in order of the percived value they create for our Product Owner.
+In order to contribute more to the team's use of Scrum, I'd like to put some time into looking up different methods of prioritizing user stories such as MoSCoW, the Iron triangle or the complexity matrix.
+Getting a clear understanding of what prioritization method works best for us will probably help us structure our work in a slightly more meaningful way.
+This being said, the current prioritization method works pretty well, it's just not very clear cut, and would probably take less time if it were structured more clearly.
+
+What is my contribution towards the team’s deliveries?
+During this sprint I mainly worked with two different views in the frontend which were the tasks I assigned myself at the start of the sprint.
+I also looked more into the backend, regarding what models and views we need to define for our REST-API to have the required functionality.
+I suppose I also contributed towards the deliveries in a more general sense by being an active group memeber, participating in all the meetings and reviewing some pull requests on our github.

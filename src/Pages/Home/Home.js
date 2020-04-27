@@ -1,10 +1,27 @@
 import React from 'react'
 import BaseRouter from '../../routes.js'
-import PostListView from './PostListView';
+import BannerComponent from '../../Components/Banner/BannerComponent'
+import './Home.css'
+
 function Home() {
-    let images = ["/static/media/hundens_pose.289acd70.jpg", "/static/media/hundens_pose.289acd70.jpg"]
     return (
-                <PostListView  />
+                <div>
+
+                <div className="first">
+                    <div className="banner">
+                        <h3>Ingående företag</h3>
+                        <BannerComponent/>
+                        <BaseRouter />       
+                    </div>
+                </div>
+                <div className="second">
+                    <div className="aktiviteter">
+                        <h3>Aktiviteter i närtid</h3>
+                    </div>
+                </div>
+                
+    
+            </div>
     )
 }
 
