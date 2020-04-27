@@ -1,14 +1,10 @@
-.about-container {
-    background-color: orange;	  width: 100%;
-
+.about-container { 
+    width: 100%;
+    display:inline-block;
 }
 .info-text {
     width:70%;
-    float:left;
-
-
 }
 .companies{
     width:30%;
-    float:left;
 }
