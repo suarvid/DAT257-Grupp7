@@ -75,6 +75,7 @@ class NavigationBar extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/login/:userID" component={Booking} />
               <Route exact path='/post/:postID/' component={PostDetail} />
+              <Route exact path='/booking/:bookingID/' component={Home} />
 
             </Switch>
 

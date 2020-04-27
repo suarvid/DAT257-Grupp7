@@ -10,6 +10,8 @@ function Booking() {
     }
   return (
     <div align = 'center'>
+
+      
       <BookingContainer data = {data}></BookingContainer>
     </div>
   );

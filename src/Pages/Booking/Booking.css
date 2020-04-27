@@ -23,7 +23,7 @@
   align-content: left;
   text-align: left;
   width: 90%;
-  max-height: 10rem;
+  max-height: fit-content;
   border: solid;
   border-color: #bfbfbf;
   border-left: 2px;
@@ -35,14 +35,26 @@
   display: inline-block;
   width: 20rem;
   height: 10rem;
+  max-height: inherit;
 }
 
 .component-headlines {
   display: inline-block;
+  max-width: 15rem;
   padding-top: 2rem;
-  padding-right: 3rem;
+  padding-right: 2rem;
   padding-bottom: 2rem;
-  padding-left: 3rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding-left: 2rem;
+  overflow-wrap: break-word;
+  max-height: inherit;
+}
+.header-headlines{
+  display: inline-block;
+  max-width: 15rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 6rem;
+  overflow-wrap: break-word;
+  max-height: inherit;
 }

@@ -8,6 +8,7 @@ const BaseRouter = () => (
     <div>
         <Route exact path='/' component={PostList} />
         <Route  exact path='/post/:postID/' component={PostDetail} />
+
     </div>
 );
 
