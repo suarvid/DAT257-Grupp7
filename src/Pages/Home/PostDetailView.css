@@ -32,13 +32,13 @@
 .right {
     float: left;
     width: 160%;
-    height: 1200px;
+    height: auto
 }
 
 .left{
     float: left;
     width: 100%;
-    height: 1200px;
+    height: auto;
 }
 
 .row {
