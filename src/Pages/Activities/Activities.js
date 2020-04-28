@@ -34,7 +34,8 @@ export default class Activities extends Component {
   createModels = () => {
     let tempArray = [];
     for (let i = 0; i < this.state.activites.length; i++) {
-      let newModel = new ActivityModel(this.state.activites[i].name, './backend/'+this.state.activites[i].image, this.state.activites[i].description, [], [], []);
+      let currentActivity = this.state.activites[i]
+      let newModel = new ActivityModel(currentActivity.name, currentActivity.imageUrl, currentActivity.description, [], [], []);
       tempArray.push(newModel);
     }
     return tempArray;
@@ -70,6 +71,7 @@ export default class Activities extends Component {
                       pathname: `/activities/${activity.activity}/`,
                       state: activity
                     }}>
+                      {console.log(activity.imageUrl)}
                       <Activity key={activity.activity} activityType={activity.activity} imageUrl={activity.imageUrl} />
                       <br />
                     </NavLink>
