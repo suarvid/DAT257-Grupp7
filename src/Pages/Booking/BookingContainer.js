@@ -15,7 +15,8 @@ function BookingContainer(props) {
       capacity: 20,
       booked : 10,
       duration : 60,
-      price : 100
+      price : 100,
+      week :14
     },
     {
       id: "2",
@@ -26,7 +27,8 @@ function BookingContainer(props) {
       capacity: 20,
       booked : 21,
       duration : 60,
-      price : 100
+      price : 100,
+      week :14
 
     },
     {
@@ -38,7 +40,8 @@ function BookingContainer(props) {
       capacity: 20,
       booked : 5,
       duration : 60,
-      price : 100
+      price : 100,
+      week :14
 
     },
     {
@@ -50,7 +53,8 @@ function BookingContainer(props) {
       capacity: 20,
       booked : 1000,
       duration : 60,
-      price : 100
+      price : 100,
+      week :14
 
     },
     {
@@ -62,17 +66,20 @@ function BookingContainer(props) {
       capacity: 20,
       booked : 10,
       duration : 60,
-      price : 100
+      price : 100,
+      week :14
 
     },
   ];
   return (
     <div>
-      <h1>{props.data.title}</h1>
+      <h1>{props.data.title} {props.data.week}</h1>
+      <h2>Nästa vecka ></h2>
       <BookingHeader></BookingHeader>
 
       {data.map((item) => (
-        <BookingComponent data={item} />
+        item.week === this.week ?
+        <BookingComponent data={item} /> : <div>bajs</div>
       ))}
     </div>
   );

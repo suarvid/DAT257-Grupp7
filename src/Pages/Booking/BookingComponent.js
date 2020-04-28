@@ -18,21 +18,34 @@ class BookingComponent extends React.Component {
   }
 
   render() {
-
     let button;
-    if(this.props.data.capacity <= this.props.data.booked){
-      button = <Link
-      className="primary_button_large" style = {{display: 'inline-block'}}
-      to={{
-        pathname: `booking/${this.props.data.id}/`,
-        state: this.props.data,
-      }}
-    >
-      Boka
-    </Link>
-    }else{
-      button = <h1 className =  "primary_button_large" style = {{display: 'inline-block'}}>Fullt</h1>
+    if (this.props.data.capacity <= this.props.data.booked) {
+      button = (
+        <Link
+          className="primary_button_large"
+          style={{ display: "inline-block" }}
+          to={{
+            pathname: `booking/${this.props.data.id}/`,
+            state: this.props.data,
+          }}
+        >
+          Boka
+        </Link>
+      );
+    } else {
+      button = (
+        <h1
+          className="primary_button_large"
+          style={{ display: "inline-block" }}
+        >
+          Fullt
+        </h1>
+      );
     }
+
+    let newTime = new Date(
+      this.props.data.date.getTime() + this.props.data.duration * 60 * 1000
+    );
     return (
       <withRouter>
         <div className="component-container">
@@ -44,8 +57,9 @@ class BookingComponent extends React.Component {
           </div>
           <div className="component">
             <h2 className="component-headlines">
-              {this.props.data.date.getHours()}:
-              {this.props.data.date.getMinutes()}
+              {this.props.data.date.getHours()} :
+              {this.props.data.date.getMinutes()} -{newTime.getHours()} :
+              {newTime.getMinutes()}
             </h2>
           </div>
           <div className="component">

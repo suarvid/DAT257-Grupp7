@@ -3,9 +3,9 @@ import BookingContainer from "../../Pages/Booking/BookingContainer";
 import '../../../src/globalstyles.css'
 
 function Booking() {
-
     const data = {
-        title : "Kalendarium"
+        title : "Alla aktiviteter v. ",
+        week : 14
 
     }
   return (
