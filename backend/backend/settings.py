@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'post',
     'users',
     'activity',
+    'classes',
     'corsheaders',
     'rest_framework',
 
