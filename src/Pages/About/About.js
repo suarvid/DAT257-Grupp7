@@ -9,24 +9,18 @@ function About() {
                 <h2>Företagsnätverk</h2>
                 <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet....</p>
 
-                <h3>Åsas Yoga</h3>
+                <h3>Yogamidus</h3>
                 <p>Info om Åsas yoga....</p>
+                <p> här ska en bild in! kanske göra det till komponenter för de olika företagen istället?</p>
 
-                <h3>Yoga Mamma</h3>
-                <p>Info om Yoga mamma....</p>
+                <h3>NiaMotion</h3>
+                <p>Info om Nia....</p>
 
-                <h3>Helens Dans</h3>
-                <p>Info om Helens Dans....</p>
+                <h3> UnikaRum</h3>
+                <p>Info om UnikaRum, extrakolla så det heter så</p> 
 
             </div>
-            <div className="companies">
-                <h3>Ingående företag</h3>
-                <p>Åsa Yoga</p>
-                <p>Yoga Mamma</p>
-                <p>Helens Dans</p>
-            </div>
-         
-            
+           
             
         </div>
     )
