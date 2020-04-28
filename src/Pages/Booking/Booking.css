@@ -48,7 +48,51 @@
   overflow-wrap: break-word;
   max-height: inherit;
 }
-.header-headlines{
+.header-headlines1{
+  display: inline-block;
+  max-width: 15rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  margin-right: 4rem;
+  overflow-wrap: break-word;
+  max-height: inherit;
+}
+.header-headlines2{
+  display: inline-block;
+  max-width: 15rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 6rem;
+  margin-left: 2rem;
+  overflow-wrap: break-word;
+  max-height: inherit;
+}
+.header-headlines3{
+  display: inline-block;
+  max-width: 15rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 6rem;
+  margin-left: 6rem;
+  overflow-wrap: break-word;
+  max-height: inherit;
+}
+.header-headlines4{
+  display: inline-block;
+  max-width: 15rem;
+  padding-top: 2rem;
+  padding-right: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 6rem;
+  margin-left: 5rem;
+  overflow-wrap: break-word;
+  max-height: inherit;
+}
+.header-headlines5{
   display: inline-block;
   max-width: 15rem;
   padding-top: 2rem;
@@ -58,3 +102,4 @@
   overflow-wrap: break-word;
   max-height: inherit;
 }
+
