@@ -16,7 +16,6 @@ export default class Activities extends Component {
   }
 
   componentDidMount() {
-    var self = this;
     console.log('Component mounted')
     axios.get('http://127.0.0.1:8000/api/activities/')
       .then(response => {
