@@ -14,6 +14,7 @@ class Class(models.Model):
     location = models.CharField(max_length=120)
     max_attendees = models.IntegerField(default=0)
     registered_attendees = models.IntegerField(default=0)
+    price = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if (self.start_time > self.end_time) or (self.registered_attendees > self.max_attendees and self.max_attendees != 0):

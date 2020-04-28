@@ -16,7 +16,6 @@ class BookingForm extends React.Component {
     });
   }
   componentDidMount() {
-    const { handle } = this.props.match.params;
     const data = this.props.location.state;
     this.setState({
       booking: data,
@@ -24,17 +23,18 @@ class BookingForm extends React.Component {
   }
 
   render() {
-    let newTime = new Date(
-      this.props.location.state.date.getTime() +
-        this.props.location.state.duration * 60 * 1000
-    );
+    let newTime = 10;
+    // let newTime = new Date(
+    //   this.props.location.state.date.getTime() +
+    //     this.props.location.state.duration * 60 * 1000
+    // );
     return (
       <div align="center">
         <h1>
           {this.props.location.state.type} {this.props.location.state.location}{" "}
-          {this.props.location.state.date.getHours()} :
-          {this.props.location.state.date.getMinutes()} -{newTime.getHours()} :
-          {newTime.getMinutes()}
+          {this.props.location.state.start_time} :
+          {/* {this.props.location.state.date.getMinutes()} -{newTime.getHours()} :
+          {newTime.getMinutes()} */}
         </h1>
         Pris : {this.props.location.state.price} kr
         <form>

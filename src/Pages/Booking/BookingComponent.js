@@ -72,8 +72,6 @@ class BookingComponent extends React.Component {
                 -
               <br/>
               {this.props.data.end_time.substring(0, 5)}
-              {/* {this.props.data.date.getHours()}:
-              {this.props.data.date.getMinutes()} */}
             </h2>
           </div>
           <div className="component">
