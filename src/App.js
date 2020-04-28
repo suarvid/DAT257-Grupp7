@@ -13,7 +13,6 @@ export default function App() {
   return (
     <div>
     <Navbar/>
-    <Router/>
     </div>
   );
 }
