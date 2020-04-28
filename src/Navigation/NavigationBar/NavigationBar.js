@@ -42,7 +42,7 @@ class NavigationBar extends Component {
       </Menu.Item>
       <Menu.Item key="booking" style={ {float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"130px", marginTop:'12px'}}>
           <NavLink activeClassName="navItemSelected" to="/booking" style={{textDecoration: 'none', color:'white'}}>
-              Shema
+              Schema
           </NavLink>
           </Menu.Item>
       <Menu.Item key="login" style={{float:'left', display:'flex', justifyContent:"space-around", alignItems:'center', borderLeft: '1px solid white', width:"130px", marginTop:'12px'}}>
