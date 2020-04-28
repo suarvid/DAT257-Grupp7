@@ -6,7 +6,6 @@ function Booking() {
     const data = {
         title : "Alla aktiviteter v. ",
         week : 14
-
     }
   return (
     <div align = 'center'>

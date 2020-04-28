@@ -5,6 +5,7 @@ import BookingComponent from "./BookingComponent";
 import "../Booking/Booking.css";
 
 function BookingContainer(props) {
+  const currentWeek = props.data.week
   const data = [
     {
       id: "1",
@@ -67,10 +68,11 @@ function BookingContainer(props) {
       booked : 10,
       duration : 60,
       price : 100,
-      week :14
+      week :15
 
     },
   ];
+  
   return (
     <div>
       <h1>{props.data.title} {props.data.week}</h1>
@@ -78,8 +80,8 @@ function BookingContainer(props) {
       <BookingHeader></BookingHeader>
 
       {data.map((item) => (
-        item.week === this.week ?
-        <BookingComponent data={item} /> : <div>bajs</div>
+        item.week === currentWeek ?
+        <BookingComponent data={item} /> : <div></div>
       ))}
     </div>
   );

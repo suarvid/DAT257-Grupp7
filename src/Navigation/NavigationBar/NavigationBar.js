@@ -19,8 +19,6 @@ import "./NavigationBar.css";
 import Logo from "../../Components/Logo";
 import PostList from "../../Pages/Home/PostListView";
 import PostDetail from "../../Pages/Home/PostDetailView";
-import BookingForm from "../../Pages/Booking/BookingForm";
-
 
 const { Header, Content, Footer } = Layout;
 
@@ -171,9 +169,7 @@ class NavigationBar extends Component {
           <Route exact path="/join" component={Join} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/login/:userID" component={Booking} />
-          <Route exact path="/" component={PostList} />      
           <Route exact path="/post/:postID/" component={PostDetail} />
-          <Route exact path="/booking/:bookingID/" component={BookingForm} />
         </Switch>
       </Router>
     );
