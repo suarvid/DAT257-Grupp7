@@ -3,8 +3,7 @@ import Activity from './Activity/Activity'
 import ActivityModel from './ActivityModel'
 import './Activities.css'
 import { NavLink } from "react-router-dom";
-import FooterComponent from '../../Components/FooterComponent/FooterComponent'
-import '../../Footer.css'
+
 
 export default class Activities extends Component {
     render() {
@@ -41,9 +40,8 @@ export default class Activities extends Component {
                         </div>)
                     })}
                 </div>
-                <div className="footer">
-                    <FooterComponent/>
-                </div>
+                   
+                
             </div>
         )
     }

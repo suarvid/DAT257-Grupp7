@@ -1,6 +1,4 @@
 import React from 'react'
-import FooterComponent from '../../Components/FooterComponent/FooterComponent'
-import '../../Footer.css'
 
 function Booking() {
     return (
@@ -13,9 +11,7 @@ function Booking() {
                 <p> Testtesttest</p>
                 <p> Om du vill boka ett pass tryck *här*</p>
             </div>
-            <div className="footer">
-                <FooterComponent/>
-             </div>   
+               
          </div>
 
     )

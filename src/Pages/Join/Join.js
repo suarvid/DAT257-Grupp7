@@ -1,7 +1,5 @@
 import React from 'react'
 import './Join.css'
-import FooterComponent from '../../Components/FooterComponent/FooterComponent'
-import '../../Footer.css'
 
 function Join() {
     return (
@@ -20,9 +18,7 @@ function Join() {
                     <p>Helens Dans</p>
                 </div>
             </div>
-            <div className="footer">
-                <FooterComponent/>
-            </div>
+            
         </div>
     )
 }

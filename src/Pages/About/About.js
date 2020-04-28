@@ -1,7 +1,5 @@
 import React from 'react'
 import './About.css'
-import FooterComponent from '../../Components/FooterComponent/FooterComponent'
-import '../../Footer.css'
 
 function About() {
     return (
@@ -29,9 +27,8 @@ function About() {
                     <p>Helens Dans</p>
                 </div>
             </div>
-            <div className="footer">
-                <FooterComponent/>
-            </div>
+            
+            
          </div>
     )
 }
