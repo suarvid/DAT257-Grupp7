@@ -13,7 +13,9 @@ function BookingContainer(props) {
       location: "Åsaplatsen",
       instructor: "Åsa",
       capacity: 20,
-      booked : 10
+      booked : 10,
+      duration : 60,
+      price : 100
     },
     {
       id: "2",
@@ -22,7 +24,9 @@ function BookingContainer(props) {
       location: "Åsaplatsen",
       instructor: "Ase",
       capacity: 20,
-      booked : 21
+      booked : 21,
+      duration : 60,
+      price : 100
 
     },
     {
@@ -32,7 +36,9 @@ function BookingContainer(props) {
       location: "Asåplatsen",
       instructor: "Åsa",
       capacity: 20,
-      booked : 5
+      booked : 5,
+      duration : 60,
+      price : 100
 
     },
     {
@@ -42,7 +48,9 @@ function BookingContainer(props) {
       location: "Åsaplatsen",
       instructor: "Åsa",
       capacity: 20,
-      booked : 1000
+      booked : 1000,
+      duration : 60,
+      price : 100
 
     },
     {
@@ -52,7 +60,9 @@ function BookingContainer(props) {
       location: "Heden",
       instructor: "Arvid",
       capacity: 20,
-      booked : 10
+      booked : 10,
+      duration : 60,
+      price : 100
 
     },
   ];

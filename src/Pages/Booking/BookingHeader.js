@@ -5,11 +5,11 @@ import "../Booking/Booking.css";
 function BookingHeader(props) {
   return (
     <div className="header">
-      <h3 className="header-headlines">Dag</h3>
-      <h3 className="header-headlines">Tid</h3>
-      <h3 className="header-headlines">Typ</h3>
-      <h3 className="header-headlines">Lokal</h3>
-      <h3 className="header-headlines">Instruktör</h3>
+      <h2 className="header-headlines1">Dag</h2>
+      <h2 className="header-headlines2">Tid</h2>
+      <h2 className="header-headlines3">Typ</h2>
+      <h2 className="header-headlines4">Lokal</h2>
+      <h2 className="header-headlines5">Instruktör</h2>
     </div>
   );
 }
