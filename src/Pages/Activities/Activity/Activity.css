@@ -1,6 +1,37 @@
 .activityImage {
-    width: 300px;
-    height: 180px;
+    width: 100px;
+    height: 80px;
     object-fit: cover;
     margin: 20px;
+}
+.activityCard {
+    max-width: 1900px;
+    height: fit-content;
+    display: flex;
+    justify-content: left;
+    border-radius: 10px;
+    border: 0px solid lightgray;
+    padding: 10px;
+}
+.descriptionPreview{
+    max-width: 1700px;
+    max-height: 100px;
+    display:flex;
+}
+.descriptionPreview > p{
+    float: left;
+    padding:8px;
+    font-size: 12px;
+    margin-top: 12px;
+    text-decoration: none;
+}
+.descriptionPreview > h2{
+    float: left;
+    font-size: 20px;
+    margin-top:20px;
+    padding:0px;
+    margin-right: 10px;
+    min-width: 80px;
+    max-width: 80px;
+    text-decoration: none;
 }
