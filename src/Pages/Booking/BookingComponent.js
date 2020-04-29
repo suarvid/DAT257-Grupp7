@@ -43,7 +43,9 @@ class BookingComponent extends React.Component {
 
   render() {
     let button;
-    if (this.props.data.registered_attendees <= this.props.data.max_attendees || this.props.data.max_attendees <= 0) {
+    console.log('registered ' + this.props.data.registered_attendees)
+    console.log('max: ' + this.props.data.max_attendees)
+    if (this.props.data.registered_attendees < this.props.data.max_attendees || this.props.data.max_attendees == 0) {
       button = (
         <Link
           className="primary_button_large"

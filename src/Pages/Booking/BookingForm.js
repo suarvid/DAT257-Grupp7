@@ -14,7 +14,7 @@ class BookingForm extends React.Component {
       booking: {},
       activity: {},
       instructor: {},
-      firstname: "",
+      firstName: "",
       mail: "",
       phone: "",
       payment: "swish",
@@ -26,8 +26,8 @@ class BookingForm extends React.Component {
 
   handleChange(event) {
     const { name, value } = event.target;
-   
-    this.setState(()=>({
+
+    this.setState(() => ({
       [name]: value,
     }));
   }
@@ -46,6 +46,10 @@ class BookingForm extends React.Component {
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
     console.log("Form submitted!");
+    console.log(this.state.firstName)
+    console.log(this.state.mail)
+    console.log(this.state.phone)
+    console.log(this.props.location.containerData.classID)
     axios
       .put(
         `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
@@ -70,8 +74,8 @@ class BookingForm extends React.Component {
         console.log(error);
       });
     axios.post('http://localhost:8000/api/bookings/', {
-      name: this.state.name,
-      email: this.state.email,
+      name: this.state.firstName,
+      email: this.state.mail,
       phone_number: this.state.phone,
       classID: this.props.location.containerData.classID,
     })
@@ -110,7 +114,7 @@ class BookingForm extends React.Component {
               value={this.state.firstName}
               handleChange={this.handleChange}
               placeholder="Namn"
-              parentText = {()=> this.state.firstName}
+              parentText={() => this.state.firstName}
             />
             <br />
             <TextInput
@@ -120,7 +124,7 @@ class BookingForm extends React.Component {
               value={this.state.mail}
               handleChange={this.handleChange}
               placeholder="Mailadress"
-              parentText = {()=> this.state.mail}
+              parentText={() => this.state.mail}
 
             />
             <br />
@@ -134,7 +138,7 @@ class BookingForm extends React.Component {
               value={this.state.phone}
               handleChange={this.handleChange}
               placeholder="Telefonnummer"
-              parentText = {()=> this.state.phone}
+              parentText={() => this.state.phone}
 
             />
           </div>
@@ -147,7 +151,7 @@ class BookingForm extends React.Component {
                 value="swish"
                 initialCheck={true}
                 parentPayment={this.getPayment}
-                handleChange = {this.handleChange}
+                handleChange={this.handleChange}
               />
               <RadioButton
                 name="payment"
@@ -155,7 +159,7 @@ class BookingForm extends React.Component {
                 value="cash"
                 initialCheck={false}
                 parentPayment={this.getPayment}
-                handleChange = {this.handleChange}
+                handleChange={this.handleChange}
 
               />
             </div>
