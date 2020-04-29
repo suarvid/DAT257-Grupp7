@@ -1,0 +1,12 @@
+.formContainer{
+    background-color: lightgray;
+    border-radius: 20;
+    border-color: solid var(--primary-border-color);
+    height: fit-content;
+    display: flex;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: var(--primary-text-color)
+  }
+  

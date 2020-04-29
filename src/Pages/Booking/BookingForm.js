@@ -1,5 +1,11 @@
 import React from "react";
-import "../../../src/globalstyles.css";
+import "../../../src/globalstyles.css"; 
+import "./BookingForm.css"
+import TextInput from "./FormComponents/TextInput";
+import PaymentInput from "./FormComponents/PaymentInput";
+import { withRouter } from 'react-router-dom'
+
+
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
@@ -36,32 +42,44 @@ class BookingForm extends React.Component {
           {this.props.location.state.date.getMinutes()} -{newTime.getHours()} :
           {newTime.getMinutes()}
         </h1>
+        
         Pris : {this.props.location.state.price} kr
-        <form>
-          <input
-            name="firstName"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-            placeholder="Namn"
-          />
-          <br />
-          <input
-            name="mail"
-            value={this.state.email}
-            onChange={this.handleChange}
-            placeholder="Email"
-          />
-          <br />
-          <input
-            name="phone"
-            value={this.state.phone}
-            onChange={this.handleChange}
-            placeholder="Telefonnummer"
-          />
-          <br />
-          <button className = "primary_button_large">Godkänn</button>
-        </form>
+        <div className = "formContainer" align="left">
+          <div className = "formField">
+            <TextInput
+                label="Namn:"
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                handleChange={this.handleChange}
+                placeholder="Namn"/>
+              <br/>
+             <TextInput 
+                label= "Mailadress:"
+                type="email"
+                name="mail"
+                value={this.state.mail}
+                handleChange={this.handleChange}
+                placeholder="Mailadress"/>
+              <br/>
+              <TextInput 
+                label="Telefon:"
+                type="value"
+                name="phone"
+                value={this.state.phone}
+                handleChange={this.handleChange}
+                placeholder="Telefonnummer"/>
+              </div>
+              <PaymentInput
+               label="Betalsätt:"
+               name="payment"
+               value={this.state.payment}
+               handleChange={this.handleChange}
+              />
+              </div>
+              <button className = "primary_button_large">Godkänn</button>
       </div>
+
     );
   }
 }
