@@ -1,8 +1,8 @@
 .activityMainImage{
     margin-top: 40px;
-    margin-left: 0px;
+    margin-left: 20px;
     margin-right: auto;
-    max-width: 800px;
+    max-width: 500px;
     padding: 0px;
 } 
 
@@ -52,7 +52,8 @@
     padding: 5px;
     box-shadow: var(--default-box-shadow);
     margin: 48px;
-    width: 400px;
+    min-width: 400px;
+    width: fit-content;
     height: 100px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
@@ -103,6 +104,7 @@
 }
 .activityHeader{
     display: flex;
-    margin:0px;
+    margin-left:0px;
+    margin-right: 200px;
     padding:0px;
 }

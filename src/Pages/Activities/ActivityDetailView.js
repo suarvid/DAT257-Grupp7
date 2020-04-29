@@ -35,7 +35,7 @@ class ActivityDetail extends React.Component {
                 <div className='activityDetailContainer'>
                     <div className = "activityHeader">
                         <img className='activityMainImage' src={this.state.image} alt={this.state.name}/>
-                        <div>
+                        <div align="left">
                         <h1 className='activityName'>{this.state.name}</h1>
                         <ul>{tags}</ul>
                         </div>
