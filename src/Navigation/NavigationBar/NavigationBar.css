@@ -24,3 +24,7 @@ a:active {
   font-weight: 600;
   text-decoration: underline !important;
 }
+
+.cursor-hover .ant-menu-submenu-title:hover {
+  cursor:pointer;
+}

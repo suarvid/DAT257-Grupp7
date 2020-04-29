@@ -173,6 +173,7 @@ class NavigationBar extends Component {
                 </NavLink>
               </Menu.Item>
               <SubMenu
+                className="cursor-hover"
                 style={{
                     borderLeft: "1px solid white",
                   float: "left",
