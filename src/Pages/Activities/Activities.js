@@ -30,6 +30,7 @@ export default class Activities extends Component {
                             <NavLink to = {{
                               pathname: `/activities/${activity.activity}/`,
                               state: activity
+                              
                               }}>
                                  <Activity key={activity.activity} activityType={activity.activity} imageUrl={activity.imageUrl} />
                                  <br />
