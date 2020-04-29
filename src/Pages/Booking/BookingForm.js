@@ -60,18 +60,50 @@ class BookingForm extends React.Component {
   render() {
     return (
       <div align='center'>
-        <h1>{this.props.location.testValue}</h1>
-        <h1>{this.props.location.activityName}</h1>
-        <h1>{this.props.location.instructorName}</h1>
-        <h1>{this.props.location.containerData.location}</h1>
-        <h1>{this.props.location.containerData.start_time.substring(0, 5)}</h1>
-        <h1>{this.props.location.containerData.end_time.substring(0, 5)}</h1>
+        <div>
+          <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
+        </div>
+        <div>
+          <h3>
+          {`${this.props.location.containerData.date},${this.props.location.containerData.start_time.substring(0, 5)}-${this.props.location.containerData.end_time.substring(0, 5)}`}
+          </h3>
+        </div>
+        <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
+        <h1>{}</h1>
         <h1>{this.props.location.containerData.activity}</h1>
-        <h1>{this.props.location.containerData.date}</h1>
         <h1>class ID:{this.props.location.containerData.classID}</h1>
         <h1>{this.props.location.containerData.activityID}</h1>
         <h1>{this.props.location.containerData.description}</h1>
         <h1>{this.props.location.containerData.instructor}</h1>
+        <div className = "formContainer" align="left">
+          <div className = "formField">
+            <TextInput
+                label="Namn:"
+                type="text"
+                name="firstName"
+                value={this.state.firstName}
+                placeholder="Namn"/>
+              <br/>
+             <TextInput 
+                label= "Mailadress:"
+                type="email"
+                name="mail"
+                value={this.state.mail}
+                placeholder="Mailadress"/>
+              <br/>
+              <TextInput 
+                label="Telefon:"
+                type="value"
+                name="phone"
+                value={this.state.phone}
+                placeholder="Telefonnummer"/>
+              </div>
+              <PaymentInput
+               label="Betalsätt:"
+               name="payment"
+               value={this.state.payment}
+              />
+              </div>
         <button className="primary_button_large" onClick={this.onSubmit}>Godkänn</button>
       </div>
 
