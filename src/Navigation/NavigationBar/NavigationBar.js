@@ -21,7 +21,7 @@ import MenuItem from "antd/lib/menu/MenuItem";
 import PostList from "../../Pages/Home/PostListView";
 import PostDetail from "../../Pages/Home/PostDetailView";
 import Banner from "../../Components/Banner/BannerComponent";
-
+import BookingForm from "../../Pages/Booking/BookingForm"
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
