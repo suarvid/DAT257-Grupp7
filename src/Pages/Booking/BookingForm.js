@@ -86,25 +86,15 @@ class BookingForm extends React.Component {
   render() {
     return (
       <div align='center'>
-        <h1>{this.state.name}</h1>
-        <h1>{this.state.email}</h1>
-        <h1>{this.state.phone}</h1>
-        <h1>{this.props.location.containerData.classID}</h1>
         <div>
           <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
         </div>
-        <div>
+        <div align='center'>
           <h3>
-            {`${this.props.location.containerData.date},${this.props.location.containerData.start_time.substring(0, 5)}-${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
         </div>
         <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
-        <h1>{}</h1>
-        <h1>{this.props.location.containerData.activity}</h1>
-        <h1>class ID:{this.props.location.containerData.classID}</h1>
-        <h1>{this.props.location.containerData.activityID}</h1>
-        <h1>{this.props.location.containerData.description}</h1>
-        <h1>{this.props.location.containerData.instructor}</h1>
         <div className="formContainer" align="center">
           <div className="formField">
             <TextInput
