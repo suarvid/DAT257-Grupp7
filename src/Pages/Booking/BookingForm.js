@@ -13,14 +13,7 @@ class BookingForm extends React.Component {
     this.state = {
       booking: {},
       activity: {},
-      instructor: {},
-      layout: {
-        labelCol: { span: 8 },
-        wrapperCol: { span: 16 },
-      },
-      tailLayout: {
-        wrapperCol: { offset: 8, span: 16 },
-      }
+      instructor: {}
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
