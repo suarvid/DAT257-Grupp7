@@ -9,6 +9,8 @@ export default class BookingContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentWeek: props.data.currentWeek,
+      displayWeek: props.data.displayWeek,
       classes: [],
       data: [
         {
@@ -71,6 +73,20 @@ export default class BookingContainer extends React.Component {
         },
       ],
     }
+    this.decrementWeek = this.decrementWeek.bind(this);
+    this.incrementWeek = this.incrementWeek.bind(this);
+  }
+
+  decrementWeek() {
+    this.setState((state) => ({
+      displayWeek: state.displayWeek - 1,
+    }));
+  }
+
+  incrementWeek() {
+    this.setState((state) => ({
+      displayWeek: state.displayWeek + 1,
+    }));
   }
 
   componentDidMount() {
@@ -87,14 +103,42 @@ export default class BookingContainer extends React.Component {
   }
 
   render() {
+    let button;
+    let weekText;
+    this.state.currentWeek < this.state.displayWeek
+      ? (weekText = "Föregående vecka")
+      : (weekText = "Nästa vecka");
+    console.log(this.state);
     return (
-      <div>
-        <h1>Bokningar</h1>
+      <div text-align="center">
+        <h1>
+          {this.state.title} {this.state.displayWeek}
+        </h1>
+        {this.state.currentWeek < this.state.displayWeek ? (
+          <h2 onClick={this.decrementWeek} style={{ display: "inline-block" }}>
+            {" "}
+            {"<"}{" "}
+          </h2>
+        ) : (
+            <div />
+          )}
+        <h2 style={{ display: "inline-block" }}>{weekText}</h2>
+        {this.state.currentWeek < this.state.displayWeek ? (
+          <div />
+        ) : (
+            <h2 onClick={this.incrementWeek} style={{ display: "inline-block" }}>
+              {">"}{" "}
+            </h2>
+          )}
         <BookingHeader></BookingHeader>
 
-        {this.state.classes.map((item) => (
-          <BookingComponent data={item} />
-        ))}
+        {this.state.data.map((item) =>
+          item.week === this.state.displayWeek ? (
+            <BookingComponent data={item} />
+          ) : (
+              <div></div>
+            )
+        )}
       </div>
     );
   }

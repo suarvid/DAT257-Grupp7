@@ -3,10 +3,10 @@ import BookingContainer from "../../Pages/Booking/BookingContainer";
 import '../../../src/globalstyles.css'
 
 function Booking() {
-
     const data = {
-        title : "Kalendarium"
-
+        title : "Alla aktiviteter v. ",
+        currentWeek : 14,
+        displayWeek : 14
     }
   return (
     <div align = 'center'>

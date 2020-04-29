@@ -42,21 +42,34 @@ class BookingComponent extends React.Component {
   }
 
   render() {
-
     let button;
-    if(this.props.data.registered_attendees <= this.props.data.max_attendees || this.props.data.max_attendees === 0){
-      button = <Link
-      className="primary_button_large" style = {{display: 'inline-block'}} id='bookButton'
-      to={{
-        pathname: `booking/${this.props.data.id}/`,
-        state: this.props.data,
-      }}
-    >
-      Boka
-    </Link>
-    }else{
-      button = <h1 className =  "primary_button_large" style = {{display: 'inline-block'}}>Fullt</h1>
+    if (this.props.data.registered_attendees <= this.props.data.max_attendees || this.props.data.max_attendees <= 0) {
+      button = (
+        <Link
+          className="primary_button_large"
+          style={{ display: "inline-block" }}
+          to={{
+            pathname: `booking/${this.props.data.id}/`,
+            state: this.props.data,
+          }}
+        >
+          Boka
+        </Link>
+      );
+    } else {
+      button = (
+        <h1
+          className="primary_button_large"
+          style={{ display: "inline-block" }}
+        >
+          Fullt
+        </h1>
+      );
     }
+
+    let newTime = new Date(
+      this.props.data.date.getTime() + this.props.data.duration * 60 * 1000
+    );
     return (
       <withRouter>
         <div className="component-container">
