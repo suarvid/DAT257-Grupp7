@@ -1,6 +1,6 @@
 import React from "react"
 import niamotion from "./niamotion.jpg";
-import logo from "../Logo.png";
+import logo from "../Logo2.png";
 
 function BannerComponent(){
     return(
