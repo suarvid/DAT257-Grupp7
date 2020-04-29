@@ -16,6 +16,7 @@ class BookingForm extends React.Component {
       instructor: {},
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
@@ -34,6 +35,10 @@ class BookingForm extends React.Component {
 
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
+    console.log(this.state.name);
+    console.log(this.state.email);
+    console.log(this.state.phone);
+    console.log(this.props.location.containerData.classID);
     console.log('Form submitted!');
     axios.put(`http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`, {
       id: this.props.location.classID,
@@ -54,9 +59,9 @@ class BookingForm extends React.Component {
         console.log(error);
       });
     axios.post('http://localhost:8000/api/bookings/', {
-      name: 'Testnamn',
-      email: 'Test@mail.se',
-      phone_number: '1337',
+      name: this.state.name,
+      email: this.state.email,
+      phone_number: this.state.phone,
       classID: this.props.location.containerData.classID,
     })
   }
