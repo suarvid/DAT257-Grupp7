@@ -88,8 +88,7 @@ class BookingForm extends React.Component {
       <div align='center'>
         <div>
           <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
-        </div>
-        <div align='center'>
+          <br />
           <h3>
             {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
@@ -118,9 +117,6 @@ class BookingForm extends React.Component {
 
             />
             <br />
-            <label>
-              <input value={this.state.mail} />
-            </label>
             <TextInput
               label="Telefon:"
               type="value"

@@ -36,3 +36,15 @@
     margin-right: 20px;
     color: var(--primary-text-color)
 }
+
+#classTitle {
+  align-self: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+#classLocation {
+  align-self: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
