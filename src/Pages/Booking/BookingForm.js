@@ -3,9 +3,9 @@ import "../../../src/globalstyles.css";
 import "./BookingForm.css";
 import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
-import { withRouter } from "react-router-dom";
-import { Form, Input, InputNumber, Button } from "antd";
-import axios from "axios";
+import { withRouter, Link, Route } from 'react-router-dom'
+import { Form, Input, InputNumber, Button } from 'antd';
+import axios from 'axios';
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -19,9 +19,9 @@ class BookingForm extends React.Component {
       phone: "",
       payment: "swish",
     };
-    this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.getPayment = this.getPayment.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
@@ -31,8 +31,8 @@ class BookingForm extends React.Component {
       [name]: value,
     }));
   }
+
   componentDidMount() {
-    const { handle } = this.props.match.params;
     const data = this.props.location.state;
     this.setState({
       booking: data,
@@ -69,24 +69,29 @@ class BookingForm extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+    axios.post('http://localhost:8000/api/bookings/', {
+      name: 'Testnamn',
+      email: 'Test@mail.se',
+      phone_number: '1337',
+      classID: this.props.location.containerData.classID,
+    })
   }
 
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
     return (
-      <div align="center">
+      <div align='center'>
+        <h1>{this.state.name}</h1>
+        <h1>{this.state.email}</h1>
+        <h1>{this.state.phone}</h1>
+        <h1>{this.props.location.containerData.classID}</h1>
         <div>
           <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
         </div>
         <div>
           <h3>
-            {`${
-              this.props.location.containerData.date
-            },${this.props.location.containerData.start_time.substring(
-              0,
-              5
-            )}-${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${this.props.location.containerData.date},${this.props.location.containerData.start_time.substring(0, 5)}-${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
         </div>
         <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
@@ -156,9 +161,16 @@ class BookingForm extends React.Component {
             </div>
           </div>
         </div>
-        <button className="primary_button_large" onClick={this.onSubmit}>
-          Boka
-        </button>
+        <withRouter>
+          <Link to={{
+            pathname: '/'
+          }}>
+            <button className="primary_button_large" onClick={this.onSubmit}>Boka</button>
+          </Link>
+          <Route
+            path={'/'}
+          />
+        </withRouter>
       </div>
     );
   }

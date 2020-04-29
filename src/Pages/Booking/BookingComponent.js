@@ -64,7 +64,6 @@ class BookingComponent extends React.Component {
             },
             activityName: this.state.activity.name,
             instructorName: this.state.instructor.name,
-            testValue: 'Kan man ens nå denna?',
           }}
         >
           Boka
