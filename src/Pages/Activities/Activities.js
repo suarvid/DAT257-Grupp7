@@ -34,7 +34,8 @@ export default class Activities extends Component {
     let tempArray = [];
     for (let i = 0; i < this.state.activites.length; i++) {
       let currentActivity = this.state.activites[i]
-      let newModel = new ActivityModel(currentActivity.name, currentActivity.imageUrl, currentActivity.description, [], [], []);
+      console.log("current activity image: " + currentActivity.imageUrl)
+      let newModel = new ActivityModel(currentActivity.name, currentActivity.image, currentActivity.description, [], [], []);
       tempArray.push(newModel);
     }
     return tempArray;
@@ -70,7 +71,7 @@ export default class Activities extends Component {
                       pathname: `/activities/${activity.activity}/`,
                       state: activity
                     }}>
-                      {console.log(activity.imageUrl)}
+                      {console.log("image url: " + activity.imageUrl)}
                       <Activity key={activity.activity} activityType={activity.activity} imageUrl={activity.imageUrl} />
                       <br />
                     </NavLink>

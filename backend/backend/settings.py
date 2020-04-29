@@ -129,8 +129,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-
-MEDIA_ROOT = '../media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #Defines what url/port we assume the frontend to communicate via
 # CORS_ORIGIN_ALLOW_ALL = True
@@ -138,3 +138,4 @@ MEDIA_ROOT = '../media/'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
+
