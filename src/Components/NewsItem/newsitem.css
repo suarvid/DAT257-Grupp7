@@ -22,7 +22,7 @@ img {
     text-overflow: ellipsis;
 }
 
-.header {
+.newsitem-header {
     text-decoration: none;
     color: #7c795d;
     font-family: 'Trocchi', serif;
@@ -32,7 +32,7 @@ img {
     margin: 0;
 }
 
-.header:hover {
+.newsitem-header:hover {
     text-decoration: none;
     cursor: pointer;
 }

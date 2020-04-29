@@ -5,4 +5,4 @@ from activity.models import Activity
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
-        fields = ('id', 'name', 'description')
+        fields = ('id', 'name', 'description', 'image')

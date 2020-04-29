@@ -1,22 +1,13 @@
-.test{
-    color: orange;
-    background-color: beige;
-    margin: 20px;
-    text-align: center;
-    width: 400px;
-}
-
-.test,li{
-    text-align: left;
-}
-.test,h1{
-    text-align: center;
-}
+@import "../../globalstyles.css";
 
 .activitiesContainer {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
+    max-width: 1900px;
+    margin: 20px auto;
+    margin-left:20px;
+    margin-right: 20px;
     flex-wrap: wrap;
+    display: left;
     justify-content: left;
+    text-emphasis: none;
+    text-decoration: none;
 }

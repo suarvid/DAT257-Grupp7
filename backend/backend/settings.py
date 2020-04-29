@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'post',
     'users',
     'activity',
+    'classes',
+    'bookings',
     'corsheaders',
     'rest_framework',
 
@@ -127,6 +129,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #Defines what url/port we assume the frontend to communicate via
 # CORS_ORIGIN_ALLOW_ALL = True
@@ -134,3 +138,4 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
+

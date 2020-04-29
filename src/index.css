@@ -18,3 +18,10 @@ code {
   src: local("SourceSansPro"),
     url("./Fonts/SourceSansPro-Regular.ttf") format("truetype");
 }
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
