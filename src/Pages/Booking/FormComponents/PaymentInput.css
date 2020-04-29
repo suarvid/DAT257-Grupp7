@@ -1,5 +1,6 @@
 @import "../../../globalstyles.css";
 .container{
     border-radius: var(--container-border-radius);
+    border: 1px solid var(--primary-border-color);
 
 }

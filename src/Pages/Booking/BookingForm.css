@@ -1,12 +1,38 @@
 .formContainer{
-    background-color: lightgray;
+    background-color: gray;
     border-radius: 20;
     border-color: solid var(--primary-border-color);
     height: fit-content;
-    display: flex;
     padding: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    align-content: center;
+    color: var(--primary-text-color);
+    display:flex;
+  }
+  .formField{
+    align-self: center;
+    background-color: greenyellow;
+    border-radius: 20;
+    border-color: solid var(--primary-border-color);
+    height: 300px;
+    width: 700px;
+    display: table-row;
+    padding: 20px;
+    margin: 20px;
     color: var(--primary-text-color)
   }
-  
+.formContainer > .formField{
+  align-self: stretch;
+}
+
+  .formField > .paymentContainer{
+    border-radius: var(--container-border-radius);
+    border: 1px solid var(--primary-border-color);
+    height: 300px;
+    width: 400px;
+    display: table-row;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: var(--primary-text-color)
+}

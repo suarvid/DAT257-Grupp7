@@ -2,7 +2,7 @@ import React from "react";
 import "../../../src/globalstyles.css";
 import "./BookingForm.css"
 import TextInput from "./FormComponents/TextInput";
-import PaymentInput from "./FormComponents/PaymentInput";
+import RadioButton from "./FormComponents/RadioButton";
 import { withRouter } from 'react-router-dom'
 import { Form, Input, InputNumber, Button } from 'antd';
 import axios from 'axios';
@@ -68,7 +68,7 @@ class BookingForm extends React.Component {
         <h1>{this.props.location.containerData.activityID}</h1>
         <h1>{this.props.location.containerData.description}</h1>
         <h1>{this.props.location.containerData.instructor}</h1>
-        <div className = "formContainer" align="left">
+        <div className = "formContainer" align="center">
           <div className = "formField">
             <TextInput
                 label="Namn:"
@@ -90,14 +90,22 @@ class BookingForm extends React.Component {
                 name="phone"
                 value={this.state.phone}
                 placeholder="Telefonnummer"/>
+            </div>
+            <div className = "formField">
+            <h3>Betalning</h3>
+              <div className = "paymentContainer">
+                <RadioButton
+                  name="Betala direkt med swish"
+                  value="true"
+                 />
+                 <RadioButton
+                  name="Betala på plats"
+                  value="false"
+                />
               </div>
-              <PaymentInput
-               label="Betalsätt:"
-               name="payment"
-               value={this.state.payment}
-              />
-              </div>
-        <button className="primary_button_large" onClick={this.onSubmit}>Godkänn</button>
+            </div>
+          </div>
+        <button className="primary_button_large" onClick={this.onSubmit}>Boka</button>
       </div>
 
     );
