@@ -9,6 +9,7 @@ export default class BookingContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: props.data.title,
       currentWeek: props.data.currentWeek,
       displayWeek: props.data.displayWeek,
       classes: [],
@@ -103,7 +104,6 @@ export default class BookingContainer extends React.Component {
   }
 
   render() {
-    let button;
     let weekText;
     this.state.currentWeek < this.state.displayWeek
       ? (weekText = "Föregående vecka")
@@ -132,12 +132,8 @@ export default class BookingContainer extends React.Component {
           )}
         <BookingHeader></BookingHeader>
 
-        {this.state.data.map((item) =>
-          item.week === this.state.displayWeek ? (
-            <BookingComponent data={item} />
-          ) : (
-              <div></div>
-            )
+        {this.state.classes.map((item) =>
+          <BookingComponent data={item} />
         )}
       </div>
     );

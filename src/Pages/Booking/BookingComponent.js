@@ -50,7 +50,15 @@ class BookingComponent extends React.Component {
           style={{ display: "inline-block" }}
           to={{
             pathname: `booking/${this.props.data.id}/`,
-            state: this.props.data,
+            containerData: {
+              location: this.props.data.location,
+              start_time: this.props.data.start_time,
+              end_time: this.props.data.end_time,
+              date: this.props.data.date
+            },
+            activityName: this.state.activity.name,
+            instructorName: this.state.instructor.name,
+            testValue: 'Kan man ens nå denna?',
           }}
         >
           Boka
@@ -67,9 +75,6 @@ class BookingComponent extends React.Component {
       );
     }
 
-    let newTime = new Date(
-      this.props.data.date.getTime() + this.props.data.duration * 60 * 1000
-    );
     return (
       <withRouter>
         <div className="component-container">
