@@ -20,7 +20,17 @@ class BookingForm extends React.Component {
   }
 
   handleChange(event) {
-
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+  componentDidMount() {
+    const { handle } = this.props.match.params;
+    const data = this.props.location.state;
+    this.setState({
+      booking: data,
+    });
   }
 
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
@@ -75,20 +85,24 @@ class BookingForm extends React.Component {
                 type="text"
                 name="firstName"
                 value={this.state.firstName}
+                handleChange={this.handleChange}
                 placeholder="Namn"/>
               <br/>
-             <TextInput 
+             <TextInput
                 label= "Mailadress:"
                 type="email"
                 name="mail"
                 value={this.state.mail}
+                handleChange={this.handleChange}
                 placeholder="Mailadress"/>
               <br/>
+              <label><input value = {this.state.mail}/></label>
               <TextInput 
                 label="Telefon:"
                 type="value"
                 name="phone"
                 value={this.state.phone}
+                handleChange={this.handleChange}
                 placeholder="Telefonnummer"/>
             </div>
             <div className = "formField">

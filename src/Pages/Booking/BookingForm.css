@@ -11,8 +11,8 @@
     display:flex;
   }
   .formField{
-    align-self: center;
-    background-color: greenyellow;
+    align-self: left;
+    background-color: lightgray;
     border-radius: 20;
     border-color: solid var(--primary-border-color);
     height: 300px;
@@ -23,7 +23,7 @@
     color: var(--primary-text-color)
   }
 .formContainer > .formField{
-  align-self: stretch;
+  align-self: left;
 }
 
   .formField > .paymentContainer{
