@@ -1,7 +1,8 @@
-import React from 'react'
-import BaseRouter from '../../routes.js'
-import BannerComponent from '../../Components/Banner/BannerComponent'
-import './Home.css'
+import React from "react";
+import BannerComponent from "../../Components/Banner/BannerComponent";
+
+import PostListView from './PostListView'
+import "./Home.css";
 
 function Home() {
     return (
@@ -10,7 +11,7 @@ function Home() {
                 <div className="first">
                     <div className="banner">
                         <h3>Ingående företag</h3>
-                        <BaseRouter />       
+                        <PostListView />       
                     </div>
                 </div>
                 <div className="second">
@@ -24,4 +25,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;
