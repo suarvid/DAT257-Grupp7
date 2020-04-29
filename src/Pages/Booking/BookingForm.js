@@ -2,7 +2,7 @@ import React from "react";
 import "../../../src/globalstyles.css";
 import "./BookingForm.css"
 import TextInput from "./FormComponents/TextInput";
-import PaymentInput from "./FormComponents/PaymentInput";
+import RadioButton from "./FormComponents/RadioButton";
 import { withRouter } from 'react-router-dom'
 import { Form, Input, InputNumber, Button } from 'antd';
 import axios from 'axios';
@@ -22,7 +22,14 @@ class BookingForm extends React.Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-    })
+    });
+  }
+  componentDidMount() {
+    const { handle } = this.props.match.params;
+    const data = this.props.location.state;
+    this.setState({
+      booking: data,
+    });
   }
 
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
@@ -74,44 +81,54 @@ class BookingForm extends React.Component {
           </h3>
         </div>
         <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
-        <div className="formContainer" align="left">
-          <form>
-            <div className="formField">
-              <TextInput
+        <h1>{}</h1>
+        <h1>{this.props.location.containerData.activity}</h1>
+        <h1>class ID:{this.props.location.containerData.classID}</h1>
+        <h1>{this.props.location.containerData.activityID}</h1>
+        <h1>{this.props.location.containerData.description}</h1>
+        <h1>{this.props.location.containerData.instructor}</h1>
+        <div className = "formContainer" align="center">
+          <div className = "formField">
+            <TextInput
                 label="Namn:"
                 type="text"
-                name="name"
-                value={this.state.name}
-                placeholder="Namn"
+                name="firstName"
+                value={this.state.firstName}
                 handleChange={this.handleChange}
-              />
-              <br />
-              <TextInput
-                label='Email'
+                placeholder="Namn"/>
+              <br/>
+             <TextInput
+                label= "Mailadress:"
                 type="email"
-                name="email"
-                value={this.state.email}
-                placeholder="Mailadress"
+                name="mail"
+                value={this.state.mail}
                 handleChange={this.handleChange}
-              />
-              <br />
-              <TextInput
+                placeholder="Mailadress"/>
+              <br/>
+              <label><input value = {this.state.mail}/></label>
+              <TextInput 
                 label="Telefon:"
                 type="value"
                 name="phone"
                 value={this.state.phone}
-                placeholder="Telefonnummer"
                 handleChange={this.handleChange}
-              />
+                placeholder="Telefonnummer"/>
             </div>
-            <PaymentInput
-              label="Betalsätt:"
-              name="payment"
-              value={this.state.payment}
-            />
-          </form>
-        </div>
-        <button className="primary_button_large" onClick={this.onSubmit}>Godkänn</button>
+            <div className = "formField">
+            <h3>Betalning</h3>
+              <div className = "paymentContainer">
+                <RadioButton
+                  name="Betala direkt med swish"
+                  value="true"
+                 />
+                 <RadioButton
+                  name="Betala på plats"
+                  value="false"
+                />
+              </div>
+            </div>
+          </div>
+        <button className="primary_button_large" onClick={this.onSubmit}>Boka</button>
       </div>
 
     );
