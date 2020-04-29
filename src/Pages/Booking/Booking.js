@@ -5,7 +5,8 @@ import '../../../src/globalstyles.css'
 function Booking() {
     const data = {
         title : "Alla aktiviteter v. ",
-        week : 14
+        currentWeek : 14,
+        displayWeek : 14
     }
   return (
     <div align = 'center'>
