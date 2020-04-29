@@ -1,5 +1,6 @@
 import React from "react";
 import './ActivityDetail.css';
+import '../../../src/globalstyles.css';
 import { Link } from 'react-router-dom';
 class ActivityDetail extends React.Component {
     constructor(props) {
@@ -32,16 +33,22 @@ class ActivityDetail extends React.Component {
         return (
             <div>
                 <div className='activityDetailContainer'>
-                    <img className='activityMainImage' src={this.state.image} ></img>
-                    <h1 className='activityName'>{this.state.name}</h1>
+                    <div className = "activityHeader">
+                        <img className='activityMainImage' src={this.state.image} alt={this.state.name}/>
+                        <div>
+                        <h1 className='activityName'>{this.state.name}</h1>
+                        <ul>{tags}</ul>
+                        </div>
+                    </div>
+                    <div style={{marginTop:80}}>
                     <p className='activityDescription'>{this.state.description}</p>
                     <br />
-
+                    </div>
                     <div>
-                        <ul>{tags}</ul>
-                       
-                        
-                        <button id="showActivityButton"><Link style={{ textDecoration: 'none', color: 'white'}}>Visa alla {this.state.name}pass </Link></button>
+                        <button className = "primary_button_large">
+                            <Link style={{ textDecoration: 'none', color: 'white'}}>Visa alla {this.state.name}pass 
+                            </Link>
+                        </button>
                         
                     </div>
                 </div>
