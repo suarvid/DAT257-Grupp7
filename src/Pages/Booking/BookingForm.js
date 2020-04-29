@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../src/globalstyles.css";
-import "./BookingForm.css"
+import "./BookingForm.css";
 import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
 import { withRouter, Link, Route } from 'react-router-dom'
@@ -14,16 +14,22 @@ class BookingForm extends React.Component {
       booking: {},
       activity: {},
       instructor: {},
+      firstname: "",
+      mail: "",
+      phone: "",
+      payment: "swish",
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.getPayment = this.getPayment.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState({
+   
+    this.setState(()=>({
       [name]: value,
-    });
+    }));
   }
 
   componentDidMount() {
@@ -33,29 +39,34 @@ class BookingForm extends React.Component {
     });
   }
 
+  getPayment() {
+    return this.state.payment;
+  }
+
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
-    console.log(this.state.name);
-    console.log(this.state.email);
-    console.log(this.state.phone);
-    console.log(this.props.location.containerData.classID);
-    console.log('Form submitted!');
-    axios.put(`http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`, {
-      id: this.props.location.classID,
-      activity: this.props.location.containerData.activityID,
-      description: this.props.location.containerData.description,
-      instructor: this.props.location.containerData.instructor,
-      date: this.props.location.containerData.date,
-      start_time: this.props.location.containerData.start_time,
-      end_time: this.props.location.containerData.end_time,
-      location: this.props.location.containerData.location,
-      max_attendees: this.props.location.containerData.max_attendees,
-      registered_attendees: (this.props.location.containerData.registered_attendees + 1),
-    })
-      .then(response => {
+    console.log("Form submitted!");
+    axios
+      .put(
+        `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
+        {
+          id: this.props.location.classID,
+          activity: this.props.location.containerData.activityID,
+          description: this.props.location.containerData.description,
+          instructor: this.props.location.containerData.instructor,
+          date: this.props.location.containerData.date,
+          start_time: this.props.location.containerData.start_time,
+          end_time: this.props.location.containerData.end_time,
+          location: this.props.location.containerData.location,
+          max_attendees: this.props.location.containerData.max_attendees,
+          registered_attendees:
+            this.props.location.containerData.registered_attendees + 1,
+        }
+      )
+      .then((response) => {
         console.log(response);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
     axios.post('http://localhost:8000/api/bookings/', {
@@ -65,8 +76,6 @@ class BookingForm extends React.Component {
       classID: this.props.location.containerData.classID,
     })
   }
-
-
 
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
@@ -100,7 +109,9 @@ class BookingForm extends React.Component {
               name="firstName"
               value={this.state.firstName}
               handleChange={this.handleChange}
-              placeholder="Namn" />
+              placeholder="Namn"
+              parentText = {()=> this.state.firstName}
+            />
             <br />
             <TextInput
               label="Mailadress:"
@@ -108,27 +119,44 @@ class BookingForm extends React.Component {
               name="mail"
               value={this.state.mail}
               handleChange={this.handleChange}
-              placeholder="Mailadress" />
+              placeholder="Mailadress"
+              parentText = {()=> this.state.mail}
+
+            />
             <br />
-            <label><input value={this.state.mail} /></label>
+            <label>
+              <input value={this.state.mail} />
+            </label>
             <TextInput
               label="Telefon:"
               type="value"
               name="phone"
               value={this.state.phone}
               handleChange={this.handleChange}
-              placeholder="Telefonnummer" />
+              placeholder="Telefonnummer"
+              parentText = {()=> this.state.phone}
+
+            />
           </div>
           <div className="formField">
             <h3>Betalning</h3>
             <div className="paymentContainer">
               <RadioButton
-                name="Betala direkt med swish"
-                value="true"
+                name="payment"
+                text="Betala direkt med swish"
+                value="swish"
+                initialCheck={true}
+                parentPayment={this.getPayment}
+                handleChange = {this.handleChange}
               />
               <RadioButton
-                name="Betala på plats"
-                value="false"
+                name="payment"
+                text="Betala på plats"
+                value="cash"
+                initialCheck={false}
+                parentPayment={this.getPayment}
+                handleChange = {this.handleChange}
+
               />
             </div>
           </div>
@@ -144,7 +172,6 @@ class BookingForm extends React.Component {
           />
         </withRouter>
       </div>
-
     );
   }
 }

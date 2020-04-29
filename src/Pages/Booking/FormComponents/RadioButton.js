@@ -1,5 +1,5 @@
-import React from "react"
-import "./Radiobutton.css"
+import React from "react";
+import "./Radiobutton.css";
 
 export default class RadioButton extends React.Component {
   constructor(props) {
@@ -7,25 +7,28 @@ export default class RadioButton extends React.Component {
     this.state = {
       name: props.name,
       value: props.value,
-      handleChange: props.handleChange
-    }
-
+      text: props.text,
+      handleChange: props.handleChange,
+      initialCheck: props.initialCheck,
+      parentPayment: props.parentPayment,
+    };
   }
   render() {
+
     return (
-      <div >
+      <div>
         <label className="container">
-          {this.state.name}
+          {this.state.text}
           <input
-            type = "checkbox"
-            defaultChecked = {this.state.value}
+            type="radio"
+            name = {this.state.name}
+            value = {this.state.value}
             onChange={this.state.handleChange}
+            checked={this.state.parentPayment() === this.state.value}
           />
           <span class="checkmark"></span>
         </label>
       </div>
-    )
+    );
   }
 }
-
-
