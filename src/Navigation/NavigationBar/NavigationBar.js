@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useRef } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -27,13 +27,19 @@ const { SubMenu } = Menu;
 
 
 class NavigationBar extends Component {
-
     constructor(props) {
         super(props);
         this.state = {current: ""};
+        this.subMenuRef = React.createRef()
     }
 
     handleClick = e => {
+        if (e.key !== "activities" || e.key !== "utbud") {
+            var element = document.getElementById("submenuid");
+            element.classList.remove("ant-menu-submenu-open");
+            //console.log(this.subMenuRef.current)
+            //this.subMenuRef.current.classList.remove("ant-menu-submenu-open")
+        }
         this.setState({
           current: e.key,
         });
@@ -173,7 +179,7 @@ class NavigationBar extends Component {
                 </NavLink>
               </Menu.Item>
               <SubMenu
-                className="cursor-hover"
+                className={"cursor-hover"}
                 style={{
                     borderLeft: "1px solid white",
                   float: "left",
@@ -182,6 +188,8 @@ class NavigationBar extends Component {
                 }}
                 title={<>Utbud</>}
                 key="utbud"
+                ref={this.subMenuRef}
+                id="submenuid"
               >
                 <SubMenu style={subMenuStyle} key="sub3" title="Träning">
                   <Menu.Item
