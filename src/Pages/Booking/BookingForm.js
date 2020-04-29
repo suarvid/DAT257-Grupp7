@@ -13,14 +13,16 @@ class BookingForm extends React.Component {
     this.state = {
       booking: {},
       activity: {},
-      instructor: {}
+      instructor: {},
     };
-    this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   handleChange(event) {
-
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    })
   }
 
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
@@ -44,6 +46,12 @@ class BookingForm extends React.Component {
       .catch(error => {
         console.log(error);
       });
+    axios.post('http://localhost:8000/api/bookings/', {
+      Name: this.state.name,
+      Email: this.state.email,
+      phone_number: this.state.phone,
+      classID: this.props.location.containerData.classID,
+    })
   }
 
 
@@ -53,50 +61,56 @@ class BookingForm extends React.Component {
   render() {
     return (
       <div align='center'>
+        <h1>{this.state.name}</h1>
+    <h1>{this.state.email}</h1>
+    <h1>{this.state.phone}</h1>
+    <h1>{this.props.location.containerData.classID}</h1>
         <div>
           <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
         </div>
         <div>
           <h3>
-          {`${this.props.location.containerData.date},${this.props.location.containerData.start_time.substring(0, 5)}-${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${this.props.location.containerData.date},${this.props.location.containerData.start_time.substring(0, 5)}-${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
         </div>
         <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
-        <h1>{}</h1>
-        <h1>{this.props.location.containerData.activity}</h1>
-        <h1>class ID:{this.props.location.containerData.classID}</h1>
-        <h1>{this.props.location.containerData.activityID}</h1>
-        <h1>{this.props.location.containerData.description}</h1>
-        <h1>{this.props.location.containerData.instructor}</h1>
-        <div className = "formContainer" align="left">
-          <div className = "formField">
-            <TextInput
+        <div className="formContainer" align="left">
+          <form>
+            <div className="formField">
+              <TextInput
                 label="Namn:"
                 type="text"
-                name="firstName"
-                value={this.state.firstName}
-                placeholder="Namn"/>
-              <br/>
-             <TextInput 
-                label= "Mailadress:"
+                name="name"
+                value={this.state.name}
+                placeholder="Namn"
+                handleChange={this.handleChange}
+              />
+              <br />
+              <TextInput
+                label='Email'
                 type="email"
-                name="mail"
-                value={this.state.mail}
-                placeholder="Mailadress"/>
-              <br/>
-              <TextInput 
+                name="email"
+                value={this.state.email}
+                placeholder="Mailadress"
+                handleChange={this.handleChange}
+              />
+              <br />
+              <TextInput
                 label="Telefon:"
                 type="value"
                 name="phone"
                 value={this.state.phone}
-                placeholder="Telefonnummer"/>
-              </div>
-              <PaymentInput
-               label="Betalsätt:"
-               name="payment"
-               value={this.state.payment}
+                placeholder="Telefonnummer"
+                handleChange={this.handleChange}
               />
-              </div>
+            </div>
+            <PaymentInput
+              label="Betalsätt:"
+              name="payment"
+              value={this.state.payment}
+            />
+          </form>
+        </div>
         <button className="primary_button_large" onClick={this.onSubmit}>Godkänn</button>
       </div>
 
