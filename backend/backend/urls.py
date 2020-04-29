@@ -9,4 +9,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('api/post/', include('post.api.urls')),
     path('api/user/', include('users.api.urls')),
+    path('api/classes/', include('classes.api.urls')),
+    path('api/activities/', include('activity.api.urls')),
+    path('api/bookings/', include('bookings.api.urls')),
 ]

@@ -232,6 +232,8 @@ class NavigationBar extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/booking" component={Booking} />
+          <Route exact path="/booking/:bookingID/" component={BookingForm} />
+
           <Route exact path="/activities" component={Activities} />
           <Route
             exact
