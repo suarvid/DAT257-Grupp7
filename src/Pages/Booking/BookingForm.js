@@ -3,7 +3,7 @@ import "../../../src/globalstyles.css";
 import "./BookingForm.css"
 import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link, Route } from 'react-router-dom'
 import { Form, Input, InputNumber, Button } from 'antd';
 import axios from 'axios';
 
@@ -24,8 +24,8 @@ class BookingForm extends React.Component {
       [name]: value,
     });
   }
+
   componentDidMount() {
-    const { handle } = this.props.match.params;
     const data = this.props.location.state;
     this.setState({
       booking: data,
@@ -54,9 +54,9 @@ class BookingForm extends React.Component {
         console.log(error);
       });
     axios.post('http://localhost:8000/api/bookings/', {
-      Name: this.state.name,
-      Email: this.state.email,
-      phone_number: this.state.phone,
+      name: 'Testnamn',
+      email: 'Test@mail.se',
+      phone_number: '1337',
       classID: this.props.location.containerData.classID,
     })
   }
@@ -69,9 +69,9 @@ class BookingForm extends React.Component {
     return (
       <div align='center'>
         <h1>{this.state.name}</h1>
-    <h1>{this.state.email}</h1>
-    <h1>{this.state.phone}</h1>
-    <h1>{this.props.location.containerData.classID}</h1>
+        <h1>{this.state.email}</h1>
+        <h1>{this.state.phone}</h1>
+        <h1>{this.props.location.containerData.classID}</h1>
         <div>
           <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
         </div>
@@ -87,48 +87,57 @@ class BookingForm extends React.Component {
         <h1>{this.props.location.containerData.activityID}</h1>
         <h1>{this.props.location.containerData.description}</h1>
         <h1>{this.props.location.containerData.instructor}</h1>
-        <div className = "formContainer" align="center">
-          <div className = "formField">
+        <div className="formContainer" align="center">
+          <div className="formField">
             <TextInput
-                label="Namn:"
-                type="text"
-                name="firstName"
-                value={this.state.firstName}
-                handleChange={this.handleChange}
-                placeholder="Namn"/>
-              <br/>
-             <TextInput
-                label= "Mailadress:"
-                type="email"
-                name="mail"
-                value={this.state.mail}
-                handleChange={this.handleChange}
-                placeholder="Mailadress"/>
-              <br/>
-              <label><input value = {this.state.mail}/></label>
-              <TextInput 
-                label="Telefon:"
-                type="value"
-                name="phone"
-                value={this.state.phone}
-                handleChange={this.handleChange}
-                placeholder="Telefonnummer"/>
-            </div>
-            <div className = "formField">
+              label="Namn:"
+              type="text"
+              name="firstName"
+              value={this.state.firstName}
+              handleChange={this.handleChange}
+              placeholder="Namn" />
+            <br />
+            <TextInput
+              label="Mailadress:"
+              type="email"
+              name="mail"
+              value={this.state.mail}
+              handleChange={this.handleChange}
+              placeholder="Mailadress" />
+            <br />
+            <label><input value={this.state.mail} /></label>
+            <TextInput
+              label="Telefon:"
+              type="value"
+              name="phone"
+              value={this.state.phone}
+              handleChange={this.handleChange}
+              placeholder="Telefonnummer" />
+          </div>
+          <div className="formField">
             <h3>Betalning</h3>
-              <div className = "paymentContainer">
-                <RadioButton
-                  name="Betala direkt med swish"
-                  value="true"
-                 />
-                 <RadioButton
-                  name="Betala på plats"
-                  value="false"
-                />
-              </div>
+            <div className="paymentContainer">
+              <RadioButton
+                name="Betala direkt med swish"
+                value="true"
+              />
+              <RadioButton
+                name="Betala på plats"
+                value="false"
+              />
             </div>
           </div>
-        <button className="primary_button_large" onClick={this.onSubmit}>Boka</button>
+        </div>
+        <withRouter>
+          <Link to={{
+            pathname: '/'
+          }}>
+            <button className="primary_button_large" onClick={this.onSubmit}>Boka</button>
+          </Link>
+          <Route
+            path={'/'}
+          />
+        </withRouter>
       </div>
 
     );
