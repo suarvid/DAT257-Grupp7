@@ -10,7 +10,9 @@ export default class TextInput extends React.Component {
       value: props.value,
       label: props.label,
       placeholder: props.placeholder,
-      handleChange: props.handleChange
+      handleChange: props.handleChange,
+      getParentText : props.ParentText,
+      value :""
     }
 
   }
@@ -23,7 +25,7 @@ export default class TextInput extends React.Component {
           <input
             type={this.state.type}
             name={this.state.name}
-            value={this.state.value}
+            value={this.state.getParentText}
             placeholder={this.state.placeholder}
             onChange={this.state.handleChange}
           />
