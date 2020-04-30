@@ -1,0 +1,15 @@
+What do I want to learn or understand better?
+
+Hela utvecklingsaspekten har varit väldigt lärorik de senaste veckorna. Från att aldrig tidigare använt mig av github, eller kodat hemsidor i huvudtaget. Jag önskar lära mig css mer, samt förstå hur vår backend fungerar eftersom de andra studenterna jobbat hårt med den och det hade varit kul att lära mig mer av deras process. Vi kommer även testa material UI, färdiga bibliotek för webbutveckling, så jag vill sätta mig in i det för att förstå hur vi kan utnyttja de färdiga komponenterna på bästa sätt för att skapa värde för oss som utvecklare och studenter.
+
+How can I help someone else, or the entire team, to learn something new?
+
+Denna punkten blir allt svårare att svara på, eftersom vi i takt med utvecklingen går in på allt mer komplicerade grejer, samtidigt som samtliga gruppmedlemmar blir allt mer införstådda i vilket affärsvärde vi skapar för kund. Jag upplever att min kompetensutveckling förbättras avsevärt av projektet, medan det inte alltid känns som att jag bidrar till alla andras kompetensutveckling. Jag hoppas att vi tillsammans i gruppen lär oss hur vi ska uttrycka den tekniska biten på lättförståeliga sätt för vår uppdragsgivare, så de kan ta till sig det vi kommunicerar. Det är nog där jag tror jag kan bidra mest till de andras lärande.
+
+What is my contribution towards the team’s use of Scrum?
+
+Eftersom scrum är ett väldigt agilt arbetssätt, har jag som gillar struktur och planering ibland behövt tänka om och ändra mitt förhållningssätt. Men planeringsönskan har ändå varit positiv, eftersom det kan ge oss lite riktlinjer kring hur våra veckor kommer se ut. Jag håller också kontakt med uppdragsgivarna, för att vi skall kunna genomgå flera iterationer med feedback och ändra vår produkt så det uppfyller deras önskemål. På så sätt får vi relativt snabbt tillgång till de specifikationer som kunden har, och vi kan arbeta agilt med att förbättra vår produkt.
+
+What is my contribution towards the team’s deliveries?
+
+Sedan förra veckan har jag haft flertalet möten med uppdragsgivaren och kontinuerlig kontakt för att säkertsälla att vi arbetar med rätt saker. Det har tyvärr blivit sena kvällar vissa gånger, men vi hoppas kunna undgå det kommande möten. Jag har även denna veckan lagt stort arbete på team reflection ihop med en annan student, vilket ledde till att den i princip var färdigställd till vår sprint review så vi i gruppen kunde vara effektiva och slutföra inlämning i tid. Orsaken till att jag lagt så mycket fokus på dokumentationen är att jag har haft svårigheter med mina tilldelade kodprojekt. Jag är även lite på semester så jag ville säkerställa att jag bidrar med värdeskapande aktiviteter för vårt projekt under de tider jag är tillgänglig. Sedan är jag också canvas-ansvarig, vilket innebär att jag ansvarar för att lämna in de dokument med mera som kursen efterfrågar.
