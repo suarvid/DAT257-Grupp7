@@ -4,6 +4,7 @@ import BannerComponent from "../../Components/Banner/BannerComponent";
 import PostListView from './PostListView'
 import "./Home.css";
 
+
 function Home() {
     return (
                 <div>

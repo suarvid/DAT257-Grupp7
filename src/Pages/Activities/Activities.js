@@ -6,6 +6,7 @@ import './../../globalstyles.css'
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
+
 export default class Activities extends Component {
 
   constructor(props) {
