@@ -1,14 +1,27 @@
 .about-container {
-    background-color: orange;	  width: 100%;
+    	  width: 100%;
+          display:inline-block;
 
 }
 .info-text {
-    width:70%;
+    width:100%;
     float:left;
-
+}
+.Nia{
+text-align: left;
+margin-right:15px;
+image-orientation:left;
+shape-image-threshold: initial;
+/* vill sätta bilden före texten, till vänster om dem liksom men får inte till det*/
+}
+.Yoga{
 
 }
-.companies{
+.UnikaRum{
+
+}
+
+/*.companies{
     width:30%;
     float:left;
-}
+}*/

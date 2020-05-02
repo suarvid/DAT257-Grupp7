@@ -1,11 +1,10 @@
-.rightItem{
-    float: right; 
-    display: flex; 
-    justify-content: space-around; 
-    align-items: center; 
-    border-left: 5 px solid dimgrey;
-    width: 100 px;
-    color: dimgrey;
+.bannerHeader{
+  margin:5px; 
+  border-radius: 10px;
+  background-image: url('../../Components/Banner/testpic.jpg');
+  background-color: white;
+  background-position: fixed;
+  height: 240px;
 }
 
 a:link {
@@ -24,4 +23,8 @@ a:active {
 .navItemSelected {
   font-weight: 600;
   text-decoration: underline !important;
+}
+
+.cursor-hover .ant-menu-submenu-title:hover {
+  cursor:pointer;
 }

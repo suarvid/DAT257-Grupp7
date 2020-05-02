@@ -1,0 +1,28 @@
+what do I want to learn or understand better?
+As for the previous weeks, a continuous goal during the project is to get a better understanding of how React and Django work, and how to effectively use these technologies together. Even though the sprint this week was a bit shorter than previous weeks, I still feel like I learn quite a bit about these technologies every sprint.
+As such, I will continue to progress towards this goal simply by contributing code to the project.
+
+As stated in earlier reflections, I would also like a better understanding of how to efficiently work in scrum and what conventions/best practices currently exists.
+A part of this goal is achieved by contributing actively to the project and attending group meetings and discussions, since actually working in a team by using scrum
+will give me some indication as to what seems to work quite easily and what parts are a bit harder to get down. I will, of course, continue to do my best to contribute 
+as a team member in the project.
+As a complement to the work done in a team, I can learn about conventions and best practices when using scrum by reading more in the course literature as well as other sources which discuss the subject. I haven't read quite as much in the course literature as I would like to, but I will hopefully get there by putting a little bit of more time into reading in the future. Especially this weekend, since the sprint ended earlier than usual and it isn't that much of a hassle to do some reading on the weekend.
+
+
+how can I help someone else, or the entire team, to learn something new?
+Hopefully, as I think I mentioned in the last reflection, as I get more comfortable with working in scrum and what best practices/conventions exist I might be able to provide some sort of insight into eventual questions regarding this. If nothing else, I might at least be able to provide some resources for learning about scrum that I found useful.
+Also, this week's sprint involved a bit of work with the backend. As I was an active part of this work I feel that I have a pretty good understanding of how the backend works.
+As the upcoming sprints will probably involve work with the backend more and more, I can hopefully help someone else understand the backend and Django as a whole better. Either by answering questions about things I know how to do, or by helping them find useful resources for learning Django.
+
+what is my contribution towards the team’s use of Scrum?
+As in earlier sprints, I try to do my best to contribute as a team member in the project.
+This includes showing up to all the team meetings, sprint planning, sprint reviews etc as well as discussing the work being done during the course of the sprint, and the project as a whole. I will simply try to do this during the entire course of the project.
+I do feel that sometimes the team meetings can get a bit slow/quiet, but that is partly my fault since this includes me being quiet/not saying much as well.
+As such, I should try to communicate a bit more efficently in team meetings, and try to help the group stay on track for meetings with a structure that is sort of "fixed" in advance such as the sprint planning and sprint review/retrospective.
+
+
+what is my contribution towards the team’s deliveries?
+This week I completed my tasks on time and also discussed the implementation of them with some team members that assigned themselves to related tasks.
+We also discussed the possibility of getting the backend running on a server so that the stakeholders could get a look at the state of the project in their own time via a web browser as we move from hard-coded data to utilizing our backend instead. (The stakeholders can do this for now, but the website is only running the frontend).
+Though, we decided that this would be too much work for this weeks sprint, and the value it would provide was somewhat questionable.
+As such, I suppose I contributed a bit to keeping the workload for this weeks sprint at a reasonable level.
