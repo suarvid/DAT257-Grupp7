@@ -4,9 +4,9 @@ export default class InstructorDetail extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: {},
-            email: {},
-            imageurl: {},
+            name: '',
+            email: '',
+            imageurl: '',
             activities: [],
         }
     }
@@ -14,6 +14,7 @@ export default class InstructorDetail extends React.Component {
 
     componentDidMount() {
         console.log("Component Mounted");
+        
         this.setState({
             name: this.props.data.name,
             email: this.props.data.email,
@@ -27,7 +28,8 @@ export default class InstructorDetail extends React.Component {
             <div>
                 <h1>{this.state.name}</h1>
                 <h1>{this.state.email}</h1>
-                <h1>{this.state.imageurl}</h1>
+                
+                <img src={this.state.imageurl} />
             </div>
         )
     }

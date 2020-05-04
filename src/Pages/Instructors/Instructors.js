@@ -9,12 +9,14 @@ export default class Instructors extends React.Component {
             instructors: []
         }
     }
+
     componentDidMount() {
         console.log("Component mounted");
         axios.get('http://127.0.0.1:8000/api/instructors')
             .then(response => {
+                this.state.instructors = response.data;
                 this.setState({
-                    instructors: response.data
+                    instructors: response.data,
                 })
             }).catch(error => {
                 console.log(error);
@@ -22,10 +24,11 @@ export default class Instructors extends React.Component {
     }
 
     render() {
-        return(
+        console.log(this.state.instructors)
+        return (
             <div>
-                {this.state.instructors.map((item) =>
-                <InstructorDetail data={item}/>
+                {this.state.instructors.map((item) => 
+                   <InstructorDetail data={item} />
                 )}
             </div>
         )
