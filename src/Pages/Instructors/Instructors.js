@@ -1,7 +1,9 @@
 import React from "react";
+import { View } from "react";
 import axios from "axios";
 import InstructorDetail from "./InstructorDetail";
-
+import './instructor.css';
+import '../../globalstyles.css';
 export default class Instructors extends React.Component {
     constructor(props) {
         super(props);
@@ -26,9 +28,12 @@ export default class Instructors extends React.Component {
     render() {
         console.log(this.state.instructors)
         return (
-            <div>
-                {this.state.instructors.map((item) => 
-                   <InstructorDetail data={item} />
+            <div className='list' >
+                <div className='titleContainer'>
+                    <h1>Inspiratörer</h1>
+                </div>
+                {this.state.instructors.map((item) =>
+                    <InstructorDetail data={item} />
                 )}
             </div>
         )
