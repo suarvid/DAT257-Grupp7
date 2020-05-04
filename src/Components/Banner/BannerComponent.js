@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import niamotion from "./niamotion.jpg";
 import logo from "../Logo2.png";
 
@@ -10,5 +10,4 @@ function BannerComponent(){
     )
 }
 
-
-export default BannerComponent
+export default BannerComponent;
