@@ -12,7 +12,7 @@ export default class Instructors extends React.Component {
 
     componentDidMount() {
         console.log("Component mounted");
-        axios.get('http://127.0.0.1:8000/api/instructors')
+        axios.get('http://127.0.0.1:8000/api/instructors/instructors')
             .then(response => {
                 this.state.instructors = response.data;
                 this.setState({
