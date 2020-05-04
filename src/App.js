@@ -7,12 +7,15 @@ import {
 } from "react-router-dom";
 import "./index.css"
 import Navbar from './Navigation/NavigationBar/NavigationBar';
+import HamburgerMenu from './Navigation/NavigationBar/HamburgerMenu'
+import BaseRouter from './routes'
 
 
 export default function App() {
   return (
     <div>
-    <Navbar/>
+    <HamburgerMenu/>
+    <BaseRouter></BaseRouter>
     </div>
   );
 }
