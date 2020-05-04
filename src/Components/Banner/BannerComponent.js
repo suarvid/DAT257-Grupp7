@@ -1,11 +1,12 @@
 import React from "react";
 import niamotion from "./niamotion.jpg";
 import logo from "../Logo2.png";
+import './BannerComponent.css'; 
 
 function BannerComponent(){
     return(
-    <div style={{padding: '30px', width:'100%'}}>
-      <img src={logo} alt="logo" width="200%" height='180px' />
+    <div className="bannerHeader">
+      <img src={logo} alt="logo" width="100%" height="100%" />
     </div>
     )
 }

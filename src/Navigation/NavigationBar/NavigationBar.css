@@ -1,11 +1,3 @@
-.bannerHeader{
-  margin:5px; 
-  border-radius: 10px;
-  background-image: url('../../Components/Banner/testpic.jpg');
-  background-color: white;
-  background-position: fixed;
-  height: 240px;
-}
 
 a:link {
     color: dimgrey;

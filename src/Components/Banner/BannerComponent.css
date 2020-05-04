@@ -1,0 +1,10 @@
+.bannerHeader{
+    background-image: url('../../Components/Banner/testpic.jpg');
+    background-color: white;
+    background-position: fixed;
+    height: 200px;
+    padding: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }

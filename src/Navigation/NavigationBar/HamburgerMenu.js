@@ -1,32 +1,31 @@
-import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import Button from "@material-ui/core/Button";
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles} from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
-import BannerComponent from "./../../Components/Banner/BannerComponent";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import ListSubheader from "@material-ui/core/ListSubheader";
-
 import "./NavigationBar.css";
 import Item from "antd/lib/list/Item";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     backgroundColor: theme.palette.background.paper,
-  },
+   },
   nested: {
     paddingLeft: theme.spacing(4),
   },
   fullList: {
     width: "auto",
-  },
+    },
 }));
 export default function TemporaryDrawer() {
   const classes = useStyles();
@@ -90,7 +89,7 @@ export default function TemporaryDrawer() {
     );
   }
   const list = (anchor) => (
-    <div
+    <div 
       className={clsx(classes.list, {
         [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
@@ -118,18 +117,16 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div className="bannerHeader">
+    <div>
       <React.Fragment key={"top"}>
-        <BannerComponent></BannerComponent>
         <Button onClick={toggleDrawer("top", true)}>
           <MenuIcon />
         </Button>
-
         <Drawer
           anchor={"top"}
           open={state["top"]}
           onClose={toggleDrawer("top", false)}
-        >
+          >
           {list("top")}
         </Drawer>
       </React.Fragment>
