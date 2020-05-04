@@ -47,7 +47,7 @@ export default function TemporaryDrawer() {
   const handleClick = () => {
     setOpen(!open);
   };
-  function xyz(items) {
+  function createSubListItems(items) {
     return items.map((item) =>
       item.subsections.length <= 0 ? (
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -67,13 +67,13 @@ export default function TemporaryDrawer() {
         <ListItem button onClick={handleClick} key={item.title}>
           <ListItemText primary={item.title} />
           {open ? <ExpandLess /> : <ExpandMore />}
-          {xyz(item.subsections)}
+          {createSubListItems(item.subsections)}
         </ListItem>
       )
     );
   }
 
-  function xyza(item) {
+  function createListItems(item) {
     return item.subsections.length <= 0 ? (
       <ListItem button component="a" href={item.path} key={item.title}>
         <ListItemText primary={item.title} />
@@ -84,7 +84,7 @@ export default function TemporaryDrawer() {
           <ListItemText primary={item.title} />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        {xyz(item.subsections)}
+        {createSubListItems(item.subsections)}
       </List>
     );
   }
@@ -111,7 +111,7 @@ export default function TemporaryDrawer() {
           { title: "Priser", path: "/", subsections: [] },
           { title: "Om oss", path: "/about", subsections: [] },
           { title: "Vill du synas här?", path: "/join", subsections: [] },
-        ].map((item) => xyza(item))}
+        ].map((item) => createListItems(item))}
       </List>
     </div>
   );
