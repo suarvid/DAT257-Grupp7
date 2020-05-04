@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'activity',
     'classes',
     'bookings',
+    'instructors',
     'corsheaders',
     'rest_framework',
 
