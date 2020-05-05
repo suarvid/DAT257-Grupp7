@@ -3,8 +3,10 @@
     background-color: white;
     background-position: fixed;
     height: 200px;
-    padding: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     width: 100%;
+    max-width: auto;
     justify-content: center;
   }
