@@ -6,7 +6,7 @@ import './BannerComponent.css';
 function BannerComponent(){
     return(
     <div className="bannerHeader">
-      <img src={logo} alt="logo" width="100%" height="100%" />
+      <img src={logo} alt="logo" width="100%" height="100%"/>
     </div>
     )
 }

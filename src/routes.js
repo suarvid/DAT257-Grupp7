@@ -11,7 +11,7 @@ import PostDetail from "./Pages/Home/PostDetailView";
 import Instructors from "./Pages/Instructors/Instructors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const BaseRouter = () => (
-  <div>
+  <div style={{padding:'260px 0'}}>
     <Router>
       {/* <Route exact path="/" component={Home} />
       <Route exact path="/booking" component={Booking} />
