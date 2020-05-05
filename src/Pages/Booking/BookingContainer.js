@@ -16,6 +16,7 @@ export default class BookingContainer extends React.Component {
     }
     this.decrementWeek = this.decrementWeek.bind(this);
     this.incrementWeek = this.incrementWeek.bind(this);
+    this.sortData = this.sortData.bind(this);
   }
 
   decrementWeek() {
@@ -31,24 +32,31 @@ export default class BookingContainer extends React.Component {
   }
 
   componentDidMount() {
+    let data;
     console.log('Component mounted');
     axios.get('http://127.0.0.1:8000/api/classes/')
       .then(response => {
-        this.state.classes = response.data;
+        data = response.data;
         this.setState({
-          classes: response.data,
+          classes: this.sortData(data),
         })
       }).catch(error => {
         console.log(error);
       });
   }
 
+  sortData(data) {
+   return data.sort((a, b) => a.date > b.date);
+  }
+
+
   render() {
     let weekText;
     this.state.currentWeek < this.state.displayWeek
       ? (weekText = "Föregående vecka")
-      : (weekText = "Nästa vecka");
-    console.log(this.state);
+      : (weekText = "Nästa vecka"); 
+
+
     return (
       <div text-align="center">
         <h1>
@@ -70,7 +78,6 @@ export default class BookingContainer extends React.Component {
               {">"}{" "}
             </h2>
           )}
-        <BookingHeader></BookingHeader>
 
         {this.state.classes.map((item) =>
           <BookingComponent data={item} />

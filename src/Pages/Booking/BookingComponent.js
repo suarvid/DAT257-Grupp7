@@ -84,12 +84,12 @@ class BookingComponent extends React.Component {
       <withRouter>
         <div className = "bookingcomponent">
           <div>
-          <div>
+          <div >
             <h3>
             {`${ this.state.activity.name} ${this.state.date}  ${time}`}
             </h3>
           </div>
-          <div>
+          <div className="content">
             <p>
             {`${"Instruktör:"} ${this.state.instructor.name}, ${"Plats:"} ${this.state.location}`}
             </p>

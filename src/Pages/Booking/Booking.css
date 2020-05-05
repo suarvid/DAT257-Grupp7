@@ -109,8 +109,16 @@
 
 .bookingcomponent{
   max-width: 500px;
-  height: 150px;
+  height: 160px;
   border: 1px solid gray;
   padding: 5px;
   display: flexbox;
+}
+.content{
+  margin-top: 5;
+  margin-left: 10;
+  max-width: inherit;
+  max-height: 30px;
+  padding: 2px;
+  overflow-wrap: break-word;
 }
