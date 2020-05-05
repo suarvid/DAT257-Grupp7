@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import Home from "../../Pages/Home/Home";
-import Booking from "../../Pages/Booking/Booking";
+import BookingContainer from "../../Pages/Booking/BookingContainer";
 import Activities from "../../Pages/Activities/Activities";
 import About from "../../Pages/About/About";
 import Join from "../../Pages/Join/Join";
@@ -22,6 +22,7 @@ import PostList from "../../Pages/Home/PostListView";
 import PostDetail from "../../Pages/Home/PostDetailView";
 import Banner from "../../Components/Banner/BannerComponent";
 import BookingForm from "../../Pages/Booking/BookingForm"
+import Instructors from "../../Pages/Instructors/Instructors";
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
@@ -231,7 +232,7 @@ class NavigationBar extends Component {
         </Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/booking" component={Booking} />
+          <Route exact path="/booking" component={BookingContainer} />
           <Route exact path="/booking/:bookingID/" component={BookingForm} />
 
           <Route exact path="/activities" component={Activities} />
@@ -243,8 +244,9 @@ class NavigationBar extends Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/join" component={Join} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/login/:userID" component={Booking} />
+          <Route exact path="/login/:userID" component={BookingContainer} />
           <Route exact path="/post/:postID/" component={PostDetail} />
+          <Route exact path="/inspiratörer" component={Instructors} />
         </Switch>
       </Router>
     );

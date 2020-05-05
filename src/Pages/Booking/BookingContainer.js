@@ -1,34 +1,17 @@
 import React from "react";
-import BookingHeader from "../../Pages/Booking/BookingHeader";
+import BookingHeader from "./BookingHeader";
 import "../../../src/globalstyles.css";
 import BookingComponent from "./BookingComponent";
 import "../Booking/Booking.css";
-import axios from 'axios';
+import axios from "axios";
 
 export default class BookingContainer extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      title: props.data.title,
-      currentWeek: props.data.currentWeek,
-      displayWeek: props.data.displayWeek,
       classes: []
     }
-    this.decrementWeek = this.decrementWeek.bind(this);
-    this.incrementWeek = this.incrementWeek.bind(this);
     this.sortData = this.sortData.bind(this);
-  }
-
-  decrementWeek() {
-    this.setState((state) => ({
-      displayWeek: state.displayWeek - 1,
-    }));
-  }
-
-  incrementWeek() {
-    this.setState((state) => ({
-      displayWeek: state.displayWeek + 1,
-    }));
   }
 
   componentDidMount() {
@@ -53,7 +36,7 @@ export default class BookingContainer extends React.Component {
   render() {
 
     return (
-      <div align="center">
+      <div align="center" className ="component-container">
         {this.state.classes.map((item) =>
           <BookingComponent data={item} />
         )}
@@ -61,4 +44,3 @@ export default class BookingContainer extends React.Component {
     );
   }
 }
-

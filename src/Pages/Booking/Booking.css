@@ -1,3 +1,5 @@
+@import "/../DAT257-Grupp7/src/globalstyles.css";
+
 .header {
   /*margin: 0 auto;*/
   text-align: left;
@@ -19,16 +21,10 @@
   padding-left: 80px;
 }
 .component-container {
-  align-items: left;
-  align-content: left;
+  align-content: center;
   text-align: left;
-  width: 90%;
-  max-height: fit-content;
-  border: solid;
-  border-color: #bfbfbf;
-  border-left: 2px;
-  border-right: 2px;
-  border-top: 2px;
+  width: 100%;
+  max-height: max-content;
 }
 .component {
   /*margin: 0 auto;*/
@@ -105,13 +101,19 @@
 .bookingcomponent{
   max-width: 500px;
   height: 160px;
-  border: 1px solid gray;
+  border: 0.5px solid lightgray;
   display: flexbox;
+  margin-top: 2px;
+  box-shadow: var(--default-box-shadow) ;
 }
 .content{
   margin-left: 0;
   margin-top: 2px;
   max-width: inherit;
   max-height: 20px;
+  padding: 0;
   overflow-wrap: break-word;
+}
+.content > h2{
+  size: 10;
 }

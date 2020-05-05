@@ -85,7 +85,7 @@ class BookingComponent extends React.Component {
         <div className = "bookingcomponent">
           <div>
           <div className="content" >
-            <h3>
+            <h3 style = {{fontSize:16}}>
             {`${ this.state.activity.name} ${this.state.date}  ${time}`}
             </h3>
           </div>

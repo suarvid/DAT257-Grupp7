@@ -1,6 +1,7 @@
 import React from 'react'
 import './About.css'
 import niamotion from '../../Components/Banner/niamotion.jpg'
+import Instructors from '../Instructors/Instructors';
 /*import unikarum from '../Pages/About/unikarum.jpg'
 <img src={unikarum} alt="UnikaRum" width="20%"/> - fick ej att funka??*/
 
@@ -34,8 +35,6 @@ function About() {
                 
                 </div>
             </p>
-           
-            
          </div>
     )
 }

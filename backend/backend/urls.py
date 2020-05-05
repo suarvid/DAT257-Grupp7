@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/classes/', include('classes.api.urls')),
     path('api/activities/', include('activity.api.urls')),
     path('api/bookings/', include('bookings.api.urls')),
+    path('api/instructors/', include('instructors.api.urls')),
 ]
 
 if settings.DEBUG:
