@@ -16,7 +16,7 @@ import "./NavigationBar.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     position:"fixed",
-    top:"260px",
+    top:"256px",
     zIndex:100,
     width: "100%",
     backgroundColor: theme.palette.background.paper,
