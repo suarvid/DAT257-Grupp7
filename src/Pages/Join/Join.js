@@ -15,9 +15,9 @@ function Join() {
                 
                 <div className="companies">
                     <h3>Ingående företag</h3>
-                    <a href="https://www.facebook.com/yogamidus"> Yogamidus</a>
-                    <a href="https://www.facebook.com/niamotion/">Niamotion</a>
-                    <a href="https://www.facebook.com/unikarum/">UnikaRum</a>
+                    <a href="https://www.facebook.com/Yogamidus-1001620300228906/"> Yogamidus</a>
+                    <a href="http://niamotion.se/">Niamotion</a>
+                    <a href="http://www.unikarum.se/">UnikaRum</a>
                 </div>
             </div>
     )
