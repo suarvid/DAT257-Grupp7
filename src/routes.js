@@ -11,24 +11,11 @@ import PostDetail from "./Pages/Home/PostDetailView";
 import Instructors from "./Pages/Instructors/Instructors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const BaseRouter = () => (
-  <div style={{padding:'260px 0'}}>
+  <div style={{paddingTop:'260px'}}>
     <Router>
-      {/* <Route exact path="/" component={Home} />
-      <Route exact path="/booking" component={Booking} />
-      <Route exact path="/booking/:bookingID/" component={BookingForm} />
-
-      <Route exact path="/activities" component={Activities} />
-      <Route exact path="/activities/:activityID/" component={ActivityDetail} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/join" component={Join} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/login/:userID" component={Booking} />
-      <Route exact path="/post/:postID/" component={PostDetail} /> */}
-
       <Route exact path="/" component={Home} />
       <Route exact path="/booking" component={BookingContainer} />
       <Route exact path="/booking/:bookingID/" component={BookingForm} />
-
       <Route exact path="/activities" component={Activities} />
       <Route exact path="/activities/:activityID/" component={ActivityDetail} />
       <Route exact path="/about" component={About} />
