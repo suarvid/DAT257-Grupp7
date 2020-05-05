@@ -1,3 +1,5 @@
+@import "./../../../globalstyles.css";
+
 .activityImage {
     width: 100px;
     height: 80px;
@@ -5,17 +7,19 @@
 }
 .activityCard {
     max-width: 1900px;
+    width: 100%;
     height: fit-content;
     display: flex;
     justify-content: left;
-    border-radius: 10px;
-    border: 0px solid lightgray;
     margin-left:10px;
     padding: 10px;
+    box-shadow: var(--default-box-shadow);
 }
 .descriptionPreview{
-    max-width: 1700px;
+    width: 80%;
+    max-width: 80%;
     max-height: 100px;
+    text-overflow: clip;
     display:flex;
 }
 .descriptionPreview > p{

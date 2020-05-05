@@ -103,7 +103,7 @@ export default function TemporaryDrawer() {
             title: "Utbud",
             path: "/activities",
             subsections: [
-              { title: "Boka", path: "/booking", subsections: [] },
+              { title: "Aktiviteter", path: "/activities", subsections: [] },
               { title: "Boka", path: "/booking", subsections: [] },
             ],
           },
