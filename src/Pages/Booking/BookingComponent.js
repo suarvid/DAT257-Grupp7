@@ -16,13 +16,13 @@ class BookingComponent extends React.Component {
     this.state = {
       activity: {},
       instructor: {},
-      id: this.props.data.id,
-      date: this.props.data.date,
-      start_time: this.props.data.start_time,
-      end_time: this.props.data.end_time,
-      location: this.props.data.location,
-      max_attendees: this.props.data.max_attendees,
-      registered_attendees: this.props.data.registered_attendees
+      id: this.props.id,
+      date: this.props.date,
+      start_time: this.props.start_time,
+      end_time: this.props.end_time,
+      location: this.props.location,
+      max_attendees: this.props.max_attendees,
+      registered_attendees: this.props.registered_attendees
     }
     console.log(this.props)
   }
@@ -45,36 +45,42 @@ class BookingComponent extends React.Component {
   }
 
   render() {
-    let buttonText;
-    if (this.props.data.registered_attendees < this.props.data.max_attendees || this.props.data.max_attendees === 0) {
-      buttonText = "Boka";
-    } else {
-      buttonText = "Fullt";
-    }
-    const button = (
+    let button;
+    if (this.props.data.registered_attendees < this.props.data.max_attendees) {
+    button = (
       <Link
         className="primary_button_large" 
         to={{
-          pathname: `booking/${this.state.id}/`,
+          pathname: `booking/${this.props.data.id}/`,
           containerData: {
-            location: this.state.location,
-            start_time: this.state.start_time,
-            end_time: this.state.end_time,
-            date: this.state.date,
-            classID: this.state.id,
-            activityID: this.state.activity,
-            description: this.state.description,
-            instructor: this.state.instructor,
-            max_attendees: this.state.max_attendees,
-            registered_attendees: this.state.registered_attendees,
+            location: this.props.data.location,
+            start_time: this.props.data.start_time,
+            end_time: this.props.data.end_time,
+            date: this.props.data.date,
+            classID: this.props.data.id,
+            activityID: this.props.data.activity,
+            description: this.props.data.description,
+            instructor: this.props.data.instructor,
+            max_attendees: this.props.data.max_attendees,
+            registered_attendees: this.props.data.registered_attendees,
           },
           activityName: this.state.activity.name,
           instructorName: this.state.instructor.name,
         }}
       >
-        {buttonText}
+        Boka
       </Link>
-    );
+    );}
+    else{
+      button = (
+        <h1
+          className="primary_button_large"
+          style={{ display: "inline-block", backgroundColor:"grey"}}
+        >
+          Fullt
+        </h1>
+      );
+    }
     
     const time = `${this.props.data.start_time.slice(0,5)} - ${this.props.data.end_time.slice(0,5)}` ;
     const remainingSpots = `${this.props.data.max_attendees-this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
@@ -98,7 +104,7 @@ class BookingComponent extends React.Component {
           </div>
           <div className="content">
             <p>
-              {`${"Plats:"} ${this.state.location}`}
+              {`${"Plats:"} ${this.props.data.location}`}
             </p>
           </div>
           <div className = "content">
@@ -107,12 +113,13 @@ class BookingComponent extends React.Component {
           </div>
           <div style={{float:"right", marginRight:0, marginBottom:40}}>
               {button}
+              <Route
+              path={`post/${this.props.data.id}/`}
+              component={PostDetailView}
+              />
           </div>
         </div>
-        <Route
-            path={`post/${this.props.data.id}/`}
-            component={PostDetailView}
-          />
+        
       </withRouter>
     );
   }

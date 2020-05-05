@@ -48,7 +48,7 @@ class BookingForm extends React.Component {
     console.log(this.state.firstName)
     console.log(this.state.mail)
     console.log(this.state.phone)
-    console.log(this.props.location.containerData.classID)
+    console.log(this.props.location.containerData.activityID)
     axios
       .put(
         `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
