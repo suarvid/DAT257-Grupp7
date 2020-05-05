@@ -3,9 +3,10 @@ import "../../../src/globalstyles.css";
 import "./BookingForm.css";
 import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
-import { withRouter, Link, Route } from 'react-router-dom'
-import { Form, Input, InputNumber, Button } from 'antd';
-import axios from 'axios';
+import { withRouter, Link, Route, Switch, NavLink } from "react-router-dom";
+import axios from "axios";
+import BookingComponent from "./BookingComponent";
+import BookingConfirmation from "../BookingConfirmation/BookingConfirmation";
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -46,10 +47,10 @@ class BookingForm extends React.Component {
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
     console.log("Form submitted!");
-    console.log(this.state.firstName)
-    console.log(this.state.mail)
-    console.log(this.state.phone)
-    console.log(this.props.location.containerData.classID)
+    console.log(this.state.firstName);
+    console.log(this.state.mail);
+    console.log(this.state.phone);
+    console.log(this.props.location.containerData.classID);
     axios
       .put(
         `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
@@ -69,28 +70,34 @@ class BookingForm extends React.Component {
       )
       .then((response) => {
         console.log(response);
+        //this.props.history.push("/BookingConfirmation", [this.state]);
       })
       .catch((error) => {
         console.log(error);
       });
-    axios.post('http://localhost:8000/api/bookings/', {
+    axios.post("http://localhost:8000/api/bookings/", {
       name: this.state.firstName,
       email: this.state.mail,
       phone_number: this.state.phone,
       classID: this.props.location.containerData.classID,
-    })
+    });
   }
 
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
     return (
-      <div align='center'>
+      <div align="center">
         <div>
           <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
           <br />
           <h3>
-            {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${
+              this.props.location.containerData.date
+            }, ${this.props.location.containerData.start_time.substring(
+              0,
+              5
+            )} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
         </div>
         <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
@@ -114,7 +121,6 @@ class BookingForm extends React.Component {
               handleChange={this.handleChange}
               placeholder="Mailadress"
               parentText={() => this.state.mail}
-
             />
             <br />
             <TextInput
@@ -125,7 +131,6 @@ class BookingForm extends React.Component {
               handleChange={this.handleChange}
               placeholder="Telefonnummer"
               parentText={() => this.state.phone}
-
             />
           </div>
           <div className="formField">
@@ -146,24 +151,25 @@ class BookingForm extends React.Component {
                 initialCheck={false}
                 parentPayment={this.getPayment}
                 handleChange={this.handleChange}
-
               />
             </div>
           </div>
         </div>
         <withRouter>
-          <Link to={{
-            pathname: '/'
-          }}>
-            <button className="primary_button_large" onClick={this.onSubmit}>Boka</button>
-          </Link>
-          <Route
-            path={'/'}
-          />
+          <NavLink
+            to={{
+              pathname: "/booking-confirmation",
+              state: this.state,
+            }}
+          >
+            <button className="primary_button_large" onClick={this.onSubmit}>
+              Boka
+            </button>
+          </NavLink>
         </withRouter>
       </div>
     );
   }
 }
 
-export default BookingForm;
+export default withRouter(BookingForm);
