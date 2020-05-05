@@ -1,15 +1,4 @@
 .home-container{
-    width:100%;
-    display:inline-block;
+    display: flex;
 }
 
-.first{
-    width:67%;
-    float: left;
-}
-.second{
-    width:33%;
-    float:left;
-
-
-}
