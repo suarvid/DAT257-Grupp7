@@ -39,12 +39,7 @@
 }
 
 .component-headlines {
-  display: inline-block;
-  max-width: 15rem;
-  padding-top: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
+  float: left;
   overflow-wrap: break-word;
   max-height: inherit;
 }
@@ -111,14 +106,12 @@
   max-width: 500px;
   height: 160px;
   border: 1px solid gray;
-  padding: 5px;
   display: flexbox;
 }
 .content{
-  margin-top: 5;
-  margin-left: 10;
+  margin-left: 0;
+  margin-top: 2px;
   max-width: inherit;
-  max-height: 30px;
-  padding: 2px;
+  max-height: 20px;
   overflow-wrap: break-word;
 }

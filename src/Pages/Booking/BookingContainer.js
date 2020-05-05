@@ -51,34 +51,9 @@ export default class BookingContainer extends React.Component {
 
 
   render() {
-    let weekText;
-    this.state.currentWeek < this.state.displayWeek
-      ? (weekText = "Föregående vecka")
-      : (weekText = "Nästa vecka"); 
-
 
     return (
-      <div text-align="center">
-        <h1>
-          {this.state.title} {this.state.displayWeek}
-        </h1>
-        {this.state.currentWeek < this.state.displayWeek ? (
-          <h2 onClick={this.decrementWeek} style={{ display: "inline-block" }}>
-            {" "}
-            {"<"}{" "}
-          </h2>
-        ) : (
-            <div />
-          )}
-        <h2 style={{ display: "inline-block" }}>{weekText}</h2>
-        {this.state.currentWeek < this.state.displayWeek ? (
-          <div />
-        ) : (
-            <h2 onClick={this.incrementWeek} style={{ display: "inline-block" }}>
-              {">"}{" "}
-            </h2>
-          )}
-
+      <div align="center">
         {this.state.classes.map((item) =>
           <BookingComponent data={item} />
         )}

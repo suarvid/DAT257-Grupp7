@@ -84,17 +84,26 @@ class BookingComponent extends React.Component {
       <withRouter>
         <div className = "bookingcomponent">
           <div>
-          <div >
+          <div className="content" >
             <h3>
             {`${ this.state.activity.name} ${this.state.date}  ${time}`}
             </h3>
           </div>
+          <div style = {{height:10}}>
+          </div>
           <div className="content">
             <p>
-            {`${"Instruktör:"} ${this.state.instructor.name}, ${"Plats:"} ${this.state.location}`}
+            {`${"Instruktör:"} ${this.state.instructor.name}`}
             </p>
           </div>
-          <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
+          <div className="content">
+            <p>
+              {`${"Plats:"} ${this.state.location}`}
+            </p>
+          </div>
+          <div className = "content">
+            <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
+          </div>
           </div>
           <div style={{float:"right", marginRight:0, marginBottom:40}}>
               {button}
