@@ -1,21 +1,22 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SourceSansPro', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SourceSansPro", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 @font-face {
-  font-family: 'SourceSansPro';
-  src: local('SourceSansPro'), url('./Fonts/SourceSansPro-Regular.ttf') format('truetype');
+  font-family: "SourceSansPro";
+  src: local("SourceSansPro"),
+    url("./Fonts/SourceSansPro-Regular.ttf") format("truetype");
 }
 
 

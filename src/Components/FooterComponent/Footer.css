@@ -1,0 +1,23 @@
+.footer {
+  width: 100%;
+  text-align: center;
+  border-top: 4px solid darkgreen;
+  height: 11rem;
+
+}
+
+.footerContainer {
+  display: inline-block;
+  text-align: left;
+}
+
+.footerContact {
+  float: left;
+  padding: 10px;
+  padding-right: 30px;
+}
+.footerSocial {
+  float: left;
+  padding: 10px;
+  padding-left: 30px;
+}

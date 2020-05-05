@@ -6,10 +6,9 @@ import About from "./Pages/About/About";
 import Join from "./Pages/Join/Join";
 import Login from "./Pages/Login/Login";
 import ActivityDetail from "./Pages/Activities/ActivityDetailView";
-import Banner from "./Components/Banner/BannerComponent";
 import BookingForm from "./Pages/Booking/BookingForm";
-import PostList from "./Pages/Home/PostListView";
 import PostDetail from "./Pages/Home/PostDetailView";
+import Instructors from "./Pages/Instructors/Instructors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const BaseRouter = () => (
   <div>
@@ -37,6 +36,7 @@ const BaseRouter = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/login/:userID" component={Booking} />
       <Route exact path="/post/:postID/" component={PostDetail} />
+      <Route exact path="/inspiratörer" component={Instructors} />
     </Router>
   </div>
 );
