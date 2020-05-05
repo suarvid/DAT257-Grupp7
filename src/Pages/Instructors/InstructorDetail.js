@@ -14,6 +14,8 @@ export default class InstructorDetail extends React.Component {
             id: {},
         }
         this.getActivities = this.getActivities.bind(this);
+        this.filterActivities = this.filterActivities.bind(this);
+        this.addActivityName = this.addActivityName.bind(this);
     }
 
 
@@ -30,38 +32,38 @@ export default class InstructorDetail extends React.Component {
         this.getActivities();
     }
 
-    //Avert your eyes, ugly code below!
-    //Nested axios-requests make it hard to read!
+    
     getActivities() {
         let allActivities = [];
-        let instructorActivities = [];
-        let instructorActivityNames = [];
         axios.get('http://127.0.0.1:8000/api/instructors/activities')
             .then(response => {
                 allActivities = Array.from(response.data);
-                for (let j = 0; j < allActivities.length; j++) {
-                    if (allActivities[j].instructorID == this.state.id) {
-                        instructorActivities.push(allActivities[j].activityID)
-                    }
-                }
-                for (let i = 0; i < instructorActivities.length; i++) {
-                    axios.get(`http://localhost:8000/api/activities/${instructorActivities[i]}`)
-                        .then(response => {
-                            instructorActivityNames.push(response.data.name);
-                            this.setState({
-                                activities: instructorActivityNames
-                            })
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        })
-                }
-            })
-            .catch(error => {
-                console.log(error);
+                this.filterActivities(allActivities);
             })
     }
 
+    filterActivities(activityList) {
+        let instructorActivities = [];
+        for (let i = 0; i < activityList.lengt; i++) {
+            if (activityList[i].instructorID == this.state.id) {
+                instructorActivities.push(activityList[i].activityID)
+            }
+        }
+        for (let j = 0; j < instructorActivities.length; j++) {
+            this.addActivityName(instructorActivities[j]);
+        }
+    }
+
+    addActivityName(instructorId) {
+        let activityNames = [];
+        axios.get(`http://localhost:8000/api/activities/${instructorId}`)
+            .then(response => {
+                activityNames.push(response.data.name);
+                this.setState({
+                    activities: activityNames
+                })
+            })
+    }
 
     render() {
         
