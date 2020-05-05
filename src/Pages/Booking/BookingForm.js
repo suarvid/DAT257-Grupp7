@@ -86,21 +86,18 @@ class BookingForm extends React.Component {
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
+    const { activityName, instructorName } = this.props.location
+    const { location, date, start_time, end_time } = this.props.location.containerData
+    const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
+
     return (
       <div align="center">
         <div>
-          <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
+          <h1>{`${activityName}, ${location}`}</h1>
           <br />
-          <h3>
-            {`${
-              this.props.location.containerData.date
-            }, ${this.props.location.containerData.start_time.substring(
-              0,
-              5
-            )} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
-          </h3>
+          <h3>{time}</h3>
         </div>
-        <p>{`${"Instruktör:"} ${this.props.location.instructorName}`}</p>
+        <p>{`${"Instruktör:"} ${instructorName}`}</p>
         <div className="formContainer" align="center">
           <div className="formField">
             <TextInput
@@ -159,7 +156,9 @@ class BookingForm extends React.Component {
           <NavLink
             to={{
               pathname: "/booking-confirmation",
-              state: this.state,
+              activityName,
+              time,
+              mail: this.state.mail
             }}
           >
             <button className="primary_button_large" onClick={this.onSubmit}>
