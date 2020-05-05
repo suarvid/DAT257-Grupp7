@@ -1,14 +1,26 @@
 .join-container {
     width:100%;
-    overflow: hidden;
+    display: inline-block;
 }
 .info-text {
-    width:70%;
+    width:100%;
     float:left;
 
 
 }
 .companies{
-    width:30%;
+    width:100%;
     float:left;
+    border-top: 1px solid darkgreen ;
+    background-color: lightgray;
+
+}
+
+.companies a{
+    color:darkgreen;
+    display:block;
+    padding: 0px 15px 0px 15px;
+    margin: 5px 15px 5px 15px;
+    text-decoration: none;
+
 }
