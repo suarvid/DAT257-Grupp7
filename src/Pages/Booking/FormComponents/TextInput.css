@@ -12,7 +12,7 @@
 
 }.field:hover {
   background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .field.focussed input {
@@ -25,7 +25,7 @@
  pointer-events: none;
 }.field input {
   width: 100%;
-  position: left;
+  position: center;
   padding: 10px;
   padding-top: 16px; 
   border: none;

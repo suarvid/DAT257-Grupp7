@@ -4,7 +4,6 @@ import "./BookingForm.css";
 import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
 import { withRouter, Link, Route } from 'react-router-dom'
-import { Form, Input, InputNumber, Button } from 'antd';
 import axios from 'axios';
 
 class BookingForm extends React.Component {
@@ -49,7 +48,7 @@ class BookingForm extends React.Component {
     console.log(this.state.firstName)
     console.log(this.state.mail)
     console.log(this.state.phone)
-    console.log(this.props.location.containerData.classID)
+    console.log(this.props.location.containerData.activityID)
     axios
       .put(
         `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
@@ -85,10 +84,9 @@ class BookingForm extends React.Component {
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
     return (
-      <div align='center'>
-        <div>
-          <h1>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h1>
-          <br />
+      <div align="center">
+        <div className = "headerText">
+          <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h2>
           <h3>
             {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
@@ -127,9 +125,7 @@ class BookingForm extends React.Component {
               parentText={() => this.state.phone}
 
             />
-          </div>
-          <div className="formField">
-            <h3>Betalning</h3>
+            <br/>
             <div className="paymentContainer">
               <RadioButton
                 name="payment"
@@ -146,7 +142,6 @@ class BookingForm extends React.Component {
                 initialCheck={false}
                 parentPayment={this.getPayment}
                 handleChange={this.handleChange}
-
               />
             </div>
           </div>
