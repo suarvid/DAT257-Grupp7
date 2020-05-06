@@ -16,15 +16,17 @@ class BookingComponent extends React.Component {
     this.state = {
       activity: {},
       instructor: {},
-      id: this.props.id,
-      date: this.props.date,
-      start_time: this.props.start_time,
-      end_time: this.props.end_time,
-      location: this.props.location,
-      max_attendees: this.props.max_attendees,
-      registered_attendees: this.props.registered_attendees
+      id: this.props.data.id,
+      date: this.props.data.date,
+      start_time: this.props.data.start_time,
+      end_time: this.props.data.end_time,
+      location: this.props.data.location,
+      max_attendees: this.props.data.max_attendees,
+      registered_attendees: this.props.data.registered_attendees
     }
     console.log(this.props)
+    console.log("state")
+    console.log(this.state)
   }
 
   componentDidMount() {
