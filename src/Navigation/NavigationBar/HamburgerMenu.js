@@ -51,12 +51,12 @@ export default function TemporaryDrawer() {
   const handleClick1 = () => {
     setOpen1(!open1);
   };
-  function createSubListItems(items,click) {
+  function createSubListItems(items, click) {
     let localOpen;
-    if(click === handleClick1){
+    if (click === handleClick1) {
       localOpen = open1;
-    }else{
-      localOpen = open
+    } else {
+      localOpen = open;
     }
     return items.map((item) =>
       item.subsections.length <= 0 ? (
@@ -85,10 +85,10 @@ export default function TemporaryDrawer() {
 
   function createListItems(item) {
     let click;
-    if(item.title === "Utbud"){
-      click = handleClick1
-    }else{
-      click = handleClick
+    if (item.title === "Utbud") {
+      click = handleClick1;
+    } else {
+      click = handleClick;
     }
     return item.subsections.length <= 0 ? (
       <ListItem button component="a" href={item.path} key={item.title}>
@@ -100,7 +100,7 @@ export default function TemporaryDrawer() {
           <ListItemText primary={item.title} />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        {createSubListItems(item.subsections,click)}
+        {createSubListItems(item.subsections, click)}
       </List>
     );
   }
@@ -126,7 +126,7 @@ export default function TemporaryDrawer() {
           },
           { title: "Boka", path: "/booking", subsections: [] },
           { title: "Schema", path: "/", subsections: [] },
-          { title: "Priser", path: "/", subsections: [] },
+          { title: "Priser", path: "/priser", subsections: [] },
           {
             title: "Om oss",
             path: "/",
