@@ -1,11 +1,10 @@
 @import "../../globalstyles.css";
 
 .activitiesContainer {
+    align-content: center;
+    margin-top:0px;
     max-width: 100%;
-    height: fit-content;
-    margin: 2px;
-    display: flexbox;
-    text-emphasis: none;
+    max-height: max-content;
     text-decoration: none;
 }
 .activitiesHeader {
