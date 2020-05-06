@@ -1,26 +1,17 @@
+@import "./../../globalstyles.css";
+
 .activityMainImage{
-    margin-top: 40px;
-    margin-left: 20px;
-    margin-right: auto;
-    max-width: 500px;
+    margin-left: 10px;
+    width: 30%;
     padding: 0px;
 } 
 
-.activityName {
-    font-family: "SourceSansPro";
-    color: #4C4C4C;
-    font-weight: bold;
-    font-size: 78px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-}
 
 .activityDescription {
    margin: auto;
    font-family: "SourceSansPro";
    color: #4C4C4C;
-   font-size: 28px;
-   margin-bottom: 0px;
+   font-size: 20px;
 } 
 
 .instructors{
@@ -34,12 +25,12 @@
 }
 
 .activityDetailContainer {
-    max-width: 1400px;
-    margin: auto;
-    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    display: flexbox;
     justify-content: center;
     text-align: center;
-    float: center;
 }
 
 #showActivityButton {
@@ -107,4 +98,14 @@
     margin-left:0px;
     margin-right: 200px;
     padding:0px;
+}
+
+.activityHeader {
+    font-family: "SourceSansPro";
+    color: var(--primary-text-color);
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    float: left;
 }
