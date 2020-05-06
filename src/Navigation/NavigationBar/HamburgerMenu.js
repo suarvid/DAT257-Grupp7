@@ -12,12 +12,11 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import "./NavigationBar.css";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    position:"fixed",
-    top:"260px",
-    zIndex:100,
+    position: "fixed",
+    top: "260px",
+    zIndex: 100,
     width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
@@ -31,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TemporaryDrawer() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [open1, setOpen1] = React.useState(false);
   const [state, setState] = React.useState({
     top: false,
   });
@@ -48,10 +48,19 @@ export default function TemporaryDrawer() {
   const handleClick = () => {
     setOpen(!open);
   };
-  function createSubListItems(items) {
+  const handleClick1 = () => {
+    setOpen1(!open1);
+  };
+  function createSubListItems(items,click) {
+    let localOpen;
+    if(click === handleClick1){
+      localOpen = open1;
+    }else{
+      localOpen = open
+    }
     return items.map((item) =>
       item.subsections.length <= 0 ? (
-        <Collapse in={open} timeout="auto" unmountOnExit>
+        <Collapse in={localOpen} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItem
               button
@@ -65,9 +74,9 @@ export default function TemporaryDrawer() {
           </List>
         </Collapse>
       ) : (
-        <ListItem button onClick={handleClick} key={item.title}>
+        <ListItem button onClick={click} key={item.title}>
           <ListItemText primary={item.title} />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {localOpen ? <ExpandLess /> : <ExpandMore />}
           {createSubListItems(item.subsections)}
         </ListItem>
       )
@@ -75,17 +84,23 @@ export default function TemporaryDrawer() {
   }
 
   function createListItems(item) {
+    let click;
+    if(item.title === "Utbud"){
+      click = handleClick1
+    }else{
+      click = handleClick
+    }
     return item.subsections.length <= 0 ? (
       <ListItem button component="a" href={item.path} key={item.title}>
         <ListItemText primary={item.title} />
       </ListItem>
     ) : (
       <List>
-        <ListItem button onClick={handleClick} key={item.title}>
+        <ListItem button onClick={click} key={item.title}>
           <ListItemText primary={item.title} />
           {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        {createSubListItems(item.subsections)}
+        {createSubListItems(item.subsections,click)}
       </List>
     );
   }
@@ -101,16 +116,25 @@ export default function TemporaryDrawer() {
           { title: "Hem", path: "/", subsections: [] },
           {
             title: "Utbud",
-            path: "/activities",
+            path: "/",
             subsections: [
-              { title: "Boka", path: "/booking", subsections: [] },
-              { title: "Boka", path: "/booking", subsections: [] },
+              { title: "Träning", path: "/activities", subsections: [] },
+              { title: "Föreläsningar", path: "/activities", subsections: [] },
+              { title: "Workshops", path: "/activities", subsections: [] },
+              { title: "Erbjudanden", path: "/activities", subsections: [] },
             ],
           },
           { title: "Boka", path: "/booking", subsections: [] },
           { title: "Schema", path: "/", subsections: [] },
           { title: "Priser", path: "/", subsections: [] },
-          { title: "Om oss", path: "/about", subsections: [] },
+          {
+            title: "Om oss",
+            path: "/",
+            subsections: [
+              { title: "Företagarna", path: "/about", subsections: [] },
+              { title: "Inspiratörer", path: "/inspiratörer", subsections: [] },
+            ],
+          },
           { title: "Vill du synas här?", path: "/join", subsections: [] },
         ].map((item) => createListItems(item))}
       </List>
@@ -118,7 +142,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div style={{position:'fixed', top:'220px'}}>
+    <div style={{ position: "fixed", top: "220px" }}>
       <React.Fragment key={"top"}>
         <Button onClick={toggleDrawer("top", true)}>
           <MenuIcon />
