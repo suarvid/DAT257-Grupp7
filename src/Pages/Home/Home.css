@@ -1,15 +1,5 @@
 .home-container{
-    width:100%;
-    display:inline-block;
+    text-align: center;
+    padding-bottom: 60px;
 }
 
-.first{
-    width:67%;
-    float: left;
-}
-.second{
-    width:33%;
-    float:left;
-
-
-}
