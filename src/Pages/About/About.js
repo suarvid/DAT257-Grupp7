@@ -2,39 +2,52 @@ import React from 'react'
 import './About.css'
 import niamotion from '../../Components/Banner/niamotion.jpg'
 import Instructors from '../Instructors/Instructors';
-/*import unikarum from '../Pages/About/unikarum.jpg'
-<img src={unikarum} alt="UnikaRum" width="20%"/> - fick ej att funka??*/
+import unikarum from './unikarum.jpg'
 
 function About() {
     return (
         <div className="about-container">
-             <h1>Om Hela Åsa</h1>
-            <p className="info-text">
-                <h2>Företagsnätverk</h2>
+            
+            <div className="info-text">
+                <h2>Om Hela Åsa</h2>
+                <h3>Företagsnätverk</h3>
                 <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet....</p>
+            </div>
 
-                <div className= "Yoga">
-                <h3>Yogamidus</h3>
-                <p>Info om Åsas yoga....</p>
-                <p> här ska en bild in! kanske göra det till komponenter för de olika företagen istället?</p>
+            <div className ="companies-container">
+
+                <div className= "company">
+                    <div className="company-image">
+                        </div>
+                <div className="company-text">
+                        <h3>Yogamidus</h3>
+                        <p>Info om Yogamidus....</p>
+                    </div>
                 </div>
 
-                <hr ></hr>
 
-                <div className= "Nia">
-                <img src={niamotion} alt="Nia Motion" width="20%"/>
-                <h3>NiaMotion</h3>
-                <p>Info om Nia....</p>
-                
+                <div className= "company">
+                    <div className= "company-image">
+                        <img src={niamotion} alt="Nia Motion"width="100%" height="100%"/>
+                    </div>
+                    <div className="company-text">
+                        <h3>NiaMotion</h3>
+                        <p>Info om Nia....</p>
+                        <a href="http://niamotion.se/">Vidare till NiaMotion</a>
+                    </div>
                 </div>
 
-                <hr ></hr>
-                <div className= "UnikaRum">
-                <h3> UnikaRum</h3>
-                <p>Info om UnikaRum, extrakolla så det heter så</p> 
-                
+                <div className= "company">
+                    <div className= "company-image">
+                        <img src={unikarum} alt="UnikaRum" width="100%" />
+                    </div> 
+                    <div className="company-text">
+                        <h3>UnikaRum</h3>
+                        <p>Info om UnikaRum....</p>
+                        <a href="http://www.unikarum.se/">Vidare till UnikaRum</a>
+                    </div>
                 </div>
-            </p>
+            </div>
          </div>
     )
 }
