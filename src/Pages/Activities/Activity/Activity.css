@@ -1,57 +1,53 @@
 @import "./../../../globalstyles.css";
 
 .activityImage {
-    width: 25%;
-    height: 25%;
-    max-width: 100px;
+    max-width: 120px;
     border-radius: 5px;
 }
 .activityCard {
     max-width: 100%;
     width: 100%;
     height: 150px;
-    float: left;
+    max-height: 150px;
     margin-left:0px;
-    margin-bottom: 5px;
-    padding: 0px;
+    margin-bottom: 0px;
     box-shadow: var(--default-box-shadow);
     box-sizing: border-box;
+    display: flex;
 }
 .descriptionPreview{
+    margin-top: 10px;
+    padding:5px;
     width: 100%;
     max-width: 100%;
-    max-height: 50%;
+    max-height: 78%;
     height: inherit;
     overflow-wrap: break-word;
-    hyphens: auto;
     text-overflow: ellipsis;
     overflow: hidden;
-    display:flexbox;
+    float: left;
+    box-sizing: border-box;
 }
 .descriptionPreview > p{
-    padding:8px;
+    max-height: 70%;
     font-size: 12px;
-    margin-top: 8px;
+    margin-top: 10px;
+    margin-bottom: 8px;
     text-decoration: none;
-    float: left;
     box-sizing: border-box;
     color: -webkit-linear-gradient(top,#000 60%, lightgrey);
 }
 
 #activityHeader{
-    padding: 8px;
-    display: flex;
-    clear: both;
-    margin-left: 10px;
-    margin-top: 10px;
-    box-sizing: border-box;
+   margin-left: 10px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   min-width: 120px;
 }
 
-#activityHeader > h2{
+.descriptionPreview > h2{
     font-size: 20px;
     margin-top:0px;
     padding:0px;
-    min-width: 30%px;
-    max-width: 30%;
     text-decoration: none;
 }

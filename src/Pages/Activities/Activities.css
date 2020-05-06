@@ -2,10 +2,15 @@
 
 .activitiesContainer {
     max-width: 100%;
+    height: fit-content;
     margin: 2px;
-    flex-wrap: wrap;
-    display: left;
-    justify-content: left;
+    display: flexbox;
+    text-emphasis: none;
+    text-decoration: none;
+}
+.activitiesHeader {
+    max-width: 100%;
+    margin: 2px;
     text-emphasis: none;
     text-decoration: none;
 }

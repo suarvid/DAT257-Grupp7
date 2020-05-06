@@ -32,16 +32,14 @@ class ActivityDetail extends React.Component {
                     <img className='activityMainImage' src={this.state.image} alt={this.state.name} />
                     <h1 className='activityName'>{this.state.name}</h1>
                 </div>
-                <div style={{ marginTop: 80 }}>
-                    <p className='activityDescription'>{this.state.description}</p>
-                    <br />
+                <div className = 'activityDescription'>
+                    <p>{this.state.description}</p>
                 </div>
-                <div>
+                <div align="center">
                     <button className="primary_button_large">
                         <Link style={{ textDecoration: 'none', color: 'white' }}>Visa alla {this.state.name}pass
                             </Link>
                     </button>
-
                 </div>
             </div>
 

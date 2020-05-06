@@ -1,18 +1,49 @@
 @import "./../../globalstyles.css";
 
+.activityDetailContainer {
+    margin-top: 10px;
+    padding:5px;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    height: max-content;
+    box-sizing: border-box;
+}
 .activityMainImage{
-    margin-left: 10px;
-    width: 30%;
+    margin: 10px;
+    max-width: 120px;
+    height: inherit;
     padding: 0px;
+    border-radius: 5px;
 } 
-
-
 .activityDescription {
-   margin: auto;
-   font-family: "SourceSansPro";
-   color: #4C4C4C;
+   margin: inherit;
+   margin-bottom: 20px;
+   color: var(--primary-text-color);
    font-size: 20px;
+   height: max-content;
+   overflow-wrap: break-word;
+   text-overflow: ellipsis;
+   overflow: hidden;
+   float: center;
+   box-sizing: border-box;
 } 
+.activityHeader{
+    align-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0px;
+    max-width: 100%;
+    width: 100%;
+    height: fit-content;
+    max-height: 120px;
+    padding:0px;
+}
+.activityHeader > h2{
+    align-self: top;
+    margin:0px;
+    padding:0px;
+}
 
 .instructors{
     display: inline-block;
@@ -23,16 +54,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
-
-.activityDetailContainer {
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-    display: flexbox;
-    justify-content: center;
-    text-align: center;
-}
-
 #showActivityButton {
     background-color: #4D8948;
     color: white;
@@ -93,19 +114,5 @@
     color: #707070;
     margin-bottom: 0px;
 }
-.activityHeader{
-    display: flex;
-    margin-left:0px;
-    margin-right: 200px;
-    padding:0px;
-}
 
-.activityHeader {
-    font-family: "SourceSansPro";
-    color: var(--primary-text-color);
-    font-weight: bold;
-    font-size: 40px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    float: left;
-}
+
