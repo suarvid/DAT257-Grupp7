@@ -1,5 +1,12 @@
 .price-container{
     background-color: lightgray;
-    max-width: 100%;
+    min-width: 100%;
     display:inline-block;
+}
+
+.activity {
+    background-color: white;
+    width:98%;
+    margin:0.5% 1% 0.5% 1%;
+
 }
