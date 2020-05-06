@@ -1,10 +1,8 @@
 @import "../../globalstyles.css";
 
 .activitiesContainer {
-    max-width: 1900px;
-    margin: 20px auto;
-    margin-left:20px;
-    margin-right: 20px;
+    max-width: 100%;
+    margin: 2px;
     flex-wrap: wrap;
     display: left;
     justify-content: left;
