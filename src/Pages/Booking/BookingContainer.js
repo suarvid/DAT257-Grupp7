@@ -3,7 +3,7 @@ import BookingHeader from "../../Pages/Booking/BookingHeader";
 import "../../../src/globalstyles.css";
 import BookingComponent from "./BookingComponent";
 import "../Booking/Booking.css";
-import axios from 'axios';
+import axios from "axios";
 
 export default class BookingContainer extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export default class BookingContainer extends React.Component {
           capacity: 20,
           booked: 10,
           duration: 60,
-          price: 100
+          price: 100,
         },
         {
           id: "2",
@@ -34,8 +34,7 @@ export default class BookingContainer extends React.Component {
           capacity: 20,
           booked: 21,
           duration: 60,
-          price: 100
-
+          price: 100,
         },
         {
           id: "3",
@@ -46,8 +45,7 @@ export default class BookingContainer extends React.Component {
           capacity: 20,
           booked: 5,
           duration: 60,
-          price: 100
-
+          price: 100,
         },
         {
           id: "4",
@@ -58,8 +56,7 @@ export default class BookingContainer extends React.Component {
           capacity: 20,
           booked: 1000,
           duration: 60,
-          price: 100
-
+          price: 100,
         },
         {
           id: "5",
@@ -70,10 +67,10 @@ export default class BookingContainer extends React.Component {
           capacity: 20,
           booked: 10,
           duration: 60,
-          price: 100
+          price: 100,
         },
       ],
-    }
+    };
     this.decrementWeek = this.decrementWeek.bind(this);
     this.incrementWeek = this.incrementWeek.bind(this);
   }
@@ -91,14 +88,16 @@ export default class BookingContainer extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Component mounted');
-    axios.get('http://127.0.0.1:8000/api/classes/')
-      .then(response => {
+    console.log("Component mounted");
+    axios
+      .get("http://127.0.0.1:8000/api/classes/")
+      .then((response) => {
         this.state.classes = response.data;
         this.setState({
           classes: response.data,
-        })
-      }).catch(error => {
+        });
+      })
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -111,7 +110,7 @@ export default class BookingContainer extends React.Component {
     console.log(this.state);
     return (
       <div text-align="center">
-        <h1>
+        {/* <h1>
           {this.state.title} {this.state.displayWeek}
         </h1>
         {this.state.currentWeek < this.state.displayWeek ? (
@@ -129,9 +128,9 @@ export default class BookingContainer extends React.Component {
             <h2 onClick={this.incrementWeek} style={{ display: "inline-block" }}>
               {">"}{" "}
             </h2>
-          )}
+          )} */}
         <BookingHeader></BookingHeader>
-
+        {console.log(this.state.classes)}
         {this.state.classes.map((item) =>
           <BookingComponent data={item} />
         )}
@@ -139,4 +138,3 @@ export default class BookingContainer extends React.Component {
     );
   }
 }
-
