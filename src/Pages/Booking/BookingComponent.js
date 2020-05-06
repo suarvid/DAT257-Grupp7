@@ -16,13 +16,13 @@ class BookingComponent extends React.Component {
     this.state = {
       activity: {},
       instructor: {},
-      id: this.props.id,
-      date: this.props.date,
-      start_time: this.props.start_time,
-      end_time: this.props.end_time,
-      location: this.props.location,
-      max_attendees: this.props.max_attendees,
-      registered_attendees: this.props.registered_attendees
+      id: this.props.data.id,
+      date: this.props.data.date,
+      start_time: this.props.data.start_time,
+      end_time: this.props.data.end_time,
+      location: this.props.data.location,
+      max_attendees: this.props.data.max_attendees,
+      registered_attendees: this.props.data.registered_attendees
     }
     console.log(this.props)
   }
@@ -82,8 +82,8 @@ class BookingComponent extends React.Component {
       );
     }
     
-    const time = `${this.props.data.start_time.slice(0,5)} - ${this.props.data.end_time.slice(0,5)}` ;
-    const remainingSpots = `${this.props.data.max_attendees-this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
+    const time = `${this.state.start_time.slice(0,5)} - ${this.state.end_time.slice(0,5)}` ;
+    const remainingSpots = `${this.state.max_attendees-this.state.registered_attendees} / ${this.state.max_attendees}`;
     
 
     return (
@@ -104,7 +104,7 @@ class BookingComponent extends React.Component {
           </div>
           <div className="content">
             <p>
-              {`${"Plats:"} ${this.props.data.location}`}
+              {`${"Plats:"} ${this.state.location}`}
             </p>
           </div>
           <div className = "content">
