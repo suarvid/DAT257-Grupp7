@@ -1,27 +1,43 @@
 .about-container {
-    	  width: 100%;
-          display:inline-block;
+        text-align: center;
 
+        background-color:lightgray;    
 }
 .info-text {
+    min-width:100%;
+    background-color: white;
+}
+.companies-container{
     width:100%;
+    background-color: lightgray;
+}
+
+.company{
+    width:98%;
+    background-color:white;
+    display:inline-block;
+    text-align: left;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 0.5%;
+    margin-top:0.5%;
+}
+.company-image{
+    width:18%;
+    min-height:100%;
     float:left;
-}
-.Nia{
-text-align: left;
-margin-right:15px;
-image-orientation:left;
-shape-image-threshold: initial;
-/* vill sätta bilden före texten, till vänster om dem liksom men får inte till det*/
-}
-.Yoga{
-
-}
-.UnikaRum{
+    text-align: center;
+    padding:1%;
 
 }
 
-/*.companies{
-    width:30%;
-    float:left;
-}*/
+a{
+    padding:0px 15px 0px 15px;
+    margin:5px 15px 5px 15px;
+    color:green;
+}
+.company-text{
+    width:80%;
+    float:right;
+}
+

@@ -3,7 +3,12 @@
   text-align: center;
   border-top: 4px solid darkgreen;
   height: 11rem;
-
+  position: relative;
+  left: 0;
+  bottom: 0;
+  margin-top: 20px;
+  background-color: white;
+  display: inline-block;
 }
 
 .footerContainer {
@@ -14,10 +19,8 @@
 .footerContact {
   float: left;
   padding: 10px;
-  padding-right: 30px;
 }
 .footerSocial {
   float: left;
   padding: 10px;
-  padding-left: 30px;
 }

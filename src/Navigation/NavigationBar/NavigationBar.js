@@ -23,6 +23,7 @@ import PostDetail from "../../Pages/Home/PostDetailView";
 import Banner from "../../Components/Banner/BannerComponent";
 import BookingForm from "../../Pages/Booking/BookingForm"
 import Instructors from "../../Pages/Instructors/Instructors";
+import BookingConfirmation from "../../Pages/BookingConfirmation/BookingConfirmation";
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
@@ -247,6 +248,7 @@ class NavigationBar extends Component {
           <Route exact path="/login/:userID" component={BookingContainer} />
           <Route exact path="/post/:postID/" component={PostDetail} />
           <Route exact path="/inspiratörer" component={Instructors} />
+          <Route exact path="/booking-confirmation" component={BookingConfirmation} />
         </Switch>
       </Router>
     );
