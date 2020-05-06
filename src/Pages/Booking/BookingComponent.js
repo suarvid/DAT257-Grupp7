@@ -1,12 +1,9 @@
 import React from "react";
 import "../../../src/globalstyles.css";
 import "../Booking/Booking.css";
-import { Button } from "antd";
 import {
   withRouter,
-  Redirect,
   Link,
-  NavLink,
   Route,
   BrowserRouter as Router,
 } from "react-router-dom";
@@ -19,14 +16,21 @@ class BookingComponent extends React.Component {
     this.state = {
       activity: {},
       instructor: {},
+      id: this.props.id,
+      date: this.props.date,
+      start_time: this.props.start_time,
+      end_time: this.props.end_time,
+      location: this.props.location,
+      max_attendees: this.props.max_attendees,
+      registered_attendees: this.props.registered_attendees
     }
+    console.log(this.props)
   }
 
   componentDidMount() {
     console.log('Component Mounted')
     axios.get(`http://127.0.0.1:8000/api/user/${this.props.data.instructor}`)
       .then(response => {
-        this.state.instructor = response.data;
         this.setState({
           instructor: response.data,
         })
@@ -34,7 +38,6 @@ class BookingComponent extends React.Component {
 
     axios.get(`http://127.0.0.1:8000/api/activities/${this.props.data.activity}`)
       .then(response => {
-        this.state.activity = response.data;
         this.setState({
           activity: response.data,
         })
@@ -43,84 +46,84 @@ class BookingComponent extends React.Component {
 
   render() {
     let button;
-    console.log('registered ' + this.props.data.registered_attendees)
-    console.log('max: ' + this.props.data.max_attendees)
-    if (this.props.data.registered_attendees < this.props.data.max_attendees || this.props.data.max_attendees == 0) {
-      button = (
-        <Link
-          className="primary_button_large"
-          style={{ display: "inline-block" }}
-          to={{
-            pathname: `booking/${this.props.data.id}/`,
-            containerData: {
-              location: this.props.data.location,
-              start_time: this.props.data.start_time,
-              end_time: this.props.data.end_time,
-              date: this.props.data.date,
-              classID: this.props.data.id,
-              activityID: this.props.data.activity,
-              description: this.props.data.description,
-              instructor: this.props.data.instructor,
-              max_attendees: this.props.data.max_attendees,
-              registered_attendees: this.props.data.registered_attendees,
-            },
-            activityName: this.state.activity.name,
-            instructorName: this.state.instructor.name,
-          }}
-        >
-          Boka
-        </Link>
-      );
-    } else {
+    if (this.props.data.registered_attendees < this.props.data.max_attendees) {
+    button = (
+      <Link
+        className="primary_button_large" 
+        to={{
+          pathname: `booking/${this.props.data.id}/`,
+          containerData: {
+            location: this.props.data.location,
+            start_time: this.props.data.start_time,
+            end_time: this.props.data.end_time,
+            date: this.props.data.date,
+            classID: this.props.data.id,
+            activityID: this.props.data.activity,
+            description: this.props.data.description,
+            instructor: this.props.data.instructor,
+            max_attendees: this.props.data.max_attendees,
+            registered_attendees: this.props.data.registered_attendees,
+          },
+          activityName: this.state.activity.name,
+          instructorName: this.state.instructor.name,
+        }}
+      >
+        Boka
+      </Link>
+    );}
+    else{
       button = (
         <h1
           className="primary_button_large"
-          style={{ display: "inline-block" }}
+          style={{ display: "inline-block", backgroundColor:"grey"}}
         >
           Fullt
         </h1>
       );
     }
+    
+    const time = `${this.props.data.start_time.slice(0,5)} - ${this.props.data.end_time.slice(0,5)}` ;
+    const remainingSpots = `${this.props.data.max_attendees-this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
+    
 
     return (
       <withRouter>
-        <div className="component-container">
-          <div className="component">
-            <h2 className="component-headlines">
-              {this.props.data.date}
-            </h2>
+        <div className = "bookingcomponent">
+          <div>
+          <div className="content" >
+            <h3 style = {{fontSize:16}}>
+            {`${ this.state.activity.name} ${this.state.date}  ${time}`}
+            </h3>
           </div>
-          <div className="component">
-            <h2 className="component-headlines">
-              {this.props.data.start_time.substring(0,5)}
-              <br/>
-                -
-              <br/>
-              {this.props.data.end_time.substring(0, 5)}
-            </h2>
+          <div style = {{height:10}}>
           </div>
-          <div className="component">
-            <h2 className="component-headlines">{this.state.activity.name}</h2>
+          <div className="content">
+            <p>
+            {`${"Instruktör:"} ${this.state.instructor.name}`}
+            </p>
           </div>
-          <div className="component">
-            <h2 className="component-headlines">{this.props.data.location}</h2>
+          <div className="content">
+            <p>
+              {`${"Plats:"} ${this.props.data.location}`}
+            </p>
           </div>
-          <div className="component">
-            <h2 className="component-headlines">
-              {this.state.instructor.name}
-            </h2>
+          <div className = "content">
+            <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
           </div>
-
-          {button}
-
-          <Route
-            path={`post/${this.props.data.id}/`}
-            component={PostDetailView}
-          />
+          </div>
+          <div style={{float:"right", marginRight:0, marginBottom:40}}>
+              {button}
+              <Route
+              path={`post/${this.props.data.id}/`}
+              component={PostDetailView}
+              />
+          </div>
         </div>
+        
       </withRouter>
     );
   }
 }
 
 export default withRouter(BookingComponent);
+

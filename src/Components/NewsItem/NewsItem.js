@@ -1,27 +1,18 @@
 import React from "react";
 import "./newsitem.css";
-import { Typography, Slider, Switch } from "antd";
 import {
   withRouter,
-  Redirect,
   Link,
-  NavLink,
   Route,
-  BrowserRouter as Router,
 } from "react-router-dom";
-import Login from "../../Pages/Login/Login";
 import PostDetailView from "../../Pages/Home/PostDetailView";
 
 class NewsItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <withRouter>
         <div className="newsitem" align="center">
-          <h1 className="newsitem-header">
+          <h3 className="newsitem-header news-child">
             <Link
               className="newsitem-header"
               to={{
@@ -36,14 +27,14 @@ class NewsItem extends React.Component {
               path={`post/${this.props.data.id}/`}
               component={PostDetailView}
             />
-          </h1>
+          </h3>
           {this.props.data.images.map((image) => (
-            <img class="newsimage" src={image} alt="Alt" />
+            <img class="newsimage news-child" src={image} alt="Alt" />
           ))}
 
-          <p class="truncate">{this.props.data.content}</p>
+          <p className="truncate news-child">{this.props.data.content}</p>
 
-          <h4>Publicerad av {this.props.data.author}</h4>
+          <h4 className="published news-child">Publicerad av {this.props.data.author}</h4>
         </div>
       </withRouter>
     );

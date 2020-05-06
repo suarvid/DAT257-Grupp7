@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import './instructor.css';
 import { makeStyles } from '@material-ui/core/styles';
+import { Avatar } from 'antd';
 import Card from '@material-ui/core/Card';
 export default class InstructorDetail extends React.Component {
     constructor(props) {
@@ -20,19 +21,16 @@ export default class InstructorDetail extends React.Component {
 
 
     componentDidMount() {
-        console.log("Component Mounted");
-
         this.setState({
             name: this.props.data.name,
             email: this.props.data.email,
             imageurl: this.props.data.image,
             id: this.props.data.id,
         });
-
         this.getActivities();
     }
 
-    
+
     getActivities() {
         let allActivities = [];
         axios.get('http://127.0.0.1:8000/api/instructors/activities')
@@ -44,7 +42,7 @@ export default class InstructorDetail extends React.Component {
 
     filterActivities(activityList) {
         let instructorActivities = [];
-        for (let i = 0; i < activityList.lengt; i++) {
+        for (let i = 0; i < activityList.length; i++) {
             if (activityList[i].instructorID == this.state.id) {
                 instructorActivities.push(activityList[i].activityID)
             }
@@ -65,27 +63,27 @@ export default class InstructorDetail extends React.Component {
             })
     }
 
+   
+
     render() {
-        
-        console.log(this.state)
         return (
             <Card>
-            <div className='itemContainer'>
-                <div className='imageContainer'>
-                    <img src={this.state.imageurl} className='instructorImage' />
-                </div>
-                <div className='infoContainer'>
-                    <h3>{this.state.name}</h3>
-                    <p>{this.state.email}</p>
-                    <p>Aktiviteter: 
+                <div className='itemContainer'>
+                    <div className='imageContainer'>
+                        <img src={this.state.imageurl} className='instructorImage'/>
+                    </div>
+                    <div className='infoContainer'>
+                        <h3 className='instructorName'>{this.state.name}</h3>
+                        <p>{this.state.email}</p>
+                        <p>Aktiviteter:
                     <ul>
-                        {this.state.activities.map((item) =>
-                            <li>{item}</li>
-                        )}
-                    </ul>
-                    </p>
+                                {this.state.activities.map((item) =>
+                                    <li>{item}</li>
+                                )}
+                            </ul>
+                        </p>
+                    </div>
                 </div>
-            </div>
             </Card>
         )
     }

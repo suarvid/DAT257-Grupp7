@@ -1,29 +1,14 @@
 import React from "react";
-import BannerComponent from "../../Components/Banner/BannerComponent";
 
-import PostListView from './PostListView'
+import PostListView from "./PostListView";
 import "./Home.css";
 
-
 function Home() {
-    return (
-                <div>
-
-                <div className="first">
-                    <div className="banner">
-                        <h3>Ingående företag</h3>
-                        <PostListView />       
-                    </div>
-                </div>
-                <div className="second">
-                    <div className="aktiviteter">
-                        <h3>Aktiviteter i närtid</h3>
-                    </div>
-                </div>
-                
-    
-            </div>
-    )
+  return (
+    <div className="home-container">
+      <PostListView />
+    </div>
+  );
 }
 
 export default Home;
