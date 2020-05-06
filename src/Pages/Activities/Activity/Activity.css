@@ -4,6 +4,7 @@
     width: 25%;
     height: 25%;
     max-width: 100px;
+    border-radius: 5px;
 }
 .activityCard {
     max-width: 100%;
