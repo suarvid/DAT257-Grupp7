@@ -12,12 +12,11 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import "./NavigationBar.css";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    position:"fixed",
-    top:"260px",
-    zIndex:100,
+    position: "fixed",
+    top: "260px",
+    zIndex: 100,
     width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
@@ -101,16 +100,25 @@ export default function TemporaryDrawer() {
           { title: "Hem", path: "/", subsections: [] },
           {
             title: "Utbud",
-            path: "/activities",
+            path: "/",
             subsections: [
-              { title: "Boka", path: "/booking", subsections: [] },
-              { title: "Boka", path: "/booking", subsections: [] },
+              { title: "Träning", path: "/activities", subsections: [] },
+              { title: "Föreläsningar", path: "/activities", subsections: [] },
+              { title: "Workshops", path: "/activities", subsections: [] },
+              { title: "Erbjudanden", path: "/activities", subsections: [] },
             ],
           },
           { title: "Boka", path: "/booking", subsections: [] },
           { title: "Schema", path: "/", subsections: [] },
           { title: "Priser", path: "/", subsections: [] },
-          { title: "Om oss", path: "/about", subsections: [] },
+          {
+            title: "Om oss",
+            path: "/",
+            subsections: [
+              { title: "Företagarna", path: "/about", subsections: [] },
+              { title: "Inspiratörer", path: "/inspiratörer", subsections: [] },
+            ],
+          },
           { title: "Vill du synas här?", path: "/join", subsections: [] },
         ].map((item) => createListItems(item))}
       </List>
@@ -118,7 +126,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div style={{position:'fixed', top:'220px'}}>
+    <div style={{ position: "fixed", top: "220px" }}>
       <React.Fragment key={"top"}>
         <Button onClick={toggleDrawer("top", true)}>
           <MenuIcon />
