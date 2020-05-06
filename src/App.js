@@ -3,7 +3,7 @@ import "./index.css"
 import Navbar from './Navigation/NavigationBar/NavigationBar';
 import HamburgerMenu from './Navigation/NavigationBar/HamburgerMenu';
 import BaseRouter from './routes';
-import Footer from './Components/Footer/FooterComponent';
+import Footer from './Components/FooterComponent/FooterComponent';
 import Banner from './Components/Banner/BannerComponent';
 
 
@@ -13,6 +13,7 @@ export default function App() {
     <Banner/>
     <HamburgerMenu />
     <BaseRouter></BaseRouter>
+    <Footer/>
     </div>
   );
 }
