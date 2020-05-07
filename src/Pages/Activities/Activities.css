@@ -1,13 +1,15 @@
 @import "../../globalstyles.css";
 
 .activitiesContainer {
-    max-width: 1900px;
-    margin: 20px auto;
-    margin-left:20px;
-    margin-right: 20px;
-    flex-wrap: wrap;
-    display: left;
-    justify-content: left;
+    align-content: center;
+    margin-top:0px;
+    max-width: 100%;
+    max-height: max-content;
+    text-decoration: none;
+}
+.activitiesHeader {
+    max-width: 100%;
+    margin: 2px;
     text-emphasis: none;
     text-decoration: none;
 }
