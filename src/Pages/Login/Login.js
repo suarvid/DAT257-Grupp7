@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Paper, Grid, TextField, Button, FormControlLabel, FormControl, Checkbox } from '@material-ui/core';
+import { Paper, Grid, TextField, Button, FormControlLabel,  FormControl,Checkbox } from '@material-ui/core';
 import { AccountCircle,  VpnKey } from '@material-ui/icons';
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from '@material-ui/core/Modal';
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-    function Login(props) {
+    function Login() {
         const classes = useStyles();
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
@@ -65,21 +65,21 @@ const useStyles = makeStyles((theme) => ({
                             <AccountCircle className={classes.color}/>
                         </Grid>
                         <Grid item md={true} sm={true} xs={true} >
-                            <TextField id="email" label="E-mail" type="email" fullWidth autoFocus required />
-                        </Grid>
-                        <FormControl
+                            <TextField id="email" label="E-mail" type="email" fullWidth autoFocus required onChange={e => setEmail(e.target.value)}/>
+                            <FormControl
                             autoFocus
                             type="email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
+                        </Grid>
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
                             <VpnKey className={classes.color}/>
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="password" label="Password" type="password" fullWidth required />
+                            <TextField id="password" label="Password" type="password" fullWidth required onChange={e => setPassword(e.target.value)}/>
                         </Grid>
                         <FormControl
                         value={password}
