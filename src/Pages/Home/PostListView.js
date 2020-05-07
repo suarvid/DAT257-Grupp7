@@ -105,7 +105,9 @@ class PostList extends React.Component {
           next={this.loadItems}
           hasMore={this.state.hasMorePosts}
           loader={<div>Loading...</div>}
-          endMessage={<p>Du har läst alla nyhetsinlägg!</p>}
+          endMessage={ <p style={{textAlign: 'center'}}>
+          <b>Du har läst alla nyhetsinlägg!</b>
+          </p>}
         >
           {this.state.loadedPosts.map((item) => (
             <NewsItem data={item} />
