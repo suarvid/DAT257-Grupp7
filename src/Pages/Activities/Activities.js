@@ -39,7 +39,7 @@ export default class Activities extends Component {
             return (
               <div>
                 <withRouter>
-                  <div>
+                  <div style={{margin:"-30px 0"}}>
                     <NavLink to={{
                       pathname: `/activities/${activity.name}/`,
                       state: activity,
