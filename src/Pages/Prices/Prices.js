@@ -8,7 +8,7 @@ function Prices() {
                 <div className="activity">
                   <h4>Yoga</h4>
                   <p>En timmes pass av Ying yoga eller Yang yoga. </p>
-                  <p>Ett pass this.props.price:-</p>
+                  <p>Ett pass X :-</p>
                   <p>Klippkort 10 ggr yoga Y:-</p>
 
                 </div>
