@@ -10,6 +10,8 @@ import BookingForm from "./Pages/Booking/BookingForm";
 import PostDetail from "./Pages/Home/PostDetailView";
 import Instructors from "./Pages/Instructors/Instructors";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import BookingConfirmation from "./Pages/BookingConfirmation/BookingConfirmation";
+
 const BaseRouter = () => (
   <div style={{paddingTop:'260px'}}>
     <Router>
@@ -24,6 +26,7 @@ const BaseRouter = () => (
       <Route exact path="/login/:userID" component={BookingContainer} />
       <Route exact path="/post/:postID/" component={PostDetail} />
       <Route exact path="/inspiratörer" component={Instructors} />
+      <Route exact path="/booking-confirmation" component={BookingConfirmation} />
     </Router>
   </div>
 );
