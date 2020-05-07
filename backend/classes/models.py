@@ -13,12 +13,14 @@ class Class(models.Model):
     start_time = models.TimeField(default=timezone.localtime)
     end_time = models.TimeField(default=timezone.localtime)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, default=0)
-    max_attendees = models.IntegerField(default=0)
-    registered_attendees = models.IntegerField(default=0)
+    max_attendees = models.PositiveIntegerField(default=0)
+    registered_attendees = models.PositiveIntegerField(default=0)
     price = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if (self.start_time > self.end_time) or (self.registered_attendees > self.max_attendees and self.max_attendees != 0):
+            return
+        elif self.max_attendees > self.location.capacity:
             return
         else:
             super().save(*args, **kwargs)
