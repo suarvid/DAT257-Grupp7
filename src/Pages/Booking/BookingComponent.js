@@ -51,7 +51,7 @@ class BookingComponent extends React.Component {
     if (this.props.data.registered_attendees < this.props.data.max_attendees) {
     button = (
       <Link
-        className="primary_button_large" 
+        className="primary_button_large" style={{textDecoration:"none"}}
         to={{
           pathname: `booking/${this.props.data.id}/`,
           containerData: {
@@ -90,8 +90,8 @@ class BookingComponent extends React.Component {
 
     return (
       <withRouter>
-        <div className = "bookingcomponent">
-          <div>
+        <div style = {{display:"flexbox"}} className = "componentCard">
+          <div style = {{marginTop:10}}>
           <div className="content" >
             <h3 style = {{fontSize:16}}>
             {`${ this.state.activity.name} ${this.state.date}  ${time}`}

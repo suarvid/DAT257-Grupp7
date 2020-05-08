@@ -1,9 +1,10 @@
 import React from 'react'
 import './Activity.css'
+import './../../../globalstyles.css'
 
 export default function Activity({ activityType, imageUrl, description }) {
     return (
-        <div className="activityCard">
+        <div className="contentCard">
             <div id = "activityHeader">
                 <img className="activityImage" src={imageUrl} alt={activityType}></img>
             </div>

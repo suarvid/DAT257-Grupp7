@@ -1,13 +1,17 @@
+@import "./../../globalstyles.css";
+
 .itemContainer {
-    width: 95%;
-    height: 180px;
+    width: 100%;
+    height: 160px;
     margin-top: 2px;
-    margin-bottom: 8px;
-    margin-left: 8px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
     flex-wrap: wrap;
     display: inline-flex;
-    box-shadow: 0 4px 8px 0 #888888;
+    box-shadow: var(--default-box-shadow);
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .itemContainer:hover {
@@ -15,35 +19,35 @@
 }
 
 .imageContainer {
-    width: 45%;
-    float: left;
+    width: 30%;
+    display: flex;
     margin-left: -12px;
     margin-right: 6px;
+    margin-bottom: 2px;
+    margin-top: 0px;
+    box-sizing: border-box;
 }
 
 .infoContainer {
     height: 150px;
-    width: 50%;
+    width: 60%;
     margin-left: 2px;
     font-size: 18px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
     margin-bottom: 0px;
-    align-content: center;
-    align-items: center;
-    text-align: center;
+    float: left;
 }
 
 .instructorInfo {
     margin-bottom: 0px;
-    align-self: center;
-    align-content: center;
-    text-align: center;
+    align-self: left;
+    align-content: left;
+    text-align: left;
 }
 
 .instructorName {
-    align-self: center;
-    text-align: center;
+    align-self: left;
+    text-align: left;
     margin-bottom: 12px;
     padding-top: 12px;
     font-weight: bolder;
@@ -52,19 +56,19 @@
 
 .Image {
     object-fit: cover;
-    width: 100%;
-    height: 140px;
+    width: 80%;
+    height: 80%;
 }
 
 .instructorImage {
     object-fit: cover;
-    max-width: 140px;
-    max-height: 140px;
-    min-width: 140px;
-    min-height: 140px;
-    margin-top: 20px;
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     margin-left: 32px;
     border-radius: 50%;
+    align-self: center;
 }
 
 .list {

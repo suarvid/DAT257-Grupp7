@@ -1,8 +1,6 @@
 import React from "react";
 import axios from 'axios';
 import './instructor.css';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar } from 'antd';
 import Card from '@material-ui/core/Card';
 export default class InstructorDetail extends React.Component {
     constructor(props) {
@@ -67,7 +65,6 @@ export default class InstructorDetail extends React.Component {
 
     render() {
         return (
-            <Card>
                 <div className='itemContainer'>
                     <div className='imageContainer'>
                         <img src={this.state.imageurl} className='instructorImage'/>
@@ -84,7 +81,6 @@ export default class InstructorDetail extends React.Component {
                         </p>
                     </div>
                 </div>
-            </Card>
         )
     }
 }
