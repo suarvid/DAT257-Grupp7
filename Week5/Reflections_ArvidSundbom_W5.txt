@@ -1,0 +1,30 @@
+-- what do I want to learn or understand better? --
+This question feels a bit harder to answer this week than previously.
+This is mostly due to the fact that I feel like I'm beginning to understand both Django and React well enough to use them to create what's needed in this project.
+Of course, I still want to get a better understanding of both of these frameworks, as they're both very useful to have in ones toolbox.
+This deeper understanding can probably be achieved just by continuing to work with the frameworks, and reading the documentation of the parts of them I use.
+One thing I've struggled a bit with this week (and previous weeks as well) is styling with css.
+I feel like I have a somewhat basic understanding of how to use css to style the elements i create. 
+However, sometimes it feels like I might randomly try different solutions for a styling issue until it eventually looks like I want it to, even though I might not exactly understand why the solution works.
+As such, I'd like to learn how to use css in a more effective way, since it feels like styling elements is taking more time than it should. 
+Up to this point I've mostly just googled solutions or examples of stylings similar to what I've been after, but in order to get a better understanding of css (in a pretty short time) I'll probably watch some tutorial or read some guide describing how to use css in a more advanced way than what I'm currently comfortable doing.
+
+-- how can I help someone else, or the entire team, to learn something new? --
+As stated in the last reflection, the project is becoming more and more backend-oriented.
+As such, the workload regarding the backend will probably increase quite a bit and therefore more team members will probably have to work with the backend itself.
+Up to this point, I've mainly been responsible for the work regarding the backend, so hopefully I will be able to help others understand how to work with the backend.
+This can probably be done with pair-programming and going over how the backend currently looks.
+ I can hopefully also point out what documentation is helpful to read, since we're using django and a few related libraries to create the API to our backend.
+
+-- what is my contribution towards the team’s use of Scrum? --
+As in previous weeks, I show up to every team meeting and try to contribute to the discussion surrounding the project.
+Of course I also try to contribute to the process of defining and selecting user stories, as well as breaking these up into well-defined tasks.
+Continuing with the theme of previous reflections, I still want to read up more on the use of scrum, mainly by reading the course literature.
+Hopefully there will be time for me to continue reading in the upcoming sprints.
+With that being said, as a group we seem to have gotten a better understanding of how to work in an agile manner, as the group meetings have gotten progressively "better", meaning they're more efficient and streamlined than they were at the start of the project.
+
+-- what is my contribution towards the team’s deliveries? --
+This week I was able to complete most of the work I'd taken on quite quickly.
+I spent a little bit of time later in the sprint looking over some css regarding images as well as how images were being uploaded to the backend.
+As such, I had completed the work I'd said that I would do this sprint, but it still felt as I could do a bit more work.
+Therefore, I started looking a bit at some of the work involved in the upcoming sprint and managed to basically implement a large part of a user story regarding preventing double-booking classes (same location, overlapping times).
