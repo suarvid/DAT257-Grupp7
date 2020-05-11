@@ -1,0 +1,15 @@
+What do I want to learn or understand better?
+
+Material UI, för att kunna ladda ned färdiga komponenter och utnyttja dem i min hemsideutveckling. För tillfället har jag främst hårdkodat statiskt genom css, men det finns många snygga och smarta komponenter i material UI som hade gjort vår hemsida snyggare. Det kommer också bli ett sätt att lära mig utnyttja den open source som finns ute på internet, vilket ska bli spännande.
+
+How can I help someone else, or the entire team, to learn something new?
+
+Som I-are har jag en annan studiebakgrund, och även om jag känner att det är mest jag som lär mig av de andra studenterna finns det säkerligen saker som de lär sig av mitt tillvägagångssätt när jag arbetar. Mitt perspektiv har ofta uppdragsgivaren mer i fokus, med deras önskemål och prioriteringar, vilket jag hoppas ska ge laget en bättre kunskap om hur man kan hantera andra intressenters förväntningar.
+
+What is my contribution towards the team’s use of Scrum?
+
+Själva scrum-metoderna har denna vecka känts rätt svaga. Dock införde vi ett mid-week meeting, som fungerade som ett avstämningsmöte. På så sätt fick vi en ide om vad varje individ gjort under de föregående dagarna, vad nästa steg är samt om de behöver hjälp. Det har gjort veckans sprint mer hanterbar och kontinuerlig i arbetsbörda, som gör vårt workflow mer genomförbart även i det långa loppet. För att orka med de korta intensiva sprintsen som scrum faktiskt består av, känns det viktigt att velocity läggs på en rimlig nivå så samma agila arbetssätt kan användas under en lång tid framöver. Det gör också oss utvecklare mer intresserade av det vi håller på med, så arbetet känns roligt. Jag har också varit bra på att ställa mycket frågor, vilket jag hoppas bidrar till ett öppet klimat och fler personer känner sig trygga med att ställa lite "smådumma" frågor som jag gör ibland.
+
+What is my contribution towards the team’s deliveries?
+
+Denna veckan har jag och Sanna satt oss på viss del av mobilanpassningen, på de sidor som vi tidigare skapat och har lagom svårighetsgrad. Eftersom vi inte riktigt varit införstådda i vad samtliga delar på hemsidan gjort eller haft för bakomliggande kod, blev det mer värdefullt om vi mobilanpassade de mer "simpla" aspekterna så de med mer gedigen kunskap om komponenterna kan mobilanpassa de komponenterna. Vi har även gjort grunden till team reflektionen, med reflektionen fån förra veckan; varför ändra på ett vinnande koncept. Genom att några gör grunden, har vi något att utgå från vid fredagens veckomöte (och sprint review). Det gör att vi inte behöver panikreflektera innan inlämning och kan finjustera och korrekturläsa i en genomförbar takt. Jag upplever också att jag är mer värdeskapande för gruppen när jag gör någonting jag är bra på, speciellt i mer stressade lägen som denna vecka har varit för mig. Då tar jag hellre ett steg tillbaka från själva utvecklandet och fokuserar på de delar där jag kan vara effektiv och leda till totalt upplevt värde för gruppen.

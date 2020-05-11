@@ -30,7 +30,10 @@ function Prices() {
       {/* Förstår om ni inte förstår detta, men det map-funktionen gör är typ samma sak som en for-loop, och det "item" som står där är den informationen som finns
       på varje index i data-listan som jag definierade ovan. Så tänk detta som en for-loop som tar varje index och skickar informationen till pricecomponent. */}
       {data.map((item) => (
+        <div style = {{margin:"5px"}}>
+        <hr style = {{border:"1px solid gray"}}></hr>
         <PriceComponent data={item} />
+        </div>
       ))}
     </div>
   );
