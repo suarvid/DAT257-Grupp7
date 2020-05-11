@@ -20,6 +20,39 @@ export default function SimpleSelect() {
   const classes = useStyles();
   const [activity, setActivity] = React.useState('');
   const [instructor, setInstructor] = React.useState('');
+  const instructors =[
+    {
+      value: 'Lotten',
+      label: 'Lotten Jersby',
+    },
+    {
+      value: 'Anna',
+      label: 'Anna Nyström',
+    },
+  ];
+  const activities=[
+      {
+        value: 'dans',
+        label: 'Dans',
+      },
+      {
+        value: 'lopning',
+        label: 'Löpning',
+      },
+      {
+        value: 'pingis',
+        label: 'Pingis',
+      },
+      {
+        value: 'taekwondo',
+        label: 'Taekwondo',
+      },
+      {
+        value: 'yoga',
+        label: 'Yoga',
+      },
+  ];
+  
 
   const handleChangeActivity = (event) => {
     setActivity(event.target.value);
@@ -47,11 +80,11 @@ export default function SimpleSelect() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={1}>Dans</MenuItem>
-          <MenuItem value={2}>Löpning</MenuItem>
-          <MenuItem value={3}>Pingis</MenuItem>
-          <MenuItem value={4}>Taekwondo</MenuItem>
-          <MenuItem value={5}>Yoga</MenuItem>
+          {activities.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
         </Select>
         <FormHelperText>Välj Aktivitet</FormHelperText>
       </FormControl>
@@ -65,11 +98,12 @@ export default function SimpleSelect() {
           onChange={handleChangeInstrucor}
           autoWidth
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={10}>Anna Nyström</MenuItem>
-          <MenuItem value={11}>Lotten Jersby</MenuItem>
+          <MenuItem value=""><em>None</em></MenuItem>
+          {instructors.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
         </Select>
         <FormHelperText>Välj inspiratör</FormHelperText>
       </FormControl>
