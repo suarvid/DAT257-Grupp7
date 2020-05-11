@@ -20,7 +20,7 @@ class BookingComponent extends React.Component {
       date: this.props.data.date,
       start_time: this.props.data.start_time,
       end_time: this.props.data.end_time,
-      location: this.props.data.location,
+      location:{},
       max_attendees: this.props.data.max_attendees,
       registered_attendees: this.props.data.registered_attendees
     }
@@ -31,7 +31,7 @@ class BookingComponent extends React.Component {
 
   componentDidMount() {
     console.log('Component Mounted')
-    axios.get(`http://127.0.0.1:8000/api/user/${this.props.data.instructor}`)
+    axios.get(`http://127.0.0.1:8000/api/instructors/instructors/${this.props.data.instructor}`)
       .then(response => {
         this.setState({
           instructor: response.data,
@@ -44,8 +44,17 @@ class BookingComponent extends React.Component {
           activity: response.data,
         })
       }).catch(error => {console.log(error)})
-  }
+  
 
+
+      axios.get(`http://127.0.0.1:8000/api/locations/${this.props.data.location}`)
+      .then(response => {
+        this.setState({
+          location: response.data,
+        })
+      }).catch(error => {console.log(error)})
+  
+  }
   render() {
     let button;
     if (this.props.data.registered_attendees < this.props.data.max_attendees) {
@@ -70,6 +79,7 @@ class BookingComponent extends React.Component {
           instructorName: this.state.instructor.name,
         }}
       >
+        {console.log(this.state)}
         Boka
       </Link>
     );}
@@ -106,7 +116,7 @@ class BookingComponent extends React.Component {
           </div>
           <div className="content">
             <p>
-              {`${"Plats:"} ${this.props.data.location}`}
+              {`${"Plats:"} ${this.state.location.name}`}
             </p>
           </div>
           <div className = "content">
