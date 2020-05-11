@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'classes',
     'bookings',
     'instructors',
+    'locations',
     'corsheaders',
     'rest_framework',
 
