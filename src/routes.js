@@ -9,7 +9,8 @@ import ActivityDetail from "./Pages/Activities/ActivityDetailView";
 import BookingForm from "./Pages/Booking/BookingForm";
 import PostDetail from "./Pages/Home/PostDetailView";
 import Instructors from "./Pages/Instructors/Instructors";
-import Prices from './Pages/Prices/Prices'
+import Prices from './Pages/Prices/Prices';
+import Schema from './Pages/Schema/schema';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BookingConfirmation from "./Pages/BookingConfirmation/BookingConfirmation";
 
@@ -28,6 +29,7 @@ const BaseRouter = () => (
       <Route exact path="/post/:postID/" component={PostDetail} />
       <Route exact path="/inspiratörer" component={Instructors} />
       <Route exact path="/priser" component={Prices} />
+      <Route exact path="/schema" component={Schema} />
       <Route exact path="/booking-confirmation" component={BookingConfirmation} />
     </Router>
   </div>
