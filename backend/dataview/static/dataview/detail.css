@@ -28,6 +28,7 @@ td {
 .subTitle {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
+    padding-bottom: 100px;
 }
 
 #returnIcon {

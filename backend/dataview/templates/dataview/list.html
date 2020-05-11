@@ -1,21 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookings - Dataview</title>
+    <title>Bokningsöversikt</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dataview/list.css' %}" />
 </head>
 
 <body>
-    <h1>Bokningsöversikt</h1>
-    <h2>Kommande pass:</h2>
-    <ol>
+    <h1 class="mainTitle">Bokningsöversikt</h1>
+    <h2 class="subTitle">Kommande pass:</h2>
+    <table class="classTable">
+        <tr>
+            <th>Aktivitet</th>
+            <th>Datum</th>
+            <th>Starttid</th>
+            <th>Sluttid</th>
+            <th>Bokningar</th>
+        </tr>
         {% for class in classes %}
-        <li><h2><a href="{% url 'dataDetailView' class.id %}">{{ class.activity.name }} - {{ class.date }} -
-                {{ class.start_time }}</a></h2></li>
+        <tr>
+            <td><a href="{% url 'dataDetailView' class.id %}">{{ class.activity.name }}</a></td>
+            <td>{{ class.date }}</td>
+            <td>{{ class.start_time|time:"H:i" }}</td>
+            <td>{{ class.end_time|time:"H:i" }}</td>
+            <td>{{ class.registered_attendees }}/{{class.max_attendees}}</td>
+        </tr>
         {% endfor %}
-    </ol>
+    </table>
 </body>
 
 </html>
