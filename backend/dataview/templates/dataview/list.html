@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings - Dataview</title>
+</head>
+
+<body>
+    <h1>Bokningsöversikt</h1>
+    <h2>Kommande pass:</h2>
+    <ol>
+        {% for class in classes %}
+        <li><h2><a href="{% url 'dataDetailView' class.id %}">{{ class.activity.name }} - {{ class.date }} -
+                {{ class.start_time }}</a></h2></li>
+        {% endfor %}
+    </ol>
+</body>
+
+</html>
