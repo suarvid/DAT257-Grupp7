@@ -4,6 +4,7 @@ import "../../../src/globalstyles.css";
 import BookingComponent from "./BookingComponent";
 import "../Booking/Booking.css";
 import axios from "axios";
+import Filter from './Filter/FilterPanel';
 
 export default class BookingContainer extends React.Component {
   constructor() {
@@ -37,6 +38,7 @@ export default class BookingContainer extends React.Component {
 
     return (
       <div align="center" className ="component-container">
+        <Filter/>
         {this.state.classes.map((item) =>
           <BookingComponent data={item} />
         )}
