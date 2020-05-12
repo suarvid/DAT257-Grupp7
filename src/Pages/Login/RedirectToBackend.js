@@ -1,10 +1,11 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
+import React, { Component } from "react";
 
-export default function RedirectToBackend() {
-  const renderRedirect = () => {
-    return <Redirect to="/admin" />;
-  };
+export default class RedirectToBackend extends Component {
+  componentDidMount() {
+    window.location.replace("http://127.0.0.1:8000/admin");
+  }
 
-  return <div>{renderRedirect()}</div>;
+  render() {
+    return <></>;
+  }
 }
