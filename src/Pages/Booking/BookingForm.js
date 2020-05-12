@@ -5,7 +5,7 @@ import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
 import { withRouter, Link, Route, Switch, NavLink } from "react-router-dom";
 import axios from "axios";
-
+import emailjs from "emailjs-com";
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -42,14 +42,46 @@ class BookingForm extends React.Component {
   getPayment() {
     return this.state.payment;
   }
+  getMessage() {
+    let message =
+      "Tack för din bokning, du är en goddddd:\n ditt pass är " +
+      this.props.location.containerData.date +
+      " klockan " +
+      this.props.location.containerData.start_time +
+      " till " +
+      this.props.location.containerData.end_time +
+      " på " +
+      this.props.location.containerData.location;
 
+    return message;
+  }
+  //ska ha ett object med user_name ,user_email,message.
+  sendEmail(data) {
+    //data.preventDefault();
+
+    emailjs
+      .send(
+        "noreeplyhelaasa123_gmail_com",
+        "tack_f_r_din_bokning",
+        data,
+        "user_4V0rsm3ZnA12kUbHiHncB"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
     console.log("Form submitted!");
-    console.log(this.state.firstName)
-    console.log(this.state.mail)
-    console.log(this.state.phone)
-    console.log(this.props.location.containerData.activityID)
+    console.log(this.state.firstName);
+    console.log(this.state.mail);
+    console.log(this.state.phone);
+    console.log(this.props.location.containerData.activityID);
     axios
       .put(
         `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
@@ -70,6 +102,12 @@ class BookingForm extends React.Component {
       .then((response) => {
         console.log(response);
         //this.props.history.push("/BookingConfirmation", [this.state]);
+        console.log("FÖRSÖKER SKICKA MAIL");
+        this.sendEmail({
+          user_name: this.state.firstName,
+          user_email: this.state.mail,
+          message: this.getMessage(),
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -85,16 +123,29 @@ class BookingForm extends React.Component {
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
-    const { activityName, instructorName } = this.props.location
-    const { location, date, start_time, end_time } = this.props.location.containerData
-    const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
+    const { activityName, instructorName } = this.props.location;
+    const {
+      location,
+      date,
+      start_time,
+      end_time,
+    } = this.props.location.containerData;
+    const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(
+      0,
+      5
+    )}`;
 
     return (
       <div align="center">
-        <div className = "headerText">
+        <div className="headerText">
           <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h2>
           <h3>
-            {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${
+              this.props.location.containerData.date
+            }, ${this.props.location.containerData.start_time.substring(
+              0,
+              5
+            )} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
         </div>
         <p>{`${"Instruktör:"} ${instructorName}`}</p>
@@ -129,7 +180,7 @@ class BookingForm extends React.Component {
               placeholder="Telefonnummer"
               parentText={() => this.state.phone}
             />
-            <br/>
+            <br />
             <div className="paymentContainer">
               <RadioButton
                 name="payment"
@@ -156,7 +207,7 @@ class BookingForm extends React.Component {
               pathname: "/booking-confirmation",
               activityName,
               time,
-              mail: this.state.mail
+              mail: this.state.mail,
             }}
           >
             <button className="primary_button_large" onClick={this.onSubmit}>
