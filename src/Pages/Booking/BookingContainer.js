@@ -5,6 +5,7 @@ import BookingComponent from "./BookingComponent";
 import "../Booking/Booking.css";
 import axios from "axios";
 import Filter from "./Filter/FilterPanel";
+import FilterItem from "./Filter/FilterItem";
 
 export default class BookingContainer extends React.Component {
   constructor() {
@@ -12,9 +13,11 @@ export default class BookingContainer extends React.Component {
     this.state = {
       classes: [],
       activeFilters: {
-        activity: "",
-        instructor: "",
+        activity: null,
+        instructor: null,
       },
+      activities: [],
+      instructors: []
     };
     this.sortData = this.sortData.bind(this);
   }
@@ -28,6 +31,22 @@ export default class BookingContainer extends React.Component {
         data = response.data;
         this.setState({
           classes: this.sortData(data),
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get(`http://127.0.0.1:8000/api/activities/`)
+      .then((response) => {
+        const activities = response.data.map(
+          (activity) => new FilterItem(activity.id, activity.name)
+        );
+        console.log("Filterpanel: ", activities);
+        this.setState({
+          ...this.state,
+          activities
         });
       })
       .catch((error) => {
@@ -51,18 +70,27 @@ export default class BookingContainer extends React.Component {
   }
 
   render() {
+    const { classes, activities } = this.state;
     const { activity, instructor } = this.state.activeFilters;
+
+    let filteredClasses = classes;
+    if (activity) {
+      filteredClasses = filteredClasses.filter((c) => c.activity === activity);
+    }
+    console.log("active activity ", activity)
+    console.log("filtered ", filteredClasses)
 
     return (
       <div align="center" className="component-container">
         <Filter
+          activities={activities}
           selectedActivity={activity}
           selectedInstructor={instructor}
           onFilterStateChanged={(selectedActivity, selectedInstructor) =>
             this.onFilterStateChanged(selectedActivity, selectedInstructor)
           }
         />
-        {this.state.classes.map((item) => (
+        {filteredClasses.map((item) => (
           <BookingComponent data={item} />
         ))}
       </div>

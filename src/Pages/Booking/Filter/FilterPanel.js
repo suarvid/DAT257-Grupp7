@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Select from "./FilterSelect";
 import axios from "axios";
+import FilterItem from "./FilterItem";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,31 +28,14 @@ class FilterPanel extends Component {
     };
   }
 
-  componentDidMount() {
-    axios
-      .get(`http://127.0.0.1:8000/api/activities/`)
-      .then((response) => {
-        const activities = response.data
-          .map((activity) => activity.name)
-          .sort();
-        console.log("Filterpanel: ", activities);
-        this.setState({
-          activities,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   render() {
     const {
+      activities,
       classes,
       onFilterStateChanged,
       selectedActivity,
       selectedInstructor,
     } = this.props;
-    const { activities } = this.state;
 
     return (
       <div className={classes.root}>

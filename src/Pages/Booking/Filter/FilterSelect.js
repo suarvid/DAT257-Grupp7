@@ -64,7 +64,7 @@ export default function SimpleSelect(props) {
             <em>None</em>
           </MenuItem>
           {activities.map((activity) => (
-            <MenuItem value={activity}>{activity}</MenuItem>
+            <MenuItem value={activity.id}>{activity.name}</MenuItem>
           ))}
         </Select>
         <FormHelperText>Välj Aktivitet</FormHelperText>
