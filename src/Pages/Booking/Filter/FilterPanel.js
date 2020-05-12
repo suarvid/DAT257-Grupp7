@@ -31,7 +31,7 @@ class FilterPanel extends Component {
     axios
       .get(`http://127.0.0.1:8000/api/activities/`)
       .then((response) => {
-        const activities = response.data.map((activity) => activity.name);
+        const activities = response.data.map((activity) => activity.name).sort()
         console.log("Filterpanel: ", activities)
         this.setState({
           activities,
@@ -44,6 +44,7 @@ class FilterPanel extends Component {
 
   render() {
     const { classes } = this.props;
+    const { activities } = this.state
 
     return (
       <div className={classes.root}>
@@ -57,7 +58,7 @@ class FilterPanel extends Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              <Select />
+              <Select activities={activities} />
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>

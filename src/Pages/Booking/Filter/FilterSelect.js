@@ -16,52 +16,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleSelect() {
+export default function SimpleSelect(props) {
   const classes = useStyles();
-  const [activity, setActivity] = React.useState("");
-  const [instructor, setInstructor] = React.useState("");
-  const instructors = [
+
+  const [instructor, setInstructor] = React.useState('');
+  const [activity, setActivity] = React.useState('');
+
+  const instructors =[
     {
-      value: "Lotten",
-      label: "Lotten Jersby",
+      value: 'Lotten',
+      label: 'Lotten Jersby',
     },
     {
-      value: "Anna",
-      label: "Anna Nyström",
-    },
-  ];
-  const activities = [
-    {
-      value: "dans",
-      label: "Dans",
-    },
-    {
-      value: "lopning",
-      label: "Löpning",
-    },
-    {
-      value: "pingis",
-      label: "Pingis",
-    },
-    {
-      value: "taekwondo",
-      label: "Taekwondo",
-    },
-    {
-      value: "yoga",
-      label: "Yoga",
+      value: 'Anna',
+      label: 'Anna Nyström',
     },
   ];
 
   const handleChangeActivity = (event) => {
-    setActivity(event.target.value);
-    console.log(activity);
+    const selectedActivity = event.target.value
+    setActivity(selectedActivity);
+    console.log(selectedActivity);
   };
 
   const handleChangeInstrucor = (event) => {
-    setInstructor(event.target.value);
-    console.log(instructor);
+    //setInstructor(event.target.value);
+    //console.log(instructor);
   };
+
+  const { activities } = props
+
+  if (!activities) return null
 
   return (
     <div>
@@ -77,9 +62,9 @@ export default function SimpleSelect() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {activities.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          {activities.map((activity) => (
+            <MenuItem value={activity}>
+              {activity}
             </MenuItem>
           ))}
         </Select>
