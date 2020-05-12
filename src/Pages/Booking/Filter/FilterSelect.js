@@ -19,38 +19,32 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleSelect(props) {
   const classes = useStyles();
 
-  const [instructor, setInstructor] = React.useState('');
-  const [activity, setActivity] = React.useState('');
+  const [instructor, setInstructor] = React.useState("");
 
-  const instructors =[
+  const instructors = [
     {
-      value: 'Lotten',
-      label: 'Lotten Jersby',
+      value: "Lotten",
+      label: "Lotten Jersby",
     },
     {
-      value: 'Anna',
-      label: 'Anna Nyström',
+      value: "Anna",
+      label: "Anna Nyström",
     },
   ];
-
-  const handleChangeActivity = (event) => {
-    const selectedActivity = event.target.value
-    setActivity(selectedActivity);
-    notifyListener(selectedActivity, instructor)
-  };
 
   const handleChangeInstrucor = (event) => {
     //setInstructor(event.target.value);
     //console.log(instructor);
   };
 
-  const notifyListener = (activity, instructor) => {
-    props.onFilterStateChanged(activity, instructor)
-  }
+  const {
+    onFilterStateChanged,
+    activities,
+    selectedActivity,
+    selectedInstructor,
+  } = props;
 
-  const { activities } = props
-
-  if (!activities) return null
+  if (!activities) return null;
 
   return (
     <div>
@@ -59,17 +53,18 @@ export default function SimpleSelect(props) {
         <Select
           labelId="activity"
           id="selectactivity"
-          value={activity}
-          onChange={handleChangeActivity}
+          value={selectedActivity}
+          onChange={(e) => {
+            const newlySelectedActivity = e.target.value
+            onFilterStateChanged(newlySelectedActivity, selectedInstructor)
+          }}
           autoWidth
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
           {activities.map((activity) => (
-            <MenuItem value={activity}>
-              {activity}
-            </MenuItem>
+            <MenuItem value={activity}>{activity}</MenuItem>
           ))}
         </Select>
         <FormHelperText>Välj Aktivitet</FormHelperText>

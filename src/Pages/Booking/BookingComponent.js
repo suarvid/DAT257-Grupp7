@@ -24,9 +24,6 @@ class BookingComponent extends React.Component {
       max_attendees: this.props.data.max_attendees,
       registered_attendees: this.props.data.registered_attendees
     }
-    console.log(this.props)
-    console.log("state")
-    console.log(this.state)
   }
 
   componentDidMount() {
