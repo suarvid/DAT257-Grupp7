@@ -33,7 +33,7 @@ class BookingForm extends React.Component {
   }
 
   componentDidMount() {
-    const data = this.props.location.state;
+    const data = this.props.location;
     this.setState({
       booking: data,
     });
@@ -51,7 +51,13 @@ class BookingForm extends React.Component {
       " till " +
       this.props.location.containerData.end_time +
       " på " +
-      this.props.location.containerData.location;
+      this.props.location.containerData.location.name +
+      "\n " +
+      this.props.location.containerData.location.street_address +
+      "\n " +
+      this.props.location.containerData.location.postal_code + 
+      "\n " +
+      this.props.location.containerData.location.city;
 
     return message;
   }
@@ -77,11 +83,13 @@ class BookingForm extends React.Component {
   }
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
-    console.log("Form submitted!");
-    console.log(this.state.firstName);
-    console.log(this.state.mail);
-    console.log(this.state.phone);
-    console.log(this.props.location.containerData.activityID);
+    // console.log("Form submitted!");
+    // console.log(this.state.firstName);
+    // console.log(this.state.mail);
+    // console.log(this.state.phone);
+    // console.log(this.props.location.containerData.activityID);
+    console.log(this.state);
+
     axios
       .put(
         `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
@@ -89,11 +97,11 @@ class BookingForm extends React.Component {
           id: this.props.location.classID,
           activity: this.props.location.containerData.activityID,
           description: this.props.location.containerData.description,
-          instructor: this.props.location.containerData.instructor,
+          instructor: this.props.location.containerData.instructor.id,
           date: this.props.location.containerData.date,
           start_time: this.props.location.containerData.start_time,
           end_time: this.props.location.containerData.end_time,
-          location: this.props.location.containerData.location,
+          location: this.props.location.containerData.location.id,
           max_attendees: this.props.location.containerData.max_attendees,
           registered_attendees:
             this.props.location.containerData.registered_attendees + 1,
@@ -102,12 +110,13 @@ class BookingForm extends React.Component {
       .then((response) => {
         console.log(response);
         //this.props.history.push("/BookingConfirmation", [this.state]);
-        console.log("FÖRSÖKER SKICKA MAIL");
-        this.sendEmail({
-          user_name: this.state.firstName,
-          user_email: this.state.mail,
-          message: this.getMessage(),
-        });
+        // console.log("FÖRSÖKER SKICKA MAIL");
+        // this.sendEmail({
+        //   user_name: this.state.firstName,
+        //   user_email: this.state.mail,
+        //   message: this.getMessage(),
+        // });
+        console.log(this.getMessage());
       })
       .catch((error) => {
         console.log(error);
@@ -138,7 +147,7 @@ class BookingForm extends React.Component {
     return (
       <div align="center">
         <div className="headerText">
-          <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h2>
+          <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location.name}`}</h2>
           <h3>
             {`${
               this.props.location.containerData.date

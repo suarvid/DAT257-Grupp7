@@ -64,14 +64,14 @@ class BookingComponent extends React.Component {
         to={{
           pathname: `booking/${this.props.data.id}/`,
           containerData: {
-            location: this.props.data.location,
+            location: this.state.location,
             start_time: this.props.data.start_time,
             end_time: this.props.data.end_time,
             date: this.props.data.date,
             classID: this.props.data.id,
             activityID: this.props.data.activity,
             description: this.props.data.description,
-            instructor: this.props.data.instructor,
+            instructor: this.state.instructor,
             max_attendees: this.props.data.max_attendees,
             registered_attendees: this.props.data.registered_attendees,
           },
