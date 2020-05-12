@@ -4,7 +4,6 @@ import BookingContainer from "./Pages/Booking/BookingContainer";
 import Activities from "./Pages/Activities/Activities";
 import About from "./Pages/About/About";
 import Join from "./Pages/Join/Join";
-import Login from "./Pages/Login/Login";
 import ActivityDetail from "./Pages/Activities/ActivityDetailView";
 import BookingForm from "./Pages/Booking/BookingForm";
 import PostDetail from "./Pages/Home/PostDetailView";
