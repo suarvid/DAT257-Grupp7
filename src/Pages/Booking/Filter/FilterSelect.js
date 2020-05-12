@@ -44,7 +44,7 @@ export default function SimpleSelect(props) {
           autoWidth
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>Alla</em>
           </MenuItem>
           {activities.map((activity) => (
             <MenuItem key={activity.id} value={activity.id}>{activity.name}</MenuItem>
@@ -66,7 +66,7 @@ export default function SimpleSelect(props) {
           autoWidth
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>Alla</em>
           </MenuItem>
           {instructors.map((instructor) => (
             <MenuItem key={instructor.id} value={instructor.id}>
