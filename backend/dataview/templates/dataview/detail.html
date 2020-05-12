@@ -18,20 +18,23 @@
     <div>
         <h1 class="mainTitle">Bokningsöversikt för {{ class.activity.name }} - {{ class.date }}</h1>
         <h2 class="subTitle">{{ class.start_time|time:"H:i" }} - {{ class.end_time|time:"H:i" }}, Anmälda bokningar:
-            {{ bookings.count }}/{{ class.max_attendees }}</h2>
+            {{ bookings.count }}/{{ class.max_attendees }}<br/>
+            <br/>
+            Instruktör: {{ class.instructor }}
+        </h2>
         <table class="bookingTable">
             <tr>
-                <th>Boknings-ID</th>
                 <th>Namn</th>
                 <th>Mailadress</th>
                 <th>Telefonnummer</th>
+                <th>Boknings-ID</th>
             </tr>
             {% for booking in bookings %}
             <tr>
-                <td> {{ booking.id }} </td>
                 <td> {{ booking.name }} </td>
                 <td> {{ booking.email }} </td>
                 <td> {{ booking.phone_number }} </td>
+                <td> {{ booking.id }} </td>
             </tr>
             {% endfor %}
         </table>
