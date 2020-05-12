@@ -19,32 +19,15 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleSelect(props) {
   const classes = useStyles();
 
-  const [instructor, setInstructor] = React.useState("");
-
-  const instructors = [
-    {
-      value: "Lotten",
-      label: "Lotten Jersby",
-    },
-    {
-      value: "Anna",
-      label: "Anna Nyström",
-    },
-  ];
-
-  const handleChangeInstrucor = (event) => {
-    //setInstructor(event.target.value);
-    //console.log(instructor);
-  };
-
   const {
     onFilterStateChanged,
     activities,
+    instructors,
     selectedActivity,
     selectedInstructor,
   } = props;
 
-  if (!activities) return null;
+  if (!activities || !instructors) return null;
 
   return (
     <div>
@@ -64,7 +47,7 @@ export default function SimpleSelect(props) {
             <em>None</em>
           </MenuItem>
           {activities.map((activity) => (
-            <MenuItem value={activity.id}>{activity.name}</MenuItem>
+            <MenuItem key={activity.id} value={activity.id}>{activity.name}</MenuItem>
           ))}
         </Select>
         <FormHelperText>Välj Aktivitet</FormHelperText>
@@ -75,16 +58,19 @@ export default function SimpleSelect(props) {
         <Select
           labelId="instructor"
           id="selectinstructor"
-          value={instructor}
-          onChange={handleChangeInstrucor}
+          value={selectedInstructor}
+          onChange={(e) => {
+            const newlySelectedInstructor = e.target.value
+            onFilterStateChanged(selectedActivity, newlySelectedInstructor)
+          }}
           autoWidth
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {instructors.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          {instructors.map((instructor) => (
+            <MenuItem key={instructor.id} value={instructor.id}>
+              {instructor.name}
             </MenuItem>
           ))}
         </Select>

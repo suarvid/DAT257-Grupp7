@@ -31,6 +31,7 @@ class FilterPanel extends Component {
   render() {
     const {
       activities,
+      instructors,
       classes,
       onFilterStateChanged,
       selectedActivity,
@@ -53,6 +54,7 @@ class FilterPanel extends Component {
                 selectedActivity={selectedActivity}
                 selectedInstructor={selectedInstructor}
                 activities={activities}
+                instructors={instructors}
                 onFilterStateChanged={onFilterStateChanged}
               />
             </Typography>

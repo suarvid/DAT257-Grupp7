@@ -43,10 +43,24 @@ export default class BookingContainer extends React.Component {
         const activities = response.data.map(
           (activity) => new FilterItem(activity.id, activity.name)
         );
-        console.log("Filterpanel: ", activities);
         this.setState({
           ...this.state,
           activities,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get("http://127.0.0.1:8000/api/instructors/instructors")
+      .then((response) => {
+        const instructors = response.data.map(
+          (instructor) => new FilterItem(instructor.id, instructor.name)
+        );
+        this.setState({
+          ...this.state,
+          instructors,
         });
       })
       .catch((error) => {
@@ -66,11 +80,10 @@ export default class BookingContainer extends React.Component {
         instructor: selectedInstructor,
       },
     });
-    console.log("Selected ", selectedActivity);
   }
 
   render() {
-    const { classes, activities } = this.state;
+    const { classes, activities, instructors } = this.state;
     const { activity, instructor } = this.state.activeFilters;
 
     let filteredClasses = classes;
@@ -94,6 +107,7 @@ export default class BookingContainer extends React.Component {
       <div align="center" className="component-container">
         <Filter
           activities={activities}
+          instructors={instructors}
           selectedActivity={activity}
           selectedInstructor={instructor}
           onFilterStateChanged={(selectedActivity, selectedInstructor) =>
