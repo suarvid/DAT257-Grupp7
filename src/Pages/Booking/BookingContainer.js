@@ -77,8 +77,18 @@ export default class BookingContainer extends React.Component {
     if (activity) {
       filteredClasses = filteredClasses.filter((c) => c.activity === activity);
     }
-    console.log("active activity ", activity);
-    console.log("filtered ", filteredClasses);
+
+    let mainContent;
+    if (filteredClasses.length === 0) {
+      mainContent = <h2>Filtereringen gav inga träffar. Försök igen.</h2>;
+    } else {
+      mainContent = filteredClasses.map((item) => (
+        <BookingComponent
+          activity={activities.filter((a) => a.id === item.activity)[0]}
+          data={item}
+        />
+      ));
+    }
 
     return (
       <div align="center" className="component-container">
@@ -90,12 +100,7 @@ export default class BookingContainer extends React.Component {
             this.onFilterStateChanged(selectedActivity, selectedInstructor)
           }
         />
-        {filteredClasses.map((item) => (
-          <BookingComponent
-            activity={activities.filter((a) => a.id === item.activity)[0]}
-            data={item}
-          />
-        ))}
+        {mainContent}
       </div>
     );
   }
