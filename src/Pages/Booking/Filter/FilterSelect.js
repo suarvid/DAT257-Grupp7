@@ -36,13 +36,17 @@ export default function SimpleSelect(props) {
   const handleChangeActivity = (event) => {
     const selectedActivity = event.target.value
     setActivity(selectedActivity);
-    console.log(selectedActivity);
+    notifyListener(selectedActivity, instructor)
   };
 
   const handleChangeInstrucor = (event) => {
     //setInstructor(event.target.value);
     //console.log(instructor);
   };
+
+  const notifyListener = (activity, instructor) => {
+    props.onFilterStateChanged(activity, instructor)
+  }
 
   const { activities } = props
 

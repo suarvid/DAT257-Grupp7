@@ -33,12 +33,15 @@ export default class BookingContainer extends React.Component {
    return data.sort((a, b) => a.date > b.date);
   }
 
+  onFilterStateChanged(selectedActivity, selectedInstructor) {
+    console.log("Selected ", selectedActivity)
+  }
 
   render() {
 
     return (
       <div align="center" className ="component-container">
-        <Filter/>
+        <Filter onFilterStateChanged={this.onFilterStateChanged} />
         {this.state.classes.map((item) =>
           <BookingComponent data={item} />
         )}

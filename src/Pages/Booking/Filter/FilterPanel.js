@@ -43,7 +43,7 @@ class FilterPanel extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, onFilterStateChanged } = this.props;
     const { activities } = this.state
 
     return (
@@ -58,7 +58,7 @@ class FilterPanel extends Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              <Select activities={activities} />
+              <Select activities={activities} onFilterStateChanged={onFilterStateChanged} />
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
