@@ -1,5 +1,5 @@
 import React from "react";
-import "./newsitem.css";
+import "./../../../globalstyles.css";
 import { withRouter, Link, Route } from "react-router-dom";
 import PostDetailView from "../../Pages//PostDetailView";
 
@@ -7,10 +7,10 @@ class NewsItem extends React.Component {
   render() {
     return (
       <withRouter>
-        <div className="newsitem" align="center">
+        <div className="contentCard" align="center">
           <h3 className="newsitem-header news-child">
             <Link
-              className="newsitem-header"
+              className="newsitem"
               to={{
                 pathname: `post/${this.props.data.id}/`,
                 state: this.props.data,

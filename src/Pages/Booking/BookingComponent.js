@@ -90,7 +90,7 @@ class BookingComponent extends React.Component {
 
     return (
       <withRouter>
-        <div style = {{display:"flexbox"}} className = "componentCard">
+        <div className = "componentCard" style={{display:"flexbox", margin:10}}>
           <div style = {{marginTop:10}}>
           <div className="content" >
             <h3 style = {{fontSize:16}}>
