@@ -109,13 +109,14 @@ class BookingForm extends React.Component {
       )
       .then((response) => {
         console.log(response);
-        //this.props.history.push("/BookingConfirmation", [this.state]);
-        // console.log("FÖRSÖKER SKICKA MAIL");
+        this.props.history.push("/BookingConfirmation", [this.state]);
+        //Uncomment this if u want confirmation mail
         // this.sendEmail({
         //   user_name: this.state.firstName,
         //   user_email: this.state.mail,
         //   message: this.getMessage(),
         // });
+        //between this and above
         console.log(this.getMessage());
       })
       .catch((error) => {
