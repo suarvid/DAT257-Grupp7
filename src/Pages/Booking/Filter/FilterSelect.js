@@ -1,10 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -18,46 +18,44 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleSelect() {
   const classes = useStyles();
-  const [activity, setActivity] = React.useState('');
-  const [instructor, setInstructor] = React.useState('');
-  const instructors =[
+  const [activity, setActivity] = React.useState("");
+  const [instructor, setInstructor] = React.useState("");
+  const instructors = [
     {
-      value: 'Lotten',
-      label: 'Lotten Jersby',
+      value: "Lotten",
+      label: "Lotten Jersby",
     },
     {
-      value: 'Anna',
-      label: 'Anna Nyström',
+      value: "Anna",
+      label: "Anna Nyström",
     },
   ];
-  const activities=[
-      {
-        value: 'dans',
-        label: 'Dans',
-      },
-      {
-        value: 'lopning',
-        label: 'Löpning',
-      },
-      {
-        value: 'pingis',
-        label: 'Pingis',
-      },
-      {
-        value: 'taekwondo',
-        label: 'Taekwondo',
-      },
-      {
-        value: 'yoga',
-        label: 'Yoga',
-      },
+  const activities = [
+    {
+      value: "dans",
+      label: "Dans",
+    },
+    {
+      value: "lopning",
+      label: "Löpning",
+    },
+    {
+      value: "pingis",
+      label: "Pingis",
+    },
+    {
+      value: "taekwondo",
+      label: "Taekwondo",
+    },
+    {
+      value: "yoga",
+      label: "Yoga",
+    },
   ];
-  
 
   const handleChangeActivity = (event) => {
     setActivity(event.target.value);
     console.log(activity);
-
   };
 
   const handleChangeInstrucor = (event) => {
@@ -67,8 +65,7 @@ export default function SimpleSelect() {
 
   return (
     <div>
-     
-     <FormControl className={classes.formControl}>
+      <FormControl className={classes.formControl}>
         <InputLabel id="activity">Aktivitet</InputLabel>
         <Select
           labelId="activity"
@@ -98,7 +95,9 @@ export default function SimpleSelect() {
           onChange={handleChangeInstrucor}
           autoWidth
         >
-          <MenuItem value=""><em>None</em></MenuItem>
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
           {instructors.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
@@ -107,7 +106,6 @@ export default function SimpleSelect() {
         </Select>
         <FormHelperText>Välj inspiratör</FormHelperText>
       </FormControl>
-
     </div>
   );
 }

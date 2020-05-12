@@ -6,6 +6,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Select from "./FilterSelect";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 class FilterPanel extends Component {
+  constructor() {
+    super();
+    this.state = {
+      activities: [],
+      instructors: [],
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get(`http://127.0.0.1:8000/api/activities/`)
+      .then((response) => {
+        const activities = response.data.map((activity) => activity.name);
+        console.log("Filterpanel: ", activities)
+        this.setState({
+          activities,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -42,4 +66,4 @@ class FilterPanel extends Component {
   }
 }
 
-export default withStyles(useStyles)(FilterPanel)
+export default withStyles(useStyles)(FilterPanel);
