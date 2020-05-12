@@ -17,7 +17,7 @@ export default class BookingContainer extends React.Component {
         instructor: null,
       },
       activities: [],
-      instructors: []
+      instructors: [],
     };
     this.sortData = this.sortData.bind(this);
   }
@@ -46,7 +46,7 @@ export default class BookingContainer extends React.Component {
         console.log("Filterpanel: ", activities);
         this.setState({
           ...this.state,
-          activities
+          activities,
         });
       })
       .catch((error) => {
@@ -77,8 +77,8 @@ export default class BookingContainer extends React.Component {
     if (activity) {
       filteredClasses = filteredClasses.filter((c) => c.activity === activity);
     }
-    console.log("active activity ", activity)
-    console.log("filtered ", filteredClasses)
+    console.log("active activity ", activity);
+    console.log("filtered ", filteredClasses);
 
     return (
       <div align="center" className="component-container">
@@ -91,7 +91,10 @@ export default class BookingContainer extends React.Component {
           }
         />
         {filteredClasses.map((item) => (
-          <BookingComponent data={item} />
+          <BookingComponent
+            activity={activities.filter((a) => a.id === item.activity)[0]}
+            data={item}
+          />
         ))}
       </div>
     );
