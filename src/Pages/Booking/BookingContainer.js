@@ -90,6 +90,9 @@ export default class BookingContainer extends React.Component {
     if (activity) {
       filteredClasses = filteredClasses.filter((c) => c.activity === activity);
     }
+    if (instructor) {
+      filteredClasses = filteredClasses.filter((c) => c.instructor === instructor);
+    }
 
     let mainContent;
     if (filteredClasses.length === 0) {
