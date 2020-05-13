@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bokningsöversikt</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dataview/list.css' %}" />
+</head>
+
+<body>
+    <div class="linkContainer">
+        <h2 style="text-align: left; float: left; font-family: 'Courier New', Courier, monospace; margin-left: 10%;"><a href="{% url 'completedListView' %}">
+                 < Tidigare pass</a>
+        </h2>
+        <h2 style="text-align: right; float: right; font-family: 'Courier New', Courier, monospace; margin-right: 10%;"><a href="{% url 'comingListView' %}">Kommande pass > </a></h2>
+    </div>
+    <h1 class="mainTitle">Bokningsöversikt</h1>
+    <br/>
+    <h2 class="subTitle">Dagens pass:</h2>
+    {% if classes.count == 0%}
+    <h3 class="subTitle">Inga pass idag.</h3>
+    {% else %}
+    <table class="classTable">
+        <tr>
+            <th>Aktivitet</th>
+            <th>Instruktör</th>
+            <th>Datum</th>
+            <th>Starttid</th>
+            <th>Sluttid</th>
+            <th>Bokningar</th>
+        </tr>
+        {% for class in classes %}
+        <tr>
+            <td><a href="{% url 'dataDetailView' class.id %}" class="activityLink">{{ class.activity.name }}</a></td>
+            <td>{{ class.instructor }}</td>
+            <td>{{ class.date }}</td>
+            <td>{{ class.start_time|time:"H:i" }}</td>
+            <td>{{ class.end_time|time:"H:i" }}</td>
+            <td>{{ class.registered_attendees }}/{{class.max_attendees}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+
+</html>
