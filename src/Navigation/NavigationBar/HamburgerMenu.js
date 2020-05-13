@@ -124,7 +124,7 @@ export default function TemporaryDrawer() {
             ],
           },
           { title: "Boka", path: "/booking", subsections: [] },
-          { title: "Schema", path: "/", subsections: [] },
+          { title: "Schema", path: "/Schema", subsections: [] },
           { title: "Priser", path: "/priser", subsections: [] },
           {
             title: "Om oss",
