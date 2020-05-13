@@ -63,20 +63,17 @@ class BookingComponent extends React.Component {
         className="primary_button_large" 
         to={{
           pathname: `booking/${this.props.data.id}/`,
-          containerData: {
             location: this.state.location,
             start_time: this.props.data.start_time,
             end_time: this.props.data.end_time,
             date: this.props.data.date,
             classID: this.props.data.id,
-            activityID: this.props.data.activity,
+            activity: this.state.activity,
             description: this.props.data.description,
             instructor: this.state.instructor,
             max_attendees: this.props.data.max_attendees,
             registered_attendees: this.props.data.registered_attendees,
-          },
-          activityName: this.state.activity.name,
-          instructorName: this.state.instructor.name,
+          
         }}
       >
         {console.log(this.state)}

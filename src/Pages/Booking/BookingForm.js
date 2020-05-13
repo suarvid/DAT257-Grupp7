@@ -10,10 +10,10 @@ import emailjs from "emailjs-com";
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
+    const data = this.props.location;
+ 
     this.state = {
-      booking: {},
-      activity: {},
-      instructor: {},
+      data: data,
       firstName: "",
       mail: "",
       phone: "",
@@ -32,14 +32,6 @@ class BookingForm extends React.Component {
     }));
   }
 
-  componentDidMount() {
-    const data = this.props.location;
-    this.setState({
-      booking: data,
-    });
-
-  }
-
   getPayment() {
     return this.state.payment;
   }
@@ -51,16 +43,16 @@ class BookingForm extends React.Component {
       "\n\n" +
       "Vad roligt att du vill vara med och Hela Åsa dig själv med oss.\n\n" +
       "Du har bokat " +
-      this.state.booking.activityName +
+      this.state.data.activityName +
       " klockan " +
-      this.state.booking.containerData.start_time +
+      this.state.data.start_time +
       " " +
-      this.state.booking.containerData.date +
+      this.state.data.date +
       " med våran " +
-      this.state.booking.instructorName +
+      this.state.data.instructor.name +
       ".\n" +
       "Din bokningsreferens är " +
-      this.state.booking.key +
+      "INSERT BOOKINGREFERENCE" +
       "." +
       "\n\n" +
       "Om du skulle få förhinder, har du möjlighet att avboka ditt pass senast 30 minuter innan utstakad tid med full återbetalning. Om du avbokar efter det har vi tyvärr ingen möjlighet att betala tillbaka passets kostnad. För att avboka, ange din bokningsreferens och mejla till info@helaasa.se" +
@@ -102,19 +94,19 @@ class BookingForm extends React.Component {
 
     axios
       .put(
-        `http://localhost:8000/api/classes/${this.props.location.containerData.classID}/`,
+        `http://localhost:8000/api/classes/${this.state.data.classID}/`,
         {
-          id: this.props.location.classID,
-          activity: this.props.location.containerData.activityID,
-          description: this.props.location.containerData.description,
-          instructor: this.props.location.containerData.instructor.id,
-          date: this.props.location.containerData.date,
-          start_time: this.props.location.containerData.start_time,
-          end_time: this.props.location.containerData.end_time,
-          location: this.props.location.containerData.location.id,
-          max_attendees: this.props.location.containerData.max_attendees,
+          id: this.state.data.classID,
+          activity: this.state.data.activityID,
+          description: this.state.data.description,
+          instructor: this.state.data.instructor.id,
+          date: this.state.data.date,
+          start_time: this.state.data.start_time,
+          end_time: this.state.data.end_time,
+          location: this.state.data.location.id,
+          max_attendees: this.state.data.max_attendees,
           registered_attendees:
-            this.props.location.containerData.registered_attendees + 1,
+            this.state.data.registered_attendees + 1,
         }
       )
       .then((response) => {
@@ -136,39 +128,46 @@ class BookingForm extends React.Component {
       name: this.state.firstName,
       email: this.state.mail,
       phone_number: this.state.phone,
-      classID: this.props.location.containerData.classID,
+      classID: this.state.data.classID,
     });
   }
 
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
-    const { activityName, instructorName } = this.props.location;
+    let activityName;
+    console.log(activityName)
     const {
-      location,
       date,
-      start_time,
       end_time,
-    } = this.props.location.containerData;
+      start_time,
+    } = this.props.location;
+    console.log(this.props.location)
+    console.log(date)
+    console.log(end_time)
+    console.log(start_time)
+
     const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(
       0,
       5
     )}`;
-
+    
+    console.log("this.state")
+    console.log(this.state)
     return (
       <div align="center">
         <div className="headerText">
-          <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location.name}`}</h2>
+          <h2>{`${this.state.data.activity.name}, ${this.state.data.location.name}`}</h2>
           <h3>
             {`${
-              this.props.location.containerData.date
-            }, ${this.props.location.containerData.start_time.substring(
+              this.state.data.date
+            }, ${this.state.data.start_time.substring(
               0,
               5
-            )} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
+            )} - ${this.state.data.end_time.substring(0, 5)}`}
           </h3>
         </div>
-        <p>{`${"Instruktör:"} ${instructorName}`}</p>
+        <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <div className="formField">
             <TextInput
@@ -225,7 +224,7 @@ class BookingForm extends React.Component {
           <NavLink
             to={{
               pathname: "/booking-confirmation",
-              activityName,
+              activityName : this.state.data.activity.name,
               time,
               mail: this.state.mail,
             }}
