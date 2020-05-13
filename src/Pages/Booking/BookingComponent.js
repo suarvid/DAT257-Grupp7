@@ -14,7 +14,6 @@ class BookingComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activity: {},
       instructor: {},
       id: this.props.data.id,
       date: this.props.data.date,
@@ -22,33 +21,31 @@ class BookingComponent extends React.Component {
       end_time: this.props.data.end_time,
       location: this.props.data.location,
       max_attendees: this.props.data.max_attendees,
-      registered_attendees: this.props.data.registered_attendees
-    }
-    console.log(this.props)
-    console.log("state")
-    console.log(this.state)
+      registered_attendees: this.props.data.registered_attendees,
+    };
   }
 
   componentDidMount() {
-    console.log('Component Mounted')
-    axios.get(`http://127.0.0.1:8000/api/user/${this.props.data.instructor}`)
-      .then(response => {
+    console.log("Component Mounted");
+    axios
+      .get(`http://127.0.0.1:8000/api/user/${this.props.data.instructor}`)
+      .then((response) => {
         this.setState({
           instructor: response.data,
-        })
-      }).catch(error => {console.log(error)})
-
-    axios.get(`http://127.0.0.1:8000/api/activities/${this.props.data.activity}`)
-      .then(response => {
-        this.setState({
-          activity: response.data,
-        })
-      }).catch(error => {console.log(error)})
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
+    console.log("ACTIVITY NAME ", this.props.activity)
+    if (!this.props.activity) return null
+
     let button;
     if (this.props.data.registered_attendees < this.props.data.max_attendees) {
+<<<<<<< HEAD
     button = (
       <Link
         className="primary_button_large" style={{textDecoration:"none"}}
@@ -74,22 +71,54 @@ class BookingComponent extends React.Component {
       </Link>
     );}
     else{
+=======
+      button = (
+        <Link
+          className="primary_button_large"
+          to={{
+            pathname: `booking/${this.props.data.id}/`,
+            containerData: {
+              location: this.props.data.location,
+              start_time: this.props.data.start_time,
+              end_time: this.props.data.end_time,
+              date: this.props.data.date,
+              classID: this.props.data.id,
+              activityID: this.props.data.activity,
+              description: this.props.data.description,
+              instructor: this.props.data.instructor,
+              max_attendees: this.props.data.max_attendees,
+              registered_attendees: this.props.data.registered_attendees,
+            },
+            activityName: this.props.activity.name,
+            instructorName: this.state.instructor.name,
+          }}
+        >
+          Boka
+        </Link>
+      );
+    } else {
+>>>>>>> master
       button = (
         <h1
           className="primary_button_large"
-          style={{ display: "inline-block", backgroundColor:"grey"}}
+          style={{ display: "inline-block", backgroundColor: "grey" }}
         >
           Fullt
         </h1>
       );
     }
-    
-    const time = `${this.props.data.start_time.slice(0,5)} - ${this.props.data.end_time.slice(0,5)}` ;
-    const remainingSpots = `${this.props.data.max_attendees-this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
-    
+
+    const time = `${this.props.data.start_time.slice(
+      0,
+      5
+    )} - ${this.props.data.end_time.slice(0, 5)}`;
+    const remainingSpots = `${
+      this.props.data.max_attendees - this.props.data.registered_attendees
+    } / ${this.props.data.max_attendees}`;
 
     return (
       <withRouter>
+<<<<<<< HEAD
         <div className = "componentCard" style={{display:"flexbox", margin:10}}>
           <div style = {{marginTop:10}}>
           <div className="content" >
@@ -108,24 +137,37 @@ class BookingComponent extends React.Component {
             <p>
               {`${"Plats:"} ${this.props.data.location}`}
             </p>
+=======
+        <div className="bookingcomponent">
+          <div>
+            <div className="content">
+              <h3 style={{ fontSize: 16 }}>
+                {`${this.props.activity.name} ${this.state.date}  ${time}`}
+              </h3>
+            </div>
+            <div style={{ height: 10 }}></div>
+            <div className="content">
+              <p>{`${"Instruktör:"} ${this.state.instructor.name}`}</p>
+            </div>
+            <div className="content">
+              <p>{`${"Plats:"} ${this.props.data.location}`}</p>
+            </div>
+            <div className="content">
+              <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
+            </div>
+>>>>>>> master
           </div>
-          <div className = "content">
-            <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
-          </div>
-          </div>
-          <div style={{float:"right", marginRight:0, marginBottom:40}}>
-              {button}
-              <Route
+          <div style={{ float: "right", marginRight: 0, marginBottom: 40 }}>
+            {button}
+            <Route
               path={`post/${this.props.data.id}/`}
               component={PostDetailView}
-              />
+            />
           </div>
         </div>
-        
       </withRouter>
     );
   }
 }
 
 export default withRouter(BookingComponent);
-

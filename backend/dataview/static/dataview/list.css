@@ -1,0 +1,34 @@
+.mainTitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 48px;
+}
+
+.subTitle {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.classTable {
+    margin: auto;
+    width: 80%;
+    border: 1px solid black;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+}
+
+th {
+    padding-left: 12px;
+    text-align: left;
+    border-bottom:  1px solid black;
+}
+
+td {
+    padding-left: 12px;
+    text-align: left;
+    border-bottom: 1px dashed gray;
+    padding-top: 6px;
+}

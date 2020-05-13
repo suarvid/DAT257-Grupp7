@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "fixed",
     top: "260px",
-    zIndex: 100,
     width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
@@ -125,7 +124,7 @@ export default function TemporaryDrawer() {
             ],
           },
           { title: "Boka", path: "/booking", subsections: [] },
-          { title: "Schema", path: "/", subsections: [] },
+          { title: "Schema", path: "/Schema", subsections: [] },
           { title: "Priser", path: "/priser", subsections: [] },
           {
             title: "Om oss",
@@ -142,7 +141,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div style={{ position: "fixed", top: "220px" }}>
+    <div style={{ position: "fixed", top: "220px" ,zIndex:100}}>
       <React.Fragment key={"top"}>
         <Button onClick={toggleDrawer("top", true)}>
           <MenuIcon />

@@ -25,6 +25,7 @@
   text-align: left;
   width: 100%;
   max-height: max-content;
+  margin-top: 2px;
 }
 .component {
   /*margin: 0 auto;*/

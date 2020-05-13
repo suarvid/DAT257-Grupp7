@@ -1,4 +1,5 @@
 import React from "react";
+import FacebookIcon from '@material-ui/icons/Facebook';
 import "./Footer.css";
 
 function FooterComponent() {
@@ -17,7 +18,8 @@ function FooterComponent() {
 
         <div className="footerSocial">
           <h4>Besök våra socialamedier!</h4>
-          <a href="https://www.facebook.com/helaasa/">Facebook</a>
+         
+          <a href="https://www.facebook.com/helaasa/"> <FacebookIcon></FacebookIcon></a>
         </div>
       </div>
     </div>
