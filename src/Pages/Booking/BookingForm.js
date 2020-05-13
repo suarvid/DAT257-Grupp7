@@ -37,28 +37,38 @@ class BookingForm extends React.Component {
     this.setState({
       booking: data,
     });
+
   }
 
   getPayment() {
     return this.state.payment;
   }
   getMessage() {
-    let message =
-      "Tack för din bokning, du är en goddddd:\n ditt pass är " +
-      this.props.location.containerData.date +
-      " klockan " +
-      this.props.location.containerData.start_time +
-      " till " +
-      this.props.location.containerData.end_time +
-      " på " +
-      this.props.location.containerData.location.name +
-      "\n " +
-      this.props.location.containerData.location.street_address +
-      "\n " +
-      this.props.location.containerData.location.postal_code + 
-      "\n " +
-      this.props.location.containerData.location.city;
 
+    // FIX ACTIVITYNAME, INSTRUCTORNAME, BOOKINGREFERENCE 
+    let message =
+      "Här kommer din bokningsbekräftelse!" +
+      "\n\n" +
+      "Vad roligt att du vill vara med och Hela Åsa dig själv med oss.\n\n" +
+      "Du har bokat " +
+      this.state.booking.activityName +
+      " klockan " +
+      this.state.booking.containerData.start_time +
+      " " +
+      this.state.booking.containerData.date +
+      " med våran " +
+      this.state.booking.instructorName +
+      ".\n" +
+      "Din bokningsreferens är " +
+      this.state.booking.key +
+      "." +
+      "\n\n" +
+      "Om du skulle få förhinder, har du möjlighet att avboka ditt pass senast 30 minuter innan utstakad tid med full återbetalning. Om du avbokar efter det har vi tyvärr ingen möjlighet att betala tillbaka passets kostnad. För att avboka, ange din bokningsreferens och mejla till info@helaasa.se" +
+      "\n\n" +
+      "Vi ser fram emot att träffa dig!" +
+      "\nMed vänliga hälsningar \nHela Åsa";
+
+    console.log(message);
     return message;
   }
   //ska ha ett object med user_name ,user_email,message.
