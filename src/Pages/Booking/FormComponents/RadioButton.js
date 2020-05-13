@@ -26,7 +26,7 @@ export default class RadioButton extends React.Component {
             onChange={this.state.handleChange}
             checked={this.state.parentPayment() === this.state.value}
           />
-          <span class="checkmark"></span>
+          <span className="checkmark"></span>
         </label>
       </div>
     );
