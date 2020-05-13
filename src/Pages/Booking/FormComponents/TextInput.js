@@ -1,10 +1,44 @@
 import React from "react"
 import "./TextInput.css"
+import TextField from '@material-ui/core/TextField'
+import { makeStyles } from '@material-ui/core/styles';
 
-export default class TextInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
+  },
+}));
+
+
+
+export default function TextInput({name,type,value,label,placeholder,handleChange,getParentText}) {
+    const classes = useStyles();
+    return (
+      <form className={classes.root} noValidate autoComplete="off">
+        <div>
+          <TextField
+            error = {this.state.error}
+            id="outlined-basic"
+            variant="outlined"
+            fullWidth="true"
+            type={this.state.type}
+            name={this.state.name}
+            value={this.state.getParentText}
+            label={this.state.placeholder}
+            onChange={this.state.handleChange}>
+            </TextField>
+      </div>
+      </form>
+    )
+
+}
+
+
+/*
+  this.state = {
       name: props.name,
       type: props.type,
       value: props.value,
@@ -12,28 +46,23 @@ export default class TextInput extends React.Component {
       placeholder: props.placeholder,
       handleChange: props.handleChange,
       getParentText : props.ParentText,
-      value :""
     }
 
   }
   render() {
     return (
       <div>
-        <label>
-          {this.state.label}
-          <div className="field">
-          <input
+          <TextField
+            error = {this.state.error}
+            id="outlined-basic"
+            variant="outlined"
+            fullWidth="true"
             type={this.state.type}
             name={this.state.name}
             value={this.state.getParentText}
-            placeholder={this.state.placeholder}
-            onChange={this.state.handleChange}
-          />
-          </div>
-        </label>
+            label={this.state.placeholder}
+            onChange={this.state.handleChange}>
+            </TextField>
       </div>
     )
-  }
-}
-
-
+  }*/
