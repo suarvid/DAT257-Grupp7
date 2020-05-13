@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import date
 from django.contrib.auth.models import User
 from activity.models import Activity
 
@@ -22,6 +23,9 @@ class Class(models.Model):
         else:
             super().save(*args, **kwargs)
 
-
     def __str__(self):
         return self.activity.name
+
+    @property
+    def has_passed(self):
+        return date.today() > self.date
