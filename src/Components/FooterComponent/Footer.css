@@ -10,6 +10,23 @@
   display: inline-block;
 }
 
+.footer a,p {
+  padding:0px;
+  margin:0px;
+}
+
+.footer h4 {
+  padding:0px;
+  margin-left:0px;
+  margin-right:0px;
+}
+
+.footer .MuiSvgIcon-root{
+  color:#3b5998;
+  font-size:3rem;
+  align:center;
+}
+
 .footerContainer {
   display: inline-block;
   text-align: left;
