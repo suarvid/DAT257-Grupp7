@@ -135,9 +135,10 @@ class BookingForm extends React.Component {
           <h3>
             {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
           </h3>
+          <p>{`${"Instruktör:"} ${instructorName}`}</p>
         </div>
-        <p>{`${"Instruktör:"} ${instructorName}`}</p>
         <div className="formContainer" align="center">
+          <p>Fyll i bokningsinformation</p>
           <ValidatorForm
             ref={(r) => { this.form = r; }}
             instantValidate="false">
@@ -154,7 +155,7 @@ class BookingForm extends React.Component {
               validators={['required']}
               errorMessages={['Ange ditt namn']}
             />
-            <br />
+            <div style = {{with:"100%", height:20}}></div>
             <TextValidator
               id="mail"
               variant="outlined"
@@ -167,7 +168,7 @@ class BookingForm extends React.Component {
               validators={['required', 'isEmail']}
               errorMessages={['Ange e-postadress', 'Ogiltig e-postadress']}
             />
-            <br />
+            <div style = {{with:"100%", height:20}}></div>
             <TextValidator
               id="phone"
               variant="outlined"
@@ -180,7 +181,8 @@ class BookingForm extends React.Component {
               validators={['required', 'isNumber']}
               errorMessages={['Ange telefonnummer', 'Måste anges med siffror']}
             />
-            <br />
+            <div style = {{with:"100%", height:20}}></div>
+            <p>Välj betalsätt</p>
             <RadioButton
               name="payment"
               text="Betala direkt med swish"
