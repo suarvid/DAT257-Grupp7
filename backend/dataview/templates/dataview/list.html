@@ -44,7 +44,8 @@
             <th>Sluttid</th>
             <th>Bokningar</th>
         </tr>
-        {% for class in classes%}
+
+        {% for class in classes.reverse %}
         {% if class.has_passed %}
         <tr>
             <td><a href="{% url 'dataDetailView' class.id %}">{{ class.activity.name }}</a></td>
