@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=3_$haupanvj5$x@$b%in1&7m9q$xuh(=crapcdxzjb*m362n4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'classes',
     'bookings',
     'instructors',
+    'locations',
     'dataview',
     'corsheaders',
     'rest_framework',

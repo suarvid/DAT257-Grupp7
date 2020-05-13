@@ -5,15 +5,15 @@ import TextInput from "./FormComponents/TextInput";
 import RadioButton from "./FormComponents/RadioButton";
 import { withRouter, Link, Route, Switch, NavLink } from "react-router-dom";
 import axios from "axios";
-
+import emailjs from "emailjs-com";
 
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
+    const data = this.props.location;
+
     this.state = {
-      booking: {},
-      activity: {},
-      instructor: {},
+      data: data,
       firstName: "",
       mail: "",
       phone: "",
@@ -32,48 +32,103 @@ class BookingForm extends React.Component {
     }));
   }
 
-  componentDidMount() {
-    const data = this.props.location.state;
-    this.setState({
-      booking: data,
-    });
-  }
-
   getPayment() {
     return this.state.payment;
   }
+  getMessage() {
+    // FIX ACTIVITYNAME, INSTRUCTORNAME, BOOKINGREFERENCE
+    let message =
+      "Här kommer din bokningsbekräftelse!" +
+      "\n\n" +
+      "Vad roligt att du vill vara med och Hela Åsa dig själv med oss.\n\n" +
+      "Du har bokat " +
+      this.state.data.activity.name +
+      " klockan " +
+      this.state.data.start_time +
+      " " +
+      this.state.data.date +
+      " med våran " +
+      this.state.data.instructor.name +
+      ".\n" +
+      "Din bokningsreferens är " +
+      "INSERT BOOKINGREFERENCE" +
+      "." +
+      "\n\n" +
+      "Om du skulle få förhinder, har du möjlighet att avboka ditt pass senast 30 minuter innan utstakad tid med full återbetalning. Om du avbokar efter det har vi tyvärr ingen möjlighet att betala tillbaka passets kostnad. För att avboka, ange din bokningsreferens och mejla till info@helaasa.se" +
+      "\n\n" +
+      "Vi ser fram emot att träffa dig!" +
+      "\nMed vänliga hälsningar \nHela Åsa";
 
+    console.log(message);
+    return message;
+  }
+  //ska ha ett object med user_name ,user_email,message.
+  sendEmail(data) {
+    //data.preventDefault();
+
+    emailjs
+      .send(
+        "noreeplyhelaasa123_gmail_com",
+        "tack_f_r_din_bokning",
+        data,
+        "user_4V0rsm3ZnA12kUbHiHncB"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  }
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit(event) {
-    console.log("Form submitted!");
-    console.log(this.state.firstName)
-    console.log(this.state.mail)
-    console.log(this.state.phone)
-    console.log(this.props.location.containerData.activityID)
+    // console.log("Form submitted!");
+    // console.log(this.state.firstName);
+    // console.log(this.state.mail);
+    // console.log(this.state.phone);
+    // console.log(this.props.location.containerData.activityID);
+  
+      let x= {
+        name: this.state.firstName,
+        email: this.state.mail,
+        phone_number: this.state.phone,
+        classID: this.state.data.classID,
+      }
+      console.log(x)
     axios.post("http://localhost:8000/api/bookings/", {
       name: this.state.firstName,
       email: this.state.mail,
       phone_number: this.state.phone,
-      classID: this.props.location.containerData.classID,
+      classID: this.state.data.classID,
+    }).catch((error) => {
+      console.log(error);
     });
   }
 
   //Data vi vill ha i formen:
   //Namn, mail, telefon, betalsätt verkar det som
   render() {
-    const { activityName, instructorName } = this.props.location
-    const { location, date, start_time, end_time } = this.props.location.containerData
-    const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
+    const { date, end_time, start_time } = this.props.location;
+
+    const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(
+      0,
+      5
+    )}`;
 
     return (
       <div align="center">
-        <div className = "headerText">
-          <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h2>
+        <div className="headerText">
+          <h2>{`${this.state.data.activity.name}, ${this.state.data.location.name}`}</h2>
           <h3>
-            {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${this.state.data.date}, ${this.state.data.start_time.substring(
+              0,
+              5
+            )} - ${this.state.data.end_time.substring(0, 5)}`}
           </h3>
         </div>
-        <p>{`${"Instruktör:"} ${instructorName}`}</p>
+        <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <div className="formField">
             <TextInput
@@ -105,7 +160,7 @@ class BookingForm extends React.Component {
               placeholder="Telefonnummer"
               parentText={() => this.state.phone}
             />
-            <br/>
+            <br />
             <div className="paymentContainer">
               <RadioButton
                 name="payment"
@@ -130,9 +185,9 @@ class BookingForm extends React.Component {
           <NavLink
             to={{
               pathname: "/booking-confirmation",
-              activityName,
+              activityName: this.state.data.activity.name,
               time,
-              mail: this.state.mail
+              mail: this.state.mail,
             }}
           >
             <button className="primary_button_large" onClick={this.onSubmit}>
