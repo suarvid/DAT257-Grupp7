@@ -16,7 +16,10 @@ urlpatterns = [
     path('api/instructors/', include('instructors.api.urls')),
     path('api/locations/', include('locations.api.urls')),
     path('dataview/', include('dataview.urls')),
+    path('error/', include('classes.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler500 = 'classes.views.doublebooked_error'

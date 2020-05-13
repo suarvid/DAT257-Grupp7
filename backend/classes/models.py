@@ -4,6 +4,8 @@ from instructors.models import Instructor
 from activity.models import Activity
 from locations.models import Location
 from django.core.exceptions import ValidationError
+from django.shortcuts import redirect
+from django.http import HttpResponseNotAllowed
 
 
 class Class(models.Model):
