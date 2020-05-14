@@ -57,6 +57,7 @@
 }
 .primary_button_large:disabled {
   background-color: var(--primary-bg-color);
+  box-shadow: none;
 }
 .secondary_button_large {
   background-color: white;

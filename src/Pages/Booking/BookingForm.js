@@ -5,7 +5,6 @@ import RadioButton from "./FormComponents/RadioButton";
 import {withRouter} from "react-router-dom";
 import axios from "axios";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import Button from '@material-ui/core/Button'
 
 
 
@@ -27,18 +26,20 @@ class BookingForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.redirect = this.redirect.bind(this);
     this.validate = this.validate.bind(this);
+    //this.validatorListener =this.validatorListener.bind(this);
   }
 
+  //Called every time a value is changed in the form. Updates state, validates if the text input fields not all are empty
   handleChange(event) {
     const { name, value } = event.target;
 
     this.setState(() => ({
       [name]: value,
     }));
-    if(this.state.mail !== "" && this.state.name !== "" && this.state.phone !== "")
+
+    if(this.state.phone !== "" && this.state.mail !== "" && this.state.name !== "")
       this.validate();
   }
-
 
   componentDidMount() {
     const data = this.props.location.state;
@@ -50,6 +51,7 @@ class BookingForm extends React.Component {
   getPayment() {
     return this.state.payment;
   }
+  //redirect to booking-confirmation, passing information about the booking
   redirect() {
     const { location, date, start_time, end_time } = this.props.location.containerData
     this.props.history.push({
@@ -62,12 +64,11 @@ class BookingForm extends React.Component {
 
   }
 
-  //enables submit button if valid
+  //enables submit button if form is valid
   validate = () => {
     this.form.isFormValid(false).then(isValid => {
-      if (isValid) {
        this.setState({ disablesubmit: !isValid });
-      }
+       this.submitbutton.disabled = !isValid;
     });
   }
 
@@ -122,24 +123,23 @@ class BookingForm extends React.Component {
   render() {
     const { activityName, instructorName } = this.props.location
     const { location, date, start_time, end_time } = this.props.location.containerData
-    const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
+    const time = `${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
     
 
     return (
       <div align="center">
         <div className="headerText">
           <h2>{`${activityName}, ${location}`}</h2>
-          <h3>
-            {`${date}, ${time}`}
-          </h3>
+          <h3>{`${date},
+           ${time}`}</h3>
           <p>{`${"Instruktör:"} ${instructorName}`}</p>
         </div>
         <div className="formContainer" align="center">
-          <p>Fyll i bokningsinformation</p>
+          
           <ValidatorForm
             ref={(r) => { this.form = r; }}
             instantValidate="false">
-
+            <p style ={{marginBottom:10}}>Fyll i bokningsinformation</p>
             <TextValidator
               id="name"
               variant="outlined"
@@ -151,6 +151,7 @@ class BookingForm extends React.Component {
               value={this.state.name}
               validators={['required']}
               errorMessages={['Ange ditt namn']}
+              validatorListener={this.validatorListener}
             />
             <div style = {{with:"100%", height:20}}></div>
             <TextValidator
@@ -164,6 +165,7 @@ class BookingForm extends React.Component {
               value={this.state.mail}
               validators={['required', 'isEmail']}
               errorMessages={['Ange e-postadress', 'Ogiltig e-postadress']}
+              validatorListener={this.validatorListener}
             />
             <div style = {{with:"100%", height:20}}></div>
             <TextValidator
@@ -177,6 +179,7 @@ class BookingForm extends React.Component {
               value={this.state.phone}
               validators={['required', 'isNumber']}
               errorMessages={['Ange telefonnummer', 'Måste anges med siffror']}
+              validatorListener={this.validatorListener}
             />
             <div style = {{with:"100%", height:20}}></div>
             <p>Välj betalsätt</p>
@@ -197,6 +200,7 @@ class BookingForm extends React.Component {
               handleChange={this.handleChange}
             />
             <button
+              ref={(r) => { this.submitbutton = r; }}
               className="primary_button_large"
               disabled={this.state.disablesubmit}
               onClick={this.onSubmit}>

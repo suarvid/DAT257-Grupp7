@@ -11,18 +11,24 @@
     margin-bottom: 15px;
 }
 .formContainer > p{
-  margin-left: 15px;
+  padding: 15px;
 }
 .headerText{
   margin-top: 20px;
   width: 100%;
 }
-.headerText > h2, h3{
+.headerText > h2{
+  margin-bottom: 0px;
+  padding: 0px;
+  margin-left: 10px;
+}
+.headerText > h3{
   margin-bottom: 0px;
   padding: 0px;
   margin-left: 10px;
 }
 .headerText > p{
+  padding: 0px;
   margin-bottom: 0px;
   margin-left: 10px;
 }
