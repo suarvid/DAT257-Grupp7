@@ -22,6 +22,7 @@
             <th>Bokningar</th>
         </tr>
         {% for class in classes %}
+        {% if not class.has_passed %}
         <tr>
             <td><a href="{% url 'dataDetailView' class.id %}">{{ class.activity.name }}</a></td>
             <td>{{ class.instructor }}</td>
@@ -30,8 +31,34 @@
             <td>{{ class.end_time|time:"H:i" }}</td>
             <td>{{ class.registered_attendees }}/{{class.max_attendees}}</td>
         </tr>
+        {% endif %}
         {% endfor %}
     </table>
+    <h2 class="subTitle">Gamla Pass:</h2>
+    <table class="classTable">
+        <tr>
+            <th>Aktivitet</th>
+            <th>Instruktör</th>
+            <th>Datum</th>
+            <th>Starttid</th>
+            <th>Sluttid</th>
+            <th>Bokningar</th>
+        </tr>
+
+        {% for class in classes.reverse %}
+        {% if class.has_passed %}
+        <tr>
+            <td><a href="{% url 'dataDetailView' class.id %}">{{ class.activity.name }}</a></td>
+            <td>{{ class.instructor }}</td>
+            <td>{{ class.date }}</td>
+            <td>{{ class.start_time|time:"H:i" }}</td>
+            <td>{{ class.end_time|time:"H:i" }}</td>
+            <td>{{ class.registered_attendees }}/{{class.max_attendees}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+
 </body>
 
 </html>
