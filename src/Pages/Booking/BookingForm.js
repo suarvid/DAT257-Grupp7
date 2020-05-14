@@ -26,19 +26,15 @@ class BookingForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.redirect = this.redirect.bind(this);
     this.validate = this.validate.bind(this);
-    //this.validatorListener =this.validatorListener.bind(this);
   }
 
   //Called every time a value is changed in the form. Updates state, validates if the text input fields not all are empty
-  handleChange(event) {
+  handleChange = (event) => {
     const { name, value } = event.target;
 
-    this.setState(() => ({
+    this.setState({
       [name]: value,
-    }));
-
-    if(this.state.phone !== "" && this.state.mail !== "" && this.state.name !== "")
-      this.validate();
+    }, () => {this.validate()});
   }
 
   componentDidMount() {
@@ -66,10 +62,10 @@ class BookingForm extends React.Component {
 
   //enables submit button if form is valid
   validate = () => {
-    this.form.isFormValid(false).then(isValid => {
-       this.setState({ disablesubmit: !isValid });
-       this.submitbutton.disabled = !isValid;
+    this.form.isFormValid(true).then(isValid => {
+      this.setState({ disablesubmit: !isValid })
     });
+    
   }
 
 
@@ -112,14 +108,6 @@ class BookingForm extends React.Component {
     });
   }
 
-  handleSubmit = (event) => {
-    this.setState({ disablesubmit: true }, () => {
-      setTimeout(() => this.setState({ disablesubmit: false }), 5000);
-    });
-    event.preventDefault();
-    //state changing logic here
-  }
-
   render() {
     const { activityName, instructorName } = this.props.location
     const { location, date, start_time, end_time } = this.props.location.containerData
@@ -138,7 +126,8 @@ class BookingForm extends React.Component {
           
           <ValidatorForm
             ref={(r) => { this.form = r; }}
-            instantValidate="false">
+            instantValidate="false"
+            onChange={this.validate}>
             <p style ={{marginBottom:10}}>Fyll i bokningsinformation</p>
             <TextValidator
               id="name"
@@ -151,7 +140,6 @@ class BookingForm extends React.Component {
               value={this.state.name}
               validators={['required']}
               errorMessages={['Ange ditt namn']}
-              validatorListener={this.validatorListener}
             />
             <div style = {{with:"100%", height:20}}></div>
             <TextValidator
@@ -165,7 +153,6 @@ class BookingForm extends React.Component {
               value={this.state.mail}
               validators={['required', 'isEmail']}
               errorMessages={['Ange e-postadress', 'Ogiltig e-postadress']}
-              validatorListener={this.validatorListener}
             />
             <div style = {{with:"100%", height:20}}></div>
             <TextValidator
@@ -177,9 +164,8 @@ class BookingForm extends React.Component {
               name="phone"
               defaultValue="Telefonnummer"
               value={this.state.phone}
-              validators={['required', 'isNumber']}
-              errorMessages={['Ange telefonnummer', 'Måste anges med siffror']}
-              validatorListener={this.validatorListener}
+              validators={['required', 'matchRegexp:^[0-9]{10}$']}
+              errorMessages={['Ange telefonnummer', 'Måste anges med 10 siffror']}
             />
             <div style = {{with:"100%", height:20}}></div>
             <p>Välj betalsätt</p>
