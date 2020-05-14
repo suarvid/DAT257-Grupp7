@@ -9,7 +9,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     text-align: left;
-    margin-left: 0%;
+    margin-left: 10%;
 }
 
 .classTable {
@@ -81,7 +81,6 @@ a:visited {
 
 .pagination {
     font-family: 'Courier New', Courier, monospace;
-    background-color: red;
     text-align: center;
     align-items: center;
     align-self: center;
@@ -90,5 +89,5 @@ a:visited {
 }
 
 .step-links {
-    background-color: red;
+    
 }
