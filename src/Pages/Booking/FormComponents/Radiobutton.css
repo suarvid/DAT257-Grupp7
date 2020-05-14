@@ -1,6 +1,6 @@
 @import "../../../globalstyles.css";
 .container {
-    display: block;
+    display: flex;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
@@ -10,6 +10,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    margin: 12px;
   }
   
   /* Hide the browser's default radio button */
@@ -52,7 +53,7 @@
   
   /* Show the indicator (dot/circle) when checked */
   .container input:checked ~ .checkmark:after {
-    display: block;
+    display: flex;
   }
   
   /* Style the indicator (dot/circle) */
