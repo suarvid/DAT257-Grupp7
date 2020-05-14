@@ -2,15 +2,12 @@ import React from "react";
 import "../../../src/globalstyles.css";
 import "./BookingForm.css";
 import RadioButton from "./FormComponents/RadioButton";
-import { withRouter, Link, Route, Switch, NavLink } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import axios from "axios";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button'
+
+
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -59,7 +56,7 @@ class BookingForm extends React.Component {
       pathname: '/booking-confirmation',
       activityName: this.state.activityName,
       location: location,
-      date: date,
+      time: `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`,
       mail: this.state.mail
     });
 
@@ -77,6 +74,7 @@ class BookingForm extends React.Component {
 
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit() {
+    this.validate();
     this.form.isFormValid(false).then(isValid => {
       if (isValid) {
         axios
@@ -121,19 +119,18 @@ class BookingForm extends React.Component {
     //state changing logic here
   }
 
-  //Data vi vill ha i formen:
-  //Namn, mail, telefon, betalsätt verkar det som
   render() {
     const { activityName, instructorName } = this.props.location
     const { location, date, start_time, end_time } = this.props.location.containerData
     const time = `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
+    
 
     return (
       <div align="center">
         <div className="headerText">
-          <h2>{`${this.props.location.activityName}, ${this.props.location.containerData.location}`}</h2>
+          <h2>{`${activityName}, ${location}`}</h2>
           <h3>
-            {`${this.props.location.containerData.date}, ${this.props.location.containerData.start_time.substring(0, 5)} - ${this.props.location.containerData.end_time.substring(0, 5)}`}
+            {`${date}, ${time}`}
           </h3>
           <p>{`${"Instruktör:"} ${instructorName}`}</p>
         </div>
@@ -199,13 +196,12 @@ class BookingForm extends React.Component {
               parentPayment={this.getPayment}
               handleChange={this.handleChange}
             />
-            <Button
-              type="submit"
-              className='primary_button_large'
+            <button
+              className="primary_button_large"
               disabled={this.state.disablesubmit}
               onClick={this.onSubmit}>
               Boka
-            </Button>
+            </button>
           </ValidatorForm>
         </div>
       </div>
@@ -215,74 +211,3 @@ class BookingForm extends React.Component {
 
 export default withRouter(BookingForm);
 
-
-/*
-<TextInput
-              label="Namn:"
-              type="text"
-              name="name"
-              value={this.state.name}
-              handleChange={this.handleChange}
-              placeholder="Namn"
-              parentText={() => this.state.name}
-            />
-            <br />
-            <TextInput
-              label="Mailadress:"
-              type="email"
-              name="mail"
-              value={this.state.mail}
-              handleChange={this.handleChange}
-              placeholder="Mailadress"
-              parentText={() => this.state.mail}
-            />
-            <br />
-            <TextInput
-              label="Telefon:"
-              type="value"
-              name="phone"
-              value={this.state.phone}
-              handleChange={this.handleChange}
-              placeholder="Telefonnummer"
-              parentText={() => this.state.phone}
-            />
-            <br/>
-            <div className="paymentContainer">
-              <RadioButton
-                name="payment"
-                text="Betala direkt med swish"
-                value="swish"
-                initialCheck={true}
-                parentPayment={this.getPayment}
-                handleChange={this.handleChange}
-              />
-              <RadioButton
-                name="payment"
-                text="Betala på plats"
-                value="cash"
-                initialCheck={false}
-                parentPayment={this.getPayment}
-                handleChange={this.handleChange}
-              />
-            </div>
-*/
-/*
-
-<withRouter>
-<NavLink
-  to={{
-    pathname: "/booking-confirmation",
-    activityName,
-    time,
-    mail: this.state.mail
-  }}>
-  <Button
-    type="submit"
-    className="primary-button-large"
-    disabled={this.state.disablesubmit}
-    onClick={this.onSubmit}>
-    Boka
-  </Button>
-    </NavLink>
-</withRouter>
-*/

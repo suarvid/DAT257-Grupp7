@@ -55,6 +55,9 @@
 .primary_button_large:hover {
   background-color: var(--blue-medium);
 }
+.primary_button_large:disabled {
+  background-color: var(--primary-bg-color);
+}
 .secondary_button_large {
   background-color: white;
   color: var(--blue-dark);
