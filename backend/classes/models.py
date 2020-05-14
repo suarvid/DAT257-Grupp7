@@ -14,7 +14,7 @@ class Class(models.Model):
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
     description = models.CharField(max_length=240, blank=True)
     instructor = models.ForeignKey(
-    Instructor, on_delete=models.CASCADE, default=0)
+    Instructor, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.localdate)
     start_time = models.TimeField(default=timezone.localtime)
     end_time = models.TimeField(default=timezone.localtime)

@@ -2,9 +2,9 @@ import React from "react";
 import "../../../src/globalstyles.css";
 import "./BookingForm.css";
 import RadioButton from "./FormComponents/RadioButton";
-import {withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import emailjs from "emailjs-com";
 
 class BookingForm extends React.Component {
@@ -14,11 +14,11 @@ class BookingForm extends React.Component {
 
     this.state = {
       data: data,
-      firstName: "",
+      name: "",
       mail: "",
       phone: "",
       payment: "swish",
-      disablesubmit: true
+      disablesubmit: true,
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.getPayment = this.getPayment.bind(this);
@@ -33,41 +33,40 @@ class BookingForm extends React.Component {
   handleChange = (event) => {
     const { name, value } = event.target;
 
-    this.setState({
-      [name]: value,
-    }, () => {this.validate()});
-  }
-
-  componentDidMount() {
-    const data = this.props.location.state;
-    this.setState({
-      booking: data
-    });
-  }
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        this.validate();
+      }
+    );
+  };
 
   getPayment() {
     return this.state.payment;
   }
   //redirect to booking-confirmation, passing information about the booking
   redirect() {
-    const { location, date, start_time, end_time } = this.props.location.containerData
+    console.log(this.state)
     this.props.history.push({
-      pathname: '/booking-confirmation',
-      activityName: this.state.activityName,
-      location: location,
-      time: `${date}, ${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`,
-      mail: this.state.mail
+      pathname: "/booking-confirmation",
+      activityName: this.state.data.activity.name,
+      location: this.state.data.location.name,
+      time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(
+        0,
+        5
+      )}`,
+      mail: this.state.mail,
     });
-
   }
 
   //enables submit button if form is valid
   validate = () => {
-    this.form.isFormValid(true).then(isValid => {
-      this.setState({ disablesubmit: !isValid })
+    this.form.isFormValid(true).then((isValid) => {
+      this.setState({ disablesubmit: !isValid });
     });
-    
-  }
+  };
 
   getMessage() {
     // FIX ACTIVITYNAME, INSTRUCTORNAME, BOOKINGREFERENCE
@@ -119,51 +118,54 @@ class BookingForm extends React.Component {
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit() {
     this.validate();
-    this.form.isFormValid(false).then(isValid => {
+    this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
-        axios.post(`http://localhost:8000/api/bookings/`,
-            {
-          name: this.state.firstName,
-          email: this.state.mail,
-          phone_number: this.state.phone,
-          classID: this.state.data.classID,
-          }).catch((error) => {
-            console.log(error);})
-          .then((response) => {
+        axios
+          .post(`http://localhost:8000/api/bookings/`, {
+            name: this.state.name,
+            email: this.state.mail,
+            phone_number: this.state.phone,
+            classID: this.state.data.classID,
+          }) .then((response) => {
+            this.redirect();
             //Uncomment if u want to send mail
-            //this.sendEmail({
-             // user_name: this.state.firstName,
-             // user_email:this.state.mail,
-             // message: this.getMessage(),
-            //});
+            // this.sendEmail({
+            //   user_name: this.state.name,
+            //   user_email: this.state.mail,
+            //   message: this.getMessage(),
+            // });
             //until here
             //redirects to next page
-            this.redirect();
-          });
-        }
-      });
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+         
+      }
+    });
   }
 
   render() {
     const { date, end_time, start_time } = this.props.location;
 
-    const time = `${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`
+    const time = `${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`;
 
     return (
       <div align="center">
         <div className="headerText">
           <h2>{`${this.state.data.activity.name}, ${this.state.data.location.name}`}</h2>
-          <h3>
-            {`${date}, ${time}`}
-          </h3>
+          <h3>{`${date}, ${time}`}</h3>
         </div>
         <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <ValidatorForm
-            ref={(r) => { this.form = r; }}
+            ref={(r) => {
+              this.form = r;
+            }}
             instantValidate="false"
-            onChange={this.validate}>
-            <p style ={{marginBottom:10}}>Fyll i bokningsinformation</p>
+            onChange={this.validate}
+          >
+            <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
               id="name"
               variant="outlined"
@@ -173,10 +175,10 @@ class BookingForm extends React.Component {
               name="name"
               defaultValue="Namn"
               value={this.state.name}
-              validators={['required']}
-              errorMessages={['Ange ditt namn']}
+              validators={["required"]}
+              errorMessages={["Ange ditt namn"]}
             />
-            <div style = {{with:"100%", height:20}}></div>
+            <div style={{ with: "100%", height: 20 }}></div>
             <TextValidator
               id="mail"
               variant="outlined"
@@ -186,10 +188,10 @@ class BookingForm extends React.Component {
               name="mail"
               defaultValue="epostadress"
               value={this.state.mail}
-              validators={['required', 'isEmail']}
-              errorMessages={['Ange e-postadress', 'Ogiltig e-postadress']}
+              validators={["required", "isEmail"]}
+              errorMessages={["Ange e-postadress", "Ogiltig e-postadress"]}
             />
-            <div style = {{with:"100%", height:20}}></div>
+            <div style={{ with: "100%", height: 20 }}></div>
             <TextValidator
               id="phone"
               variant="outlined"
@@ -199,10 +201,13 @@ class BookingForm extends React.Component {
               name="phone"
               defaultValue="Telefonnummer"
               value={this.state.phone}
-              validators={['required', 'matchRegexp:^[0-9]{10}$']}
-              errorMessages={['Ange telefonnummer', 'Måste anges med 10 siffror']}
+              validators={["required", "matchRegexp:^[0-9]{10}$"]}
+              errorMessages={[
+                "Ange telefonnummer",
+                "Måste anges med 10 siffror",
+              ]}
             />
-            <div style = {{with:"100%", height:20}}></div>
+            <div style={{ with: "100%", height: 20 }}></div>
             <p>Välj betalsätt</p>
             <RadioButton
               name="payment"
@@ -221,10 +226,13 @@ class BookingForm extends React.Component {
               handleChange={this.handleChange}
             />
             <button
-              ref={(r) => { this.submitbutton = r; }}
+              ref={(r) => {
+                this.submitbutton = r;
+              }}
               className="primary_button_large"
               disabled={this.state.disablesubmit}
-              onClick={this.onSubmit}>
+              onClick={this.onSubmit}
+            >
               Boka
             </button>
           </ValidatorForm>
@@ -235,4 +243,3 @@ class BookingForm extends React.Component {
 }
 
 export default withRouter(BookingForm);
-
