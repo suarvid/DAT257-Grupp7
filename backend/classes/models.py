@@ -4,6 +4,7 @@ from datetime import date
 from django.contrib.auth.models import User
 from activity.models import Activity
 from locations.models import Location
+from instructors.models import Instructor
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from django.http import HttpResponseNotAllowed
@@ -13,11 +14,11 @@ class Class(models.Model):
     activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
     description = models.CharField(max_length=240, blank=True)
     instructor = models.ForeignKey(
-        Instructor, on_delete=models.CASCADE, default=0)
+    Instructor, on_delete=models.CASCADE, default=0)
     date = models.DateField(default=timezone.localdate)
     start_time = models.TimeField(default=timezone.localtime)
     end_time = models.TimeField(default=timezone.localtime)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, default=0)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
     max_attendees = models.PositiveIntegerField(default=0)
     registered_attendees = models.PositiveIntegerField(default=0)
     price = models.IntegerField(default=0)
