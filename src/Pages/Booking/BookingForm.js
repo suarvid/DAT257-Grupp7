@@ -89,34 +89,7 @@ class BookingForm extends React.Component {
     // console.log(this.state.mail);
     // console.log(this.state.phone);
     // console.log(this.props.location.containerData.activityID);
-    axios
-      .put(`http://localhost:8000/api/classes/${this.state.data.classID}/`, {
-        id: this.state.data.classID,
-        activity: this.state.data.activity.id,
-        description: this.state.data.description,
-        instructor: this.state.data.instructor.id,
-        date: this.state.data.date,
-        start_time: this.state.data.start_time,
-        end_time: this.state.data.end_time,
-        location: this.state.data.location.id,
-        max_attendees: this.state.data.max_attendees,
-        registered_attendees: this.state.data.registered_attendees + 1,
-      })
-      .then((response) => {
-        console.log(response);
-        // this.props.history.push("/booking-confirmation", [this.state]);
-        //Uncomment this if u want confirmation mail
-        // this.sendEmail({
-        //   user_name: this.state.firstName,
-        //   user_email: this.state.mail,
-        //   message: this.getMessage(),
-        // });
-        //between this and above
-         this.getMessage()
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  
       let x= {
         name: this.state.firstName,
         email: this.state.mail,

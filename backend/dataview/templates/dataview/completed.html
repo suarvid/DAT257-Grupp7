@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bokningsöversikt</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'dataview/list.css' %}" />
+</head>
+
+<body>
+    <div class="return">
+        <a href="{% url 'todayListView' %}">
+            <img src="../../../media/media/icons/return.png" id="returnIcon" style="max-width: 42px;
+            max-height: 42px;
+            margin-left: 4px;
+            margin-right: 8px;
+            vertical-align: middle;"><span style="font-family: 'Courier New', Courier, monospace;">Återgå till dagens pass</span>
+        </a>
+    </div>
+    <h1 class="mainTitle">Bokningsöversikt</h1>
+    <h2 class="subTitle">Genomförda pass:</h2>
+    <table class="classTable">
+        <tr>
+            <th>Aktivitet</th>
+            <th>Instruktör</th>
+            <th>Datum</th>
+            <th>Starttid</th>
+            <th>Sluttid</th>
+            <th>Bokningar</th>
+        </tr>
+        {% for class in page_obj %}
+        <tr>
+            <td><a href="{% url 'dataDetailView' class.id %}" class="activityLink">{{ class.activity.name }}</a></td>
+            <td>{{ class.instructor }}</td>
+            <td>{{ class.date }}</td>
+            <td>{{ class.start_time|time:"H:i" }}</td>
+            <td>{{ class.end_time|time:"H:i" }}</td>
+            <td>{{ class.registered_attendees }}/{{class.max_attendees}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        <div style="align-items: center; text-align: center; width: 400px; align-self: center; margin: auto; font-family: 'Courier New', Courier, monospace; padding-top: 18px;">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; första</a>
+                <a href="?page={{ page_obj.previous_page_number }}">förra</a>
+                {% endif %}
+
+                <span class="current">
+                    Sida {{ page_obj.number }} av {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">nästa</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">sista &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+</body>
+
+</html>
