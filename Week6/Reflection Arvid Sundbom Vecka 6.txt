@@ -1,0 +1,28 @@
+-- what do I want to learn or understand better? --
+Since the project is coming to an end, we're focusing more on cleaning up the code and addressing edge-cases and errors.
+As such, a few tweaks regarding objects in the database and relationships between them have become increasingly more relevant.
+Therefore I'd like to learn a bit more about how to best refer to other objects in the Django-models, what methods we can define for these, as well as if we can use what are called signals in django to implement some of the functionality we want.
+I can probably figure out what solutions are possible and which ones are recommended for our use-case by reading the django documentation and searching for solutions online.
+However, since the upcoming sprint is the last one, I don't know exactly how much time I can spend on trying to fix this, as there's quite a lot of 'small fixes' that we want to implement.
+
+-- how can I help someone else, or the entire team, to learn something new? --
+As I've mentioned previously, the backend of the website has become more and more prevalent in the project, and I've had the main responsibility for constructing the backend during the course of the project.
+Because of this, I will do my best to try to explain and answer any questions regarding the backend as well as I am able.
+Since we've also added some views on the backend-side of things (running on the backend-port instead of the frontend), some new functionality has been introduced, other than the REST-API we mainly used the backend for earlier.
+In doing this, code for constructing a frontend in django has also been introduced. The structure of this code, and the code itself, can look a bit weird and complex for someone used to building a frontend with React or some similiar tool.
+Because I've been the one that built the views in the backend I can probably help others get a better grip of the code structure involved when building frontends in django, and make it easier to learn/understand by explaining the basics of it 
+(like the folder-structure and where the code for certain parts of the views is placed and so on).
+
+
+what is my contribution towards the team’s use of Scrum?
+As usual, I show up to all of our team-meetings, and try to be an active member in the meeting.
+As the project has become a bit more backend-oriented than previously I feel that I've become a bit more active in the meetings, since I probably have somewhat of a better understanding of how much time/effort certain things take when doing them with Django.
+Because of this I feel that I've been able to contribute a bit more to the definition of user stories and tasks as well as the time-estimation of these than in previous sprints.
+I also participated in the sunday-meeting with the stakeholders, where we discussed what functionality they wanted, as well as what to focus on and how to prioritize our user stories.
+
+what is my contribution towards the team’s deliveries?
+I finished all of the tasks that I assigned myself to this week.
+Finishing the tasks went quite well, although I thought I was finished quite early in the week but I realized that there were a few flaws in what I had made.
+Because of this I had to sort of re-plan a bit of what my tasks actually ment, and what acceptence criterias they should have.
+However, this was probably a good thing in the end, since the functionality that was implemented ended up being way better than what it initially was, and the time-estimations for the tasks ended up being more accurate in the end.
+I also helped a team member with one of their tasks since it ended up having to be solved through backend-functionality alone, but it was quite unclear as to what the best solution of the problem actually was. In the end, we did reach an okay solution that didn't take too long to implement.
