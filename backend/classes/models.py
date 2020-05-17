@@ -33,7 +33,7 @@ class Class(models.Model):
         elif self.max_attendees > self.location.capacity:
             raise ValidationError(
                 'The max attendees of the class cannot be set to higher than the capacity of the class location!')
-        elif Class.objects.filter(start_time__lte=self.start_time, end_time__gt=self.start_time, date=self.date, location=self.location).exists() or Class.objects.filter(start_time__gte=self.start_time, start_time__lt=self.end_time, date=self.date, location=self.location).exists():
+        elif Class.objects.filter(start_time__lte=self.start_time, end_time__gt=self.start_time, date=self.date, location=self.location).exclude(id = self.id).exists() or Class.objects.filter(start_time__gte=self.start_time, start_time__lt=self.end_time, date=self.date, location=self.location).exclude(id = self.id).exists():
             raise ValidationError(
                 'The set location is already booked during the given time.')
         else:

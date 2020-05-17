@@ -120,6 +120,7 @@ class BookingForm extends React.Component {
     this.validate();
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
+        console.log("POSTING")
         axios
           .post(`http://localhost:8000/api/bookings/`, {
             name: this.state.name,
@@ -162,8 +163,9 @@ class BookingForm extends React.Component {
             ref={(r) => {
               this.form = r;
             }}
-            instantValidate="false"
+            instantValidate={false}
             onChange={this.validate}
+            onSubmit = {this.onSubmit}
           >
             <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
@@ -231,7 +233,7 @@ class BookingForm extends React.Component {
               }}
               className="primary_button_large"
               disabled={this.state.disablesubmit}
-              onClick={this.onSubmit}
+              // onClick={this.onSubmit}
             >
               Boka
             </button>

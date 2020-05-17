@@ -27,4 +27,4 @@ class InstructorActivities(models.Model):
         unique_together = [["instructorID", "activityID"]]
 
     def __str__(self):
-        f'Instructor ID: {instructorID}, activity ID: {activityID}'
+        return f'Instructor ID: {self.instructorID}, activity ID: {self.activityID}'

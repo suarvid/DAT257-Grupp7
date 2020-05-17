@@ -5,7 +5,7 @@ import schema from "./schema.PNG";
 function Schema() {
   return (
     <div className="schema-container">
-      <h3 className="schema-title"> Hela Åsas sommarSchema 2020</h3>
+      <h3 className="schema-title"> Hela Åsas sommarschema 2020</h3>
       <div className="schema-image">
         <img src={schema} alt="Nia Motion" width="100%" height="100%" />
       </div>
