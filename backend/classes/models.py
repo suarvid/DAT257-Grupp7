@@ -20,7 +20,7 @@ class Class(models.Model):
     end_time = models.TimeField(default=timezone.localtime)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     max_attendees = models.PositiveIntegerField(default=0)
-    registered_attendees = models.PositiveIntegerField(default=0)
+    registered_attendees = models.PositiveIntegerField(default=0, editable=False)
     price = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
