@@ -1,0 +1,66 @@
+.bookingTable {
+  margin: auto;
+  width: 80%;
+  border: 1px solid black;
+  font-family: 'Courier New', Courier, monospace;
+  border-collapse: collapse;
+}
+
+th {
+  padding-left: 12px;
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+td {
+  padding-left: 12px;
+  text-align: left;
+  border-bottom: 1px dashed gray;
+  padding-top: 6px;
+}
+
+.mainTitle {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+.subTitle {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+#returnIcon {
+  max-width: 42px;
+  max-height: 42px;
+  margin-left: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.return {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  display: inline-flex;
+  justify-content: left;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.cancelBooking {
+  color: red;
+}
+
+#warningTitle {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  font-weight: bolder;
+  color: crimson;
+}

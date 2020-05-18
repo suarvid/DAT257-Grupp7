@@ -6,6 +6,20 @@
   border-collapse: collapse;
 }
 
+.deleteButton {
+  background-color: crimson;
+  color: white;
+}
+
+.dontDeleteButton {
+  background-color: green;
+  color: white;
+}
+#dontDelete {
+  background-color: green;
+  color: white;
+}
+
 th {
   padding-left: 12px;
   text-align: left;

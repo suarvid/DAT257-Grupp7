@@ -33,13 +33,13 @@
                 <th></th>
             </tr>
             {% for booking in bookings %}
-            <tr>
+            <tr style="height: 48px;">
                 <td> {{ booking.name }} </td>
                 <td> {{ booking.email }} </td>
                 <td> {{ booking.phone_number }} </td>
                 <td> {{ booking.id }} </td>
                 <td>
-                    <a href="{% url 'cancelView' booking.id %}" style="color:red; font-weight: bolder;">Avboka</a>
+                    <a href="{% url 'cancelView' booking.id %}" style="color:white; font-weight: bolder; background-color: crimson; padding: 5px; border-radius: 5px;">Avboka</a>
                 </td>
             </tr>
             {% endfor %}
