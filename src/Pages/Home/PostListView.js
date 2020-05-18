@@ -1,6 +1,7 @@
 import React from "react";
 import NewsItem from "../../Components/NewsItem/NewsItem";
 import styles from "./PostListView.css";
+import '../../globalstyles.css';
 import InfiniteScroll from "react-infinite-scroll-component";
 const lorem =
   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
@@ -99,7 +100,7 @@ class PostList extends React.Component {
   render() {
     return (
       <div className="news-container">
-        <h1 className="news-title">Nyhetsinlägg</h1>
+        <h1 className="cardHeading">Nyhetsinlägg</h1>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
           next={this.loadItems}

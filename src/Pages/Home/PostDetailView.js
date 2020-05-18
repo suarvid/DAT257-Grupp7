@@ -3,6 +3,8 @@ import axios from "axios";
 import { Card, Button } from "antd";
 import { Redirect } from "react-router-dom";
 import "./PostDetailView.css";
+import '../../globalstyles.css'
+
 class PostDetail extends React.Component {
   constructor(props) {
     super(props);
