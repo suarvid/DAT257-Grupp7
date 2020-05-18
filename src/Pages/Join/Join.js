@@ -5,7 +5,6 @@ function Join() {
     return (
             <div className="join-container">
                 <div className="info-text">
-                <h2>Vill du synas här?</h2>
                 <h3>Vi på Hela Åsa letar ständigt efter nya partners i vårt hälso-kollektiv. Är du intresserad av att bli del i Hela Åsa?</h3> 
                 <p> Kontakta oss gärna via mail så kan vi diskutera vårt framtida partnerskap!</p>
                 <p> Med Vänliga Hälsningar <br></br>

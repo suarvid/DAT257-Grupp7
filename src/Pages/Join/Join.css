@@ -1,6 +1,7 @@
 .join-container {
     width:100%;
     display: inline-block;
+    padding: 20px;
 }
 .info-text {
     width:100%;

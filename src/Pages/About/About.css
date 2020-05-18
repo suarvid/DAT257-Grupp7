@@ -6,6 +6,7 @@
 .info-text {
     min-width:100%;
     background-color: white;
+    padding: 20px;
 }
 .companies-container{
     width:100%;

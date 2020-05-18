@@ -10,7 +10,6 @@ function About() {
             
             <div className="info-text">
                 <h2>Om Hela Åsa</h2>
-                <h3>Företagsnätverk</h3>
                 <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet....</p>
             </div>
 

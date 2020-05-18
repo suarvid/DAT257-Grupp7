@@ -68,21 +68,22 @@
 }
 
 .list {
-    margin-top: 18px;
+    margin-top: 5px;
 }
 
 .titleContainer {
     width: 95%;
-    height: 120px;
+    height: 100px;
     text-align: left;
     align-items: left;
     align-content: left;
     font-weight: bolder;
     align-items: left;
     align-self: left;
-    margin-left: -10px;
+    margin-left: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    margin-top: -20px;
 }
 
 .avatar {
