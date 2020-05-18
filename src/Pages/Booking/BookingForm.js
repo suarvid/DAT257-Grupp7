@@ -10,8 +10,8 @@ import emailjs from "emailjs-com";
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
-    const data = this.props.location;
-
+    const data = props.location.state
+  
     this.state = {
       data: data,
       name: "",
@@ -23,7 +23,8 @@ class BookingForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.getPayment = this.getPayment.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.redirect = this.redirect.bind(this);
+    this.goForward = this.goForward.bind(this);
+    this.goBack = this.goBack.bind(this);
     this.validate = this.validate.bind(this);
     this.getMessage = this.getMessage.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
@@ -46,20 +47,22 @@ class BookingForm extends React.Component {
   getPayment() {
     return this.state.payment;
   }
-  //redirect to booking-confirmation, passing information about the booking
-  redirect() {
-    console.log(this.state)
-    this.props.history.push({
+  //goForward to booking-confirmation, passing information about the booking
+  goForward() {
+      this.history.push({
       pathname: "/booking-confirmation",
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
-      time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(
-        0,
-        5
-      )}`,
+      time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0,5)}`,
       mail: this.state.mail,
     });
   }
+
+   //go back to booking overview
+  goBack() {
+    this.props.history.push({pathname: "/booking",
+    state:this.state});
+  };
 
   //enables submit button if form is valid
   validate = () => {
@@ -128,7 +131,7 @@ class BookingForm extends React.Component {
             phone_number: this.state.phone,
             classID: this.state.data.classID,
           }) .then((response) => {
-            this.redirect();
+            this.goForward();
             //Uncomment if u want to send mail
             // this.sendEmail({
             //   user_name: this.state.name,
@@ -147,17 +150,15 @@ class BookingForm extends React.Component {
   }
 
   render() {
-    const { date, end_time, start_time } = this.props.location;
-
-    const time = `${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`;
+    const time = `${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0, 5)}`;
 
     return (
       <div align="center">
         <div className="headerText">
           <h2>{`${this.state.data.activity.name}, ${this.state.data.location.name}`}</h2>
-          <h3>{`${date}, ${time}`}</h3>
+          <h3>{`${this.state.data.date}, ${time}`}</h3>
+          <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         </div>
-        <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <ValidatorForm
             ref={(r) => {
@@ -227,13 +228,12 @@ class BookingForm extends React.Component {
               parentPayment={this.getPayment}
               handleChange={this.handleChange}
             />
+            <button onClick={this.goBack} className = "secondary_button_large"> 
+            Tillbaka
+            </button>
             <button
-              ref={(r) => {
-                this.submitbutton = r;
-              }}
               className="primary_button_large"
               disabled={this.state.disablesubmit}
-              // onClick={this.onSubmit}
             >
               Boka
             </button>

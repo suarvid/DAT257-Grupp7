@@ -45,6 +45,7 @@
   box-shadow: var(--default-box-shadow);
   padding: var(--large-button-padding);
   margin: 5px;
+  box-sizing: border-box;
 }
 
 .primary_button_large {
