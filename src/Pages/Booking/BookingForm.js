@@ -163,7 +163,7 @@ class BookingForm extends React.Component {
             ref={(r) => {
               this.form = r;
             }}
-            instantValidate={false}
+            instantValidate={true}
             onChange={this.validate}
             onSubmit = {this.onSubmit}
           >
