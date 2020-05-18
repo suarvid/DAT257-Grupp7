@@ -53,17 +53,14 @@ class BookingComponent extends React.Component {
   }
 
   goForward() {
-    console.log(this.state.start_time)
-    console.log(this.state)
     this.props.history.push({
-      pathname: `booking/${this.props.data.id}/`,
+      pathname: `/booking/${this.props.data.id}`,
       state: this.state
     }
     );
   }
 
   render() {
-    console.log("ACTIVITY NAME ", this.props.activity)
     if (!this.props.activity) return null
 
     let buttonText;
@@ -75,9 +72,7 @@ class BookingComponent extends React.Component {
     }
 
     const time = `${this.props.data.start_time.slice(0, 5)} - ${this.props.data.end_time.slice(0, 5)}`;
-    const remainingSpots = `${
-      this.props.data.max_attendees - this.props.data.registered_attendees
-      } / ${this.props.data.max_attendees}`;
+    const remainingSpots = `${this.props.data.max_attendees - this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
 
     return (
       <div className="bookingcomponent">

@@ -124,11 +124,12 @@ class BookingForm extends React.Component {
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
         console.log("POSTING")
+        console.log(this.state.data.id)
         axios.post(`http://localhost:8000/api/bookings/`, 
           { name: this.state.name,
             email: this.state.mail,
             phone_number: this.state.phone,
-            classID: this.state.data.classID,
+            classID: this.state.data.id,
           }).then((response) => {
             this.goForward();
             //Uncomment if u want to send mail
@@ -208,7 +209,28 @@ class BookingForm extends React.Component {
                 "Måste anges med 10 siffror",
               ]}
             />
-            <div style={{ with: "100%", height: 20 }}></div>
+            
+            <div align="center" style = {{width: "100%", marginTop:30}}>
+            <button onClick={this.goBack} className = "secondary_button_large"> 
+            Tillbaka
+            </button>
+            <button
+              className="primary_button_large"
+              disabled={this.state.disablesubmit}
+            >
+              Boka
+            </button>
+            </div>
+          </ValidatorForm>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default withRouter(BookingForm);
+
+/*<div style={{ with: "100%", height: 20 }}></div>
             <p>Välj betalsätt</p>
             <RadioButton
               name="payment"
@@ -225,21 +247,4 @@ class BookingForm extends React.Component {
               initialCheck={false}
               parentPayment={this.getPayment}
               handleChange={this.handleChange}
-            />
-            <button onClick={this.goBack} className = "secondary_button_large"> 
-            Tillbaka
-            </button>
-            <button
-              className="primary_button_large"
-              disabled={this.state.disablesubmit}
-            >
-              Boka
-            </button>
-          </ValidatorForm>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default withRouter(BookingForm);
+            />*/
