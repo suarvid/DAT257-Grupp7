@@ -69,12 +69,12 @@ export default class InstructorDetail extends React.Component {
         console.log(this.state.activities)
         return (
             <Card>
-                <div className='itemContainer'>
-                    <div className='imageContainer'>
-                        <img src={this.state.imageurl} className='instructorImage'/>
+                <div className='cardContainer'>
+                    <div className='cardImageContainer'>
+                        <img src={this.state.imageurl} className='cardImage'/>
                     </div>
-                    <div className='infoContainer'>
-                        <h3 className='instructorName'>{this.state.name}</h3>
+                    <div className='cardInfo'>
+                        <h3 className='cardHeading'>{this.state.name}</h3>
                         <p>{this.state.email}</p>
                         <p>Aktiviteter:
                     <ul>

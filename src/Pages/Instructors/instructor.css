@@ -1,5 +1,5 @@
 .itemContainer {
-    width: 95%;
+    width: 98%;
     height: 180px;
     margin-top: 2px;
     margin-bottom: 8px;
@@ -27,7 +27,6 @@
     margin-left: 2px;
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
     margin-bottom: 0px;
     align-content: center;
     align-items: center;
@@ -82,8 +81,8 @@
     align-self: left;
     margin-left: 0px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 20px;
-    margin-top: -20px;
+    margin-bottom: -40px;
+    margin-top: 20px;
 }
 
 .avatar {

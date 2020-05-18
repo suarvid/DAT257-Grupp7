@@ -1,7 +1,5 @@
 .about-container {
-        text-align: center;
-
-        background-color:lightgray;    
+        text-align: center;   
 }
 .info-text {
     min-width:100%;
@@ -10,7 +8,6 @@
 }
 .companies-container{
     width:100%;
-    background-color: lightgray;
 }
 
 .company{
