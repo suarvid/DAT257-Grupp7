@@ -16,18 +16,21 @@
         </a>
     </div>
     <div>
+        {% block content %}
         <h1 class="mainTitle">Bokningsöversikt för {{ class.activity.name }} - {{ class.date }}</h1>
         <h2 class="subTitle">{{ class.start_time|time:"H:i" }} - {{ class.end_time|time:"H:i" }}, Anmälda bokningar:
-            {{ bookings.count }}/{{ class.max_attendees }}<br/>
-            <br/>
+            {{ bookings.count }}/{{ class.max_attendees }}<br />
+            <br />
             Instruktör: {{ class.instructor }}
         </h2>
+        {% endblock %}
         <table class="bookingTable">
             <tr>
                 <th>Namn</th>
                 <th>Mailadress</th>
                 <th>Telefonnummer</th>
                 <th>Boknings-ID</th>
+                <th></th>
             </tr>
             {% for booking in bookings %}
             <tr>
@@ -35,11 +38,13 @@
                 <td> {{ booking.email }} </td>
                 <td> {{ booking.phone_number }} </td>
                 <td> {{ booking.id }} </td>
+                <td>
+                    <a href="{% url 'cancelView' booking.id %}" style="color:red; font-weight: bolder;">Avboka</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
     </div>
-    <h1>{{request.url }}</h1>
 </body>
 
 </html>

@@ -1,0 +1,28 @@
+{% extends "dataview/detail.html" %}
+{% block content %}
+{% with class=toBeCanceled.get_class %}
+<h1 class="mainTitle">Bokningsöversikt för {{ class.activity.name }} - {{ class.date }}</h1>
+<h2 class="subTitle">{{ class.start_time|time:"H:i" }} - {{ class.end_time|time:"H:i" }}, Anmälda bokningar:
+    {{ bookings.count }}/{{ class.max_attendees }}<br />
+    <br />
+    Instruktör: {{ class.instructor }}
+</h2>
+<div>
+    <h1 class="warningTitle">
+        Är du säker på att du vill avboka {{ toBeCanceled.name }}s bokning med Boknings-id {{ toBeCanceled.id }} för
+        detta pass?
+    </h1>
+    <div style="width: 40%;">
+        <form action="{% url 'deleteView' toBeCanceled.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Ja, avboka passet</button>
+        </form>
+    </div>
+    <div style="width: 40%;">
+        <form action="{% url 'dataDetailView' class.id%}">
+            <button type="submit">Nej, avboka inte</button>
+        </form>
+    </div>
+</div>
+{% endwith %}
+{% endblock %}
