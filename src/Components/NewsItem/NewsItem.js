@@ -1,14 +1,12 @@
 import React from "react";
 import "./newsitem.css";
-import {
-  withRouter,
-  Link,
-  Route,
-} from "react-router-dom";
+import { withRouter, Link, Route } from "react-router-dom";
 import PostDetailView from "../../Pages/Home/PostDetailView";
 
 class NewsItem extends React.Component {
   render() {
+    console.log(this.props.data.date);
+
     return (
       <withRouter>
         <div className="newsitem" align="center">
@@ -34,7 +32,14 @@ class NewsItem extends React.Component {
 
           <p className="truncate news-child">{this.props.data.content}</p>
 
-          <h4 className="published news-child">Publicerad av {this.props.data.author}</h4>
+          <h4 className="published news-child">
+            Publicerad av {this.props.data.author}
+          </h4>
+          <h4 className="published news-child">
+            {this.props.data.date.getHours()}:{" "}
+            {this.props.data.date.getMinutes()} 
+            {this.props.data.date.getDate()}/{this.props.data.date.getMonth()}
+          </h4>
         </div>
       </withRouter>
     );

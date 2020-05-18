@@ -31,7 +31,8 @@ class NewsItem extends React.Component {
           <p className="truncate news-child">{this.props.data.content}</p>
 
           <h4 className="published news-child">
-            Publicerad av {this.props.data.author}
+            Publicerad av {this.props.data.date}
+            Den {this.props.data.date}
           </h4>
         </div>
       </withRouter>
