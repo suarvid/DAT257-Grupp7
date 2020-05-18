@@ -52,7 +52,7 @@ class BookingForm extends React.Component {
     this.setState({
       errorTitle: title,
       errorMessage: msg,
-      displayModal :!this.state.displayModal
+      displayModal: !this.state.displayModal,
     });
   };
   getPayment() {
@@ -152,14 +152,21 @@ class BookingForm extends React.Component {
             //redirects to next page
           })
           .catch((error) => {
+            console.log(error.response);
             if (
+              error.response.data.non_field_errors != null &&
               error.response.data.non_field_errors[0] ===
-              "The fields classID, email must make a unique set."
+                "The fields classID, email must make a unique set."
             ) {
-              this.handleError("Ett fel har uppstått","Det verkar som att detta pass redan har bokats med den givna mailadressen, var vänlig prova igen.")
+              this.handleError(
+                "Ett fel har uppstått",
+                "Det verkar som att detta pass redan har bokats med den givna mailadressen, var vänlig prova igen."
+              );
             } else {
-              this.handleError("Ett fel har uppstått","Något gick fel, var vänlig prova igen.")
-
+              this.handleError(
+                "Ett fel har uppstått",
+                "Något gick fel, var vänlig prova igen."
+              );
             }
           });
       }
