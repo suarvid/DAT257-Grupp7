@@ -49,7 +49,7 @@ class BookingForm extends React.Component {
   }
   //goForward to booking-confirmation, passing information about the booking
   goForward() {
-      this.history.push({
+      this.props.history.push({
       pathname: "/booking-confirmation",
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
@@ -124,13 +124,12 @@ class BookingForm extends React.Component {
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
         console.log("POSTING")
-        axios
-          .post(`http://localhost:8000/api/bookings/`, {
-            name: this.state.name,
+        axios.post(`http://localhost:8000/api/bookings/`, 
+          { name: this.state.name,
             email: this.state.mail,
             phone_number: this.state.phone,
             classID: this.state.data.classID,
-          }) .then((response) => {
+          }).then((response) => {
             this.goForward();
             //Uncomment if u want to send mail
             // this.sendEmail({
@@ -142,7 +141,7 @@ class BookingForm extends React.Component {
             //redirects to next page
           })
           .catch((error) => {
-            console.log(error)
+            console.log(error.response)
           })
          
       }
@@ -166,8 +165,7 @@ class BookingForm extends React.Component {
             }}
             instantValidate={true}
             onChange={this.validate}
-            onSubmit = {this.onSubmit}
-          >
+            onSubmit={this.onSubmit}>
             <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
               id="name"
