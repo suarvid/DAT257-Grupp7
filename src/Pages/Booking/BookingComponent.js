@@ -45,33 +45,6 @@ class BookingComponent extends React.Component {
 
     let button;
     if (this.props.data.registered_attendees < this.props.data.max_attendees) {
-<<<<<<< HEAD
-    button = (
-      <Link
-        className="primary_button_large" style={{textDecoration:"none"}}
-        to={{
-          pathname: `booking/${this.props.data.id}/`,
-          containerData: {
-            location: this.props.data.location,
-            start_time: this.props.data.start_time,
-            end_time: this.props.data.end_time,
-            date: this.props.data.date,
-            classID: this.props.data.id,
-            activityID: this.props.data.activity,
-            description: this.props.data.description,
-            instructor: this.props.data.instructor,
-            max_attendees: this.props.data.max_attendees,
-            registered_attendees: this.props.data.registered_attendees,
-          },
-          activityName: this.state.activity.name,
-          instructorName: this.state.instructor.name,
-        }}
-      >
-        Boka
-      </Link>
-    );}
-    else{
-=======
       button = (
         <Link
           className="primary_button_large"
@@ -97,7 +70,6 @@ class BookingComponent extends React.Component {
         </Link>
       );
     } else {
->>>>>>> master
       button = (
         <h1
           className="primary_button_large"
@@ -118,26 +90,6 @@ class BookingComponent extends React.Component {
 
     return (
       <withRouter>
-<<<<<<< HEAD
-        <div className = "componentCard" style={{display:"flexbox", margin:10}}>
-          <div style = {{marginTop:10}}>
-          <div className="content" >
-            <h3 style = {{fontSize:16}}>
-            {`${ this.state.activity.name} ${this.state.date}  ${time}`}
-            </h3>
-          </div>
-          <div style = {{height:10}}>
-          </div>
-          <div className="content">
-            <p>
-            {`${"Instruktör:"} ${this.state.instructor.name}`}
-            </p>
-          </div>
-          <div className="content">
-            <p>
-              {`${"Plats:"} ${this.props.data.location}`}
-            </p>
-=======
         <div className="bookingcomponent">
           <div>
             <div className="content">
@@ -155,7 +107,6 @@ class BookingComponent extends React.Component {
             <div className="content">
               <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
             </div>
->>>>>>> master
           </div>
           <div style={{ float: "right", marginRight: 0, marginBottom: 40 }}>
             {button}
