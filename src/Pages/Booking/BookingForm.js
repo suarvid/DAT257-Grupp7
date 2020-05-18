@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import emailjs from "emailjs-com";
-
+import ErrorModal from "./FormComponents/ErrorModal";
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
@@ -19,12 +19,13 @@ class BookingForm extends React.Component {
       phone: "",
       payment: "swish",
       disablesubmit: true,
+      displayModal: false,
+      errorTitle: "",
+      errorMessage: "",
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.getPayment = this.getPayment.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.redirect = this.redirect.bind(this);
-    this.validate = this.validate.bind(this);
     this.getMessage = this.getMessage.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
   }
@@ -43,20 +44,31 @@ class BookingForm extends React.Component {
     );
   };
 
+  handleOpen = () => {
+    console.log("handleOpen");
+    this.setState({ displayModal: !this.state.displayModal });
+  };
+  handleError = (title, msg) => {
+    this.setState({
+      errorTitle: title,
+      errorMessage: msg,
+      displayModal :!this.state.displayModal
+    });
+  };
   getPayment() {
     return this.state.payment;
   }
   //redirect to booking-confirmation, passing information about the booking
   redirect() {
-    console.log(this.state)
+    console.log(this.state);
     this.props.history.push({
       pathname: "/booking-confirmation",
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
-      time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(
+      time: `${this.state.data.date}, ${this.state.data.start_time.substring(
         0,
         5
-      )}`,
+      )} - ${this.state.data.end_time.substring(0, 5)}`,
       mail: this.state.mail,
     });
   }
@@ -120,14 +132,15 @@ class BookingForm extends React.Component {
     this.validate();
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
-        console.log("POSTING")
+        console.log("POSTING");
         axios
           .post(`http://localhost:8000/api/bookings/`, {
             name: this.state.name,
             email: this.state.mail,
             phone_number: this.state.phone,
             classID: this.state.data.classID,
-          }) .then((response) => {
+          })
+          .then((response) => {
             this.redirect();
             //Uncomment if u want to send mail
             // this.sendEmail({
@@ -139,16 +152,22 @@ class BookingForm extends React.Component {
             //redirects to next page
           })
           .catch((error) => {
-            console.log(error)
-          })
-         
+            if (
+              error.response.data.non_field_errors[0] ===
+              "The fields classID, email must make a unique set."
+            ) {
+              this.handleError("Ett fel har uppstått","Det verkar som att detta pass redan har bokats med den givna mailadressen, var vänlig prova igen.")
+            } else {
+              this.handleError("Ett fel har uppstått","Något gick fel, var vänlig prova igen.")
+
+            }
+          });
       }
     });
   }
 
   render() {
     const { date, end_time, start_time } = this.props.location;
-
     const time = `${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`;
 
     return (
@@ -165,7 +184,7 @@ class BookingForm extends React.Component {
             }}
             instantValidate={true}
             onChange={this.validate}
-            onSubmit = {this.onSubmit}
+            onSubmit={this.onSubmit}
           >
             <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
@@ -238,6 +257,12 @@ class BookingForm extends React.Component {
               Boka
             </button>
           </ValidatorForm>
+          <ErrorModal
+            title={this.state.errorTitle}
+            description={this.state.errorMessage}
+            open={this.state.displayModal}
+            handleOpen={this.handleOpen}
+          />
         </div>
       </div>
     );

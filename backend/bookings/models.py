@@ -18,4 +18,4 @@ class Booking(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
-        unique_together = [["classID", "phone_number"]]
+        unique_together = [["classID", "email"]]
