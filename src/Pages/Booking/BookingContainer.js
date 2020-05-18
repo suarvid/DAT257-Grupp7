@@ -8,8 +8,8 @@ import Filter from "./Filter/FilterPanel";
 import FilterItem from "./Filter/FilterItem";
 
 export default class BookingContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       classes: [],
       activeFilters: {
@@ -85,6 +85,7 @@ export default class BookingContainer extends React.Component {
   render() {
     const { classes, activities, instructors } = this.state;
     const { activity, instructor } = this.state.activeFilters;
+    console.log("DO I GET AN AACTIVITY" + activity)
 
     let filteredClasses = classes;
     if (activity) {
