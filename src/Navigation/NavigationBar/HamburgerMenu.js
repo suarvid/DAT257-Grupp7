@@ -84,10 +84,13 @@ export default function TemporaryDrawer() {
 
   function createListItems(item) {
     let click;
+    let localopen;
     if (item.title === "Utbud") {
       click = handleClick1;
+      localopen = open1;
     } else {
       click = handleClick;
+      localopen = open;
     }
     return item.subsections.length <= 0 ? (
       <ListItem button component="a" href={item.path} key={item.title}>
@@ -97,7 +100,7 @@ export default function TemporaryDrawer() {
       <List>
         <ListItem button onClick={click} key={item.title}>
           <ListItemText primary={item.title} />
-          {open ? <ExpandLess /> : <ExpandMore />}
+          {localopen ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         {createSubListItems(item.subsections, click)}
       </List>

@@ -11,7 +11,7 @@
 
 <body>
     <div class="return">
-        <a href="{% url 'dataListView' %}">
+        <a href="{% url 'todayListView' %}">
             <img src="../../../media/media/icons/return.png" id="returnIcon"><span>Återgå till pass</span>
         </a>
     </div>
@@ -39,6 +39,7 @@
             {% endfor %}
         </table>
     </div>
+    <h1>{{request.url }}</h1>
 </body>
 
 </html>

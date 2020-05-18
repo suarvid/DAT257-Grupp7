@@ -1,0 +1,15 @@
+What do I want to learn or understand better?
+
+Kommande vecka ska vi städa upp mycket av vår existerande kod, vilket kommer bli ett ypperligt tillfälle att skapa förståelse för vad vi utvecklat och varför. Det finns fortfarande kopplingar och logik i vårt projekt som jag inte satt mig in i, men det vore roligt att lära mig mer utifrån detta. Jag hade också gärna lärt mig mer av material UI, eftersom jag under veckan inte använt några färdiga komponenter. Men i kommande sprint kommer jag nog få chans att lära mig, vilekt blir spännande.
+
+How can I help someone else, or the entire team, to learn something new?
+
+Förhoppningsvis kan vi under kommande vecka lära oss hur vi reformerar vår befintliga kod till en stilren och konsekvent struktur och utformning. Jag har även bett om kommentarer i koden, dels för att jag ska förstå vad vi gör, men också så de andra ska lära sig hur mycket förklarande dokumentering faktiskt behövs ibland, vilket kanske kan leda till att vi får mer enhetlig kodning.
+
+What is my contribution towards the team’s use of Scrum?
+
+Under veckan har jag som vanligt varit med och aktiv på samtliga möten, både med uppdragsgivare och internt i vårt development team. Jag har även sett till att framföra frågor och funderingar till våra uppdragsgivare även under pågående sprint, så vi kunnat arbeta agilt och snabbt ändra oss om årpduktspecificeringen ändrats. Sedan har jag under skapandet av Team reflection studerat litteraturen bakom scrum och därmed lyft det faktum att vi inte använt acceptanskriterium på bästa sätt, och det kommer vi ändra till nästkommande vecka. Alltså genom att jag studerade kurslitteraturen fann jag ett aspekt av scrums arbetssätt som vi bortprioriterat på senaste utan riktig orsak.
+
+What is my contribution towards the team’s deliveries?
+
+Denna veckan har jag, likt föregående veckor, främst legat bakom Team Reflection. Eftersom jag varit med på alla möten och försökt förstå hur vi utvecklar även de svåra och komplexa lösningarna, har jag ofta en tankegång och förståelse kring hur vi gått tillväga under sprinten. Det gör att jag kan göra en grund på vår Team Reflection för att effektivisera och göra arbetsbelastningen jämnare under slutet av sprinten under fredagarna. I vanliga fall har jag gjort detta tillsammans med någon, men pågrund av misskommunikation och mycket i kursen bredvid har det denna veckan blivit en större belastning. Jag fick dock hjälp med de aspekter jag kände mig osäker på vilket var skönt.

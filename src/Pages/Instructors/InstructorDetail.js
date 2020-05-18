@@ -56,7 +56,7 @@ export default class InstructorDetail extends React.Component {
             .then(response => {
                 activityNames.push(response.data.name);
                 this.setState({
-                    activities: activityNames
+                    activities: this.state.activities.concat(activityNames)
                 })
             })
     }
@@ -64,6 +64,7 @@ export default class InstructorDetail extends React.Component {
    
 
     render() {
+        console.log(this.state.activities)
         return (
                 <div className='itemContainer'>
                     <div className='imageContainer'>
