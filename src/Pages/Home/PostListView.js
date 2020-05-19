@@ -31,6 +31,7 @@ class PostList extends React.Component {
           images: [
             "https://cdn.pixabay.com/photo/2015/04/20/13/44/sports-731506_1280.jpg",
           ],
+          date: new Date(),
         },
         {
           id: 2,
@@ -40,7 +41,9 @@ class PostList extends React.Component {
           images: [
             "https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg",
           ],
+          date: new Date(),
         },
+
         {
           id: 3,
           title: "Test3",
@@ -49,6 +52,7 @@ class PostList extends React.Component {
           images: [
             "https://cdn.pixabay.com/photo/2014/10/22/17/25/stretching-498256_1280.jpg",
           ],
+          date: new Date(),
         },
         {
           id: 4,
@@ -58,6 +62,7 @@ class PostList extends React.Component {
           images: [
             "https://www.runtastic.com/blog/wp-content/uploads/2018/08/thumbnail_1200x800-1-1024x683.jpg",
           ],
+          date: new Date(),
         },
         {
           id: 5,
@@ -67,6 +72,7 @@ class PostList extends React.Component {
           images: [
             "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
           ],
+          date: new Date(),
         },
       ],
       loadedPosts: [],
@@ -105,9 +111,11 @@ class PostList extends React.Component {
           next={this.loadItems}
           hasMore={this.state.hasMorePosts}
           loader={<div>Loading...</div>}
-          endMessage={ <p style={{textAlign: 'center'}}>
-          <b>Du har läst alla nyhetsinlägg!</b>
-          </p>}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>Du har läst alla nyhetsinlägg!</b>
+            </p>
+          }
         >
           {this.state.loadedPosts.map((item) => (
             <NewsItem data={item} />
