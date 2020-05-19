@@ -29,25 +29,25 @@ img {
   margin-bottom: 8px;
   margin-left: 8px;
   flex-wrap: wrap;
-  display: inline-flex;
+  display: flex;
   box-shadow: 0 4px 8px 0 #888888;
   border-radius: 8px;
+  justify-content: center;
 }
 
 .imageContainer {
-  width: 90%;
-  float: left;
-  margin:20px;
-  padding: 0 20px;
+  height: auto !important;
+  width: auto !important;
+  padding: 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .newsImage {
   object-fit: cover;
-  border-radius: 5%;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  border-radius: 8px;
+  width: auto;
+  height: auto;
 }
 
 .truncate {
@@ -55,6 +55,7 @@ img {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 20px;
+    padding-top: 20px;
 }
 
 .news-child {
@@ -71,7 +72,7 @@ img {
     font-size: 36px;
     font-weight: bold;
     line-height: 36px;
-    margin: 20px 10px 0 12px;
+    margin: 20px 10px 20px 12px;
     padding-top: 12px;
 }
 
