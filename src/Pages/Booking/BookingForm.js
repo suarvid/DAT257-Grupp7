@@ -1,12 +1,11 @@
 import React from "react";
 import "../../../src/globalstyles.css";
 import "./BookingForm.css";
-import RadioButton from "./FormComponents/RadioButton";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import emailjs from "emailjs-com";
-
+import ErrorModal from "./FormComponents/ErrorModal";
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +18,9 @@ class BookingForm extends React.Component {
       phone: "",
       payment: "swish",
       disablesubmit: true,
+      displayModal: false,
+      errorTitle: "",
+      errorMessage: "",
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.getPayment = this.getPayment.bind(this);
@@ -44,6 +46,17 @@ class BookingForm extends React.Component {
     );
   };
 
+  handleOpen = () => {
+    console.log("handleOpen");
+    this.setState({ displayModal: !this.state.displayModal });
+  };
+  handleError = (title, msg) => {
+    this.setState({
+      errorTitle: title,
+      errorMessage: msg,
+      displayModal: !this.state.displayModal,
+    });
+  };
   getPayment() {
     return this.state.payment;
   }
@@ -142,9 +155,23 @@ class BookingForm extends React.Component {
             //redirects to next page
           })
           .catch((error) => {
-            console.log(error.response)
-          })
-         
+            console.log(error.response);
+            if (
+              error.response.data.non_field_errors != null &&
+              error.response.data.non_field_errors[0] ===
+                "The fields classID, email must make a unique set."
+            ) {
+              this.handleError(
+                "Ett fel har uppstått",
+                "Det verkar som att detta pass redan har bokats med den givna mailadressen, var vänlig prova igen."
+              );
+            } else {
+              this.handleError(
+                "Ett fel har uppstått",
+                "Något gick fel, var vänlig prova igen."
+              );
+            }
+          });
       }
     });
   }
@@ -166,7 +193,8 @@ class BookingForm extends React.Component {
             }}
             instantValidate={true}
             onChange={this.validate}
-            onSubmit={this.onSubmit}>
+            onSubmit={this.onSubmit}
+          >
             <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
               id="name"
@@ -222,6 +250,12 @@ class BookingForm extends React.Component {
             </button>
             </div>
           </ValidatorForm>
+          <ErrorModal
+            title={this.state.errorTitle}
+            description={this.state.errorMessage}
+            open={this.state.displayModal}
+            handleOpen={this.handleOpen}
+          />
         </div>
       </div>
     );
@@ -229,22 +263,3 @@ class BookingForm extends React.Component {
 }
 
 export default withRouter(BookingForm);
-
-/*<div style={{ with: "100%", height: 20 }}></div>
-            <p>Välj betalsätt</p>
-            <RadioButton
-              name="payment"
-              text="Betala direkt med swish"
-              value="swish"
-              initialCheck={true}
-              parentPayment={this.getPayment}
-              handleChange={this.handleChange}
-            />
-            <RadioButton
-              name="payment"
-              text="Betala på plats"
-              value="cash"
-              initialCheck={false}
-              parentPayment={this.getPayment}
-              handleChange={this.handleChange}
-            />*/
