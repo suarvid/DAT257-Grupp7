@@ -1,7 +1,6 @@
 import React from "react";
 import "../../../src/globalstyles.css";
 import "./BookingForm.css";
-import RadioButton from "./FormComponents/RadioButton";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
@@ -10,8 +9,8 @@ import ErrorModal from "./FormComponents/ErrorModal";
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
-    const data = this.props.location;
-
+    const data = props.location.state
+  
     this.state = {
       data: data,
       name: "",
@@ -25,7 +24,10 @@ class BookingForm extends React.Component {
     };
     this.onSubmit = this.onSubmit.bind(this);
     this.getPayment = this.getPayment.bind(this);
-    this.redirect = this.redirect.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.goForward = this.goForward.bind(this);
+    this.goBack = this.goBack.bind(this);
+    this.validate = this.validate.bind(this);
     this.getMessage = this.getMessage.bind(this);
     this.sendEmail = this.sendEmail.bind(this);
   }
@@ -58,20 +60,22 @@ class BookingForm extends React.Component {
   getPayment() {
     return this.state.payment;
   }
-  //redirect to booking-confirmation, passing information about the booking
-  redirect() {
-    console.log(this.state);
-    this.props.history.push({
-      pathname: "/booking-confirmation",
+  //goForward to booking-confirmation, passing information about the booking
+  goForward() {
+      this.props.history.push({
+      pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
-      time: `${this.state.data.date}, ${this.state.data.start_time.substring(
-        0,
-        5
-      )} - ${this.state.data.end_time.substring(0, 5)}`,
+      time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0,5)}`,
       mail: this.state.mail,
     });
   }
+
+   //go back to booking overview
+  goBack() {
+    this.props.history.push({pathname: "../boka",
+    state:this.state});
+  };
 
   //enables submit button if form is valid
   validate = () => {
@@ -132,16 +136,15 @@ class BookingForm extends React.Component {
     this.validate();
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
-        console.log("POSTING");
-        axios
-          .post(`http://localhost:8000/api/bookings/`, {
-            name: this.state.name,
+        console.log("POSTING")
+        console.log(this.state.data.id)
+        axios.post(`http://localhost:8000/api/bookings/`, 
+          { name: this.state.name,
             email: this.state.mail,
             phone_number: this.state.phone,
-            classID: this.state.data.classID,
-          })
-          .then((response) => {
-            this.redirect();
+            classID: this.state.data.id,
+          }).then((response) => {
+            this.goForward();
             //Uncomment if u want to send mail
             // this.sendEmail({
             //   user_name: this.state.name,
@@ -174,16 +177,15 @@ class BookingForm extends React.Component {
   }
 
   render() {
-    const { date, end_time, start_time } = this.props.location;
-    const time = `${start_time.substring(0, 5)} - ${end_time.substring(0, 5)}`;
+    const time = `${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0, 5)}`;
 
     return (
       <div align="center">
         <div className="headerText">
           <h2>{`${this.state.data.activity.name}, ${this.state.data.location.name}`}</h2>
-          <h3>{`${date}, ${time}`}</h3>
+          <h3>{`${this.state.data.date}, ${time}`}</h3>
+          <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         </div>
-        <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <ValidatorForm
             ref={(r) => {
@@ -191,7 +193,6 @@ class BookingForm extends React.Component {
             }}
             instantValidate={true}
             onChange={this.validate}
-            onSubmit={this.onSubmit}
           >
             <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
@@ -235,35 +236,21 @@ class BookingForm extends React.Component {
                 "Måste anges med 10 siffror",
               ]}
             />
-            <div style={{ with: "100%", height: 20 }}></div>
-            <p>Välj betalsätt</p>
-            <RadioButton
-              name="payment"
-              text="Betala direkt med swish"
-              value="swish"
-              initialCheck={true}
-              parentPayment={this.getPayment}
-              handleChange={this.handleChange}
-            />
-            <RadioButton
-              name="payment"
-              text="Betala på plats"
-              value="cash"
-              initialCheck={false}
-              parentPayment={this.getPayment}
-              handleChange={this.handleChange}
-            />
+            </ValidatorForm>
+            <div align="center" style = {{width: "100%", marginTop:30}}>
+            <button onClick={this.goBack}
+                    className = "secondary_button_large"> 
+            Tillbaka
+            </button>
             <button
-              ref={(r) => {
-                this.submitbutton = r;
-              }}
               className="primary_button_large"
               disabled={this.state.disablesubmit}
-              // onClick={this.onSubmit}
+              onClick={this.onSubmit}
             >
               Boka
             </button>
-          </ValidatorForm>
+            </div>
+       
           <ErrorModal
             title={this.state.errorTitle}
             description={this.state.errorMessage}
