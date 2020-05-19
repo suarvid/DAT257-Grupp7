@@ -10,14 +10,14 @@ const data = [
   {
     title: "Yoga",
     description: "En timmes pass av Ying yoga eller Yang yoga.",
-    price: "Ett pass X 99:-",
-    multicard: "Klippkort 10 ggr yoga 990:-",
+    price: "Ett pass: 99:-",
+    multicard: "Klippkort 10 gånger yoga: 990:-",
   },
   {
     title: "Dans",
     description: "En timmes dans av typen Zumba. ",
-    price: "Ett pass X 78:-",
-    multicard: "Klippkort 10 ggr dans 700:-",
+    price: "Ett pass: 78:-",
+    multicard: "Klippkort 10 gånger dans: 700:-",
   },
 ];
 
