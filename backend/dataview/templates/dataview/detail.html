@@ -38,9 +38,13 @@
                 <td> {{ booking.email }} </td>
                 <td> {{ booking.phone_number }} </td>
                 <td> {{ booking.id }} </td>
+                {% if class.has_passed %}
+                <td></td>
+                {% else %}
                 <td>
                     <a href="{% url 'cancelView' booking.id %}" style="color:white; font-weight: bolder; background-color: crimson; padding: 5px; border-radius: 5px;">Avboka</a>
                 </td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>
