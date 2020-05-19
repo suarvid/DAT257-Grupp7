@@ -1,8 +1,9 @@
 import React from "react";
 import "./BookingConfirmation.css";
 import "./../../globalstyles.css"
+import { withRouter } from "react-router-dom";
 
-export default class BookingConfirmation extends React.Component {
+class BookingConfirmation extends React.Component {
   constructor(props){
     super(props);
     const data = this.props.location
@@ -14,7 +15,7 @@ export default class BookingConfirmation extends React.Component {
 
   goBack(){
     this.props.history.push({
-      pathname: "./",
+      pathname: "/",
       state: this.state.data
     })
   }
@@ -36,3 +37,4 @@ export default class BookingConfirmation extends React.Component {
   );
   }
 }
+export default withRouter(BookingConfirmation);

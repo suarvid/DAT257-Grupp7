@@ -17,7 +17,7 @@ class Activity extends React.Component {
     //redirects to activity detail view
     goToActivity() {
         this.props.history.push({
-            pathname: `/activities/${this.state.activityType}/`,
+            pathname: `/aktiviteter/${this.state.activityType}/`,
             state: this.state
         });
     }

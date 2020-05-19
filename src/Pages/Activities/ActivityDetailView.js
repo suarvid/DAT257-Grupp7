@@ -1,7 +1,7 @@
 import React from "react";
 import './ActivityDetail.css';
 import '../../../src/globalstyles.css';
-import { Link } from 'react-router-dom';
+
 class ActivityDetail extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ class ActivityDetail extends React.Component {
     }
     viewAllClasses(){
         this.props.history.push({
-            pathname: `../../booking/`,
+            pathname: `../../boka/`,
             filter: this.state.activitydata.activityID
         });
         console.log(this.state.activitydata.activityID)

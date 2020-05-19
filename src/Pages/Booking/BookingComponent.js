@@ -54,7 +54,7 @@ class BookingComponent extends React.Component {
 
   goForward() {
     this.props.history.push({
-      pathname: `/booking/${this.props.data.id}`,
+      pathname: `../boka/${this.state.id}`,
       state: this.state
     }
     );

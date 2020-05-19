@@ -63,7 +63,7 @@ class BookingForm extends React.Component {
   //goForward to booking-confirmation, passing information about the booking
   goForward() {
       this.props.history.push({
-      pathname: "/booking-confirmation",
+      pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
       time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0,5)}`,
@@ -73,7 +73,7 @@ class BookingForm extends React.Component {
 
    //go back to booking overview
   goBack() {
-    this.props.history.push({pathname: "../booking",
+    this.props.history.push({pathname: "../boka",
     state:this.state});
   };
 
@@ -193,7 +193,6 @@ class BookingForm extends React.Component {
             }}
             instantValidate={true}
             onChange={this.validate}
-            onSubmit={this.onSubmit}
           >
             <p style={{ marginBottom: 10 }}>Fyll i bokningsinformation</p>
             <TextValidator
@@ -238,18 +237,21 @@ class BookingForm extends React.Component {
               ]}
             />
             
+            </ValidatorForm>
             <div align="center" style = {{width: "100%", marginTop:30}}>
-            <button onClick={this.goBack} className = "secondary_button_large"> 
+            <button onClick={this.goBack}
+                    className = "secondary_button_large"> 
             Tillbaka
             </button>
             <button
               className="primary_button_large"
               disabled={this.state.disablesubmit}
+              onClick={this.onSubmit}
             >
               Boka
             </button>
             </div>
-          </ValidatorForm>
+       
           <ErrorModal
             title={this.state.errorTitle}
             description={this.state.errorMessage}
