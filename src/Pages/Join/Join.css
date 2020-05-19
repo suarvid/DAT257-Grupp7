@@ -1,13 +1,3 @@
-.join-container {
-    width:100%;
-    display: inline-block;
-    padding: 20px;
-}
-.info-text {
-    width:100%;
-    float:left;
-
-}
 .companies{
     width:100%;
     float:left;
@@ -29,7 +19,7 @@
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 30px;
+    padding-top: 5px;
     padding-bottom: 50px;
     vertical-align: middle;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
