@@ -14,6 +14,7 @@ class ActivityDetail extends React.Component {
             }
         }
         this.viewAllClasses = this.viewAllClasses.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
 
     componentDidMount() {
@@ -27,12 +28,14 @@ class ActivityDetail extends React.Component {
             pathname: `../../boka/`,
             filter: this.state.activitydata.activityID
         });
-        console.log(this.state.activitydata.activityID)
+    }
+    goBack(){
+        this.props.history.push({
+            pathname: `../../aktiviteter`
+        });
     }
 
     render() {
-        //const instructors = this.state.instructors.map(instructor => <Link><li className="instructor">{instructor}</li></Link>);
-        //const tags = this.state.tags.map(tag => <li className="tag">{tag}</li>)
         const{imageUrl, activityType, description} = this.state.activitydata;
         return (
             <div className='activityDetailContainer'>
@@ -44,9 +47,13 @@ class ActivityDetail extends React.Component {
                     <p>{description}</p>
                 </div>
                 <div align="center">
-                    <button className="primary_button_large" onClick = {this.viewAllClasses}>
-                        Visa alla {activityType} pass
+                    <button className="secondary_button_large" onClick = {this.goBack}>
+                        Tillbaka
                     </button>
+                    <button className="primary_button_large" onClick = {this.viewAllClasses}>
+                        Visa kommande pass
+                    </button>
+                   
                 </div>
             </div>
 
