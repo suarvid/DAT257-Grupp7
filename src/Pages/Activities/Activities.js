@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import Activity from './Activity/Activity'
-import ActivityModel from './ActivityModel'
 import './Activities.css'
 import './../../globalstyles.css'
-import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -27,32 +25,23 @@ export default class Activities extends Component {
       });
   }
 
-  
-
   render() {
+    let activities = this.state.activities.map(activity => (
+      <Activity
+        key={activity.name}
+        activityType={activity.name}
+        imageUrl={activity.image}
+        description={activity.description}
+        id={activity.id} />
+    ));
 
     return (
       <div>
-        <h2 className = "actvitiesHeader">Träning</h2>
+        <h2 className="actvitiesHeader">Träning</h2>
         <div className="activitiesContainer">
-          {this.state.activities.map(activity => {
-            return (
-              <div>
-                <withRouter>
-                  <div style={{margin:"-30px 0"}}>
-                    <NavLink to={{
-                      pathname: `/activities/${activity.name}/`,
-                      state: activity,
-                    }}>
-                      <Activity key={activity.name} activityType={activity.name} imageUrl={activity.image} description={activity.description}/>
-                    </NavLink>
-                  </div>
-                </withRouter>
-              </div>)
-          })}
+          {activities}
         </div>
       </div>
-    )
+    );
   }
 }
-

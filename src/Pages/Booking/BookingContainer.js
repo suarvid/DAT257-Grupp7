@@ -8,12 +8,12 @@ import Filter from "./Filter/FilterPanel";
 import FilterItem from "./Filter/FilterItem";
 
 export default class BookingContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       classes: [],
       activeFilters: {
-        activity: null,
+        activity: this.props.location.filter, //presets activity filter if redirected from activity page
         instructor: null,
       },
       activities: [],
@@ -103,7 +103,7 @@ export default class BookingContainer extends React.Component {
         (c) => c.instructor === instructor
       );
     }
-
+   
     let mainContent;
     if (filteredClasses.length === 0) {
       mainContent = <h2>Filtereringen gav inga träffar. Försök igen.</h2>;
