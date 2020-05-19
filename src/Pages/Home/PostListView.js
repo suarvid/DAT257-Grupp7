@@ -2,6 +2,7 @@ import React from "react";
 import NewsItem from "../../Components/NewsItem/NewsItem";
 import styles from "./PostListView.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import "../../globalstyles.css";
 const lorem =
   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
   "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,";
@@ -31,6 +32,7 @@ class PostList extends React.Component {
           images: [
             "https://cdn.pixabay.com/photo/2015/04/20/13/44/sports-731506_1280.jpg",
           ],
+          date: new Date(),
         },
         {
           id: 2,
@@ -40,7 +42,9 @@ class PostList extends React.Component {
           images: [
             "https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg",
           ],
+          date: new Date(),
         },
+
         {
           id: 3,
           title: "Test3",
@@ -49,6 +53,7 @@ class PostList extends React.Component {
           images: [
             "https://cdn.pixabay.com/photo/2014/10/22/17/25/stretching-498256_1280.jpg",
           ],
+          date: new Date(),
         },
         {
           id: 4,
@@ -58,6 +63,7 @@ class PostList extends React.Component {
           images: [
             "https://www.runtastic.com/blog/wp-content/uploads/2018/08/thumbnail_1200x800-1-1024x683.jpg",
           ],
+          date: new Date(),
         },
         {
           id: 5,
@@ -67,6 +73,27 @@ class PostList extends React.Component {
           images: [
             "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
           ],
+          date: new Date(),
+        },
+        {
+          id: 6,
+          title: "Test7",
+          content: loremlorem,
+          author: "unknown",
+          images: [
+            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
+          ],
+          date: new Date(),
+        },
+        {
+          id: 7,
+          title: "Test7",
+          content: loremlorem,
+          author: "unknown",
+          images: [
+            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
+          ],
+          date: new Date(),
         },
       ],
       loadedPosts: [],
@@ -89,30 +116,45 @@ class PostList extends React.Component {
       loadArray.push(this.state.backendPosts[this.state.postCounter]);
       this.state.postCounter++;
     }
+    
+    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray)
     this.setState({
-      loadedPosts: this.state.loadedPosts.concat(loadArray),
-      hasMorePosts:
-        this.state.loadedPosts.length < this.state.backendPosts.length, //Might be smarter to use postcounter here, more efficient
+      loadedPosts: soonToBeLoadedPosts,
+      hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length, //Might be smarter to use postcounter here, more efficient
     });
   };
 
   render() {
+    let showMorePostsButton;
+    
+
+    this.state.hasMorePosts
+      ? (showMorePostsButton = (
+          <div>
+            <button className="secondary_button_large" onClick = {this.loadItems}>
+              Visa fler nyhetsinlägg{" "}
+            </button>
+          </div>
+        ))
+      : (showMorePostsButton = null);
+
     return (
       <div className="news-container">
         <h1 className="news-title">Nyhetsinlägg</h1>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
-          next={this.loadItems}
           hasMore={this.state.hasMorePosts}
-          loader={<div>Loading...</div>}
-          endMessage={ <p style={{textAlign: 'center'}}>
-          <b>Du har läst alla nyhetsinlägg!</b>
-          </p>}
+          endMessage={
+            <p style={{ textAlign: "center" }}>
+              <b>Du har läst alla nyhetsinlägg!</b>
+            </p>
+          }
         >
           {this.state.loadedPosts.map((item) => (
             <NewsItem data={item} />
           ))}
         </InfiniteScroll>
+        {showMorePostsButton}
       </div>
     );
   }

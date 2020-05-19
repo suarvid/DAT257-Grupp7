@@ -1,13 +1,27 @@
 import React from "react";
 import "./newsitem.css";
-import {
-  withRouter,
-  Link,
-  Route,
-} from "react-router-dom";
+import { withRouter, Link, Route } from "react-router-dom";
 import PostDetailView from "../../Pages/Home/PostDetailView";
 
 class NewsItem extends React.Component {
+  getPublishedTime() {
+    let minutes;
+    if (this.props.data.date.getMinutes() < 10) {
+      minutes = "0" + this.props.data.date.getMinutes();
+    } else {
+      minutes = this.props.data.date.getMinutes();
+    }
+    let publishedTime =
+      ", " +
+      this.props.data.date.getDate() +
+      "/" +
+      this.props.data.date.getMonth() +
+      " klockan " +
+      this.props.data.date.getHours() +
+      ":" +
+      minutes;
+    return publishedTime;
+  }
   render() {
     return (
       <withRouter>
@@ -34,7 +48,10 @@ class NewsItem extends React.Component {
 
           <p className="truncate news-child">{this.props.data.content}</p>
 
-          <h4 className="published news-child">Publicerad av {this.props.data.author}</h4>
+          <h4 className="published news-child">
+            Publicerad av {this.props.data.author}
+            {this.getPublishedTime()}
+          </h4>
         </div>
       </withRouter>
     );
