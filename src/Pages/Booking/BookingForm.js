@@ -236,7 +236,6 @@ class BookingForm extends React.Component {
                 "Måste anges med 10 siffror",
               ]}
             />
-            
             </ValidatorForm>
             <div align="center" style = {{width: "100%", marginTop:30}}>
             <button onClick={this.goBack}

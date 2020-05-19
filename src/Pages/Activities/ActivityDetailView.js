@@ -45,7 +45,7 @@ class ActivityDetail extends React.Component {
                 </div>
                 <div align="center">
                     <button className="primary_button_large" onClick = {this.viewAllClasses}>
-                        Visa alla pass
+                        Visa alla {activityType} pass
                     </button>
                 </div>
             </div>

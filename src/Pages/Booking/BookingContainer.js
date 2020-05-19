@@ -13,7 +13,7 @@ export default class BookingContainer extends React.Component {
     this.state = {
       classes: [],
       activeFilters: {
-        activity: null,
+        activity: this.props.location.filter, //presets activity filter if redirected from activity page
         instructor: null,
       },
       activities: [],
@@ -93,7 +93,7 @@ export default class BookingContainer extends React.Component {
     if (instructor) {
       filteredClasses = filteredClasses.filter((c) => c.instructor === instructor);
     }
-
+   
     let mainContent;
     if (filteredClasses.length === 0) {
       mainContent = <h2>Filtereringen gav inga träffar. Försök igen.</h2>;
