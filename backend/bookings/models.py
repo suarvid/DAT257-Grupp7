@@ -7,7 +7,7 @@ from classes.models import Class
 class Booking(models.Model):
     name = models.CharField(max_length=120)
     email = models.CharField(max_length=120)
-    phone_number = models.IntegerField(default=0)
+    phone_number = models.CharField(max_length=15, default=0)
     classID = models.ForeignKey(Class, on_delete=models.CASCADE)
 
     def __str__(self):
