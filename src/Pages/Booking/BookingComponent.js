@@ -119,7 +119,7 @@ class BookingComponent extends React.Component {
               <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
             </div>
           </div>
-          <div style={{ float: "right", paddingRight:"10px", marginRight: 0, marginBottom: 40 }}>
+          <div style={{ float: "right", paddingRight:"15px", marginRight: 0, marginBottom: 40 }}>
             {button}
             <Route
               path={`post/${this.props.data.id}/`}

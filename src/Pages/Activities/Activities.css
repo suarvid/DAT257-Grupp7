@@ -4,7 +4,7 @@
 .activitiesContainer {
     align-content: center;
     margin-top:0px;
-    padding-top: 20px;
+    padding-top: 0px;
     max-width: 100%;
     max-height: max-content;
     text-decoration: none;
@@ -13,5 +13,9 @@
     max-width: 100%;
     margin: 2px;
     text-emphasis: none;
+    text-decoration: none;
+}
+
+.linkDecoration {
     text-decoration: none;
 }

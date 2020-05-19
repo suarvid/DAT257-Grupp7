@@ -38,11 +38,11 @@ export default class Activities extends Component {
             return (
               <div>
                 <withRouter>
-                  <div style={{margin:"-30px 0"}}>
+                  <div >
                     <NavLink to={{
                       pathname: `/activities/${activity.name}/`,
                       state: activity,
-                    }}>
+                    }} className="linkDecoration">
                       <Activity key={activity.name} activityType={activity.name} imageUrl={activity.image} description={activity.description}/>
                     </NavLink>
                   </div>

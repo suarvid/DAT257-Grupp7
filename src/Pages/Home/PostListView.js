@@ -100,7 +100,7 @@ class PostList extends React.Component {
   render() {
     return (
       <div className="news-container">
-        <h1 className="cardHeading">Nyhetsinlägg</h1>
+        <h2>Nyhetsinlägg</h2>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
           next={this.loadItems}

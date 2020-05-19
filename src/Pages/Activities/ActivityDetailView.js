@@ -27,12 +27,12 @@ class ActivityDetail extends React.Component {
         //const instructors = this.state.instructors.map(instructor => <Link><li className="instructor">{instructor}</li></Link>);
         //const tags = this.state.tags.map(tag => <li className="tag">{tag}</li>)
         return (
-            <div className='activityDetailContainer'>
-                <div className="activityHeader">
-                    <img className='activityMainImage' src={this.state.image} alt={this.state.name} />
-                    <h1 className='activityName'>{this.state.name}</h1>
+            <div className='activityDetailContainer'> 
+                <h1 className='activityTitle'>{this.state.name}</h1>
+                <div className="activityImageContainer">
+                    <img className='activityImage' src={this.state.image} alt={this.state.name} />
                 </div>
-                <div className = 'activityDescription'>
+                <div className = 'postContent'>
                     <p>{this.state.description}</p>
                 </div>
                 <div align="center">
