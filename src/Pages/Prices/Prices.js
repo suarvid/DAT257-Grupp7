@@ -9,13 +9,13 @@ import PriceComponent from "./PriceComponent";
 const data = [
   {
     title: "Yoga",
-    description: "En timmes pass av Ying yoga eller Yang yoga.",
+    description: "En timmes Yinyoga eller Yoga för dig som tränar.",
     price: "Ett pass: 99:-",
-    multicard: "Klippkort 10 gånger yoga: 990:-",
+    multicard: "Klippkort 10 gånger yoga: 900:-",
   },
   {
     title: "Dans",
-    description: "En timmes dans av typen Zumba. ",
+    description: "En timmes Niadans. ",
     price: "Ett pass: 78:-",
     multicard: "Klippkort 10 gånger dans: 700:-",
   },

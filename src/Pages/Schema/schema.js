@@ -6,7 +6,7 @@ import '../../globalstyles.css';
 function Schema() {
   return (
     <div className="schema-container">
-      <h3 className="cardHeading"> Hela Åsas schema</h3>
+      <h2> Hela Åsas schema</h2>
       <div className="schema-image">
         <img src={schema} alt="Nia Motion" width="100%" height="100%" />
       </div>
