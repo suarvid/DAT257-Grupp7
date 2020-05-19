@@ -27,9 +27,11 @@ class PostDetail extends React.Component {
     return (
         <div className="postContainer">
           <h1 className="postTitle">{this.props.location.state.title}</h1>
+          <div className="postImageContainer">
           {imgs.map((image) => (
             <img className="postImage" src={image} />
           ))}
+          </div>
           <p className="postContent">{this.state.post.content}</p>
         </div>
     );
