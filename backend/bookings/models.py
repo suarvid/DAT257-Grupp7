@@ -30,4 +30,4 @@ class Booking(models.Model):
 
         
     class Meta:
-        unique_together = [["classID", "phone_number"]]
+        unique_together = [["classID", "email"]]
