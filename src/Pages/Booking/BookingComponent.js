@@ -103,7 +103,7 @@ class BookingComponent extends React.Component {
       <withRouter>
         <div className="bookingcomponent">
           <div>
-            <div className="content">
+            <div className="contentHead">
               <h3 style={{ fontSize: 16 }}>
                 {`${this.state.activity.name} ${this.state.date}  ${time}`}
               </h3>
@@ -119,7 +119,7 @@ class BookingComponent extends React.Component {
               <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
             </div>
           </div>
-          <div style={{ float: "right", marginRight: 0, marginBottom: 40 }}>
+          <div style={{ float: "right", paddingRight:"10px", marginRight: 0, marginBottom: 40 }}>
             {button}
             <Route
               path={`post/${this.props.data.id}/`}
