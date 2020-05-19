@@ -61,13 +61,14 @@ class BookingForm extends React.Component {
     return this.state.payment;
   }
   //goForward to booking-confirmation, passing information about the booking
-  goForward() {
+  goForward(id) {
       this.props.history.push({
       pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
       time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0,5)}`,
       mail: this.state.mail,
+      refId: id,
     });
   }
 
@@ -84,7 +85,7 @@ class BookingForm extends React.Component {
     });
   };
 
-  getMessage() {
+  getMessage(id) {
     // FIX ACTIVITYNAME, INSTRUCTORNAME, BOOKINGREFERENCE
     let message =
       "Här kommer din bokningsbekräftelse!" +
@@ -100,7 +101,7 @@ class BookingForm extends React.Component {
       this.state.data.instructor.name +
       ".\n" +
       "Din bokningsreferens är " +
-      "INSERT BOOKINGREFERENCE" +
+      id +
       "." +
       "\n\n" +
       "Om du skulle få förhinder, har du möjlighet att avboka ditt pass senast 30 minuter innan utstakad tid med full återbetalning. Om du avbokar efter det har vi tyvärr ingen möjlighet att betala tillbaka passets kostnad. För att avboka, ange din bokningsreferens och mejla till info@helaasa.se" +
@@ -144,13 +145,14 @@ class BookingForm extends React.Component {
             phone_number: this.state.phone,
             classID: this.state.data.id,
           }).then((response) => {
-            this.goForward();
+            console.log(response);
+            this.goForward(response.data.id); //fetching the id from the backend directly into the method
             //Uncomment if u want to send mail
-            // this.sendEmail({
-            //   user_name: this.state.name,
-            //   user_email: this.state.mail,
-            //   message: this.getMessage(),
-            // });
+             //this.sendEmail({
+              // user_name: this.state.name,
+               //user_email: this.state.mail,
+               //message: this.getMessage(response.data.id),
+             //});
             //until here
             //redirects to next page
           })
