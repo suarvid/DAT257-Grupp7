@@ -2,9 +2,9 @@
     background-image: url('../../Components/Banner/testpic.jpg');
     background-color: white;
     background-position: fixed;
-    height: 200px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    height: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
     width: 100%;
     max-width: auto;

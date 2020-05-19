@@ -15,7 +15,7 @@ import "./NavigationBar.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "fixed",
-    top: "260px",
+    top: "120px",
     width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
@@ -144,7 +144,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div style={{ position: "fixed", top: "220px" ,zIndex:100}}>
+    <div style={{ position: "fixed", top: "85px" ,zIndex:100}}>
       <React.Fragment key={"top"}>
         <Button onClick={toggleDrawer("top", true)}>
           <MenuIcon />

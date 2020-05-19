@@ -15,7 +15,7 @@ import BookingConfirmation from "./Pages/BookingConfirmation/BookingConfirmation
 import RedirectToBackend from "./Pages/Login/RedirectToBackend";
 
 const BaseRouter = () => (
-  <div style={{paddingTop:'260px'}}>
+  <div style={{paddingTop:'120px'}}>
     <Router>
       <Route exact path="/" component={Home} />
       <Route exact path="/booking" component={BookingContainer} />
