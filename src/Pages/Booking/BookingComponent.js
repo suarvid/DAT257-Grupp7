@@ -53,7 +53,7 @@ class BookingComponent extends React.Component {
   
   }
   render() {
-    console.log("ACTIVITY NAME ", this.props.activity)
+   // console.log("ACTIVITY NAME ", this.props.activity)
     if (!this.props.activity) return null
 
     let button;
@@ -76,7 +76,7 @@ class BookingComponent extends React.Component {
           
         }}
       >
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
         Boka
       </Link>
     );}

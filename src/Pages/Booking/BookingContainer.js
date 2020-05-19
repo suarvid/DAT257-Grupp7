@@ -87,11 +87,21 @@ export default class BookingContainer extends React.Component {
     const { activity, instructor } = this.state.activeFilters;
 
     let filteredClasses = classes;
+
+    //Filtering is done below by first filtering out all classes whos starttime and date has already passed.
+    //Next, depending on what activity/instructor is chosen, it filters the same classes again on the other properties.
+    let now = new Date();
+    filteredClasses = filteredClasses.filter(
+      (c) =>
+        now.getTime() <= new Date(c.date + " " + c.start_time).getTime()
+    );
     if (activity) {
       filteredClasses = filteredClasses.filter((c) => c.activity === activity);
     }
     if (instructor) {
-      filteredClasses = filteredClasses.filter((c) => c.instructor === instructor);
+      filteredClasses = filteredClasses.filter(
+        (c) => c.instructor === instructor
+      );
     }
 
     let mainContent;
