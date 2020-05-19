@@ -45,29 +45,3 @@ export default class Activities extends Component {
     );
   }
 }
-/*
-render() {
-
-    return (
-      <div>
-        <h2 className = "actvitiesHeader">Träning</h2>
-        <div className="activitiesContainer">
-          {this.state.activities.map(activity => {
-            return (
-              <div>
-                <withRouter>
-                  <div style={{margin:"-30px 0"}}>
-                    <NavLink to={{
-                      pathname: `/activities/${activity.name}/`,
-                      state: activity,
-                    }}>
-                      <Activity key={activity.name} activityType={activity.name} imageUrl={activity.image} description={activity.description}/>
-                    </NavLink>
-                  </div>
-                </withRouter>
-              </div>)
-          })}
-        </div>
-      </div>
-    )
-  */

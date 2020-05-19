@@ -73,7 +73,7 @@ class BookingForm extends React.Component {
 
    //go back to booking overview
   goBack() {
-    this.props.history.push({pathname: "/booking",
+    this.props.history.push({pathname: "../booking",
     state:this.state});
   };
 
