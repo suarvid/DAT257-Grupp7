@@ -75,6 +75,26 @@ class PostList extends React.Component {
           ],
           date: new Date(),
         },
+        {
+          id: 6,
+          title: "Test7",
+          content: loremlorem,
+          author: "unknown",
+          images: [
+            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
+          ],
+          date: new Date(),
+        },
+        {
+          id: 7,
+          title: "Test7",
+          content: loremlorem,
+          author: "unknown",
+          images: [
+            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
+          ],
+          date: new Date(),
+        },
       ],
       loadedPosts: [],
       hasMorePosts: true,
