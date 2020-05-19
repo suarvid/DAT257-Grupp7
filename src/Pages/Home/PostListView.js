@@ -2,6 +2,7 @@ import React from "react";
 import NewsItem from "../../Components/NewsItem/NewsItem";
 import styles from "./PostListView.css";
 import InfiniteScroll from "react-infinite-scroll-component";
+import "../../globalstyles.css";
 const lorem =
   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
   "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,";
@@ -97,20 +98,28 @@ class PostList extends React.Component {
     }
     this.setState({
       loadedPosts: this.state.loadedPosts.concat(loadArray),
-      hasMorePosts:
-        this.state.loadedPosts.length < this.state.backendPosts.length, //Might be smarter to use postcounter here, more efficient
+      hasMorePosts: this.state.loadedPosts.length < this.state.postCounter, //Might be smarter to use postcounter here, more efficient
     });
   };
 
   render() {
+    let showMorePostsButton;
+    this.state.hasMorePosts
+      ? (showMorePostsButton = (
+          <div>
+            <button className="secondary_button_large" onClick = {this.loadItems}>
+              Visa fler nyhetsinlägg{" "}
+            </button>
+          </div>
+        ))
+      : (showMorePostsButton = null);
+
     return (
       <div className="news-container">
         <h1 className="news-title">Nyhetsinlägg</h1>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
-          next={this.loadItems}
           hasMore={this.state.hasMorePosts}
-          loader={<div>Loading...</div>}
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Du har läst alla nyhetsinlägg!</b>
@@ -121,6 +130,7 @@ class PostList extends React.Component {
             <NewsItem data={item} />
           ))}
         </InfiniteScroll>
+        {showMorePostsButton}
       </div>
     );
   }

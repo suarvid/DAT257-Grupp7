@@ -4,9 +4,25 @@ import { withRouter, Link, Route } from "react-router-dom";
 import PostDetailView from "../../Pages/Home/PostDetailView";
 
 class NewsItem extends React.Component {
+  getPublishedTime() {
+    let minutes;
+    if (this.props.data.date.getMinutes() < 10) {
+      minutes = "0" + this.props.data.date.getMinutes();
+    } else {
+      minutes = this.props.data.date.getMinutes();
+    }
+    let publishedTime =
+      ", " +
+      this.props.data.date.getDate() +
+      "/" +
+      this.props.data.date.getMonth() +
+      " klockan " +
+      this.props.data.date.getHours() +
+      ":" +
+      minutes;
+    return publishedTime;
+  }
   render() {
-    console.log(this.props.data.date);
-
     return (
       <withRouter>
         <div className="newsitem" align="center">
@@ -34,11 +50,7 @@ class NewsItem extends React.Component {
 
           <h4 className="published news-child">
             Publicerad av {this.props.data.author}
-          </h4>
-          <h4 className="published news-child">
-            {this.props.data.date.getHours()}:{" "}
-            {this.props.data.date.getMinutes()} 
-            {this.props.data.date.getDate()}/{this.props.data.date.getMonth()}
+            {this.getPublishedTime()}
           </h4>
         </div>
       </withRouter>
