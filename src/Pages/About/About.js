@@ -11,8 +11,8 @@ function About() {
     return (
         <div> 
             <div className="info-text">
-                <h2>Om Hela Åsa</h2>
-                <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet....</p>
+                <h2 className="cardHeading">Om Hela Åsa</h2>
+                <p>Vi är ett företagsnätverk inom träning och hälsa. Hela Åsa erbjuder friskvård och hälsa genom kroppsmedvetenhet och självläkande rörelser.</p>
             </div>
 
                 <div className= "cardContainer">
@@ -20,8 +20,8 @@ function About() {
                         <img src={yogamidus} alt="Yogamidus" width="100%" className='cardImage'/>
                     </div>
                 <div className="cardInfo">
-                        <h3 className= "cardHeader">Yogamidus</h3>
-                        <p>Info om Yogamidus....</p>
+                        <h3 className= "infoHeading">Yogamidus</h3>
+                        <p style={{paddingBottom:"5px"}}>Info om Yogamidus....</p>
                         <a href="https://www.facebook.com/pages/category/Health-Beauty/Yogamidus-1001620300228906/">Vidare till Yogamidus</a>
                     </div>
                 </div>
@@ -31,8 +31,8 @@ function About() {
                         <img src={nia} alt="Nia Motion" width="100%" className='cardImage'/>
                     </div>
                     <div className="cardInfo">
-                        <h3 className= "cardHeader">NiaMotion</h3>
-                        <p>Info om Nia....</p>
+                        <h3 className= "infoHeading">NiaMotion</h3>
+                        <p style={{paddingBottom:"5px"}}>Info om Nia....</p>
                         <a href="http://niamotion.se/">Vidare till NiaMotion</a>
                     </div>
                 </div>
@@ -42,8 +42,8 @@ function About() {
                         <img src={unikarum} alt="UnikaRum" width="100%" className='cardImage'/>
                     </div> 
                     <div className="cardInfo">
-                        <h3 className= "cardHeader">UnikaRum</h3>
-                        <p>Info om UnikaRum....</p>
+                        <h3 className= "infoHeading">UnikaRum</h3>
+                        <p style={{paddingBottom:"5px"}}>Info om UnikaRum....</p>
                         <a href="http://www.unikarum.se/">Vidare till UnikaRum</a>
                     </div>
                 </div>

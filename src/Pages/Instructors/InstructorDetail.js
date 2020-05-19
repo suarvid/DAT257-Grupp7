@@ -76,7 +76,7 @@ export default class InstructorDetail extends React.Component {
                     <div className='cardInfo'>
                         <h3 className='cardHeading'>{this.state.name}</h3>
                         <p>{this.state.email}</p>
-                        <p>Aktiviteter:
+                        <p style={{paddingTop:"5px"}}><strong>Aktiviteter:</strong>
                     <ul>
                                 {this.state.activities.map((item) =>
                                     <li>{item}</li>

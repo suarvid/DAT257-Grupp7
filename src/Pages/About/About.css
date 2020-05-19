@@ -2,10 +2,22 @@
         text-align: center;   
 }
 .info-text {
-    min-width:100%;
+    max-width:98%;
     background-color: white;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
+    align-self: center;
+    align-content: center;
+    text-align: center;
 }
+
+.infoHeading {
+    margin-left: 0;
+    margin-bottom: 12px;
+    padding-top: 0px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
 .companies-container{
     width:100%;
 }
@@ -20,20 +32,11 @@
     margin-bottom: 0.5%;
     margin-top:0.5%;
 }
-.company-image{
-    width:18%;
-    min-height:100%;
-    float:left;
-    text-align: center;
-    padding:1%;
-
-}
 
 a{
-    padding:0px 15px 0px 15px;
-    margin:5px 15px 5px 15px;
-    color:green;
+    color: dimgray;
 }
+
 .company-text{
     width:80%;
     float:right;
