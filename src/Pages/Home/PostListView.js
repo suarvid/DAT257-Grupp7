@@ -96,14 +96,18 @@ class PostList extends React.Component {
       loadArray.push(this.state.backendPosts[this.state.postCounter]);
       this.state.postCounter++;
     }
+    
+    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray)
     this.setState({
-      loadedPosts: this.state.loadedPosts.concat(loadArray),
-      hasMorePosts: this.state.loadedPosts.length < this.state.postCounter, //Might be smarter to use postcounter here, more efficient
+      loadedPosts: soonToBeLoadedPosts,
+      hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length, //Might be smarter to use postcounter here, more efficient
     });
   };
 
   render() {
     let showMorePostsButton;
+    
+
     this.state.hasMorePosts
       ? (showMorePostsButton = (
           <div>
