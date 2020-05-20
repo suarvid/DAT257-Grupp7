@@ -102,9 +102,7 @@ class BookingComponent extends React.Component {
             {buttonText}
           </button>
           </div>
-          <div className="content">
-            <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
-          </div>
+      
         </div>
         {/* <div style={{ float: "right", marginRight: 0, marginBottom: 40 }}>
           <button

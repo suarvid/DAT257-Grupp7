@@ -6,6 +6,7 @@
     padding-bottom: 50px;
     vertical-align: middle;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
 
 }
 
@@ -16,6 +17,7 @@
     padding-top: 12px;
     font-weight: bolder;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
 }
 
 .postContent {
