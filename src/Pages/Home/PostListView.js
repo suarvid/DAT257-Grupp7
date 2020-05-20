@@ -44,9 +44,11 @@ class PostList extends React.Component {
             title: post.title,
             content: post.content,
             image: post.image,
-            date: new Date(post.date_posted)
+            date: new Date(post.date_posted),
+            author: post.author // TODO: this is just an integer, which currently is 1 for "admin", convert this to readable name
           }
         })
+        console.log("posts", posts)
         this.setState({
           backendPosts: posts,
         })
@@ -99,7 +101,7 @@ class PostList extends React.Component {
           }
         >
           {this.state.loadedPosts.map((item) => (
-            <NewsItem data={item} />
+            <NewsItem key={item.id} data={item} />
           ))}
         </InfiniteScroll>
         {showMorePostsButton}
