@@ -1,7 +1,5 @@
 import React from "react";
-import BookingHeader from "./BookingHeader";
 import "../../../src/globalstyles.css";
-import BookingComponent from "./BookingComponent";
 import "../Booking/Booking.css";
 import axios from "axios";
 import Filter from "./Filter/FilterPanel";
@@ -106,7 +104,6 @@ class BookingContainer extends React.Component {
     start_time,
     end_time
   ) {
-    console.log("pressed, with class ID: ", classID);
     this.props.history.push({
       pathname: `../boka/${classID}`,
       state: {
@@ -142,9 +139,6 @@ class BookingContainer extends React.Component {
     )
       return null;
 
-    console.log("classes ", classes);
-    console.log("instructor ", instructor);
-
     let filteredClasses = classes;
 
     //Filtering is done below by first filtering out all classes whos starttime and date has already passed.
@@ -162,30 +156,14 @@ class BookingContainer extends React.Component {
       );
     }
 
-    console.log("filtered ", filteredClasses);
-    console.log("activites", activities);
-    console.log("instructors", instructors);
-    console.log("locations", locations);
-
     let mainContent;
     if (filteredClasses.length === 0) {
       mainContent = <h2>Filtereringen gav inga träffar. Försök igen.</h2>;
     } else {
-      /*mainContent = filteredClasses.map((item) => (
-        <BookingComponent
-          activity={activities.filter((a) => a.id === item.activity)[0]}
-          instructor={instructors.filter(i => i.id === item.instructor)[0]}
-          data={item}
-        />
-      ));*/
       mainContent = filteredClasses.map((item) => {
-        const instructorName = instructors.filter(
-          (i) => i.id === item.instructor
-        )[0].name;
-        const activityName = activities.filter((a) => a.id === item.activity)[0]
-          .name;
-        const locationName = locations.filter((l) => l.id === item.location)[0]
-          .name;
+        const instructorName = this.extractName(instructors, item.instructor)
+        const activityName = this.extractName(activities, item.activity)
+        const locationName = this.extractName(locations, item.location)
 
         return (
           <BookingItem
@@ -193,10 +171,7 @@ class BookingContainer extends React.Component {
             activityName={activityName}
             instructorName={instructorName}
             date={item.date}
-            time={`${item.start_time.slice(0, 5)} - ${item.end_time.slice(
-              0,
-              5
-            )}`}
+            time={`${item.start_time.slice(0, 5)} - ${item.end_time.slice(0, 5)}`}
             locationName={locationName}
             remainingSpots={`${
               item.max_attendees - item.registered_attendees
