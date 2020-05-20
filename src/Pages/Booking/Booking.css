@@ -106,6 +106,8 @@
   display: flexbox;
   margin-top: 2px;
   box-shadow: var(--default-box-shadow) ;
+  margin: 20px 12px;
+  padding: 12px
 }
 .content{
   margin-left: 0;
