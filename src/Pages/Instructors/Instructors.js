@@ -29,7 +29,7 @@ export default class Instructors extends React.Component {
         console.log(this.state.instructors)
         return (
             <div className='list' >
-                <div className='titleContainer'>
+                <div className='textPageContainer'>
                     <h2>Våra inspiratörer</h2>
                 </div>
                 {this.state.instructors.map((item) =>

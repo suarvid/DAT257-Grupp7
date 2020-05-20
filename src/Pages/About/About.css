@@ -1,10 +1,7 @@
-.about-container {
-        text-align: center;   
-}
 .info-text {
     max-width:98%;
     background-color: white;
-    padding: 0 20px 20px 20px;
+    margin: 0 20px 20px 20px;
     align-self: center;
     align-content: center;
     text-align: center;
@@ -16,6 +13,8 @@
     padding-top: 0px;
     font-weight: bolder;
     font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .companies-container{

@@ -1,11 +1,10 @@
-import "./Offers.css";
+import '../../globalstyles.css';
 import React from "react";
 
 function Offers() {
     return (
-        <div>
-            <h3> Erbjudanden</h3>
-            <br></br>
+        <div className="textPageContainer">
+            <h2> Erbjudanden</h2>
             <p> För närvarande har vi tyvärr inga aktuella erbjudanden.</p>
             <p> Kika in här med jämna mellanrum eller kontakta oss för mer information.</p>
         </div>

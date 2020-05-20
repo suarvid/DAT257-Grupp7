@@ -10,8 +10,8 @@ import '../../globalstyles.css';
 function About() {
     return (
         <div> 
-            <div className="info-text">
-                <h2 className="cardHeading">Om Hela Åsa</h2>
+            <div className="textPageContainer">
+                <h2>Om Hela Åsa</h2>
                 <p>Vi är ett företagsnätverk inom träning och hälsa. Hela Åsa erbjuder friskvård och hälsa genom kroppsmedvetenhet och självläkande rörelser.</p>
             </div>
 

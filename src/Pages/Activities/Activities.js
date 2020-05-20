@@ -38,7 +38,6 @@ export default class Activities extends Component {
 
     return (
       <div>
-        <h2 className="actvitiesHeader">Träning</h2>
         <div className="activitiesContainer">
           {activities}
         </div>

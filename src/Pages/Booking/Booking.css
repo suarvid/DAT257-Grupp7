@@ -26,6 +26,7 @@
   width: 100%;
   max-height: max-content;
   margin-top: 2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .component {
   /*margin: 0 auto;*/

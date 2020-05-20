@@ -9,7 +9,6 @@
     padding-bottom: 20px;
     vertical-align: middle;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .activityTitle {
@@ -25,6 +24,8 @@
     height: auto !important;
     width: auto !important;
     padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   }
 
 .activityImage {
@@ -33,6 +34,8 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .postContent {
@@ -45,6 +48,7 @@
     word-wrap: break-word;
     column-fill: balance;
     vertical-align: text-top;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .activityMainImage{
@@ -65,6 +69,8 @@
    overflow: hidden;
    float: center;
    box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 } 
 .activityHeader{
     align-content: center;
@@ -76,11 +82,15 @@
     height: fit-content;
     max-height: 120px;
     padding:0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 .activityHeader > h2{
     align-self: top;
     margin:0px;
     padding:0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .instructors{
@@ -91,6 +101,7 @@
     height: fit-content;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
+    
 }
 #showActivityButton {
     background-color: #4D8948;

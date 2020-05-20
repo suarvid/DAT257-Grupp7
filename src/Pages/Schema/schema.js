@@ -5,9 +5,9 @@ import '../../globalstyles.css';
 
 function Schema() {
   return (
-    <div className="schema-container">
-      <h2> Hela Åsas schema</h2>
-      <div className="schema-image">
+    <div className="textPageContainer">
+      <h2 style={{width:"100%"}}> Hela Åsas schema</h2>
+      <div className="textPageImage">
         <img src={schema} alt="Nia Motion" width="100%" height="100%" />
       </div>
 

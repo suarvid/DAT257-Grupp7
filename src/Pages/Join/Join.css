@@ -1,9 +1,9 @@
 .companies{
-    width:100%;
+    width:96%;
     float:left;
-    border-top: 1px solid #4c4c4c;
     background-color: white;
     margin-bottom: 15px;
+    padding: 20px;
 }
 
 .companies a{
@@ -13,17 +13,6 @@
     margin: 0;
     text-decoration: none;
     margin-bottom: 5px;
-}
-
-.joinContainer {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5px;
-    padding-bottom: 50px;
-    vertical-align: middle;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 .joinTitle {
@@ -46,4 +35,6 @@
     word-wrap: break-word;
     column-fill: balance;
     vertical-align: text-top;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
