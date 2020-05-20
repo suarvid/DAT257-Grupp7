@@ -7,8 +7,9 @@ import axios from "axios";
 import Filter from "./Filter/FilterPanel";
 import FilterItem from "./Filter/FilterItem";
 import BookingItem from "./BookingItem";
+import { withRouter } from "react-router-dom";
 
-export default class BookingContainer extends React.Component {
+class BookingContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,15 +97,50 @@ export default class BookingContainer extends React.Component {
     });
   }
 
-  onBookingItemSelected(classID) {
-    console.log("pressed, with class ID: ", classID)
+  onBookingItemSelected(
+    classID,
+    activityName,
+    locationName,
+    instructorName,
+    date,
+    start_time,
+    end_time
+  ) {
+    console.log("pressed, with class ID: ", classID);
+    this.props.history.push({
+      pathname: `../boka/${classID}`,
+      state: {
+        id: classID,
+        activity: {
+          name: activityName,
+        },
+        location: {
+          name: locationName,
+        },
+        instructor: {
+          name: instructorName,
+        },
+        start_time,
+        date,
+        end_time,
+      },
+    });
+  }
+
+  extractName(list, id) {
+    return list.filter((i) => i.id === id)[0].name;
   }
 
   render() {
     const { classes, activities, instructors, locations } = this.state;
     const { activity, instructor } = this.state.activeFilters;
 
-    if (activities.length === 0 || instructors.length === 0 || locations.length === 0) return null;
+    if (
+      activities.length === 0 ||
+      instructors.length === 0 ||
+      locations.length === 0
+    )
+      return null;
 
     console.log("classes ", classes);
     console.log("instructor ", instructor);
@@ -142,23 +178,44 @@ export default class BookingContainer extends React.Component {
           data={item}
         />
       ));*/
-      mainContent = filteredClasses.map((item) => (
-        <BookingItem
-          key={item.id}
-          activityName={
-            activities.filter((a) => a.id === item.activity)[0].name
-          }
-          instructorName={
-            instructors.filter((i) => i.id === item.instructor)[0].name
-          }
-          date={item.date}
-          time={`${item.start_time.slice(0, 5)} - ${item.end_time.slice(0, 5)}`}
-          locationName={locations.filter(l => l.id === item.location)[0].name}
-          remainingSpots={`${item.max_attendees - item.registered_attendees} / ${item.max_attendees}`}
-          isBookable={item.registered_attendees < item.max_attendees}
-          onClick={() => this.onBookingItemSelected(item.id)}
-        />
-      ));
+      mainContent = filteredClasses.map((item) => {
+        const instructorName = instructors.filter(
+          (i) => i.id === item.instructor
+        )[0].name;
+        const activityName = activities.filter((a) => a.id === item.activity)[0]
+          .name;
+        const locationName = locations.filter((l) => l.id === item.location)[0]
+          .name;
+
+        return (
+          <BookingItem
+            key={item.id}
+            activityName={activityName}
+            instructorName={instructorName}
+            date={item.date}
+            time={`${item.start_time.slice(0, 5)} - ${item.end_time.slice(
+              0,
+              5
+            )}`}
+            locationName={locationName}
+            remainingSpots={`${
+              item.max_attendees - item.registered_attendees
+            } / ${item.max_attendees}`}
+            isBookable={item.registered_attendees < item.max_attendees}
+            onClick={() =>
+              this.onBookingItemSelected(
+                item.id,
+                activityName,
+                locationName,
+                instructorName,
+                item.date,
+                item.start_time,
+                item.end_time
+              )
+            }
+          />
+        );
+      });
     }
 
     return (
@@ -177,3 +234,5 @@ export default class BookingContainer extends React.Component {
     );
   }
 }
+
+export default withRouter(BookingContainer);
