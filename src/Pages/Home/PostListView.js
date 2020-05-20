@@ -47,7 +47,7 @@ class PostList extends React.Component {
             date: new Date(post.date_posted),
             author: post.author // TODO: this is just an integer, which currently is 1 for "admin", convert this to readable name
           }
-        })
+        }).sort((a, b) => a.date < b.date ? 1 : -1)
         console.log("posts", posts)
         this.setState({
           backendPosts: posts,
@@ -68,7 +68,7 @@ class PostList extends React.Component {
       this.state.postCounter++;
     }
 
-    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray);
+    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray).sort((a, b) => a.date < b.date ? 1 : -1)
     this.setState({
       loadedPosts: soonToBeLoadedPosts,
       hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length, //Might be smarter to use postcounter here, more efficient
