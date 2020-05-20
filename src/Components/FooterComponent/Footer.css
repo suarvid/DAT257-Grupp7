@@ -1,18 +1,19 @@
 .footer {
   width: 100%;
   text-align: center;
-  border-top: 4px solid darkgreen;
+  border-top: 4px solid#4d8948;
   height: 11rem;
   position: relative;
   left: 0;
   bottom: 0;
-  background-color: white;
+  background-color:white;
   display: inline-block;
 }
 
 .footer a,p {
   padding:0px;
   margin:0px;
+  
 }
 
 .footer h4 {

@@ -3,15 +3,21 @@ import './About.css'
 import niamotion from '../../Components/Banner/niamotion.jpg'
 import Instructors from '../Instructors/Instructors';
 import unikarum from './unikarum.jpg'
+import aboutimg from './about.png'
 
 function About() {
     return (
         <div className="about-container">
-            
             <div className="info-text">
                 <h2>Om Hela Åsa</h2>
-                <h3>Företagsnätverk</h3>
-                <p>Ett företagsnätverk inom träning och hälsa. Fyll på med mer text om samarbetet....</p>
+                <img  src={aboutimg} alt="aboutimg" />
+                <h3>Företagsnätverket</h3>
+                <p>Hela Åsa startades av Anna Nyström och Lotten Jersby 2019. 
+                    Vi är ett företagsnätverk som tror på kraften i att ”tillsammans är vi starka”. 
+                    Vi vill tillsammans med andra företagare inom hälsa och friskvård skapa en mötesplats 
+                    där vi kan hitta former för samarbete och utveckling. 
+                    Det skulle kunna innebära en samlad portal för annonsering, gemensam lokal, skapa gemensamma evenemang, 
+                    hoppa in för varandra vid semester eller annan frånvaro.</p>
             </div>
 
             <div className ="companies-container">
