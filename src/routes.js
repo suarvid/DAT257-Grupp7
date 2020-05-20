@@ -18,7 +18,7 @@ import Erbjudanden from './Pages/Offers/Offers';
 import Workshops from './Pages/Workshops/Workshops';
 
 const BaseRouter = () => (
-  <div style={{paddingTop:'260px'}}>
+  <div style={{paddingTop:'120px'}}>
     <Router>
       <Route exact path="/" component={Home} />
       <Route exact path="/boka" component={BookingContainer} />
