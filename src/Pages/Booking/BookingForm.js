@@ -64,14 +64,12 @@ class BookingForm extends React.Component {
   }
   //goForward to booking-confirmation, passing information about the booking
   goForward(id) {
+    console.log("go forward ", this.state.data)
     this.props.history.push({
       pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
-      time: `${this.state.data.date}, ${this.state.data.start_time.substring(
-        0,
-        5
-      )} - ${this.state.data.end_time.substring(0, 5)}`,
+      time: `${this.state.data.time}`,
       mail: this.state.mail,
       refId: id,
     });
@@ -189,6 +187,8 @@ class BookingForm extends React.Component {
       0,
       5
     )} - ${this.state.data.end_time.substring(0, 5)}`;
+
+    console.log("booking form", this.state.data)
 
     return (
       <div align="center">
