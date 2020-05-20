@@ -25,96 +25,33 @@ class PostList extends React.Component {
     super(props);
     this.state = {
       postCounter: 0,
-      backendPosts: [
-        {
-          id: 1,
-          title: "Test1",
-          content: lorem,
-          author: "me",
-          images: [
-            "https://cdn.pixabay.com/photo/2015/04/20/13/44/sports-731506_1280.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 2,
-          title: "Test2",
-          content: lorem,
-          author: "you",
-          images: [
-            "https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg",
-          ],
-          date: new Date(),
-        },
-
-        {
-          id: 3,
-          title: "Test3",
-          content: lorem,
-          author: "unknown",
-          images: [
-            "https://cdn.pixabay.com/photo/2014/10/22/17/25/stretching-498256_1280.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 4,
-          title: "Blir man en sämre människa av att löpa?",
-          content: lorem,
-          author: "Svar ja",
-          images: [
-            "https://www.runtastic.com/blog/wp-content/uploads/2018/08/thumbnail_1200x800-1-1024x683.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 5,
-          title: "Test5",
-          content: loremlorem,
-          author: "unknown",
-          images: [
-            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 6,
-          title: "Test7",
-          content: loremlorem,
-          author: "unknown",
-          images: [
-            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 7,
-          title: "Test7",
-          content: loremlorem,
-          author: "unknown",
-          images: [
-            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
-          ],
-          date: new Date(),
-        },
-      ],
+      backendPosts: [],
       loadedPosts: [],
       hasMorePosts: true,
     };
   }
 
   componentDidMount() {
-    this.loadItems();
+    this.fetchAllPosts();
   }
 
   fetchAllPosts = () => {
-    /*
-    axios.get(`http://127.0.0.1:8000/api/instructors/instructors/${this.props.data.instructor}`)
+    axios.get(`http://127.0.0.1:8000/api/post/`)
       .then(response => {
-        this.setState({
-          instructor: response.data,
+        const posts = response.data.map(post => {
+          return {
+            id: post.id,
+            title: post.title,
+            content: post.content,
+            image: "https://upload.wikimedia.org/wikipedia/commons/0/09/Zlatan_Ibrahimovi%C4%87_June_2018.jpg",
+            date: new Date(post.date_posted)
+          }
         })
-      }).catch(error => { console.log(error) })*/
+        this.setState({
+          backendPosts: posts,
+        })
+        console.log("Posts ", posts)
+      }).catch(error => { console.log(error) })
   }
 
   //Arbitrarily set to loading 3 posts at a time

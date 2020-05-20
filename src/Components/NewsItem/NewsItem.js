@@ -42,10 +42,7 @@ class NewsItem extends React.Component {
               component={PostDetailView}
             />
           </h3>
-          {this.props.data.images.map((image) => (
-            <img class="newsimage news-child" src={image} alt="Alt" />
-          ))}
-
+          <img class="newsimage news-child" src={this.props.data.image} alt="Alt" />
           <p className="truncate news-child">{this.props.data.content}</p>
 
           <h4 className="published news-child">
