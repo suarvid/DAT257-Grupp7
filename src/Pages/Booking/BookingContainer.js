@@ -102,7 +102,8 @@ class BookingContainer extends React.Component {
     instructorName,
     date,
     start_time,
-    end_time
+    end_time,
+    time
   ) {
     this.props.history.push({
       pathname: `../boka/${classID}`,
@@ -120,6 +121,7 @@ class BookingContainer extends React.Component {
         start_time,
         date,
         end_time,
+        time
       },
     });
   }
@@ -164,6 +166,7 @@ class BookingContainer extends React.Component {
         const instructorName = this.extractName(instructors, item.instructor)
         const activityName = this.extractName(activities, item.activity)
         const locationName = this.extractName(locations, item.location)
+        const time = `${item.start_time.slice(0, 5)} - ${item.end_time.slice(0, 5)}`
 
         return (
           <BookingItem
@@ -171,7 +174,7 @@ class BookingContainer extends React.Component {
             activityName={activityName}
             instructorName={instructorName}
             date={item.date}
-            time={`${item.start_time.slice(0, 5)} - ${item.end_time.slice(0, 5)}`}
+            time={time}
             locationName={locationName}
             remainingSpots={`${
               item.max_attendees - item.registered_attendees
@@ -185,7 +188,8 @@ class BookingContainer extends React.Component {
                 instructorName,
                 item.date,
                 item.start_time,
-                item.end_time
+                item.end_time,
+                time
               )
             }
           />

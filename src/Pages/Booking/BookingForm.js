@@ -64,6 +64,7 @@ class BookingForm extends React.Component {
   }
   //goForward to booking-confirmation, passing information about the booking
   goForward(id) {
+    console.log("go forward ", this.state.data)
     this.props.history.push({
       pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
