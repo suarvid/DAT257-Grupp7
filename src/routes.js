@@ -13,6 +13,9 @@ import Schema from './Pages/Schema/schema';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BookingConfirmation from "./Pages/BookingConfirmation/BookingConfirmation";
 import RedirectToBackend from "./Pages/Login/RedirectToBackend";
+import Föreläsningar from './Pages/Lectures/Lectures';
+import Erbjudanden from './Pages/Offers/Offers';
+import Workshops from './Pages/Workshops/Workshops';
 
 const BaseRouter = () => (
   <div style={{paddingTop:'260px'}}>
@@ -31,6 +34,10 @@ const BaseRouter = () => (
       <Route exact path="/inspiratörer" component={Instructors} />
       <Route exact path="/priser" component={Prices} />
       <Route exact path="/schema" component={Schema} />
+      <Route exact path="/booking-confirmation" component={BookingConfirmation} />
+      <Route exact path="/erbjudanden" component={Erbjudanden} />
+      <Route exact path="/föreläsningar" component={Föreläsningar} />
+      <Route exact path="/workshops" component={Workshops} />
     </Router>
   </div>
 );
