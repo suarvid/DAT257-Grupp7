@@ -9,6 +9,7 @@ function Workshops() {
             <br></br>
             <p> För närvarande har vi tyvärr inga planerade workshops.</p>
             <p> Kika in här med jämna mellanrum eller kontakta oss för mer information.</p>
+            //blablabla
         </div>
     )
 }
