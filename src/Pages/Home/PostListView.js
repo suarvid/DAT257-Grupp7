@@ -51,6 +51,7 @@ class PostList extends React.Component {
           backendPosts: posts,
         })
         console.log("Posts ", posts)
+        this.loadItems()
       }).catch(error => { console.log(error) })
   }
 
