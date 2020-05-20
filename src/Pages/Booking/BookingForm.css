@@ -9,13 +9,18 @@
     box-sizing: border-box;
     margin-top: 15px;
     margin-bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .formContainer > p{
   padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 .headerText{
   margin-top: 20px;
   width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 .headerText > h2{
   margin-bottom: 0px;
@@ -35,6 +40,7 @@
 
 
 .paymentContainer{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: max-content;
     width: 100%;
     display: table-row;

@@ -2,6 +2,7 @@ import React from "react";
 import "./newsitem.css";
 import { withRouter, Link, Route } from "react-router-dom";
 import PostDetailView from "../../Pages/Home/PostDetailView";
+import '../../globalstyles.css';
 
 class NewsItem extends React.Component {
   getPublishedTime() {
@@ -25,12 +26,12 @@ class NewsItem extends React.Component {
   render() {
     return (
       <withRouter>
-        <div className="newsitem" align="center">
-          <h3 className="newsitem-header news-child">
+        <div className="newsContainer" align="center">
+          <div className="newsitem-header news-child">
             <Link
               className="newsitem-header"
               to={{
-                pathname: `post/${this.props.data.id}/`,
+                pathname: `inlägg/${this.props.data.id}/`,
                 state: this.props.data,
               }}
             >
@@ -38,14 +39,15 @@ class NewsItem extends React.Component {
             </Link>
 
             <Route
-              path={`post/${this.props.data.id}/`}
+              path={`inlägg/${this.props.data.id}/`}
               component={PostDetailView}
             />
-          </h3>
+          </div>
+          <div className="imageContainer">
           {this.props.data.images.map((image) => (
-            <img class="newsimage news-child" src={image} alt="Alt" />
+            <img class="newsImage news-child" src={image} alt="Alt" />
           ))}
-
+          </div>
           <p className="truncate news-child">{this.props.data.content}</p>
 
           <h4 className="published news-child">

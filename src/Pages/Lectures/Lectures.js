@@ -1,10 +1,10 @@
-import "./Lectures.css";
+import '../../globalstyles.css';
 import React from "react";
 
 function Lectures() {
     return (
-        <div>
-            <h3> Föreläsningar</h3>
+        <div className="textPageContainer">
+            <h2> Föreläsningar</h2>
             <p> Vi erbjuder föreläsningar inom hälsa, friskvård och rörelseglädje.</p>
             <br></br>
             <p> För närvarande har vi tyvärr inga planerade föreläsningar.</p>

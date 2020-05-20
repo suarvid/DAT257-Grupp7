@@ -1,21 +1,5 @@
-.itemFeed {
-    margin-bottom: 250px;
-    margin-top: 250px;
-    background-color: blueviolet;
-    align-items: center;
-    align-content: center;
-    margin: auto;
-}
-
 .news-container {
-    padding-top: 25px;
-}
-
-.news-title {
-    max-width: 90vw;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
+    padding: 15px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4c4c4c;
 }
