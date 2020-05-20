@@ -15,7 +15,7 @@ import "./NavigationBar.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "fixed",
-    top: "260px",
+    top: "120px",
     width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
@@ -120,10 +120,10 @@ export default function TemporaryDrawer() {
             title: "Utbud",
             path: "/",
             subsections: [
-              { title: "Träning", path: "/aktiviteter", subsections: [] },
-              { title: "Föreläsningar", path: "/activities", subsections: [] },
-              { title: "Workshops", path: "/activities", subsections: [] },
-              { title: "Erbjudanden", path: "/activities", subsections: [] },
+              { title: "Träning", path: "/activities", subsections: [] },
+              { title: "Föreläsningar", path: "/föreläsningar", subsections: [] },
+              { title: "Workshops", path: "/workshops", subsections: [] },
+              { title: "Erbjudanden", path: "/erbjudanden", subsections: [] },
             ],
           },
           { title: "Boka", path: "/boka", subsections: [] },
@@ -144,7 +144,7 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div style={{ position: "fixed", top: "220px" ,zIndex:100}}>
+    <div style={{ position: "fixed", top: "85px" ,zIndex:100}}>
       <React.Fragment key={"top"}>
         <Button onClick={toggleDrawer("top", true)}>
           <MenuIcon />

@@ -1,15 +1,19 @@
-.bannerHeader{
-    background-image: url('../../Components/Banner/testpic.jpg');
-    background-color: white;
-    background-position: fixed;
-    height: 200px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: flex;
-    width: 100%;
-    max-width: auto;
-    justify-content: center;
-    position: fixed;
-    border-bottom: 1px solid #707070;
-    z-index: 99;
-  }
+.bannerHeader {
+  background-image: url("../../Components/Banner/testpic.jpg");
+  background-color: white;
+  background-position: fixed;
+  height: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  width: 100%;
+  max-width: auto;
+  justify-content: center;
+  position: fixed;
+  border-bottom: 1px solid #707070;
+  z-index: 99;
+}
+
+.logoHeader {
+  object-fit: contain;
+}
