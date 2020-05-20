@@ -1,8 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { Card, Button } from "antd";
-import { Redirect } from "react-router-dom";
 import "./PostDetailView.css";
+
 class PostDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +10,6 @@ class PostDetail extends React.Component {
   }
 
   componentDidMount() {
-    const { handle } = this.props.match.params;
     const data = this.props.location.state;
     this.setState({
       post: data,
@@ -20,15 +17,13 @@ class PostDetail extends React.Component {
   }
 
   render() {
-    const imgs = this.props.location.state.images;
+    const { title, content, image } = this.state.post
 
     return (
         <div className="postContainer">
-          <h1 className="postTitle">{this.props.location.state.title}</h1>
-          {imgs.map((image) => (
-            <img className="postImage" src={image} />
-          ))}
-          <p className="postContent">{this.state.post.content}</p>
+          <h1 className="postTitle">{title}</h1>
+          <img class="newsimage news-child" src={image} alt="Alt" />
+          <p className="postContent">{content}</p>
         </div>
     );
   }
