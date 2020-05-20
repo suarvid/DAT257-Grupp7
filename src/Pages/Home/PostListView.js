@@ -43,14 +43,13 @@ class PostList extends React.Component {
             id: post.id,
             title: post.title,
             content: post.content,
-            image: "https://upload.wikimedia.org/wikipedia/commons/0/09/Zlatan_Ibrahimovi%C4%87_June_2018.jpg",
+            image: post.image,
             date: new Date(post.date_posted)
           }
         })
         this.setState({
           backendPosts: posts,
         })
-        console.log("Posts ", posts)
         this.loadItems()
       }).catch(error => { console.log(error) })
   }
