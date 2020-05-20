@@ -38,12 +38,12 @@ class ActivityDetail extends React.Component {
     render() {
         const{imageUrl, activityType, description} = this.state.activitydata;
         return (
-            <div className='activityDetailContainer'>
-                <div className="activityHeader">
-                    <img className='activityMainImage' src={imageUrl} alt={activityType} />
-                    <h1 className='activityName'>{activityType}</h1>
-                </div>
-                <div className = 'activityDescription'>
+            <div className='textPageContainer'>
+                <h2>{activityType}</h2>
+                <div className="activityImageContainer">
+                    <img className='activityImage' src={imageUrl} alt={activityType} />
+                    </div>
+                <div className = 'postContent'>
                     <p>{description}</p>
                 </div>
                 <div align="center">
@@ -56,7 +56,6 @@ class ActivityDetail extends React.Component {
                    
                 </div>
             </div>
-
         )
     }
 }

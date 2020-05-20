@@ -1,16 +1,14 @@
-@import "../../globalstyles.css";
-
-
 .activitiesContainer {
     align-content: center;
     margin-top:0px;
+    padding-top: 0px;
     max-width: 100%;
     max-height: max-content;
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.activitiesHeader {
-    max-width: 100%;
-    margin: 2px;
-    text-emphasis: none;
+
+.linkDecoration {
     text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

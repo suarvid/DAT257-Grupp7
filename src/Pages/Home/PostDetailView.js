@@ -3,6 +3,8 @@ import axios from "axios";
 import { Card, Button } from "antd";
 import { Redirect } from "react-router-dom";
 import "./PostDetailView.css";
+import '../../globalstyles.css'
+
 class PostDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -25,9 +27,11 @@ class PostDetail extends React.Component {
     return (
         <div className="postContainer">
           <h1 className="postTitle">{this.props.location.state.title}</h1>
-          {imgs.map((image) => (
-            <img className="postImage" src={image} />
-          ))}
+          <div className="postImageContainer">
+            {imgs.map((image) => (
+              <img className="postImage" src={image} />
+            ))}
+          </div>
           <p className="postContent">{this.state.post.content}</p>
         </div>
     );

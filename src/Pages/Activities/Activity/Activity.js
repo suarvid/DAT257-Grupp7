@@ -25,8 +25,8 @@ class Activity extends React.Component {
     render() {
         return (
             <div className="activityCard" onClick={this.goToActivity}>
-                <div id="activityHeader">
-                    <img className="activityImage" src={this.state.imageUrl} alt={this.state.activityType}></img>
+                <div id="cardImageContainer">
+                    <img className="cardImage" src={this.state.imageUrl} alt={this.state.activityType}></img>
                 </div>
                 <div className="descriptionPreview">
                     <h2 style={{ textDecoration: "none" }}>{this.state.activityType}</h2>
