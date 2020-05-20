@@ -1,7 +1,5 @@
 import React from 'react'
 import './About.css'
-import niamotion from '../../Components/Banner/niamotion.jpg'
-import Instructors from '../Instructors/Instructors';
 import unikarum from './unikarum.jpg';
 import yogamidus from './yogamidus.jpg';
 import nia from './nia.jpg'
@@ -21,13 +19,13 @@ function About() {
                     </div>
                 <div className="cardInfo">
                         <h3 className= "infoHeading">Yogamidus</h3>
-                        <p style={{paddingBottom:"5px"}}>Info om Yogamidus....</p>
+                        <p style={{paddingBottom:"5px", width :"100%"}}>Info om Yogamidus....</p>
                         <a href="https://www.facebook.com/pages/category/Health-Beauty/Yogamidus-1001620300228906/">Vidare till Yogamidus</a>
                     </div>
                 </div>
 
                 <div className= "cardContainer">
-                    <div className= "cardImageContainer">
+                    <div className= "cardImageContainer" >
                         <img src={nia} alt="Nia Motion" width="100%" className='cardImage'/>
                     </div>
                     <div className="cardInfo">
