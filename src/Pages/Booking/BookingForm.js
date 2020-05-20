@@ -6,11 +6,13 @@ import axios from "axios";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import emailjs from "emailjs-com";
 import ErrorModal from "./FormComponents/ErrorModal";
+
+
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
-    const data = props.location.state
-  
+    const data = props.location.state;
+
     this.state = {
       data: data,
       name: "",
@@ -62,21 +64,23 @@ class BookingForm extends React.Component {
   }
   //goForward to booking-confirmation, passing information about the booking
   goForward(id) {
-      this.props.history.push({
+    this.props.history.push({
       pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
       location: this.state.data.location.name,
-      time: `${this.state.data.date}, ${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0,5)}`,
+      time: `${this.state.data.date}, ${this.state.data.start_time.substring(
+        0,
+        5
+      )} - ${this.state.data.end_time.substring(0, 5)}`,
       mail: this.state.mail,
       refId: id,
     });
   }
 
-   //go back to booking overview
+  //go back to booking overview
   goBack() {
-    this.props.history.push({pathname: "../boka",
-    state:this.state});
-  };
+    this.props.history.push({ pathname: "../boka", state: this.state });
+  }
 
   //enables submit button if form is valid
   validate = () => {
@@ -137,22 +141,24 @@ class BookingForm extends React.Component {
     this.validate();
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
-        console.log("POSTING")
-        console.log(this.state.data.id)
-        axios.post(`http://localhost:8000/api/bookings/`, 
-          { name: this.state.name,
+        console.log("POSTING");
+        console.log(this.state.data.id);
+        axios
+          .post(`http://localhost:8000/api/bookings/`, {
+            name: this.state.name,
             email: this.state.mail,
             phone_number: this.state.phone,
             classID: this.state.data.id,
-          }).then((response) => {
+          })
+          .then((response) => {
             console.log(response);
             this.goForward(response.data.id); //fetching the id from the backend directly into the method
             //Uncomment if u want to send mail
-             //this.sendEmail({
-              // user_name: this.state.name,
-               //user_email: this.state.mail,
-               //message: this.getMessage(response.data.id),
-             //});
+            //this.sendEmail({
+            // user_name: this.state.name,
+            //user_email: this.state.mail,
+            //message: this.getMessage(response.data.id),
+            //});
             //until here
             //redirects to next page
           })
@@ -179,7 +185,10 @@ class BookingForm extends React.Component {
   }
 
   render() {
-    const time = `${this.state.data.start_time.substring(0, 5)} - ${this.state.data.end_time.substring(0, 5)}`;
+    const time = `${this.state.data.start_time.substring(
+      0,
+      5
+    )} - ${this.state.data.end_time.substring(0, 5)}`;
 
     return (
       <div align="center">
@@ -238,11 +247,10 @@ class BookingForm extends React.Component {
                 "Måste anges med 10 siffror",
               ]}
             />
-            </ValidatorForm>
-            <div align="center" style = {{width: "100%", marginTop:30}}>
-            <button onClick={this.goBack}
-                    className = "secondary_button_large"> 
-            Tillbaka
+          </ValidatorForm>
+          <div align="center" style={{ width: "100%", marginTop: 30 }}>
+            <button onClick={this.goBack} className="secondary_button_large">
+              Tillbaka
             </button>
             <button
               className="primary_button_large"
@@ -251,8 +259,8 @@ class BookingForm extends React.Component {
             >
               Boka
             </button>
-            </div>
-       
+          </div>
+
           <ErrorModal
             title={this.state.errorTitle}
             description={this.state.errorMessage}
