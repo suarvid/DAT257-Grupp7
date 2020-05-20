@@ -31,7 +31,7 @@ class NewsItem extends React.Component {
             <Link
               className="newsitem-header"
               to={{
-                pathname: `post/${this.props.data.id}/`,
+                pathname: `inlägg/${this.props.data.id}/`,
                 state: this.props.data,
               }}
             >
@@ -39,7 +39,7 @@ class NewsItem extends React.Component {
             </Link>
 
             <Route
-              path={`post/${this.props.data.id}/`}
+              path={`inlägg/${this.props.data.id}/`}
               component={PostDetailView}
             />
           </div>
