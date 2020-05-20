@@ -6,6 +6,7 @@ import "../Booking/Booking.css";
 import axios from "axios";
 import Filter from "./Filter/FilterPanel";
 import FilterItem from "./Filter/FilterItem";
+import BookingItem from "./BookingItem";
 
 export default class BookingContainer extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class BookingContainer extends React.Component {
       },
       activities: [],
       instructors: [],
+      locations: [],
     };
     this.sortData = this.sortData.bind(this);
   }
@@ -66,6 +68,18 @@ export default class BookingContainer extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+
+    axios
+      .get(`http://127.0.0.1:8000/api/locations/`)
+      .then((response) => {
+        this.setState({
+          ...this.state,
+          locations: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   sortData(data) {
@@ -82,9 +96,18 @@ export default class BookingContainer extends React.Component {
     });
   }
 
+  onBookingItemSelected(classID) {
+    console.log("pressed, with class ID: ", classID)
+  }
+
   render() {
-    const { classes, activities, instructors } = this.state;
+    const { classes, activities, instructors, locations } = this.state;
     const { activity, instructor } = this.state.activeFilters;
+
+    if (activities.length === 0 || instructors.length === 0 || locations.length === 0) return null;
+
+    console.log("classes ", classes);
+    console.log("instructor ", instructor);
 
     let filteredClasses = classes;
 
@@ -92,8 +115,7 @@ export default class BookingContainer extends React.Component {
     //Next, depending on what activity/instructor is chosen, it filters the same classes again on the other properties.
     let now = new Date();
     filteredClasses = filteredClasses.filter(
-      (c) =>
-        now.getTime() <= new Date(c.date + " " + c.start_time).getTime()
+      (c) => now.getTime() <= new Date(c.date + " " + c.start_time).getTime()
     );
     if (activity) {
       filteredClasses = filteredClasses.filter((c) => c.activity === activity);
@@ -103,15 +125,38 @@ export default class BookingContainer extends React.Component {
         (c) => c.instructor === instructor
       );
     }
-   
+
+    console.log("filtered ", filteredClasses);
+    console.log("activites", activities);
+    console.log("instructors", instructors);
+    console.log("locations", locations);
+
     let mainContent;
     if (filteredClasses.length === 0) {
       mainContent = <h2>Filtereringen gav inga träffar. Försök igen.</h2>;
     } else {
-      mainContent = filteredClasses.map((item) => (
+      /*mainContent = filteredClasses.map((item) => (
         <BookingComponent
           activity={activities.filter((a) => a.id === item.activity)[0]}
+          instructor={instructors.filter(i => i.id === item.instructor)[0]}
           data={item}
+        />
+      ));*/
+      mainContent = filteredClasses.map((item) => (
+        <BookingItem
+          key={item.id}
+          activityName={
+            activities.filter((a) => a.id === item.activity)[0].name
+          }
+          instructorName={
+            instructors.filter((i) => i.id === item.instructor)[0].name
+          }
+          date={item.date}
+          time={`${item.start_time.slice(0, 5)} - ${item.end_time.slice(0, 5)}`}
+          locationName={locations.filter(l => l.id === item.location)[0].name}
+          remainingSpots={`${item.max_attendees - item.registered_attendees} / ${item.max_attendees}`}
+          isBookable={item.registered_attendees < item.max_attendees}
+          onClick={() => this.onBookingItemSelected(item.id)}
         />
       ));
     }

@@ -190,6 +190,8 @@ class BookingForm extends React.Component {
       5
     )} - ${this.state.data.end_time.substring(0, 5)}`;
 
+    console.log("booking form", this.state.data)
+
     return (
       <div align="center">
         <div className="headerText">

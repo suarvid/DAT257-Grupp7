@@ -9,7 +9,6 @@ class BookingComponent extends React.Component {
     super(props);
     this.state = {
       activity: {},
-      instructor: {},
       id: this.props.data.id,
       date: this.props.data.date,
       start_time: this.props.data.start_time,
@@ -23,22 +22,12 @@ class BookingComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Component Mounted')
-    axios.get(`http://127.0.0.1:8000/api/instructors/instructors/${this.props.data.instructor}`)
-      .then(response => {
-        this.setState({
-          instructor: response.data,
-        })
-      }).catch(error => { console.log(error) })
-
     axios.get(`http://127.0.0.1:8000/api/activities/${this.props.data.activity}`)
       .then(response => {
         this.setState({
           activity: response.data,
         })
       }).catch(error => { console.log(error) })
-
-
 
     axios.get(`http://127.0.0.1:8000/api/locations/${this.props.data.location}`)
       .then(response => {
@@ -55,13 +44,16 @@ class BookingComponent extends React.Component {
   goForward() {
     this.props.history.push({
       pathname: `../boka/${this.state.id}`,
-      state: this.state
+      state: {
+        ...this.state,
+        instructor: this.props.instructor
+      }
     }
     );
   }
 
   render() {
-    if (!this.props.activity) return null
+    if (!this.props.activity || !this.props.instructor) return null
 
     let buttonText;
     if (this.state.isBookable) {
@@ -74,17 +66,19 @@ class BookingComponent extends React.Component {
     const time = `${this.props.data.start_time.slice(0, 5)} - ${this.props.data.end_time.slice(0, 5)}`;
     const remainingSpots = `${this.props.data.max_attendees - this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
 
+    console.log("booking component state ", this.state)
+
     return (
       <div className="bookingcomponent">
         <div>
           <div className="content">
             <h3 style={{ fontSize: 16 }}>
-              {`${this.state.activity.name} ${this.state.date}  ${time}`}
+              {`${this.props.activity.name} ${this.state.date}  ${time}`}
             </h3>
           </div>
           <div style={{ height: 10 }}></div>
           <div className="content">
-            <p>{`${"Instruktör:"} ${this.state.instructor.name}`}</p>
+            <p>{`${"Instruktör:"} ${this.props.instructor.name}`}</p>
           </div>
           <div className="content">
             <p>{`${"Plats:"} ${this.state.location.name}`}</p>
