@@ -11,10 +11,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%"
   },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
 }));
 
 class FilterPanel extends Component {
@@ -44,7 +40,7 @@ class FilterPanel extends Component {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Filtrering</Typography>
+            <Typography style={{ fontWeight: 'bold' }}>Filtrering</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
