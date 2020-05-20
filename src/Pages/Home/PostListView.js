@@ -140,8 +140,8 @@ class PostList extends React.Component {
       : (showMorePostsButton = null);
 
     return (
-      <div className="news-container">
-        <h2 style={{paddingBottom:"15px"}}>Nyhetsinlägg</h2>
+      <div className="textPageContainer">
+        <h2>Nyhetsinlägg</h2>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
           hasMore={this.state.hasMorePosts}
