@@ -4,7 +4,6 @@ import unikarum from './unikarum.jpg';
 import yogamidus from './yogamidus.jpg';
 import nia from './nia.jpg'
 import '../../globalstyles.css';
-
 function About() {
     return (
         <div> 
