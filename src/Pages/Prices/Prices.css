@@ -3,12 +3,21 @@
     display:inline-block;
 }
 
+.price-container h2{
+    padding:5px;
+    text-align: center;
+}
+
 .activity {
     background-color: white;
     width:98%;
-    margin:0.5% 1% 0.5% 1%;
+    margin: 10px 15px;
 }
 
 .activity h4 {
     padding:0px;
+}
+
+.activity p {
+    padding: 0 15px;
 }

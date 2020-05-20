@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../src/globalstyles.css";
 import "../Booking/Booking.css";
-import {withRouter} from "react-router-dom";
+import {withRouter, Route } from "react-router-dom";
 import axios from "axios";
 
 class BookingComponent extends React.Component {
@@ -75,25 +75,38 @@ class BookingComponent extends React.Component {
     const remainingSpots = `${this.props.data.max_attendees - this.props.data.registered_attendees} / ${this.props.data.max_attendees}`;
 
     return (
-      <div className="bookingcomponent">
-        <div>
-          <div className="content">
-            <h3 style={{ fontSize: 16 }}>
-              {`${this.state.activity.name} ${this.state.date}  ${time}`}
-            </h3>
+      <withRouter>
+        <div className="bookingcomponent">
+          <div>
+            <div className="contentHead">
+              <h3 style={{ fontSize: 16 }}>
+                {`${this.state.activity.name} ${this.state.date}  ${time}`}
+              </h3>
+            </div>
+            <div style={{ height: 10 }}></div>
+            <div className="content">
+              <p>{`${"Instruktör:"} ${this.state.instructor.name}`}</p>
+            </div>
+            <div className="content">
+              <p>{`${"Plats:"} ${this.state.location.name}`}</p>
+            </div>
+            <div className="content">
+              <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
+            </div>
           </div>
-          <div style={{ height: 10 }}></div>
-          <div className="content">
-            <p>{`${"Instruktör:"} ${this.state.instructor.name}`}</p>
-          </div>
-          <div className="content">
-            <p>{`${"Plats:"} ${this.state.location.name}`}</p>
+          <div style={{ float: "right", paddingRight:"15px", marginRight: 0, marginBottom: 40 }}>
+          <button
+            className="primary_button_large"
+            onClick={this.goForward}
+            disabled={!this.state.isBookable}>
+            {buttonText}
+          </button>
           </div>
           <div className="content">
             <p>{`${"Lediga platser"} ${remainingSpots}`}</p>
           </div>
         </div>
-        <div style={{ float: "right", marginRight: 0, marginBottom: 40 }}>
+        {/* <div style={{ float: "right", marginRight: 0, marginBottom: 40 }}>
           <button
             className="primary_button_large"
             onClick={this.goForward}
@@ -101,9 +114,10 @@ class BookingComponent extends React.Component {
             {buttonText}
           </button>
 
-        </div>
-      </div>
+        </div> */}
+        </withRouter>
     );
+    
   }
 }
 

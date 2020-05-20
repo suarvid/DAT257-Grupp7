@@ -1,6 +1,7 @@
 import React from "react";
 import NewsItem from "../../Components/NewsItem/NewsItem";
 import styles from "./PostListView.css";
+import '../../globalstyles.css';
 import InfiniteScroll from "react-infinite-scroll-component";
 import "../../globalstyles.css";
 const lorem =
@@ -140,7 +141,7 @@ class PostList extends React.Component {
 
     return (
       <div className="news-container">
-        <h1 className="news-title">Nyhetsinlägg</h1>
+        <h2 style={{paddingBottom:"15px"}}>Nyhetsinlägg</h2>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
           hasMore={this.state.hasMorePosts}

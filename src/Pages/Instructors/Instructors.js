@@ -30,7 +30,7 @@ export default class Instructors extends React.Component {
         return (
             <div className='list' >
                 <div className='titleContainer'>
-                    <h1>Inspiratörer</h1>
+                    <h2>Våra inspiratörer</h2>
                 </div>
                 {this.state.instructors.map((item) =>
                     <InstructorDetail data={item} />

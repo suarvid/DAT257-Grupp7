@@ -186,6 +186,7 @@ class BookingForm extends React.Component {
           <h3>{`${this.state.data.date}, ${time}`}</h3>
           <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         </div>
+        <p style={{paddingLeft:"10px"}}>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <ValidatorForm
             ref={(r) => {
