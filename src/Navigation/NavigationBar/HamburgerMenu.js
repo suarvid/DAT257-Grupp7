@@ -126,18 +126,18 @@ export default function TemporaryDrawer() {
               { title: "Erbjudanden", path: "/erbjudanden", subsections: [] },
             ],
           },
-          { title: "Boka", path: "/booking", subsections: [] },
-          { title: "Schema", path: "/Schema", subsections: [] },
+          { title: "Boka", path: "/boka", subsections: [] },
+          { title: "Schema", path: "/schema", subsections: [] },
           { title: "Priser", path: "/priser", subsections: [] },
           {
             title: "Om oss",
             path: "/",
             subsections: [
-              { title: "Företagarna", path: "/about", subsections: [] },
+              { title: "Företagarna", path: "/om oss", subsections: [] },
               { title: "Inspiratörer", path: "/inspiratörer", subsections: [] },
             ],
           },
-          { title: "Vill du synas här?", path: "/join", subsections: [] },
+          { title: "Vill du synas här?", path: "/gå med", subsections: [] },
         ].map((item) => createListItems(item))}
       </List>
     </div>
