@@ -25,7 +25,6 @@ class BookingContainer extends React.Component {
 
   componentDidMount() {
     let data;
-    console.log("Component mounted");
     axios
       .get("http://127.0.0.1:8000/api/classes/")
       .then((response) => {

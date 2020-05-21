@@ -1,15 +1,15 @@
-import React from 'react'
-import './About.css'
-import unikarum from './unikarum.jpg';
-import yogamidus from './yogamidus.jpg';
-import nia from './nia.jpg'
-import aboutimg from './about.png'
-import '../../globalstyles.css';
+import React from "react";
+import "./About.css";
+import unikarum from "./unikarum.jpg";
+import yogamidus from "./yogamidus.jpg";
+import nia from "./nia.jpg";
+import aboutimg from "./about.png";
+import "../../globalstyles.css";
 function About() {
     return (
         <div> 
-            <div className="textPageContainer">
-                <h2>Om Hela Åsa</h2>
+            <div className="textPageContainer center">
+                <h2 className = "center">Om Hela Åsa</h2>
                 <img  src={aboutimg} alt="aboutimg" style= {{padding:"5px 20px"}}/>
                 <h3>Företagsnätverket</h3>
                  <p>Hela Åsa startades av Anna Nyström och Lotten Jersby 2019. 
@@ -71,4 +71,4 @@ function About() {
     )
 }
 
-export default About
+export default About;

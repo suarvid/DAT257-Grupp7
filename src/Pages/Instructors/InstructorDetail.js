@@ -1,8 +1,6 @@
 import React from "react";
 import axios from 'axios';
 import './instructor.css';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar } from 'antd';
 import Card from '@material-ui/core/Card';
 export default class InstructorDetail extends React.Component {
     constructor(props) {
@@ -43,7 +41,7 @@ export default class InstructorDetail extends React.Component {
     filterActivities(activityList) {
         let instructorActivities = [];
         for (let i = 0; i < activityList.length; i++) {
-            if (activityList[i].instructorID == this.state.id) {
+            if (activityList[i].instructorID === this.state.id) {
                 instructorActivities.push(activityList[i].activityID)
             }
         }
@@ -66,12 +64,11 @@ export default class InstructorDetail extends React.Component {
    
 
     render() {
-        console.log(this.state.activities)
         return (
             <Card>
                 <div className='cardContainer'>
                     <div className='cardImageContainer'>
-                        <img src={this.state.imageurl} className='cardImage'/>
+                        <img src={this.state.imageurl} className='cardImage' alt=""/>
                     </div>
                     <div className='cardInfo'>
                         <h3 className='cardHeading'>{this.state.name}</h3>

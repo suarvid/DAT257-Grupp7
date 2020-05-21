@@ -29,8 +29,14 @@
     word-wrap: break-word;
     column-fill: balance;
     vertical-align: text-top;
+    text-align: center;
 }
-
+.published {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 .postImageContainer {
     height: auto !important;
     width: auto !important;

@@ -1,113 +1,45 @@
 import React from "react";
 import NewsItem from "../../Components/NewsItem/NewsItem";
-import styles from "./PostListView.css";
-import '../../globalstyles.css';
 import InfiniteScroll from "react-infinite-scroll-component";
 import "../../globalstyles.css";
-const lorem =
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
-  "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,";
-const loremlorem =
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
-  "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet," +
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
-  "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet," +
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
-  "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet," +
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
-  "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet," +
-  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." +
-  "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,";
+import axios from "axios";
 
 class PostList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       postCounter: 0,
-      backendPosts: [
-        {
-          id: 1,
-          title: "Test1",
-          content: lorem,
-          author: "me",
-          images: [
-            "https://cdn.pixabay.com/photo/2015/04/20/13/44/sports-731506_1280.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 2,
-          title: "Test2",
-          content: lorem,
-          author: "you",
-          images: [
-            "https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg",
-          ],
-          date: new Date(),
-        },
-
-        {
-          id: 3,
-          title: "Test3",
-          content: lorem,
-          author: "unknown",
-          images: [
-            "https://cdn.pixabay.com/photo/2014/10/22/17/25/stretching-498256_1280.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 4,
-          title: "Blir man en sämre människa av att löpa?",
-          content: lorem,
-          author: "Svar ja",
-          images: [
-            "https://www.runtastic.com/blog/wp-content/uploads/2018/08/thumbnail_1200x800-1-1024x683.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 5,
-          title: "Test5",
-          content: loremlorem,
-          author: "unknown",
-          images: [
-            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 6,
-          title: "Test7",
-          content: loremlorem,
-          author: "unknown",
-          images: [
-            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
-          ],
-          date: new Date(),
-        },
-        {
-          id: 7,
-          title: "Test7",
-          content: loremlorem,
-          author: "unknown",
-          images: [
-            "https://nl7if2hjk9a2r1cql2qih3id-wpengine.netdna-ssl.com/wp-content/uploads/article-ath-benchpress.jpg",
-          ],
-          date: new Date(),
-        },
-      ],
+      backendPosts: [],
       loadedPosts: [],
       hasMorePosts: true,
     };
   }
 
   componentDidMount() {
-    this.loadItems();
+    this.fetchAllPosts();
+  }
+
+  fetchAllPosts = () => {
+    axios.get(`http://127.0.0.1:8000/api/post/`)
+      .then(response => {
+        const posts = response.data.map(post => {
+          return {
+            id: post.id,
+            title: post.title,
+            content: post.content,
+            image: post.image,
+            date: new Date(post.date_posted),
+            author: post.author 
+          }
+        }).sort((a, b) => a.date < b.date ? 1 : -1)
+        this.setState({
+          backendPosts: posts,
+        })
+        this.loadItems()
+      }).catch(error => { console.log(error) })
   }
 
   //Arbitrarily set to loading 3 posts at a time
-  //Will have to change this when integrating backend and http requests
   loadItems = () => {
     let loadArray = [];
     for (let i = 0; i < 3; i++) {
@@ -117,22 +49,21 @@ class PostList extends React.Component {
       loadArray.push(this.state.backendPosts[this.state.postCounter]);
       this.state.postCounter++;
     }
-    
-    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray)
+
+    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray).sort((a, b) => a.date < b.date ? 1 : -1)
     this.setState({
       loadedPosts: soonToBeLoadedPosts,
-      hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length, //Might be smarter to use postcounter here, more efficient
+      hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length, 
     });
   };
 
   render() {
     let showMorePostsButton;
-    
 
     this.state.hasMorePosts
       ? (showMorePostsButton = (
           <div>
-            <button className="secondary_button_large" onClick = {this.loadItems}>
+            <button className="secondary_button_large" onClick={this.loadItems}>
               Visa fler nyhetsinlägg{" "}
             </button>
           </div>
@@ -152,7 +83,7 @@ class PostList extends React.Component {
           }
         >
           {this.state.loadedPosts.map((item) => (
-            <NewsItem data={item} />
+            <NewsItem key={item.id} data={item} />
           ))}
         </InfiniteScroll>
         {showMorePostsButton}

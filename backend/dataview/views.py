@@ -9,7 +9,8 @@ from django.urls import reverse
 # Create your views here.
 
 
-class CompletedClassesListView(ListView):
+class CompletedClassesListView(LoginRequiredMixin, ListView):
+    login_url = '/admin/login/'
     queryset = Class.objects.filter(date__lt=date.today()).reverse()
     template_name = 'dataview/completed.html'
     context_object_name = 'classes'
@@ -18,21 +19,24 @@ class CompletedClassesListView(ListView):
     paginate_by = 20
 
 
-class ComingClassesListView(ListView):
+class ComingClassesListView(LoginRequiredMixin, ListView):
+    login_url = '/admin/login/'
     queryset = Class.objects.filter(date__gt=date.today())
     template_name = 'dataview/coming.html'
     context_object_name = 'classes'
     ordering = ['date']
 
 
-class TodaysClassesListView(ListView):
+class TodaysClassesListView(LoginRequiredMixin, ListView):
+    login_url = '/admin/login/'
     queryset = Class.objects.filter(date=date.today())
     template_name = 'dataview/home.html'
     context_object_name = 'classes'
     ordering = ['date']
 
 
-class ClassDetailView(DetailView):
+class ClassDetailView(LoginRequiredMixin, DetailView):
+    login_url = '/admin/login/'
     model = Class
     template_name = 'dataview/detail.html'
     context_object_name = 'class'
@@ -44,7 +48,8 @@ class ClassDetailView(DetailView):
         return context
 
 
-class CancelBookingView(DetailView):
+class CancelBookingView(LoginRequiredMixin, DetailView):
+    login_url = '/admin/login/'
     model = Booking
     template_name = 'dataview/cancel.html'
     context_object_name = 'toBeCanceled'

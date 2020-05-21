@@ -24,7 +24,7 @@ class Activity extends React.Component {
 
     render() {
         return (
-            <div className="activityCard" onClick={this.goToActivity}>
+            <div className="activityCard hover" onClick={this.goToActivity}>
                 <div id="cardImageContainer">
                     <img className="cardImage" src={this.state.imageUrl} alt={this.state.activityType}></img>
                 </div>

@@ -10,7 +10,10 @@
     vertical-align: middle;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.center {
+    align-items: center;
+    text-align: center;
+}
 .activityTitle {
     width: 100%;
     margin-left: 0;

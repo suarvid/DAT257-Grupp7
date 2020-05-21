@@ -16,8 +16,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-
-
+.center {
+    text-align: center;
+    align-items: center;
+    align-self: center;
+}
 .companies-container{
     width:100%;
 }
