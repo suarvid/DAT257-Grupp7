@@ -195,7 +195,7 @@ class BookingContainer extends React.Component {
         );
       });
       console.log(mainContent)
-      mainContent.sort((a, b) => a.props.date < b.props.date ? 1 : -1)
+      mainContent.sort((a, b) => a.props.date > b.props.date ? 1 : -1)
     }
 
     return (
