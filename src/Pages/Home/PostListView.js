@@ -80,6 +80,7 @@ class PostList extends React.Component {
               <b>Du har läst alla nyhetsinlägg!</b>
             </p>
           }
+          style={{ overflowX: 'hidden' }}
         >
           {this.state.loadedPosts.map((item) => (
             <NewsItem key={item.id} data={item} />
