@@ -1,9 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { Card, Button } from "antd";
-import { Redirect } from "react-router-dom";
 import "./PostDetailView.css";
-import '../../globalstyles.css'
+import "../../globalstyles.css";
 
 class PostDetail extends React.Component {
   constructor(props) {
@@ -14,7 +11,6 @@ class PostDetail extends React.Component {
   }
 
   componentDidMount() {
-    const { handle } = this.props.match.params;
     const data = this.props.location.state;
     this.setState({
       post: data,
@@ -22,18 +18,20 @@ class PostDetail extends React.Component {
   }
 
   render() {
-    const imgs = this.props.location.state.images;
+    const { title, content, image } = this.state.post;
 
     return (
-        <div className="postContainer">
-          <h1 className="postTitle">{this.props.location.state.title}</h1>
-          <div className="postImageContainer">
-            {imgs.map((image) => (
-              <img className="postImage" src={image} />
-            ))}
-          </div>
-          <p className="postContent">{this.state.post.content}</p>
+      <div className="postContainer">
+        <h1 className="postTitle">{title}</h1>
+        <div className="postImageContainer">
+          <img class="newsimage news-child" src={image} alt="Alt" />
         </div>
+        <p className="postContent">{content}</p>
+        <h4 className = "published">
+          Publicerad av {this.state.post.author}
+          {this.state.post.publishedTime}
+        </h4>
+      </div>
     );
   }
 }
