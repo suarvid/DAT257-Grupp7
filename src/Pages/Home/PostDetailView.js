@@ -1,5 +1,6 @@
 import React from "react";
 import "./PostDetailView.css";
+import "../../globalstyles.css";
 
 class PostDetail extends React.Component {
   constructor(props) {
@@ -17,14 +18,20 @@ class PostDetail extends React.Component {
   }
 
   render() {
-    const { title, content, image } = this.state.post
+    const { title, content, image } = this.state.post;
 
     return (
-        <div className="postContainer">
-          <h1 className="postTitle">{title}</h1>
+      <div className="postContainer">
+        <h1 className="postTitle">{title}</h1>
+        <div className="postImageContainer">
           <img class="newsimage news-child" src={image} alt="Alt" />
-          <p className="postContent">{content}</p>
         </div>
+        <p className="postContent">{content}</p>
+        <h4 className = "published">
+          Publicerad av {this.state.post.author}
+          {this.state.post.publishedTime}
+        </h4>
+      </div>
     );
   }
 }

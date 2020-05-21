@@ -2,6 +2,7 @@ import React from "react";
 import "./newsitem.css";
 import { withRouter, Link, Route } from "react-router-dom";
 import PostDetailView from "../../Pages/Home/PostDetailView";
+import "../../globalstyles.css";
 
 class NewsItem extends React.Component {
   getPublishedTime() {
@@ -23,15 +24,22 @@ class NewsItem extends React.Component {
     return publishedTime;
   }
   render() {
+    const publishedTime = this.getPublishedTime();
     return (
       <withRouter>
-        <div className="newsitem" align="center">
-          <h3 className="newsitem-header news-child">
+        <div className="newsContainer" align="center">
+          <div className="newsitem-header news-child">
             <Link
               className="newsitem-header"
               to={{
                 pathname: `inlägg/${this.props.data.id}/`,
-                state: this.props.data,
+                state: {
+                  title: this.props.data.title,
+                  image: this.props.data.image,
+                  content: this.props.data.content,
+                  author: this.props.data.author,
+                  publishedTime: publishedTime,
+                },
               }}
             >
               {this.props.data.title}
@@ -41,13 +49,19 @@ class NewsItem extends React.Component {
               path={`inlägg/${this.props.data.id}/`}
               component={PostDetailView}
             />
-          </h3>
-          <img class="newsimage news-child" src={this.props.data.image} alt="Alt" />
+          </div>
+          <div className="imageContainer">
+            <img
+              class="newsImage news-child"
+              src={this.props.data.image}
+              alt="Alt"
+            />
+          </div>
           <p className="truncate news-child">{this.props.data.content}</p>
 
           <h4 className="published news-child">
             Publicerad av {this.props.data.author}
-            {this.getPublishedTime()}
+            {publishedTime}
           </h4>
         </div>
       </withRouter>

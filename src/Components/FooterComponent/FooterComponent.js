@@ -17,7 +17,7 @@ function FooterComponent() {
         </div>
 
         <div className="footerSocial">
-          <h4>Besök våra socialamedier!</h4>
+          <h4>Besök våra sociala medier!</h4>
          
           <a href="https://www.facebook.com/helaasa/"> <FacebookIcon></FacebookIcon></a>
         </div>

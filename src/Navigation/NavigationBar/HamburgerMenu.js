@@ -120,7 +120,7 @@ export default function TemporaryDrawer() {
             title: "Utbud",
             path: "/",
             subsections: [
-              { title: "Träning", path: "/activities", subsections: [] },
+              { title: "Träning", path: "/aktiviteter", subsections: [] },
               { title: "Föreläsningar", path: "/föreläsningar", subsections: [] },
               { title: "Workshops", path: "/workshops", subsections: [] },
               { title: "Erbjudanden", path: "/erbjudanden", subsections: [] },
