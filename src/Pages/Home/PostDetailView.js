@@ -24,7 +24,7 @@ class PostDetail extends React.Component {
       <div className="postContainer">
         <h1 className="postTitle">{title}</h1>
         <div className="postImageContainer">
-          <img class="newsimage news-child" src={image} alt="Alt" />
+          <img class="newsimage news-child" src={image} alt="" />
         </div>
         <p className="postContent">{content}</p>
         <h4 className = "published">
