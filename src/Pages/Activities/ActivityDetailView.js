@@ -39,12 +39,12 @@ class ActivityDetail extends React.Component {
         const{imageUrl, activityType, description} = this.state.activitydata;
         return (
             <div className='textPageContainer'>
-                <h2>{activityType}</h2>
+                <h2 className = "center">{activityType}</h2>
                 <div className="activityImageContainer">
                     <img className='activityImage' src={imageUrl} alt={activityType} />
                     </div>
                 <div className = 'postContent'>
-                    <p>{description}</p>
+                    <p className = "center">{description}</p>
                 </div>
                 <div align="center">
                     <button className="secondary_button_large" onClick = {this.goBack}>

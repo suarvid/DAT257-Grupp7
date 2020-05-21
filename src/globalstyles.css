@@ -55,6 +55,7 @@
 }
 .primary_button_large:hover {
   background-color: var(--blue-medium);
+  cursor: pointer;
 }
 .primary_button_large:disabled {
   background-color: var(--primary-bg-color);
@@ -72,6 +73,8 @@
   color: var(--blue-medium);
   border-color: var(--blue-medium);
   box-sizing: border-box;
+  cursor: pointer;
+
 }
 
 .add_button {

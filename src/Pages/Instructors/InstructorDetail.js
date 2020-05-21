@@ -1,8 +1,6 @@
 import React from "react";
 import axios from 'axios';
 import './instructor.css';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar } from 'antd';
 import Card from '@material-ui/core/Card';
 export default class InstructorDetail extends React.Component {
     constructor(props) {

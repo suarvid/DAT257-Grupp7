@@ -7,7 +7,6 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import emailjs from "emailjs-com";
 import ErrorModal from "./FormComponents/ErrorModal";
 
-
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +48,6 @@ class BookingForm extends React.Component {
   };
 
   handleOpen = () => {
-    console.log("handleOpen");
     this.setState({ displayModal: !this.state.displayModal });
   };
   handleError = (title, msg) => {
@@ -64,7 +62,6 @@ class BookingForm extends React.Component {
   }
   //goForward to booking-confirmation, passing information about the booking
   goForward(id) {
-    console.log("go forward ", this.state.data)
     this.props.history.push({
       pathname: `/boka/${this.state.data.id}/bokningsbekräftelse/`,
       activityName: this.state.data.activity.name,
@@ -88,7 +85,6 @@ class BookingForm extends React.Component {
   };
 
   getMessage(id) {
-    // FIX ACTIVITYNAME, INSTRUCTORNAME, BOOKINGREFERENCE
     let message =
       "Här kommer din bokningsbekräftelse!" +
       "\n\n" +
@@ -111,13 +107,10 @@ class BookingForm extends React.Component {
       "Vi ser fram emot att träffa dig!" +
       "\nMed vänliga hälsningar \nHela Åsa";
 
-    console.log(message);
     return message;
   }
-  //ska ha ett object med user_name ,user_email,message.
+  //needs an object with user_name,user_email, message
   sendEmail(data) {
-    //data.preventDefault();
-
     emailjs
       .send(
         "noreeplyhelaasa123_gmail_com",
@@ -125,22 +118,13 @@ class BookingForm extends React.Component {
         data,
         "user_4V0rsm3ZnA12kUbHiHncB"
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      .catch((error) => console.log(error));
   }
   //Required to resend all data even though only one field has changed, results in bad gateway otherwise
   onSubmit() {
     this.validate();
     this.form.isFormValid(false).then((isValid) => {
       if (isValid) {
-        console.log("POSTING");
-        console.log(this.state.data.id);
         axios
           .post(`http://localhost:8000/api/bookings/`, {
             name: this.state.name,
@@ -149,7 +133,6 @@ class BookingForm extends React.Component {
             classID: this.state.data.id,
           })
           .then((response) => {
-            console.log(response);
             this.goForward(response.data.id); //fetching the id from the backend directly into the method
             //Uncomment if u want to send mail
             //this.sendEmail({
@@ -188,8 +171,6 @@ class BookingForm extends React.Component {
       5
     )} - ${this.state.data.end_time.substring(0, 5)}`;
 
-    console.log("booking form", this.state.data)
-
     return (
       <div align="center">
         <div className="headerText">
@@ -197,7 +178,6 @@ class BookingForm extends React.Component {
           <h3>{`${this.state.data.date}, ${time}`}</h3>
           <p>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         </div>
-        <p style={{paddingLeft:"10px"}}>{`${"Instruktör:"} ${this.state.data.instructor.name}`}</p>
         <div className="formContainer" align="center">
           <ValidatorForm
             ref={(r) => {

@@ -27,7 +27,6 @@ function About() {
         <div className="cardImageContainer">
           <img
             src={yogamidus}
-            alt="Yogamidus"
             width="100%"
             className="cardImage"
           />
@@ -45,7 +44,7 @@ function About() {
 
       <div className="cardContainer">
         <div className="cardImageContainer">
-          <img src={nia} alt="Nia Motion" width="100%" className="cardImage" />
+          <img src={nia} width="100%" className="cardImage" />
         </div>
         <div className="cardInfo">
           <h3 className="infoHeading">NiaMotion</h3>
