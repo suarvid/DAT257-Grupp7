@@ -34,7 +34,7 @@ class FilterPanel extends Component {
 
     return (
       <div className={classes.root}>
-        <ExpansionPanel style={{ backgroundImage: 'url("https://media.istockphoto.com/photos/plant-growing-picture-id510222832?k=6&m=510222832&s=612x612&w=0&h=Pzjkj2hf9IZiLAiXcgVE1FbCNFVmKzhdcT98dcHSdSk=")' }}>
+        <ExpansionPanel style={{ backgroundImage: 'url("https://media.istockphoto.com/photos/plant-growing-picture-id510222832?k=6&m=510222832&s=612x612&w=0&h=Pzjkj2hf9IZiLAiXcgVE1FbCNFVmKzhdcT98dcHSdSk=")', backgroundSize: "cover" }}>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
