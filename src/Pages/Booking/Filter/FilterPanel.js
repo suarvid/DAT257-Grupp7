@@ -50,6 +50,7 @@ class FilterPanel extends Component {
                 activities={activities}
                 instructors={instructors}
                 onFilterStateChanged={onFilterStateChanged}
+                style={{ fontWeight: 'bold' }}
               />
             </Typography>
           </ExpansionPanelDetails>
