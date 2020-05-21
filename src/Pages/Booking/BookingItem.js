@@ -18,9 +18,8 @@ export default function BookingItem(props) {
     <div className="bookingcomponent">
       <div>
         <div className="content">
-          <h3 style={{ fontSize: 16 }}>{`${activityName} ${date} ${time}`}</h3>
+          <h3 style={{ fontSize: 16, marginLeft: 0, paddingLeft: 0, marginBottom: 10 }}>{`${activityName} ${date} ${time}`}</h3>
         </div>
-        <div style={{ height: 10 }}></div>
         <div className="content">
           <p>{`${"Instruktör:"} ${instructorName}`}</p>
         </div>
