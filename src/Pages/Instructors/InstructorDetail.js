@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import "./instructor.css";
 import Card from "@material-ui/core/Card";
+import CardWrapper from "../../CardWrapper/CardWrapper";
+
 export default class InstructorDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -63,23 +65,25 @@ export default class InstructorDetail extends React.Component {
 
   render() {
     return (
-      <div className="cardContainer">
-        <div className="cardImageContainer">
-          <img src={this.state.imageurl} className="cardImage" alt="" />
+      <CardWrapper>
+        <div style={{ flexWrap: 'wrap', display: 'inline-flex' }}>
+          <div className="cardImageContainer">
+            <img src={this.state.imageurl} className="cardImage" alt="" />
+          </div>
+          <div className="cardInfo">
+            <h3 className="cardHeading">{this.state.name}</h3>
+            <p>{this.state.email}</p>
+            <p style={{ paddingTop: "5px" }}>
+              <strong>Aktiviteter:</strong>
+              <ul>
+                {this.state.activities.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </p>
+          </div>
         </div>
-        <div className="cardInfo">
-          <h3 className="cardHeading">{this.state.name}</h3>
-          <p>{this.state.email}</p>
-          <p style={{ paddingTop: "5px" }}>
-            <strong>Aktiviteter:</strong>
-            <ul>
-              {this.state.activities.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </p>
-        </div>
-      </div>
+      </CardWrapper>
     );
   }
 }
