@@ -10,7 +10,7 @@ function About() {
     <div className = "center">
       <div className="textPageContainer">
         <h2 className = "center">Om Hela Åsa</h2>
-        <img className="center" src={aboutimg} alt="aboutimg" />
+        <img className="center" src={aboutimg} alt="" />
         <h3 className="center">Företagsnätverket</h3>
         <p className="center">
           Hela Åsa startades av Anna Nyström och Lotten Jersby 2019. Vi är ett
@@ -29,6 +29,7 @@ function About() {
             src={yogamidus}
             width="100%"
             className="cardImage"
+            alt =""
           />
         </div>
         <div className="cardInfo">
@@ -44,7 +45,7 @@ function About() {
 
       <div className="cardContainer">
         <div className="cardImageContainer">
-          <img src={nia} width="100%" className="cardImage" />
+          <img src={nia} width="100%" className="cardImage" alt="" />
         </div>
         <div className="cardInfo">
           <h3 className="infoHeading">NiaMotion</h3>
@@ -57,7 +58,7 @@ function About() {
         <div className="cardImageContainer">
           <img
             src={unikarum}
-            alt="UnikaRum"
+            alt=""
             width="100%"
             className="cardImage"
           />

@@ -54,6 +54,7 @@ class NewsItem extends React.Component {
             <img
               class="newsImage news-child"
               src={this.props.data.image}
+              alt =""
              
             />
           </div>

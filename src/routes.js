@@ -10,7 +10,7 @@ import PostDetail from "./Pages/Home/PostDetailView";
 import Instructors from "./Pages/Instructors/Instructors";
 import Prices from './Pages/Prices/Prices';
 import Schema from './Pages/Schema/schema';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookingConfirmation from "./Pages/BookingConfirmation/BookingConfirmation";
 import RedirectToBackend from "./Pages/Login/RedirectToBackend";
 import Föreläsningar from './Pages/Lectures/Lectures';

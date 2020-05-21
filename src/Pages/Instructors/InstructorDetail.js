@@ -41,7 +41,7 @@ export default class InstructorDetail extends React.Component {
     filterActivities(activityList) {
         let instructorActivities = [];
         for (let i = 0; i < activityList.length; i++) {
-            if (activityList[i].instructorID == this.state.id) {
+            if (activityList[i].instructorID === this.state.id) {
                 instructorActivities.push(activityList[i].activityID)
             }
         }
@@ -64,12 +64,11 @@ export default class InstructorDetail extends React.Component {
    
 
     render() {
-        console.log(this.state.activities)
         return (
             <Card>
                 <div className='cardContainer'>
                     <div className='cardImageContainer'>
-                        <img src={this.state.imageurl} className='cardImage'/>
+                        <img src={this.state.imageurl} className='cardImage' alt=""/>
                     </div>
                     <div className='cardInfo'>
                         <h3 className='cardHeading'>{this.state.name}</h3>

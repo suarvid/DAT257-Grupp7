@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react";
 import axios from "axios";
 import InstructorDetail from "./InstructorDetail";
 import './instructor.css';
@@ -13,7 +12,6 @@ export default class Instructors extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Component mounted");
         axios.get('http://127.0.0.1:8000/api/instructors/instructors')
             .then(response => {
                 this.state.instructors = response.data;
@@ -26,7 +24,6 @@ export default class Instructors extends React.Component {
     }
 
     render() {
-        console.log(this.state.instructors)
         return (
             <div className='list' >
                 <div className='textPageContainer'>

@@ -24,5 +24,4 @@ function Schema() {
 }
 export default Schema;
 
-/*vet att det är lite fullösning med texten i schema-info, men fick inte <br> </br> att fungera
-tänkte att det inte var såå viktigt!*/
+

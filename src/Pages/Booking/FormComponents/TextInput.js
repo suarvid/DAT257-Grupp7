@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function TextInput({name,type,value,label,placeholder,handleChange,getParentText}) {
+export default function TextInput() {
     const classes = useStyles();
     return (
       <form className={classes.root} noValidate autoComplete="off">
         <div>
-          <TextField
+          <TextField className = ""
             error = {this.state.error}
             id="outlined-basic"
             variant="outlined"
