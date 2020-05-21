@@ -72,7 +72,6 @@ class PostList extends React.Component {
 
     return (
       <div className="textPageContainer">
-        <h2>Nyhetsinlägg</h2>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
           hasMore={this.state.hasMorePosts}
