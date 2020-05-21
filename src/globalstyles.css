@@ -207,7 +207,7 @@ p {
 }
 
 .textPageContainer {
-  width: 96%;
+  max-width: 96%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
