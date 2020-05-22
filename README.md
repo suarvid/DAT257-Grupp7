@@ -52,3 +52,9 @@ Detta görs via terminalen genom att stänga ned backenden ifall den är igång 
 Terminalen kommer nu efterfråga användarnamn, lösenord samt mail. Dessa kan ges i princip godtyckliga värden. Som säkerhetsfunktion kan terminalen visa ett varningsmeddelande ifall valet av användarnamn och lösenord anses dåligt, men detta kan enkelt överskridas:
 ![](Ksk flera bilder här på när man skapar sin användare här osv osv)
 FORTSÄTT HÄR MED INFO OM HUR MAN LOGGAR IN, VILKA SIDOR SOM FINNS OCH VAD DE GÖR OSV OSV OSV
+När ett konto skapats kan man logga in via url:en "localhost:8000/admin".
+När man loggat in visas sedan en översiktsvy för administrativa användare. I denna kan man skapa nya aktiviteter, pass, nyhetsinlägg etc. Man kan även redigera eller ta bort befintliga sådana objekt.
+![](Kanske bild här på django-admin sidan)
+Utöver denna administrativa sida för hanteringen av objekt finns även en mer data-orienterad översiktssida på url:en "localhost:8000/dataöversikt". Även denna sida kräver att användaren är inloggad.
+På denna sida visas information kring vilka bokningar som finns på kommande pass, samt vilka bokningar som fanns på pass vars datum passerats. Som administratör kan man även ta bort bokningar på pass via denna sida.
+![](Bild på översikts-sidan här då kanske)
