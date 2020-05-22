@@ -32,7 +32,9 @@ För att stänga ned backenden, tryck CTRL+C eller stäng helt enkelt ner termin
 #### Starta Frontenden
 För att starta frontenden, öppna ett till terminalfönster, denna gång i projektets rotmapp (DAT257-Grupp7) och kör kommandot npm start. Det nya terminalfönstret bör då likna bilden nedan:
 ![Terminalen när frontenden startats](https://github.com/suarvid/DAT257-Grupp7/blob/master/Screenshot%20from%202020-05-21%2023-22-15.png)
-En ny flik i webbläsaren bör då öppnas där hemsidan visas.
+
+En ny flik i webbläsaren bör då öppnas där hemsidan visas, vilket borde se ut ungefär som nedan:
+![Startsidan när frontenden startats](https://github.com/suarvid/DAT257-Grupp7/blob/master/Startpage.png)
 
 
 ### Användning av applikationen
