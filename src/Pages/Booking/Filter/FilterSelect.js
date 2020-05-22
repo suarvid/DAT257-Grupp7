@@ -10,12 +10,15 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    position: 'relative',
+    position: "relative",
     top: -15,
-    left: -5 
+    left: -5,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  icon: {
+    fill: "rgba(0,0,0,0.85)",
   },
 }));
 
@@ -35,7 +38,10 @@ export default function SimpleSelect(props) {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel style={{ fontWeight: "bold" }} id="activity">
+        <InputLabel
+          style={{ fontWeight: "bold", color: "rgba(0,0,0,0.85)" }}
+          id="activity"
+        >
           Aktivitet
         </InputLabel>
         <Select
@@ -47,6 +53,11 @@ export default function SimpleSelect(props) {
             onFilterStateChanged(newlySelectedActivity, selectedInstructor);
           }}
           autoWidth
+          inputProps={{
+            classes: {
+              icon: classes.icon,
+            },
+          }}
         >
           <MenuItem value="">
             <em>Alla</em>
@@ -57,11 +68,18 @@ export default function SimpleSelect(props) {
             </MenuItem>
           ))}
         </Select>
-        <FormHelperText style={{ fontWeight: 'bold' }}>Välj Aktivitet</FormHelperText>
+        <FormHelperText style={{ fontWeight: "bold" }}>
+          Välj Aktivitet
+        </FormHelperText>
       </FormControl>
 
       <FormControl className={classes.formControl}>
-        <InputLabel style={{ fontWeight: 'bold' }} id="instructor">Inspiratör</InputLabel>
+        <InputLabel
+          style={{ fontWeight: "bold", color: "rgba(0,0,0,0.85)" }}
+          id="instructor"
+        >
+          Inspiratör
+        </InputLabel>
         <Select
           labelId="instructor"
           id="selectinstructor"
@@ -69,6 +87,11 @@ export default function SimpleSelect(props) {
           onChange={(e) => {
             const newlySelectedInstructor = e.target.value;
             onFilterStateChanged(selectedActivity, newlySelectedInstructor);
+          }}
+          inputProps={{
+            classes: {
+              icon: classes.icon,
+            },
           }}
           autoWidth
         >
@@ -81,7 +104,9 @@ export default function SimpleSelect(props) {
             </MenuItem>
           ))}
         </Select>
-        <FormHelperText style={{ fontWeight: 'bold' }}>Välj inspiratör</FormHelperText>
+        <FormHelperText style={{ fontWeight: "bold" }}>
+          Välj inspiratör
+        </FormHelperText>
       </FormControl>
     </div>
   );
