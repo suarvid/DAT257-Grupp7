@@ -1,0 +1,11 @@
+.cardWrapper {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 97%;
+  height: auto;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px 0 #888888;
+  border-radius: 8px;
+}

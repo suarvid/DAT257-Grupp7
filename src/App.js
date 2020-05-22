@@ -7,10 +7,12 @@ import Banner from "./Components/Banner/BannerComponent";
 
 export default function App() {
   return (
-    <div>
-      <Banner />
-      <HamburgerMenu />
-      <BaseRouter></BaseRouter>
+    <div style={{ minHeight: "100vh", position: "relative" }}>
+      <div style={{ paddingBottom: '11.8rem' }}>
+        <Banner />
+        <HamburgerMenu />
+        <BaseRouter></BaseRouter>
+      </div>
       <Footer />
     </div>
   );

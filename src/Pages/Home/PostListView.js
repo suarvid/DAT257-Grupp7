@@ -20,24 +20,30 @@ class PostList extends React.Component {
   }
 
   fetchAllPosts = () => {
-    axios.get(`http://127.0.0.1:8000/api/post/`)
-      .then(response => {
-        const posts = response.data.map(post => {
-          return {
-            id: post.id,
-            title: post.title,
-            content: post.content,
-            image: post.image,
-            date: new Date(post.date_posted),
-            author: post.author 
-          }
-        }).sort((a, b) => a.date < b.date ? 1 : -1)
+    axios
+      .get(`http://127.0.0.1:8000/api/post/`)
+      .then((response) => {
+        const posts = response.data
+          .map((post) => {
+            return {
+              id: post.id,
+              title: post.title,
+              content: post.content,
+              image: post.image,
+              date: new Date(post.date_posted),
+              author: post.author,
+            };
+          })
+          .sort((a, b) => (a.date < b.date ? 1 : -1));
         this.setState({
           backendPosts: posts,
-        })
-        this.loadItems()
-      }).catch(error => { console.log(error) })
-  }
+        });
+        this.loadItems();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   //Arbitrarily set to loading 3 posts at a time
   loadItems = () => {
@@ -50,10 +56,12 @@ class PostList extends React.Component {
       this.state.postCounter++;
     }
 
-    let soonToBeLoadedPosts = this.state.loadedPosts.concat(loadArray).sort((a, b) => a.date < b.date ? 1 : -1)
+    let soonToBeLoadedPosts = this.state.loadedPosts
+      .concat(loadArray)
+      .sort((a, b) => (a.date < b.date ? 1 : -1));
     this.setState({
       loadedPosts: soonToBeLoadedPosts,
-      hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length, 
+      hasMorePosts: soonToBeLoadedPosts.length < this.state.backendPosts.length,
     });
   };
 
@@ -71,16 +79,16 @@ class PostList extends React.Component {
       : (showMorePostsButton = null);
 
     return (
-      <div className="textPageContainer">
-        <h2>Nyhetsinlägg</h2>
+      <div>
         <InfiniteScroll
           dataLength={this.state.loadedPosts.length}
           hasMore={this.state.hasMorePosts}
           endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Du har läst alla nyhetsinlägg!</b>
+            <p style={{ textAlign: "center", marginTop: 22 }}>
+              Du har läst alla nyhetsinlägg!
             </p>
           }
+          style={{ overflowX: "hidden" }}
         >
           {this.state.loadedPosts.map((item) => (
             <NewsItem key={item.id} data={item} />
