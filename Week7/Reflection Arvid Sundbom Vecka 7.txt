@@ -1,0 +1,36 @@
+-- what do I want to learn or understand better? --
+Last week, my goal was to learn how to refer to other objects in the django-models, as well as what methods we can define for these and if it's possible to use signals to make implementing functionality easier.
+In the two final sprints, I built an additional admin-view on the backend for viewing data about bookings and activities.
+This involved using objects in views quite a bit, especially passing objects into the context of the current view, which was somewhat tricky when both an activity and its associated bookings was required.
+Building this view and managing a bunch of objects back and forth between different views and the database was a bit tricky, but I also felt that I got a better understanding of how models and objects are used when building a frontend in django as compared to how we've used them when building the frontend with React.
+I had no use for signals when implementing these views, since django has pre-defined save() and delete() methods which can easily be overwritten to implement some update-functionality between dependent objects, which was a nice thing to learn, since it made creating the wanted behavior of objects a lot easier.
+
+
+-- how can I help someone else, or the entire team, to learn something new? --
+Last week, and earlier weeks as well, I've mainly focused on being able to help others understand the structure of the backend since I've worked a lot with it. This week I felt
+that I was quite busy with finishing my tasks, and merging the pull request I was assigned took a bit more time than I thought it would, since there were a few conflcits with
+what was one the master branch and I wasn't quite sure what to keep and not. As such, I also felt that I had less time to stay up to date with what was being said in the
+projects group chat. Because of this, I felt a bit more stressed than usual, since I missed a question about the pull-request I was working on merging, and another group member almost started working on the same pull-request, since I'd missed the message. So I guess overall I think having a single group-chat for all communication isn't
+always quite structured enough, and I feel like it takes a bit too much effort to read all the messages that have been sent in it, especially if about half of the messages sent really don't need input by more than a couple of people, and have probably been answered by the time I've had time to catch up with the chat. On the other hand, setting up a
+workspace in something like Slack got brought up briefly in the start of the project. However, the majority of the group, myself included, felt that it was too much of a hassle for such a short project. But in future projects I will keep this final week in mind, as I was a bit frustrated with having to either stop working every other minute to read
+the chat, or miss a bunch of messages and then spend some 15 minutes just catching up. I guess personal messages could also solve some of these problems, since they
+feel a bit more direct than messages written in the group chat, and they eliminate the risk of other group members taking on work that's already being carried out.
+(rant over)
+Beyond this, there were a few questions about the backend and which parts belonged to "vanilla" django and which parts were defined in related libraries. Since we've been using django together with django rest-framework for the entire project, the line between these might not be super clear. Since I've used Django both with and without the rest-framework library, I was able to help a bit in clearing up what parts belong to what parts of the backend, and what parts we have to use for communication with the frontend as oppsed to just using Django within itself.
+
+
+-- what is my contribution towards the team’s use of Scrum? --
+As this was the final sprint of the course, I feel that the entire project group has gotten a much better understanding of how to use Scrum, both in theory and how to
+ effectively use it in practice. Because of this, we've pretty much had an establish method of working for a couple of weeks now, so there's not a whole lot to contribute with
+ towards the use of scrum other than showing up to all the meetings and contributing to the workflow as best I can, which I feel that I've done.
+ As mentioned earlier, I felt that there was some problems with the group chat, but other than that, the use of Scrum has been largely positive and has made working
+ in a group easy, with a clear definition of who's supposed to do what with the help of a Trello board. The use of a Trello Board is something I will definietly try to bring into 
+ future group projects.
+
+
+-- what is my contribution towards the team’s deliveries? --
+This week we set a goal of having finished the main workload of the sprint on wednesday.
+This was because of this being the final sprint, and we wanted some time to tie up loose ends by fixing bugs, adding some styling and other finishing touches.
+Because of this, each team member assigned themselves to fewer tasks, with a lower total workload.
+I was able to complete my tasks by wednesday, so I was able to help with other, more presentation- and report-related things.
+Mainly, I updated the readme of the project, since I had already written instructions for starting the backend earlier in the project, as this was a bit more complicated than just starting the fronted, so a reminder of how to do it on the repository-website was hopefully a bit helpful.
