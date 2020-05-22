@@ -26,12 +26,12 @@ För att använda applikationen på det sätt som är tänkt krävs att man star
 För att starta backenden, öppna terminalen i mappen backend (DAT257-Grupp7/backend) och starta backenden genom att köra filen "manage.py" med kommandot "runserver", på Linux/macOS: "python manage.py runserver", på windows: "py manage.py runserver".
 
 Terminalen bör då se ut ungefär som nedan ifall backenden startat utan problem:
-![terminalen](https://github.com/suarvid/DAT257-Grupp7/blob/master/terminal.png)
+![Terminalen när backenden startats](https://github.com/suarvid/DAT257-Grupp7/blob/master/terminal.png)
 För att stänga ned backenden, tryck CTRL+C eller stäng helt enkelt ner terminalfönstret.
 
 #### Starta Frontenden
-För att starta frontenden, öppna ett till terminalfönster, denna gång i projektets rotmapp (DAT257-Grupp7) och kör kommandot npm start. Terminalen bör då likna bilden nedan:
-![](arvid sätt in en bild här tack :)))
+För att starta frontenden, öppna ett till terminalfönster, denna gång i projektets rotmapp (DAT257-Grupp7) och kör kommandot npm start. Det nya terminalfönstret bör då likna bilden nedan:
+![Terminalen när frontenden startats](https://github.com/suarvid/DAT257-Grupp7/blob/master/Screenshot%20from%202020-05-21%2023-22-15.png)
 En ny flik i webbläsaren bör då öppnas där hemsidan visas.
 
 
@@ -40,21 +40,25 @@ Nedan följer en kort redogörelse över hur hur applikationen är tänkt att an
 #### Mobilläge
 Eftersom applikationen utvecklats främst för mobilanvändare används applikationen med fördel med webbläsaren i mobilläge.
 I webbläsarna Chrome och Firefox kan detta läge aktiveras genom att högerklicka på sidan, trycka "Inspect" i Chrome, "Inspect Element" i Firefox och sedan klicka på den lilla mobil-ikonen i det fält som just dykt upp.
+
+
 I Firefox:
-![](Screenshot på den lille mobilen i firefox här)
+![Ikonen för att byta till mobilläge i Firefox](https://github.com/suarvid/DAT257-Grupp7/blob/master/Mobile_firefox.png)
+
+
 I Chrome:
-![](Screenshot på samma fast för Chrome här).
+
+![Ikonen för att byta till mobilläge i Chrome](https://github.com/suarvid/DAT257-Grupp7/blob/master/Mobile_chrome.png)
 
 #### Administrativa sidor
 För att besökande användare inte ska få behörighet att skapa, ändra eller ta bort objekt som pass, aktiviteter eller nyhetsinlägg kräver de administrativa sidorna att användaren loggar in innan de får tillgång till dessa sidor.
 För att logga in krävs det först att man skapar en användare.
 Detta görs via terminalen genom att stänga ned backenden ifall den är igång och sedan köra filen "manage.py" med kommandot "createsuperuser", på Linux/macOS: "python manage.py createsuperuser", på Windows: "py manage.py createsuperuser".
 Terminalen kommer nu efterfråga användarnamn, lösenord samt mail. Dessa kan ges i princip godtyckliga värden. Som säkerhetsfunktion kan terminalen visa ett varningsmeddelande ifall valet av användarnamn och lösenord anses dåligt, men detta kan enkelt överskridas:
-![](Ksk flera bilder här på när man skapar sin användare här osv osv)
-FORTSÄTT HÄR MED INFO OM HUR MAN LOGGAR IN, VILKA SIDOR SOM FINNS OCH VAD DE GÖR OSV OSV OSV
+![Terminalens utseende vid skapandet av en superuser](https://github.com/suarvid/DAT257-Grupp7/blob/master/createsuperuser.png)
 När ett konto skapats kan man logga in via url:en "localhost:8000/admin".
 När man loggat in visas sedan en översiktsvy för administrativa användare. I denna kan man skapa nya aktiviteter, pass, nyhetsinlägg etc. Man kan även redigera eller ta bort befintliga sådana objekt.
-![](Kanske bild här på django-admin sidan)
+![Admin-sidan vid inloggat läge](https://github.com/suarvid/DAT257-Grupp7/blob/master/admin_page.png)
 Utöver denna administrativa sida för hanteringen av objekt finns även en mer data-orienterad översiktssida på url:en "localhost:8000/dataöversikt". Även denna sida kräver att användaren är inloggad.
 På denna sida visas information kring vilka bokningar som finns på kommande pass, samt vilka bokningar som fanns på pass vars datum passerats. Som administratör kan man även ta bort bokningar på pass via denna sida.
-![](Bild på översikts-sidan här då kanske)
+![Översikts-sidan](https://github.com/suarvid/DAT257-Grupp7/blob/master/dataview_page.png)
