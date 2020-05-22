@@ -5,7 +5,7 @@ import "./BannerComponent.css";
 function BannerComponent() {
   return (
     <div className="bannerHeader">
-      <a href="/">
+      <a href="/" style={{ textAlign: 'center' }}>
         <img className="logoHeader" src={logo} alt="logo" />
       </a>
     </div>

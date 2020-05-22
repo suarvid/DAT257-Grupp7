@@ -16,6 +16,7 @@ img {
   height: auto !important;
   width: auto !important;
   padding: 20px;
+  padding-bottom: 0;
   align-items: center;
   justify-content: center;
 }
@@ -47,11 +48,9 @@ img {
     width: 100%;
     color: #4c4c4c;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 36px;
+    font-size: 20px;
     font-weight: bold;
-    line-height: 36px;
-    margin: 20px 10px 20px 12px;
-    padding-top: 12px;
+    margin: 15px 10px 0px 12px;
 }
 
 .newsitem-header:hover {
