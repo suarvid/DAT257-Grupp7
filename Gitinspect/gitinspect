@@ -1,0 +1,153 @@
+Note that the discrepancy between Arvid Sundbom and everyone else is so big due to the fact that he during the last week
+introduced a library to use css and html when building new views in Django.
+
+Below are the statistics gathered from running gitinspect with the grading settings.
+
+Statistical information for the repository 'DAT257-Grupp7' was gathered on 2020/05/25.
+The following historical commit information, by author, was found:
+
+Author                     Commits    Insertions      Deletions    % of changes
+Arvid Sundbom                   66         26943          25170           84.88
+Emelie                          34           682            282            1.57
+ErikaNystrom                    11           227             60            0.47
+Joel Rudsberg                   63          1611           1445            4.98
+dahlqvist96                      8           101             19            0.20
+isaaklindgren                   66          1864           1388            5.30
+matteB10                        32           919            688            2.62
+
+Below are the number of rows from each author that have survived and are still intact in the current revision:
+
+Author                     Rows      Stability          Age       % in comments
+Arvid Sundbom              1710            6.3          2.2                4.39
+Emelie                      122           17.9          1.0                1.64
+ErikaNystrom                 39           17.2          1.7                2.56
+Joel Rudsberg               762           47.3          0.5                4.99
+dahlqvist96                  20           19.8          3.2                0.00
+isaaklindgren               712           38.2          1.7                3.93
+matteB10                    323           35.1          1.5               11.46
+
+The following history timeline has been gathered from the repository:
+
+Author                  2020W16    2020W17    2020W18    2020W19    2020W20    2020W21 
+Arvid Sundbom          -+++++++  ---++++++     -+++++     ++++++          +   ----++++
+Emelie                        .        -++          .          +          +          . 
+ErikaNystrom                  .                     .          .          .          . 
+Joel Rudsberg               +++          .         ++    -----++   ----++++          . 
+dahlqvist96                   .                     .          .          .          .
+isaaklindgren                 .       --++  --+++++++   ----++++      --+++          . 
+matteB10                      .          .        -++       ---+       --++          .
+Modified Rows:             1249       1199       2556       2475       1966      51954 
+
+No metrics violations were found in the repository.
+
+The following responsibilities, by author, were found in the current revision of the repository (comments are excluded from the line count, if
+possible):
+
+Arvid Sundbom is mostly responsible for:
+   123 backend/backend/settings.py
+    67 backend/dataview/views.py
+    56 src/Pages/Instructors/InstructorDetail.js
+    43 backend/classes/models.py
+    37 src/Pages/Home/PostListView.js
+    35 backend/instructors/migrations/0001_initial.py
+    31 backend/bookings/models.py
+    29 backend/classes/migrations/0001_initial.py
+    28 backend/instructors/models.py
+    28 backend/classes/migrations/0003_auto_20200428_1309.py
+
+Emelie is mostly responsible for:
+    39 src/Pages/Booking/Filter/FilterSelect.js
+    16 src/Pages/Booking/Filter/FilterPanel.js
+     9 src/Pages/Prices/Prices.js
+     9 src/Pages/Join/Join.js
+     6 src/Pages/Schema/schema.js
+     6 backend/bookings/migrations/0003_merge_20200519_1313.py
+     5 src/Components/NewsItem/NewsItem.js
+     5 backend/classes/migrations/0012_merge_20200519_1313.py
+     3 src/Pages/Workshops/Workshops.js
+     3 src/Pages/Offers/Offers.js
+
+ErikaNystrom is mostly responsible for:
+    12 src/Pages/Schema/schema.js
+     7 src/Pages/Prices/Prices.js
+     7 src/Pages/About/About.js
+     5 src/Pages/Booking/BookingForm.js
+     4 src/Pages/Join/Join.js
+     3 src/routes.js
+
+Joel Rudsberg is mostly responsible for:
+   163 src/Pages/Booking/BookingContainer.js
+   110 src/serviceWorker.js
+    74 src/Pages/Booking/Filter/FilterSelect.js
+    59 src/Pages/About/About.js
+    49 src/Pages/Booking/BookingItem.js
+    45 src/Pages/Home/PostListView.js
+    34 src/Pages/Booking/Filter/FilterPanel.js
+    32 src/Pages/Instructors/InstructorDetail.js
+    18 src/Pages/Activities/Activity/Activity.js
+    17 src/Pages/Booking/BookingForm.js
+
+dahlqvist96 is mostly responsible for:
+    16 src/Components/FooterComponent/FooterComponent.js
+     2 src/Pages/About/About.js
+     1 src/Pages/Prices/Prices.js
+     1 src/Pages/Join/Join.js
+
+isaaklindgren is mostly responsible for:
+   154 src/Navigation/NavigationBar/HamburgerMenu.js
+   135 src/Pages/Booking/BookingForm.js
+    55 src/Components/NewsItem/NewsItem.js
+    52 src/Pages/Booking/FormComponents/ErrorModal.js
+    20 src/Pages/Home/PostListView.js
+    20 src/Pages/Booking/BookingContainer.js
+    17 src/routes.js
+    16 src/Pages/Prices/Prices.js
+    16 src/Components/FooterComponent/FooterComponent.js
+    15 src/Pages/Booking/FormComponents/RadioButton.js
+
+matteB10 is mostly responsible for:
+    78 src/Pages/Booking/BookingForm.js
+    36 src/Pages/Booking/FormComponents/TextInput.js
+    32 src/Pages/Activities/ActivityDetailView.js
+    29 src/Pages/BookingConfirmation/BookingConfirmation.js
+    25 src/Pages/Activities/Activity/Activity.js
+    22 src/Pages/Activities/Activities.js
+    19 src/Pages/Booking/FormComponents/RadioButton.js
+    14 src/Pages/Booking/BookingContainer.js
+    11 src/routes.js
+     9 src/Components/Logo.js
+
+The extensions below were found in the repository history (extensions used during statistical analysis are marked):
+* conf css html [js] json lock md [py] svg txt
+
+
+
+Below are the statistics from runnning gitinspect checking for .js,.py and .css-files.
+
+
+Statistical information for the repository 'DAT257-Grupp7' was gathered on 2020/05/25.
+The following historical commit information, by author, was found:
+
+Author                     Commits    Insertions      Deletions    % of changes
+Arvid Sundbom                   71         34460          32203           84.58
+Emelie                          42          1206            619            2.32
+ErikaNystrom                    12           326             84            0.52
+Joel Rudsberg                   63          1810           1554            4.27
+dahlqvist96                      8           164             30            0.25
+isaaklindgren                   67          2335           1690            5.11
+matteB10                        37          1462            878            2.97
+
+Below are the number of rows from each author that have survived and are still intact in the current revision:
+
+Author                     Rows      Stability          Age       % in comments
+Arvid Sundbom              1836            5.3          0.5                4.08
+Emelie                      488           40.5          0.2                0.41
+ErikaNystrom                 66           20.2          0.5                1.52
+Joel Rudsberg               902           49.8          0.1                4.21
+dahlqvist96                  40           24.4          0.6                0.00
+isaaklindgren              1079           46.2          0.4                2.59
+matteB10                    683           46.7          0.5                5.42
+
+
+
+
