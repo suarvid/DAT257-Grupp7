@@ -135,11 +135,11 @@ class BookingForm extends React.Component {
           .then((response) => {
             this.goForward(response.data.id); //fetching the id from the backend directly into the method
             //Uncomment if u want to send mail
-            //this.sendEmail({
-            // user_name: this.state.name,
-            //user_email: this.state.mail,
-            //message: this.getMessage(response.data.id),
-            //});
+            this.sendEmail({
+            user_name: this.state.name,
+            user_email: this.state.mail,
+            message: this.getMessage(response.data.id),
+            });
             //until here
             //redirects to next page
           })
