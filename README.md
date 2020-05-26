@@ -54,7 +54,13 @@ I Chrome:
 
 #### Administrativa sidor
 För att besökande användare inte ska få behörighet att skapa, ändra eller ta bort objekt som pass, aktiviteter eller nyhetsinlägg kräver de administrativa sidorna att användaren loggar in innan de får tillgång till dessa sidor.
-För att logga in krävs det först att man skapar en användare.
+Om man klonar repot är en admin-användare redan skapad, för att göra det enklare att testa applikationen som helhet.
+Denna användare har följande inloggningsuppgifter:
+* Användarnamn: admin
+* Lösenord: admin
+Det är rekommenderat att denna användare används för att testa applikationen, eftersom man då slipper skapa en ny användare i applikationen, något som inte hör till den huvudsakliga användarupplevelsen.
+
+Däremot är det fortfarande fullt möjligt att skapa en ny användare, ifall man så vill.
 Detta görs via terminalen genom att stänga ned backenden ifall den är igång och sedan köra filen "manage.py" med kommandot "createsuperuser", på Linux/macOS: "python manage.py createsuperuser", på Windows: "py manage.py createsuperuser".
 Terminalen kommer nu efterfråga användarnamn, lösenord samt mail. Dessa kan ges i princip godtyckliga värden. Som säkerhetsfunktion kan terminalen visa ett varningsmeddelande ifall valet av användarnamn och lösenord anses dåligt, men detta kan enkelt överskridas:
 ![Terminalens utseende vid skapandet av en superuser](https://github.com/suarvid/DAT257-Grupp7/blob/master/createsuperuser.png)
