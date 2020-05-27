@@ -1,5 +1,6 @@
-Note that the discrepancy between Arvid Sundbom and everyone else is so big due to the fact that he during the last week
-introduced a library to use css and html when building new views in Django.
+Note that the discrepancy between Arvid Sundbom and everyone else is so big due to the fact that he tried to get the production-version
+of static files working for Django during the last week. This created a duplicate of every css-file in the back-end but did unfourtunately
+not work as intended.
 
 Below are the statistics gathered from running gitinspect with the grading settings.
 
